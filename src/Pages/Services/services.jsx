@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
-const officialServices = () => {
+const OfficialServices = () => {
   return (
     <div>
         <Navbar />
@@ -13,4 +13,4 @@ const officialServices = () => {
   )
 }
 
-export default officialServices
+export default OfficialServices

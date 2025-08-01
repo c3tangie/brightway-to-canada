@@ -34,7 +34,21 @@ const Navbar = () => {
               <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
             </a>
         </ul>
-        <img src={menuIcon} className='xl:hidden w-7' alt="Menu Icon" />
+
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2.75}
+        strokeLinecap="butt"
+        strokeLinejoin="butt"
+        className="xl:hidden w-9 h-9 text-black hover:text-gray-600 transition-all duration-300"
+        >
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
         </div>
     </div>
   )

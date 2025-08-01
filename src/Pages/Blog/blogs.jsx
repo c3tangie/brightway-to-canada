@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
-const officialBlogs = () => {
+const OfficialBlogs = () => {
   return (
     <div>
         <Navbar />
@@ -13,4 +13,4 @@ const officialBlogs = () => {
   )
 }
 
-export default officialBlogs
+export default OfficialBlogs

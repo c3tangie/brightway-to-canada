@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
-const officialAbouts = () => {
+const OfficialAbouts = () => {
   return (
     <div>
         <Navbar />
@@ -13,4 +13,4 @@ const officialAbouts = () => {
   )
 }
 
-export default officialAbouts
+export default OfficialAbouts
