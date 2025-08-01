@@ -2,7 +2,7 @@ import React from 'react'
 
 const Article = () => {
   return (
-    <div className='mt-5 ml-64 mr-64 font-RobotoFlex text-center text-xl leading-relaxed'>
+    <div className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-justify text-xl leading-relaxed'>
         
         At Brightway to Canada, we understand how exciting—and challenging—studying abroad can be. That’s why we’re here to guide international students every step of the way.
 
