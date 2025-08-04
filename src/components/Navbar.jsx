@@ -32,7 +32,7 @@ const Navbar = () => {
         {/* Right Section: Two-layer Nav */}
         <div className="flex-1 flex flex-col">
           {/* Top Layer: Contact or utility links */}
-          <div className="flex justify-end bg-[rgb(130,63,63)] text-white text-sm px-6 py-4">
+          <div className="flex justify-end bg-[rgb(255,126,126)] text-white text-sm px-6 py-4">
 
             <div className='max-w-screen mx-auto'>
               <p>Phone: +1 (250) 797-7886 | Email: info@brightwaytocanada.ca</p>
