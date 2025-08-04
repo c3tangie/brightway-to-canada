@@ -9,12 +9,49 @@ export default {
       animation: {
         'fade-in': 'fadeIn 1s ease-in-out forwards',
         'fade-out': 'fadeOut 1s ease-in-out forwards',
+        'wipe-reveal': 'wipe-reveal 3s ease-out forwards',
+        'slogan-part1': 'slogan-reveal 1.5s ease-out forwards 0.7s',
+        'slogan-part2': 'slogan-reveal 1.5s ease-out forwards 1.7s',
+        // 'slogan-part1': 'slogan-wipe-left 1.5s ease-out forwards 0.7s',
+        // 'slogan-part2': 'slogan-wipe-right 1.5s ease-out forwards 1.7s',
+        // 'slogan-part1': 'slogan-fade-scale 1.5s ease-out forwards 0.7s',
+        // 'slogan-part2': 'slogan-fade-scale 1.5s ease-out forwards 1.7s',
       },
 
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
           to: { opacity: 1 },
+        },
+
+        'wipe-reveal': {
+          '0%': {
+            opacity: '0',
+            clipPath: 'inset(0 100% 0 0)', 
+          },
+          '100%': {
+            opacity: '1',
+            clipPath: 'inset(0 0 0 0)',
+          },
+        },
+
+        'slogan-reveal': {
+          '0%': { opacity: 0, transform: 'translateY(20px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+
+        'slogan-wipe-left': {
+          '0%': { opacity: 0, transform: 'translateX(-50%)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
+        'slogan-wipe-right': {
+          '0%': { opacity: 0, transform: 'translateX(50%)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
+
+        'slogan-fade-scale': {
+          '0%': { opacity: 0, transform: 'scale(0.95)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
         },
 
         fadeOut: {

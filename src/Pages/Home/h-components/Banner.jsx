@@ -51,9 +51,10 @@ const Banner = () => {
 
       {/* Slogan */}
       <div className="absolute top-15 left-0 w-full h-[300px] md:h-[385px] flex items-center justify-center pointer-events-none z-20">
-          <h1 className="text-white text-2xl sm:text-6xl font-outfit font-bold text-center px-4">
-              Empowering International Students in Canada
-          </h1>
+        <h1 className="text-white text-2xl sm:text-6xl font-outfit font-bold text-center px-4 flex gap-4">
+          <span className="opacity-0 animate-slogan-part1">YOUR FUTURE,</span>
+          <span className="opacity-0 animate-slogan-part2">OUR BRIGHTWAY.</span>
+        </h1>
       </div>
 
       <div

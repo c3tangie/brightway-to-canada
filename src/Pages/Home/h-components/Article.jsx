@@ -2,24 +2,19 @@ import React from 'react'
 
 const Article = () => {
   return (
-    <div className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-justify text-xl leading-relaxed'>
-        
-        At Brightway to Canada, we understand how exciting—and challenging—studying abroad can be. That’s why we’re here to guide international students every step of the way.
-
-        From arranging safe and welcoming homestays to providing personalized education guidance, we make the transition to life in Canada easier, smoother, and more enjoyable. Whether you’re preparing for high school, college, or university, our experienced team will help you feel at home while you focus on your studies.
-
-        Our Services Include:
-
-        Homestay Placement: Comfortable, vetted homes where you’ll feel like family.
-
-        Education Consultation: Guidance on schools, programs, and admissions tailored to your goals.
-
-        Student Support: Ongoing assistance to help you adapt to Canadian culture and succeed academically.
-
-        We’re passionate about helping students build brighter futures. With Brightway to Canada, you’re never alone in your journey—we’ll be your trusted partner from the moment you arrive.
-
-        Start your journey today. Contact us to learn how we can help you achieve your study abroad dreams.
-        
+    <div className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-center text-xl leading-normal'>
+      <p className="mb-6">
+        Brightway to Canada helps international students find the right school and a suitable, caring homestay in Canada.<br />
+        We support families with trusted guidance every step of the way, so students can thrive — and parents can feel at ease.
+      </p>
+      <p className="mb-6">
+        Our team is dedicated to making your transition to Canada smooth and successful.<br />
+        From choosing the best school to settling into your new home, we’re here for you.
+      </p>
+      <p>
+        <span className="font-bold">Start your journey with confidence.</span><br />
+        Brightway to Canada is with you every step of the way.
+      </p>
     </div>
   )
 }
