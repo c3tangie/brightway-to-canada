@@ -42,19 +42,24 @@ const Navbar = () => {
           {/* Bottom Layer: Main navigation links */}
           <div className="flex justify-end items-center px-20 bg-[rgb(182,214,253)] py-8">
             <ul className="hidden xl:flex gap-10 max-w-screen-xl mx-auto ">
-              {["Home", "About", "Services", "Blog", "Events", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      href={`#/${link.toLowerCase()}`}
-                      className="group relative inline-block text-lg font-semibold font-RobotoFlex text-black"
-                    >
-                      {link}
-                      <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition duration-200"></span>
-                    </a>
-                  </li>
-                )
-              )}
+              <a href="/" className="group relative inline-block text-xl font-semibold font-RobotoFlex">Home
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition duration-200"></span>
+            </a>
+            <a href="#/about" className="group relative inline-block text-xl font-semibold font-RobotoFlex">About
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+            </a>
+            <a href="#/services" className="group relative inline-block text-xl font-semibold font-RobotoFlex">Services
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+            </a>
+            <a href='#/blog' className="group relative inline-block text-xl font-semibold font-RobotoFlex">Blog
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+            </a>
+            <a href='#/events' className="group relative inline-block text-xl font-semibold font-RobotoFlex">Events
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+            </a>
+            <a href="#/contact" className="group relative inline-block text-xl font-semibold font-RobotoFlex">Contact
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+            </a>
             </ul>
             {/* Mobile Menu Icon */}
             <svg

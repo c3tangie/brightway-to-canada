@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
-import BannerImage from '../../../assets/banner.png'  
+import BannerImage from '../../../assets/banner.png'
+import BannerImage2 from '../../../assets/banner2.jpg'  
 import ArrowUp from '../../../assets/arrow-up.svg'
 import ArrowDown from '../../../assets/arrow-down.svg'
 
@@ -28,7 +29,7 @@ const Banner = () => {
           setBackgroundSize('auto');
         }
       };
-      img.src = BannerImage;
+      img.src = BannerImage2;
     }
   };
 
@@ -43,7 +44,7 @@ const Banner = () => {
       {/* Hidden but rendered image used for measuring visible height */}
       <img
         ref={imgRef}
-        src={BannerImage}
+        src={BannerImage2}
         alt="Measure height"
         className="absolute opacity-0 pointer-events-none w-full object-cover"
         style={{ zIndex: -1 }}
@@ -61,7 +62,7 @@ const Banner = () => {
         ref={containerRef}
         className="relative w-full overflow-hidden bg-no-repeat transition-all duration-700 ease-in-out"
         style={{
-          backgroundImage: `url(${BannerImage})`,
+          backgroundImage: `url(${BannerImage2})`,
           backgroundPosition: 'center center',
           backgroundSize: backgroundSize, // Dynamically set based on container vs image width
           height: expanded ? `${imageHeight}px` : 'clamp(300px, 50vh, 400px)', // Responsive height that maintains until md
