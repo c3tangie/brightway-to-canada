@@ -7,32 +7,34 @@ const OfficialContacts = () => {
     <div>
         <Navbar />
         <hr></hr>
-        <h1>Contact Us</h1>
-        <h2>Emails</h2>
-        <h2>Phones</h2>
-        <p>If you have trouble contacting us using the methods explained above, you can try</p>
-        <h2>Alternative Contacts</h2>
-        <p>If you have trouble contacting us using the methods explained above, you can try</p>
-        <h1>Other Contacts</h1>
-        <p>Below is a list of other contacts that students will find useful</p>
-        
-        <table style="width:100%">
-          <tr>
-            <th>Name</th>
-            <th>Specialty</th>
-            <th>Contact</th>
-          </tr>
-          <tr>
-            <td>BC Hydro</td>
-            <td>Electricity Bills and Rates, Power Outages, Careers</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td>Mexico</td>
-          </tr>
-        </table>
+
+        <h1>Contact Us Through Our Webform</h1>
+        <form>
+          <div>
+              <label for="WF_name">Name:</label>
+              <input type="text" id="WF_name" name="WF_name" placeholder="Your Name"></input>
+          </div>
+
+          <br></br>
+
+          <div>
+              <label for="WF_email">Email:</label>
+              <input type="email" id="WF_email" name="WF_email" placeholder="Your Email"></input>
+          </div>
+
+          <div>
+              <label for="WF_main">Main Texts:</label>
+              <input type="text" id="WF_main" name="WF_main" placeholder="Type your questions or comments here"></input>
+          </div>
+
+          <div>
+              <input type="reset"></input>
+          </div>
+
+          <div>
+              <input type="submit"></input>
+          </div>
+        </form>
 
         <hr></hr>
         <Footer />
