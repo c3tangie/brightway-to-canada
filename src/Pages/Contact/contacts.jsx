@@ -12,7 +12,7 @@ const OfficialContacts = () => {
         <h1>Contact Us Through Our Webform</h1>
         <p>Please do not put in personal or sensitive information in your response.</p>
 
-        <form>
+        <form className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-center text-xl leading-normal'>
           <div>
               <label for="WF_name">Name:</label>
               <input type="text" maxlength="100" id="WF_name" name="WF_name" placeholder="Your Name (Max 100 Characters)"></input>
