@@ -27,11 +27,29 @@ function WF_App() {
   };
 
   return (
-      <form onSubmit={onSubmit}>
-        <input type="text" name="name"/>
-        <input type="email" name="email"/>
-        <textarea name="message"></textarea>
-        <button type="submit">Submit Form</button>
+      <form className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-center text-xl leading-normal' onSubmit={onSubmit}>
+          <div>
+              <label for="WF_name">Name:</label>
+              <input type="text" maxlength="100" id="WF_name" name="WF_name" placeholder="Your Name (Max 100 Characters)"></input>
+          </div>
+
+          <div>
+              <label for="WF_email">Email:</label>
+              <input type="email" maxlength="100" id="WF_email" name="WF_email" placeholder="Your Email (Max 100 Characters)"></input>
+          </div>
+
+          <div>
+              <label for="WF_main">Main Texts:</label>
+              <input type="text" maxlength="1024" id="WF_main" name="WF_main" placeholder="Type your questions or comments here (Max 1024 Characters)"></input>
+          </div>
+
+          <div>
+              <input type="reset"></input>
+          </div>
+
+          <div>
+              <input type="submit"></input>
+          </div>
       </form>
   );
 }
