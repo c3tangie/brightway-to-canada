@@ -4,7 +4,6 @@ import Footer from '../../components/Footer'
 
 const OfficialContacts = () => {
   return (
-    <noscript>This page requires JavaScript to Run</noscript>
     <div>
         <Navbar />
         <hr></hr>
