@@ -29,7 +29,7 @@ const Banner = () => {
           setBackgroundSize('auto');
         }
       };
-      img.src = BannerImage2;
+      img.src = BannerImage;
     }
   };
 
@@ -44,7 +44,7 @@ const Banner = () => {
       {/* Hidden but rendered image used for measuring visible height */}
       <img
         ref={imgRef}
-        src={BannerImage2}
+        src={BannerImage}
         alt="Measure height"
         className="absolute opacity-0 pointer-events-none w-full object-cover"
         style={{ zIndex: -1 }}
@@ -62,7 +62,7 @@ const Banner = () => {
         ref={containerRef}
         className="relative w-full overflow-hidden bg-no-repeat transition-all duration-700 ease-in-out"
         style={{
-          backgroundImage: `url(${BannerImage2})`,
+          backgroundImage: `url(${BannerImage})`,
           backgroundPosition: 'center center',
           backgroundSize: backgroundSize, // Dynamically set based on container vs image width
           height: expanded ? `${imageHeight}px` : 'clamp(300px, 50vh, 400px)', // Responsive height that maintains until md
