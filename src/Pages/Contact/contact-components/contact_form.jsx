@@ -101,13 +101,13 @@ function WF_App() {
                 </div>
 
                 <div class="mb-6">
-                  <button type="reset" onclick="return confirm('Reset The Form?');" class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
+                  <button type="reset" onclick="return window.confirm('Reset The Form?');" class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
                     Reset
                   </button>
                 </div>
 
                 <div class="mb-6">
-                  <button type="submit" onclick="return confirm('Submit The Form?');" class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
+                  <button type="submit" onclick="return window.confirm('Submit The Form?');" class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
                     Send Message
                   </button>
                 </div>
