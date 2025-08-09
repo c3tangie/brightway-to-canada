@@ -50,7 +50,7 @@ function WF_App() {
               Contact Us
             </h1>
             <p class="text-gray-400">
-              Please do not put in additional sensitive informations
+              Please do not put in additional sensitive information
             </p>
           </div>
           <div class="m-7">
