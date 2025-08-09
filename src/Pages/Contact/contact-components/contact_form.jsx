@@ -23,6 +23,9 @@ function WF_App() {
 
     if (res.success) {
       console.log("Success", res);
+      window.location.href = "http://www.w3schools.com";
+    } else {
+      window.alert("Something went wrong!");
     }
   };
 
