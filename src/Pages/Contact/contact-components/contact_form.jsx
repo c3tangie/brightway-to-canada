@@ -83,21 +83,21 @@ function WF_App() {
                 </div>
 
                 <div class="mb-6 text-base">
+                  <label for="WF_type" class="block mb-2 text-gray-600">Category</label>
+                  <select name="qtype" id="WF_type" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
+                    <option value="generic" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Generic</option>
+                    <option value="option2" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Option 2</option>
+                    <option value="option3" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Option 3</option>
+                  </select>
+                </div>
+
+                <div class="mb-6 text-base">
                   <label for="WF_message" class="block mb-2 text-gray-600">Your Message</label>
 
                   <textarea rows="5" name="message" id="WF_message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
                   {/* <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
                     Please enter your message.
                   </div> */}
-                </div>
-
-                <div class="mb-6">
-                  <label for="WF_type" class="block mb-2 text-gray-600">Your Message</label>
-                  <select name="qtype" id="WF_type" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
-                    <option value="generic">Generic</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                  </select>
                 </div>
 
                 <div class="mb-6">
