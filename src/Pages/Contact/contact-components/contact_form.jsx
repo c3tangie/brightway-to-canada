@@ -29,6 +29,18 @@ function WF_App() {
     }
   };
 
+  const handleSubmitClick = (e) => {
+    if (!window.confirm('Submit The Form?')) {
+      e.preventDefault();
+    }
+  };
+
+  const handleResetClick = (e) => {
+    if (!window.confirm('Reset The Form?')) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div class="flex items-center min-h-screen bg-gray-300 dark:bg-gray-900">
       <div class="container mx-auto">
@@ -101,13 +113,13 @@ function WF_App() {
                 </div>
 
                 <div class="mb-6">
-                  <button type="reset" onclick="return window.confirm('Reset The Form?');" class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
+                  <button type="reset" onClick={handleResetClick} class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
                     Reset
                   </button>
                 </div>
 
                 <div class="mb-6">
-                  <button type="submit" onclick="return window.confirm('Submit The Form?');" class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
+                  <button type="submit" onClick={handleSubmitClick} class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
                     Send Message
                   </button>
                 </div>
