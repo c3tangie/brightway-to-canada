@@ -25,7 +25,7 @@ const Navbartest = () => {
       <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-xl' : 'bg-white shadow-lg'
       }`}>
-      {/* Top Contact Bar - Hidden when scrolled */}
+      {/* Top Contact Bar */}
       <div 
         className={`text-white transition-all duration-300 bg-blue-900 ${
           isScrolled ? 'h-0 py-0 overflow-hidden opacity-0' : 'py-2 opacity-100'
@@ -40,7 +40,7 @@ const Navbartest = () => {
                 </svg>
                 +1 (250) 797-7886
               </span>
-              <span className="hidden sm:flex items-center">
+              <span className="flex items-center">
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -56,12 +56,12 @@ const Navbartest = () => {
       <div className="bg-white shadow-sm">
         <div className={`max-w-screen-2xl mx-auto px-4 py-3 lg:px-20 sm:px-6  ${isScrolled ? 'py-0' : 'py-3'}`}>
           <div className={`flex justify-between items-center transition-all duration-300 ${
-            isScrolled ? 'h-14' : 'h-20'
+            isScrolled ? 'h-12' : 'h-20'
           }`}>
             
             {/* Logo and Brand */}
             <div className="flex items-center">
-              <a href="/" className={`transition-all duration-300 flex items-center space-x-3 group ${isScrolled ? 'space-x-0' : 'space-x-3'}`}>
+              <a href="/" className={`transition-all duration-300 flex items-center group ${isScrolled ? 'space-x-0' : 'space-x-3'}`}>
                 <img 
                   src={Logo} 
                   alt="Logo" 

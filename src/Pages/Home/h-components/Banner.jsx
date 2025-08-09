@@ -1,123 +1,159 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import BannerImage from '../../../assets/banner.png'
-import BannerImage2 from '../../../assets/banner2.jpg'  
-import ArrowUp from '../../../assets/arrow-up.svg'
-import ArrowDown from '../../../assets/arrow-down.svg'
+import BannerImage2 from '../../../assets/banner2.png'
+import BannerImage3 from '../../../assets/banner3.png'
 
 const Banner = () => {
-  const [expanded, setExpanded] = useState(false);
-  const [imageHeight, setImageHeight] = useState(0);
-  const [backgroundSize, setBackgroundSize] = useState('auto');
-  const imgRef = useRef(null);
-  const containerRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [showSlogan, setShowSlogan] = useState(true);
+  const [hasStartedCycling, setHasStartedCycling] = useState(false);
 
-  // Function to update height and background size based on actual rendered size
-  const updateDimensions = () => {
-    if (imgRef.current && containerRef.current) {
-      setImageHeight(imgRef.current.clientHeight);
-      
-      // Get natural image dimensions
-      const img = new Image();
-      img.onload = () => {
-        const containerWidth = containerRef.current.offsetWidth;
-        const imageNaturalWidth = img.naturalWidth;
-        
-        // If container is wider than image, scale up; otherwise use natural size
-        if (containerWidth > imageNaturalWidth) {
-          setBackgroundSize('100%');
-        } else {
-          setBackgroundSize('auto');
-        }
-      };
-      img.src = BannerImage;
+  // Banner content array
+  const bannerContent = [
+    {
+      image: BannerImage,
+      text: "Brightway to Canada helps international students find the right school and a suitable, caring homestay in Canada. We support families with trusted guidance every step of the way, so students can thrive — and parents can feel at ease."
+    },
+    {
+      image: BannerImage2,
+      text: "Our team is dedicated to making your transition to Canada smooth and successful.\nFrom choosing the best school to settling into your new home, we're here for you."
+    },
+    {
+      image: BannerImage3,
+      text: "Start your journey with confidence. Brightway to Canada is with you every step of the way."
     }
-  };
+  ];
 
   useEffect(() => {
-    updateDimensions(); // on initial load
-    window.addEventListener('resize', updateDimensions); // update on tab resize
-    return () => window.removeEventListener('resize', updateDimensions);
+    // Show slogan first, then start cycling after 4 seconds
+    const sloganTimer = setTimeout(() => {
+      setShowSlogan(false);
+      // Small delay to ensure first image appears instantly, then enable transitions
+      setTimeout(() => {
+        setHasStartedCycling(true);
+      }, 100);
+    }, 4000);
+
+    return () => clearTimeout(sloganTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!showSlogan) {
+      // Start cycling through content every 7 seconds
+      const cycleTimer = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % bannerContent.length);
+      }, 7000);
+
+      return () => clearInterval(cycleTimer);
+    }
+  }, [showSlogan, bannerContent.length]);
+
+  // Reset to slogan on page refresh
+  useEffect(() => {
+    setShowSlogan(true);
+    setCurrentSlide(0);
+    setHasStartedCycling(false);
   }, []);
 
   return (
     <>
-      {/* Hidden but rendered image used for measuring visible height */}
-      <img
-        ref={imgRef}
-        src={BannerImage}
-        alt="Measure height"
-        className="absolute opacity-0 pointer-events-none w-full object-cover"
-        style={{ zIndex: -1 }}
-      />
-
-      {/* Slogan */}
-      <div className="absolute top-15 left-0 w-full h-[300px] md:h-[385px] flex items-center justify-center pointer-events-none z-20">
-        <h1 className="text-white text-2xl sm:text-6xl font-outfit font-bold text-center px-4 flex gap-4">
-          <span className="opacity-0 animate-slogan-part1">YOUR FUTURE,</span>
-          <span className="opacity-0 animate-slogan-part2">OUR BRIGHTWAY.</span>
-        </h1>
-      </div>
-
-      <div
-        ref={containerRef}
-        className="relative w-full overflow-hidden bg-no-repeat transition-all duration-700 ease-in-out"
+      <div 
+        className="relative w-full overflow-hidden transition-all duration-1000 ease-in-out"
         style={{
-          backgroundImage: `url(${BannerImage})`,
-          backgroundPosition: 'center center',
-          backgroundSize: backgroundSize, // Dynamically set based on container vs image width
-          height: expanded ? `${imageHeight}px` : 'clamp(300px, 50vh, 400px)', // Responsive height that maintains until md
-          minHeight: '300px', // Minimum height for mobile
+          height: '540px', // Constant height at all screen sizes
         }}
       >
-        
-        <div
-          className={`absolute inset-0 bg-black transition-opacity duration-700 ease-in-out pointer-events-none z-0 ${
-            expanded ? 'opacity-50' : 'opacity-0'
-          }`}
-        />
-
-        {/* Expand/Collapse button strip */}
-        <div
-            onClick={() => setExpanded((v) => !v)}
-            aria-expanded={expanded}
-            className="absolute bottom-0 left-0 w-full h-16 cursor-pointer group"
-        >
-            {/* Fading Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 ease-in-out"></div>
-
-            {/* Expand/Collapse Button */}
-            <div className="relative flex items-center justify-center h-full">
-                 {expanded ? (
-                    // Up arrow
-                    <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="85.486 49.32 103.492 35.81"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={10}
-                    strokeLinecap="butt"
-                    strokeLinejoin="round"
-                    className="mt-6 w-10 h-10 text-white opacity-50 group-hover:opacity-100 transition-all duration-300"
-                    >
-                    <path d="M 87.72104,80.901855 137.2319,54.729813 186.74276,80.901855" />
-                    </svg>
-                ) : (
-                    // Down arrow
-                    <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="85.486 49.32 103.492 35.81"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={10}
-                    strokeLinecap="butt"
-                    strokeLinejoin="round"
-                    className="mt-6 w-10 h-10 text-white opacity-50 group-hover:opacity-100 transition-all duration-300"
-                    >
-                    <path d="M 87.72104,53.548348 137.2319,79.72039 186.74276,53.548348" />
-                    </svg>
-                )}
-            </div>
+        {/* Banner Images with Crossfade */}
+        <div className="absolute top-0 w-full h-full">
+          {/* Slogan Image */}
+          <img
+            src={BannerImage}
+            alt="Banner"
+            className={`absolute top-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+              showSlogan ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              minWidth: '1920px',
+              objectPosition: 'center center',
+              left: '50%',
+              transform: 'translateX(-50%)'
+            }}
+          />
+          
+          {/* Cycling Images */}
+          {bannerContent.map((content, index) => (
+            <img
+              key={index}
+              src={content.image}
+              alt={`Banner ${index + 1}`}
+              className={`absolute top-0 w-full h-full object-cover ${
+                !showSlogan && currentSlide === index ? 'opacity-100' : 'opacity-0'
+              } ${hasStartedCycling ? 'transition-opacity duration-1000 ease-in-out' : ''}`}
+              style={{
+                minWidth: '1920px',
+                objectPosition: 'center center',
+                left: '50%',
+                transform: 'translateX(-50%)'
+              }}
+            />
+          ))}
         </div>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
+       {/* Content Container */}
+      <div className="absolute inset-0 flex items-center justify-center px-4 z-10">
+        <div className="text-center max-w-6xl mx-auto">
+          {/* Headline (no DOM swap; just translate) */}
+          <h1
+            className={`text-white text-3xl sm:text-4xl lg:text-6xl font-outfit font-bold
+                        flex gap-4 justify-center items-center
+                        transition-transform duration-700 ease-out will-change-transform
+                        ${showSlogan ? 'translate-y-16' : '-translate-y-3'}`}
+          >
+            <span className={showSlogan ? 'opacity-0 animate-slogan-part1-slow' : ''}>
+              YOUR FUTURE,
+            </span>
+            <span className={showSlogan ? 'opacity-0 animate-slogan-part2-slow' : ''}>
+              OUR BRIGHTWAY.
+            </span>
+          </h1>
+
+          {/* Reserved space for paragraph to avoid jump */}
+          <div className="relative h-32 mt-4">
+            {/* absolutely stacked; key forces re-run of fade-in per slide */}
+            {!showSlogan && (
+              <p
+                key={`text-${currentSlide}`}
+                className="absolute inset-0 flex items-center justify-center
+                          text-white text-lg sm:text-xl lg:text-2xl font-outfit leading-relaxed
+                          max-w-6xl mx-auto text-center opacity-0 animate-fade-in whitespace-pre-line"
+              >
+                {bannerContent[currentSlide].text}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+
+        {/* Navigation Dots */}
+        {!showSlogan && (
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+            {bannerContent.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index 
+                    ? 'bg-white opacity-100' 
+                    : 'bg-white opacity-50 hover:opacity-75'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

@@ -10,12 +10,11 @@ export default {
         'fade-in': 'fadeIn 1s ease-in-out forwards',
         'fade-out': 'fadeOut 1s ease-in-out forwards',
         'wipe-reveal': 'wipe-reveal 3s ease-out forwards',
-        'slogan-part1': 'slogan-reveal 1.5s ease-out forwards 0.7s',
-        'slogan-part2': 'slogan-reveal 1.5s ease-out forwards 1.7s',
-        // 'slogan-part1': 'slogan-wipe-left 1.5s ease-out forwards 0.7s',
-        // 'slogan-part2': 'slogan-wipe-right 1.5s ease-out forwards 1.7s',
-        // 'slogan-part1': 'slogan-fade-scale 1.5s ease-out forwards 0.7s',
-        // 'slogan-part2': 'slogan-fade-scale 1.5s ease-out forwards 1.7s',
+        'slogan-part1': 'slogan-reveal 4s ease-out forwards 1s',
+        'slogan-part2': 'slogan-reveal 4s ease-out forwards 3s',
+        'slogan-part1-slow': 'slogan-reveal 1.3s ease-out forwards 0.5s',
+        'slogan-part2-slow': 'slogan-reveal 1.3s ease-out forwards 1.8s',
+
       },
 
       keyframes: {

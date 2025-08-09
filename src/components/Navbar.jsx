@@ -56,12 +56,12 @@ const Navbartest = () => {
       <div className="bg-white shadow-sm">
         <div className={`max-w-screen-2xl mx-auto px-4 py-3 lg:px-20 sm:px-6  ${isScrolled ? 'py-0' : 'py-3'}`}>
           <div className={`flex justify-between items-center transition-all duration-300 ${
-            isScrolled ? 'h-14' : 'h-20'
+            isScrolled ? 'h-12' : 'h-20'
           }`}>
             
             {/* Logo and Brand */}
             <div className="flex items-center">
-              <a href="/" className={`transition-all duration-300 flex items-center space-x-3 group ${isScrolled ? 'space-x-0' : 'space-x-3'}`}>
+              <a href="/" className={`transition-all duration-300 flex items-center group ${isScrolled ? 'space-x-0' : 'space-x-3'}`}>
                 <img 
                   src={Logo} 
                   alt="Logo" 
