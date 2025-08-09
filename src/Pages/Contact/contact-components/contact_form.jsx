@@ -89,6 +89,15 @@ function WF_App() {
                 </div>
 
                 <div class="mb-6">
+                  <label for="WF_type" class="block mb-2 text-gray-600">Your Message</label>
+                  <select name="qtype" id="WF_type" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
+                    <option value="generic">Generic</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                  </select>
+                </div>
+
+                <div class="mb-6">
                   <button type="reset" class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
                     Reset
                   </button>
