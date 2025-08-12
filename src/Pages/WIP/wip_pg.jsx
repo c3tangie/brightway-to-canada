@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
-const ThankyouPg = () => {
+const WIPPg = () => {
   return (
     <div>
         <Navbar />
@@ -21,4 +21,4 @@ const ThankyouPg = () => {
   )
 }
 
-export default ThankyouPg
+export default WIPPg
