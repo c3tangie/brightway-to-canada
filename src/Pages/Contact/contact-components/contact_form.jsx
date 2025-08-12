@@ -6,6 +6,7 @@ function WF_App() {
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const navigate = useNavigate();
 
     formData.append("access_key", "b0223251-5a13-4fd9-bdcc-d0d43dd63153");
 
@@ -23,7 +24,7 @@ function WF_App() {
 
     if (res.success) {
       console.log("Success", res);
-      window.location.href = "http://www.w3schools.com";
+      navigate('/thankyou');
     } else {
       window.alert("Something went wrong!");
     }
