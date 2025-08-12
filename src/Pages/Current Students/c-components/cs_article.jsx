@@ -42,61 +42,6 @@ const Cs_Article = () => {
           </div>
           
         </div>
-
-        {/* <ul className='text-left text-5xl font-medium py-5 leading-loose'>
-          <li>
-            <button 
-              onClick={() => toggleDropdown(0)}
-              className="w-full text-left hover:text-blue-600 transition-colors duration-200 focus:outline-none"
-            >
-              1. Be accepted by a DLI
-            </button>
-            {openDropdown === 0 && (
-              <div className="mt-4 p-6 bg-gray-50 rounded-lg text-lg font-normal leading-relaxed">
-                {dropdownContent[0]}
-              </div>
-            )}
-          </li>
-          <li>
-            <button 
-              onClick={() => toggleDropdown(1)}
-              className="w-full text-left hover:text-blue-600 transition-colors duration-200 focus:outline-none"
-            >
-              2. Provide proof of sufficient funds
-            </button>
-            {openDropdown === 1 && (
-              <div className="mt-4 p-6 bg-gray-50 rounded-lg text-lg font-normal leading-relaxed">
-                {dropdownContent[1]}
-              </div>
-            )}
-          </li>
-          <li>
-            <button 
-              onClick={() => toggleDropdown(2)}
-              className="w-full text-left hover:text-blue-600 transition-colors duration-200 focus:outline-none"
-            >
-              3. Meet the language requirements
-            </button>
-            {openDropdown === 2 && (
-              <div className="mt-4 p-6 bg-gray-50 rounded-lg text-lg font-normal leading-relaxed">
-                {dropdownContent[2]}
-              </div>
-            )}
-          </li>
-          <li>
-            <button 
-              onClick={() => toggleDropdown(3)}
-              className="w-full text-left hover:text-blue-600 transition-colors duration-200 focus:outline-none"
-            >
-              4. Submit a complete application
-            </button>
-            {openDropdown === 3 && (
-              <div className="mt-4 p-6 bg-gray-50 rounded-lg text-lg font-normal leading-relaxed">
-                {dropdownContent[3]}
-              </div>
-            )}
-          </li>
-        </ul> */}
         
     </div>
   )
