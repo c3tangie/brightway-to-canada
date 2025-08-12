@@ -9,7 +9,7 @@ import OfficialContacts from './Pages/Contact/contacts'
 import OfficialEvents from './Pages/Events/events'
 import OfficialServices from './Pages/Services/services'
 import ThankyouPg from './Pages/Contact/contact_thankyou'
-
+import WIPPg from './Pages/WIP/wip_pg'
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
         <Route path="/blog" element={<OfficialBlogs />} />
         <Route path="/contact" element={<OfficialContacts />} />
         <Route path="/thankyou" element={<ThankyouPg />} />
+        <Route path="/wip" element={<WIPPg />} />
         <Route path="/events" element={<OfficialEvents />} />
         <Route path="/services" element={<OfficialServices />} />
       </Routes>
