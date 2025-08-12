@@ -11,6 +11,9 @@ const OfficialContacts = () => {
           <h1 class="my-3 text-3xl font-semibold text-gray-700">
             Thank You For Your Response
           </h1>
+          <h2 class="my-3 text-3xl font-semibold text-gray-700">
+            We are looking forward to help you with our resources 
+          </h2>
         </div>
 
         <Footer />
