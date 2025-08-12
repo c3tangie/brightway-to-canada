@@ -8,7 +8,7 @@ import OfficialBlogs from './Pages/Blog/blogs'
 import OfficialContacts from './Pages/Contact/contacts'
 import OfficialEvents from './Pages/Events/events'
 import OfficialServices from './Pages/Services/services'
-import ThankyouPg from './Pages/Contact/contacts_thankyou'
+import ThankyouPg from './Pages/Contact/contact_thankyou'
 
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
         <Route path="/about" element={<OfficialAbouts />} />
         <Route path="/blog" element={<OfficialBlogs />} />
         <Route path="/contact" element={<OfficialContacts />} />
+        <Route path="/thankyou" element={<ThankyouPg />} />
         <Route path="/events" element={<OfficialEvents />} />
         <Route path="/services" element={<OfficialServices />} />
       </Routes>
