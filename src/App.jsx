@@ -8,6 +8,7 @@ import OfficialBlogs from './Pages/Blog/blogs'
 import OfficialContacts from './Pages/Contact/contacts'
 import OfficialEvents from './Pages/Events/events'
 import OfficialServices from './Pages/Services/services'
+import ThankyouPg from './Pages/Contact/contacts_thankyou'
 
 
 function App() {
