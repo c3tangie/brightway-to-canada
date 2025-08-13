@@ -1,10 +1,10 @@
 // JSX For Using Web3Forms Inside React
 // WIP DO NOT USE
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 function WF_App() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -25,7 +25,8 @@ function WF_App() {
 
     if (res.success) {
       console.log("Success", res);
-      navigate('/thankyou');
+      // navigate('/thankyou');
+      window.location.href('#/thankyou');
     } else {
       window.alert("Something went wrong!");
     }
