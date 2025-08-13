@@ -26,7 +26,7 @@ function WF_App() {
     if (res.success) {
       console.log("Success", res);
       // navigate('/thankyou');
-      window.location.href('#/thankyou');
+      window.location.href = '#/thankyou';
     } else {
       window.alert("Something went wrong!");
     }
