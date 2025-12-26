@@ -5,7 +5,7 @@ const Event_Article = () => {
     <div className='mt-5 ml-64 mr-64 font-RobotoFlex text-center text-xl'>
         
         <p>
-            [WE HAVE EVENTS]
+            [hmmm....]
         </p>
         
     </div>

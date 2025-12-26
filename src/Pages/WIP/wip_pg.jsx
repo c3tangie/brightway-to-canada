@@ -12,7 +12,7 @@ const WIPPg = () => {
             The Content You Requested Is Still Being Worked On
           </h1>
           <p class="my-3 text-2xl font-semibold text-gray-700">
-            Please wait for future updates. We are sorry for the inconvinience caused. 
+            Please wait for future updates. We are sorry for the inconvinience caused. If there is an urgent request, feel free to contact us through the contact page.
           </p>
         </div>
 

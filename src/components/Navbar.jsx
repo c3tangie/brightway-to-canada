@@ -119,7 +119,7 @@ const Navbartest = () => {
                   Services
                   <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a 
+                {/* <a 
                   href="#/blog" 
                   className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
                     isScrolled ? 'text-base' : 'text-lg'
@@ -127,14 +127,14 @@ const Navbartest = () => {
                 >
                   Blog
                   <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
-                </a>
+                </a> */}
                 <a 
                   href="#/events" 
                   className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
                     isScrolled ? 'text-base' : 'text-lg'
                   }`}
                 >
-                  Events
+                  Network
                   <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
                 <a 
