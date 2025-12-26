@@ -4,7 +4,7 @@ const teamData = [
   {
     id: 1,
     name: "Ling Wang",
-    role: "Founder & CEO",
+    role: "Founder & CEO & Language (Chinese)",
     image: placeHolderImage,
     description: "With over 15 years of industry experience, Alex founded the company with a vision to revolutionize the tech space.",
     category: "founder"
@@ -53,6 +53,14 @@ const teamData = [
     id: 7,
     name: "Ray Beraska",
     role: "Language (ESL)",
+    image: placeHolderImage,
+    description: "Elena bridges customer needs with technical solutions to create amazing products.",
+    category: "employee"
+  },
+  {
+    id: 8,
+    name: "Qi Zhu",
+    role: "Language (Mandarin)",
     image: placeHolderImage,
     description: "Elena bridges customer needs with technical solutions to create amazing products.",
     category: "employee"
