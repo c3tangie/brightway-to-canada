@@ -3,62 +3,58 @@ import placeHolderImage from '../assets/logo.png';
 const teamData = [
   {
     id: 1,
-    name: "Alex Johnson",
+    name: "Ling Wang",
     role: "Founder & CEO",
     image: placeHolderImage,
     description: "With over 15 years of industry experience, Alex founded the company with a vision to revolutionize the tech space.",
-    email: "alex@company.com",
-    linkedin: "https://linkedin.com/in/alexjohnson",
     category: "founder"
   },
   {
     id: 2,
-    name: "Sarah Chen",
-    role: "CTO",
+    name: "Jonathan Tang",
+    role: "Technical Support",
     image: placeHolderImage,
     description: "Sarah leads our technical team with expertise in cloud architecture and AI solutions.",
-    email: "sarah@company.com",
-    linkedin: "https://linkedin.com/in/sarahchen",
-    category: "leadership"
+    category: "employee"
   },
   {
     id: 3,
-    name: "Marcus Rivera",
-    role: "Lead Developer",
+    name: "Jay Zang",
+    role: "Technical Support & Math & Science",
     image: placeHolderImage,
     description: "Marcus has been building scalable applications for 8 years and mentors our junior developers.",
-    email: "marcus@company.com",
-    linkedin: "https://linkedin.com/in/marcusrivera",
     category: "employee"
   },
   {
     id: 4,
-    name: "Priya Patel",
-    role: "UX Designer",
+    name: "Peter Stevens",
+    role: "Math & Science",
     image: placeHolderImage,
     description: "Priya creates intuitive user experiences that delight our customers.",
-    email: "priya@company.com",
-    linkedin: "https://linkedin.com/in/priyapatel",
     category: "employee"
   },
   {
     id: 5,
-    name: "David Kim",
-    role: "Marketing Director",
+    name: "Don Standing",
+    role: "Language (ESL)",
     image: placeHolderImage,
     description: "David develops innovative marketing strategies that drive our brand forward.",
-    email: "david@company.com",
-    linkedin: "https://linkedin.com/in/davidkim",
-    category: "leadership"
+    category: "employee"
   },
   {
     id: 6,
-    name: "Elena Rodriguez",
-    role: "Product Manager",
+    name: "Kathryn Collins",
+    role: "Language (ESL)",
     image: placeHolderImage,
     description: "Elena bridges customer needs with technical solutions to create amazing products.",
-    email: "elena@company.com",
-    linkedin: "https://linkedin.com/in/elenarodriguez",
+    category: "employee"
+  },
+  {
+    id: 7,
+    name: "Ray Beraska",
+    role: "Language (ESL)",
+    image: placeHolderImage,
+    description: "Elena bridges customer needs with technical solutions to create amazing products.",
     category: "employee"
   }
 ];
