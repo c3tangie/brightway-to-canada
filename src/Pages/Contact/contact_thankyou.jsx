@@ -7,15 +7,20 @@ const ThankyouPg = () => {
     <div>
         <Navbar />
 
-        <div class="text-center">
-          <h1 class="my-3 text-3xl font-semibold text-gray-700">
-            Thank You For Your Response
-          </h1>
-          <p class="my-3 text-2xl font-semibold text-gray-700">
-            Your response is successfully sent to us and we will contact you on your provided email or phone number shortly. Feel free to close this page. If you wish to visit other part of this website, please click on the options in the top navigation bar or click the logo on the top left to return to our homepage. If you want to check out our social media, please click on the respective icons in the footer. 
-          </p>
+        <div className="text-center">
+          <div className="h-52"></div>
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="bg-black/5 border border-gray-200 shadow-lg py-12 px-8 rounded-2xl">
+              <h1 className="my-3 text-3xl font-semibold text-gray-700">
+              Thank You For Your Response <br /><br />
+              </h1>
+              <p className="my-3 text-xl font-medium text-gray-600 leading-relaxed">
+                Your response is successfully sent to us and we will contact you on your provided email or phone number shortly. Feel free to close this page. If you wish to visit other part of this website, please click on the options in the top navigation bar or click the logo on the top left to return to our homepage. If you want to check out our social media, please click on the respective icons in the footer. 
+              </p>      
+            </div>
+          </div>
         </div>
-
+        <div className="h-52"></div>
         <Footer />
     </div>
   )

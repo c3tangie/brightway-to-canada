@@ -88,16 +88,16 @@ const Footer = () => {
               </button>
             </div>
             <div className="flex flex-row items-center gap-4 mr-8">
-              <a href='#wechat'>
+              <a href='#/wip'>
                 <img src={wechat_Icon} alt="WeChat Icon" className="w-10 h-10" />
               </a>
               <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1'>
                 <img src={rednote_Icon} alt="Red Note Icon" className="w-10 h-10" />
               </a>
-              <a href='#instagram'>
+              <a href='#/wip'>
                 <img src={instagram_Icon} alt="Instagram Icon" className="w-10 h-10" />
               </a>
-              <a href='#facebook'>
+              <a href='#/wip'>
                 <img src={facebook_Icon} alt="Facebook Icon" className="w-10 h-10" />
               </a>
             </div>
