@@ -21,7 +21,7 @@ const Abouts_Article = () => {
       
       {/* Hero Section */}
       <section className='text-center mb-16'>
-        <h1 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
+        <h1 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6 py-14'>
           Meet Our Brightway Team
         </h1>
         <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
