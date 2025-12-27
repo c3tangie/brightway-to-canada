@@ -49,7 +49,7 @@ const Abouts_Article = () => {
       
       {/* Hero Section */}
       <section className='text-center mb-16'>
-        <h1 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
+        <h1 className='text-4xl md:text-5xl font-bold text-navy-900 mb-6'>
           Meet Our Brightway Team
         </h1>
         <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
@@ -60,7 +60,7 @@ const Abouts_Article = () => {
 
       {/* Company Story */}
       <section className='mb-16'>
-        <h2 className='text-3xl font-bold text-gray-800 mb-8 text-center'>
+        <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
           Our Story
         </h2>
         <div className='space-y-6 text-gray-700 max-w-4xl mx-auto'>
@@ -83,7 +83,7 @@ const Abouts_Article = () => {
 
       {/* Category Filter */}
       <section className='mb-12'>
-        <h2 className='text-2xl font-semibold text-gray-700 mb-6 text-center'>
+        <h2 className='text-2xl font-semibold text-navy-700 mb-6 text-center'>
           Filter by Expertise
         </h2>
         
@@ -96,8 +96,8 @@ const Abouts_Article = () => {
                 relative inline-flex items-center gap-2 
                 px-5 py-2.5 rounded-full transition-all duration-300 
                 ${activeFilter === category.id 
-                  ? 'bg-blue-600 text-white shadow-lg ring-2 ring-blue-400 ring-offset-2' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-navy-600 text-white shadow-lg ring-2 ring-navy-400 ring-offset-2' 
+                  : 'bg-gray-100 text-navy-700 hover:bg-gray-200'
                 }
               `}
               onClick={() => setActiveFilter(category.id)}
@@ -107,8 +107,8 @@ const Abouts_Article = () => {
               <span className={`
                 absolute -top-2 -right-2 px-2 py-1 rounded-full text-xs font-bold
                 ${activeFilter === category.id 
-                  ? 'bg-white text-blue-600' 
-                  : 'bg-blue-100 text-blue-700'
+                  ? 'bg-white text-red-600' 
+                  : 'bg-red-50 text-red-700'
                 }
               `}>
                 {getCategoryCount(category.id)}
@@ -122,7 +122,7 @@ const Abouts_Article = () => {
           <div className='text-center mb-8'>
             <p className='text-gray-600'>
               Showing {filteredTeam.length} team member{filteredTeam.length !== 1 ? 's' : ''} 
-              in <span className='font-semibold text-blue-600'>
+              in <span className='font-semibold text-navy-600'>
                 {categories.find(c => c.id === activeFilter)?.label}
               </span>
             </p>
@@ -147,19 +147,19 @@ const Abouts_Article = () => {
 
       {/* Skills/Expertise Matrix */}
       <section className='mb-16 bg-gray-50 rounded-2xl p-8'>
-        <h2 className='text-3xl font-bold text-gray-800 mb-8 text-center'>
+        <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
           Team Expertise Matrix
         </h2>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-gray-100">
-                <th className="p-4 text-left border">Team Member</th>
+              <tr className="bg-navy-50">
+                <th className="p-4 text-left border border-gray-200 text-navy-800">Team Member</th>
                 {categories.slice(1).map(category => (
-                  <th key={category.id} className="p-4 text-center border">
+                  <th key={category.id} className="p-4 text-center border border-gray-200">
                     <div className="flex flex-col items-center">
                       <span className="text-xl mb-1">{category.icon}</span>
-                      <span className="text-sm font-medium">{category.label}</span>
+                      <span className="text-sm font-medium text-navy-700">{category.label}</span>
                     </div>
                   </th>
                 ))}
@@ -167,24 +167,24 @@ const Abouts_Article = () => {
             </thead>
             <tbody>
               {teamData.map(member => (
-                <tr key={member.id} className="border-b hover:bg-gray-50">
-                  <td className="p-4 border">
+                <tr key={member.id} className="border-b border-gray-200 hover:bg-navy-50/30">
+                  <td className="p-4 border border-gray-200">
                     <div className="flex items-center gap-3">
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-10 h-10 rounded-full object-cover"
+                        className="w-10 h-10 rounded-full object-cover border-2 border-navy-100"
                       />
                       <div>
-                        <p className="font-semibold">{member.name}</p>
+                        <p className="font-semibold text-navy-800">{member.name}</p>
                         <p className="text-sm text-gray-600">{member.role}</p>
                       </div>
                     </div>
                   </td>
                   {categories.slice(1).map(category => (
-                    <td key={category.id} className="p-4 text-center border">
+                    <td key={category.id} className="p-4 text-center border border-gray-200">
                       {member.categories && member.categories.includes(category.id) ? (
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-700 rounded-full">
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-navy-100 text-navy-700 rounded-full border border-navy-200">
                           ✓
                         </span>
                       ) : (
@@ -200,7 +200,7 @@ const Abouts_Article = () => {
       </section>
 
       {/* Stats Section */}
-      <section className='bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 mb-16 text-white'>
+      <section className='bg-gradient-to-r from-navy-600 via-navy-700 to-navy-800 rounded-2xl p-8 md:p-12 mb-16 text-white'>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
           <div className='text-center'>
             <h3 className='text-4xl font-bold mb-2'>5000+</h3>
@@ -223,7 +223,7 @@ const Abouts_Article = () => {
 
       {/* CTA Section */}
       <section className='text-center mb-12'>
-        <h2 className='text-3xl font-bold text-gray-800 mb-6'>
+        <h2 className='text-3xl font-bold text-navy-800 mb-6'>
           Ready to Start Your Journey?
         </h2>
         <p className='text-gray-600 text-lg mb-8 max-w-2xl mx-auto'>
@@ -233,13 +233,13 @@ const Abouts_Article = () => {
         <div className='flex flex-wrap justify-center gap-4'>
           <a 
             href="/contact" 
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold"
+            className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
           >
             Contact Us
           </a>
           <a 
             href="/services" 
-            className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-300 font-semibold"
+            className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
           >
             Our Services
           </a>
