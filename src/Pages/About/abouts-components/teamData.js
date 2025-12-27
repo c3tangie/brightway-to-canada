@@ -25,7 +25,11 @@ const teamData = [
     image: placeHolderImage,
     description: "Jay Zang.",
     categories: ["development", "design", "tutor"],
-    tutor_expertise: ["Math", "Science"]
+    tutor_expertise: ["Math", "Science"],
+    extended_bio: ["Jay Zang is a tutor and designer at Brightway to Canada, wearing multiple hats to support students from every angle. With a Bachelor's degree in Astronomy and currently completing a Master's degree in Information Systems, he brings not only fresh, up-to-date academic knowledge but also a deep understanding of how students interact with and navigate learning materials.",
+      "In tutoring sessions for math and science (from Grade 8 through 12), Jay focuses on tailoring to individual goals, whether it's improving a grade, preparing for an exam, or overcoming a specific hurdle. Because he also helps shape the company's website and artistic assets, he has a unique perspective on creating clear, engaging, and effective educational experiences.",
+      "Outside of his dual role in tutoring and design, Jay is also a video/photo editing hobbyist."
+    ]
   },
   {
     id: 4,

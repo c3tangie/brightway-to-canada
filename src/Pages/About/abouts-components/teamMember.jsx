@@ -47,7 +47,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
       </div>
       
       {/* Info Container */}
-      <div className="p-6">
+      <div className="p-6 min-h-[220px] flex flex-col">
         {/* Categories Tags */}
         <div className="mb-4">
           <div className="flex flex-wrap gap-2 mb-2">
@@ -83,7 +83,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
         {/* <p className="text-gray-600 mb-6 leading-relaxed">{member.description}</p> */}
         
         {/* Contact Links - Updated to use onViewDetails */}
-        <div className="pt-4 border-t border-navy-100 flex flex-col sm:flex-row gap-3">
+        <div className="pt-4 border-t border-navy-100 flex flex-col sm:flex-row gap-3 mt-auto">
             <button 
             onClick={onViewDetails} // Use the passed handler
             className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors font-medium flex-1 text-center"

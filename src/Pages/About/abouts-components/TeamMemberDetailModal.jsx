@@ -132,7 +132,7 @@ const TeamMemberDetailModal = ({ member, isOpen, onClose }) => {
             <div className="border-t border-navy-100 pt-8">
               <h4 className="text-xl font-semibold text-navy-800 mb-4">About {member.name.split(' ')[0]}</h4>
               <div className="prose prose-lg max-w-none text-gray-700">
-                <p className="text-lg leading-relaxed mb-4">{member.description}</p>
+                
                 
                 {/* Extended bio if available */}
                 {member.extended_bio && (
