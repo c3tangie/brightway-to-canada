@@ -7,7 +7,7 @@ const teamData = [
     role: "Founder & CEO & Language (Chinese)",
     image: placeHolderImage,
     description: "With over 15 years of industry experience, Alex founded the company with a vision to revolutionize the tech space.",
-    category: "founder"
+    categories: ["founder", "leadership"]
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const teamData = [
     role: "Technical Support",
     image: placeHolderImage,
     description: "Sarah leads our technical team with expertise in cloud architecture and AI solutions.",
-    category: "employee"
+    categories: ["development", "design"]
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const teamData = [
     role: "Technical Support & Math & Science",
     image: placeHolderImage,
     description: "Marcus has been building scalable applications for 8 years and mentors our junior developers.",
-    category: "employee"
+    categories: ["development", "design", "employee"]
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ const teamData = [
     role: "Math & Science",
     image: placeHolderImage,
     description: "Priya creates intuitive user experiences that delight our customers.",
-    category: "employee"
+    categories: ["employee"]
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ const teamData = [
     role: "Language (ESL)",
     image: placeHolderImage,
     description: "David develops innovative marketing strategies that drive our brand forward.",
-    category: "employee"
+    categories: ["employee"]
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ const teamData = [
     role: "Language (ESL)",
     image: placeHolderImage,
     description: "Elena bridges customer needs with technical solutions to create amazing products.",
-    category: "employee"
+    categories: ["employee"]
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ const teamData = [
     role: "Language (ESL)",
     image: placeHolderImage,
     description: "Elena bridges customer needs with technical solutions to create amazing products.",
-    category: "employee"
+    categories: ["employee"]
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ const teamData = [
     role: "Language (Mandarin)",
     image: placeHolderImage,
     description: "Elena bridges customer needs with technical solutions to create amazing products.",
-    category: "employee"
+    categories: ["design", "employee"]
   }
 ];
 
