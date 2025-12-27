@@ -1,4 +1,4 @@
-import placeHolderImage from '../assets/logo.png';
+import placeHolderImage from '../../../assets/logo.png';
 
 const teamData = [
   {
