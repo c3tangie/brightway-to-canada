@@ -52,7 +52,8 @@ const teamData = [
     image: placeHolderImage,
     description: "Kathryn Ellis Collins is a former teacher who, after over 30 years in education, is now fulfilling her dream of writing children's books. Her work is inspired by the core challenge of adapting to constant change, especially for children. Her first book, A Rainy Day, uses a simple weather-related problem to teach resilience and positive adaptation.",
     categories: ["tutor"],
-    tutor_expertise: ["Language (ESL)"]
+    tutor_expertise: ["Language (ESL)"],
+    extended_bio: "Kathryn Ellis Collins was raised in Toronto, Ontario, Canada. After High School, she moved to British Columbia where she graduated with a Masters Degree in Education. Now, after 30 years of teaching from kindergarten to grade 12, and six years teaching ESL, she is pursuing her lifelong dream of writing and illustrating children's books. Kathryn is motivated by this one core concept that change is constant but one's ability to adapt is a particular challenge we all have. Children especially are overwhelmed with making choices in addition to the constant technological bombardment of information. As parents and teachers, we hope to provide our children and students with meaningful experiences and a love of lifelong learning. In her first book, A Rainy Day, she addresses a simple problem of adapting to changes in the weather and finding a positive solution that will inspire and empower us all to grow from life's everyday experiences and setbacks while increasing in confidence, self-awareness and one's ability to adapt."
   },
   {
     id: 7,
