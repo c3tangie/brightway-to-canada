@@ -1,4 +1,6 @@
-import placeHolderImage from '../../../assets/logo.png';
+import placeHolderImage from './abouts-data/placeholder_img.jpg';
+import peterImage from './abouts-data/peter_prof_img2.jpg';
+import kathrynImage from './abouts-data/kathryn_prof_img2.jpg';
 
 const teamData = [
   {
@@ -35,7 +37,7 @@ const teamData = [
     id: 4,
     name: "Peter Stevens",
     role: "Professional Science Instructor",
-    image: placeHolderImage,
+    image: peterImage,
     description: "Peter Stevens.",
     categories: ["tutor"],
     tutor_expertise: ["Math", "Science"],
@@ -58,7 +60,7 @@ const teamData = [
     id: 6,
     name: "Kathryn Collins",
     role: "Former English Teacher & Child Book Author",
-    image: placeHolderImage,
+    image: kathrynImage,
     description: "Kathryn Ellis Collins is a former teacher who, after over 30 years in education, is now fulfilling her dream of writing children's books. Her work is inspired by the core challenge of adapting to constant change, especially for children. Her first book, A Rainy Day, uses a simple weather-related problem to teach resilience and positive adaptation.",
     categories: ["tutor"],
     tutor_expertise: ["Language (ESL)"],

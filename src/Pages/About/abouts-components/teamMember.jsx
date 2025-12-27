@@ -33,7 +33,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
         />
         
         {/* Role Badge */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy-900/90 to-transparent text-white py-3 px-4">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy-900/90 via-navy-900/65 to-transparent text-white py-3 px-4">
           <p className="text-lg font-bold">{member.name}</p>
           <p className="text-sm opacity-90">{member.role}</p>
         </div>
