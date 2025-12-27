@@ -6,7 +6,7 @@ import GraduatingStudents from './Pages/Graduating Students/gs'
 import OfficialAbouts from './Pages/About/abouts'
 import OfficialBlogs from './Pages/Blog/blogs'
 import OfficialContacts from './Pages/Contact/contacts'
-import OfficialEvents from './Pages/Events/events'
+import OfficialNetwork from './Pages/Network/network'
 import OfficialServices from './Pages/Services/services'
 import ThankyouPg from './Pages/Contact/contact_thankyou'
 import WIPPg from './Pages/WIP/wip_pg'
@@ -25,7 +25,7 @@ function App() {
         <Route path="/contact" element={<OfficialContacts />} />
         <Route path="/thankyou" element={<ThankyouPg />} />
         <Route path="/wip" element={<WIPPg />} />
-        <Route path="/events" element={<OfficialEvents />} />
+        <Route path="/network" element={<OfficialNetwork />} />
         <Route path="/services" element={<OfficialServices />} />
       </Routes>
     </Router>

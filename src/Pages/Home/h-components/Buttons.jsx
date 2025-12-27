@@ -6,19 +6,9 @@ import Button3 from '../../../assets/Button-3.png'
 const Buttons = () => {
   return (
     
-    <div className='flex space-x-24 md:space-y-0 justify-center py-20'>
+    <div className='flex space-x-24 md:space-y-0 justify-center py-5'>
 
-      {/* <button className='hidden md:inline-block font-bold font-outfit text-white bg-blue-400 px-8 py-20 rounded-full whitespace-nowrap'>
-            Prospecting Students
-        </button>
-        <button className='hidden md:inline-block font-bold font-outfit text-white bg-blue-400 px-8 py-20 rounded-full whitespace-nowrap'>
-            Current Students
-        </button>
-        <button className='hidden md:inline-block font-bold font-outfit text-white bg-blue-400 px-8 py-20 rounded-full whitespace-nowrap'>
-            Graduating Students
-        </button> */}
-
-      <a href='#/prospective-students'>
+      {/* <a href='#/prospective-students'>
         <img src={Button1} alt="Button 1" className="hidden md:block" style={{width: "400px", height:"auto"}} />
       </a>
 
@@ -28,7 +18,7 @@ const Buttons = () => {
 
       <a href='#/graduating-students'>
         <img src={Button3} alt="Button 3" className="hidden md:block" style={{width: "400px", height:"auto"}} />
-      </a>
+      </a> */}
       
     </div>
   )
