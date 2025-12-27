@@ -1,12 +1,37 @@
 // JSX For Using Web3Forms Inside React
 // WIP DO NOT USE
-import React from "react";
+import React, { useEffect } from "react";
 // import { useNavigate } from 'react-router-dom';
 
 function WF_App() {
   // const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Set initial custom validation message
+    const selectElement = document.getElementById('WF_type');
+    if (selectElement) {
+      selectElement.setCustomValidity("Please select a category.");
+    }
+  }, []);
+  
+  const handleCategoryChange = (event) => {
+    if (event.target.value === "") {
+      event.target.setCustomValidity("Please select a category.");
+    } else {
+      event.target.setCustomValidity("");
+    }
+  };
+  
   const onSubmit = async (event) => {
     event.preventDefault();
+    
+    // Check if category is selected
+    const category = event.target.qtype.value;
+    if (category === "") {
+      alert("Please select a category.");
+      return;
+    }
+    
     const formData = new FormData(event.target);
 
     formData.append("access_key", "b0223251-5a13-4fd9-bdcc-d0d43dd63153");
@@ -41,6 +66,15 @@ function WF_App() {
   const handleResetClick = (e) => {
     if (!window.confirm('Reset The Form?')) {
       e.preventDefault();
+    } else {
+      // After reset, set category back to placeholder and restore validation message
+      setTimeout(() => {
+        const selectElement = document.getElementById('WF_type');
+        if (selectElement) {
+          selectElement.value = "";
+          selectElement.setCustomValidity("Please select a category.");
+        }
+      }, 0);
     }
   };
 
@@ -99,7 +133,8 @@ function WF_App() {
 
                 <div class="mb-6 text-base">
                   <label for="WF_type" class="block mb-2 text-gray-600">Category</label>
-                  <select name="qtype" id="WF_type" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
+                  <select name="qtype" id="WF_type" required onChange={handleCategoryChange} class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
+                    <option value="" disabled selected class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">[Select Category]</option>
                     <option value="general" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">General</option>
                     <option value="appointments" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Appointments</option>
                     <option value="services" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Services</option>
@@ -118,13 +153,13 @@ function WF_App() {
                 </div>
 
                 <div class="mb-6">
-                  <button type="reset" onClick={handleResetClick} class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
+                  <button type="reset" onClick={handleResetClick} class="w-full px-3 py-4 text-white bg-sky-900 rounded-md active:bg-sky-600 focus:outline-none transition-colors duration-100">
                     Reset
                   </button>
                 </div>
 
                 <div class="mb-6">
-                  <button type="submit" onClick={handleSubmitClick} class="w-full px-3 py-4 text-white bg-indigo-900 rounded-md active:bg-blue-800 focus:outline-none transition-colors duration-100">
+                  <button type="submit" onClick={handleSubmitClick} class="w-full px-3 py-4 text-white bg-sky-900 rounded-md active:bg-sky-600 focus:outline-none transition-colors duration-100">
                     Send Message
                   </button>
                 </div>
