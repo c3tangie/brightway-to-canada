@@ -1,6 +1,6 @@
 // @ts-ignore
 import React from 'react'
-import Navbar from '../../components/Navbartest2'
+import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import Network_Article from './network-components/network_article'
 

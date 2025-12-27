@@ -63,22 +63,22 @@ const Abouts_Article = () => {
     <div className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex'>
       
       {/* Hero Section */}
-      <section className='text-center mb-16'>
-        <h1 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
+      <section className='text-center mb-12'>
+        <h1 className='text-4xl md:text-5xl font-bold text-gray-900 py-14'>
           Meet Our Brightway Team
         </h1>
-        <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
+        <p className='text-xl text-gray-600 max-w-8xl mx-auto leading-relaxed'>
           We're a passionate group of innovators, creators, and problem-solvers 
           dedicated to building amazing solutions for your journey to Canada.
         </p>
       </section>
 
       {/* Company Story */}
-      <section className='mb-16'>
-        <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
+      <section className='mb-12'>
+        <h2 className='text-3xl font-bold text-navy-800 mb-6 text-center'>
           Our Story
         </h2>
-        <div className='space-y-6 text-gray-700 max-w-4xl mx-auto'>
+        <div className='space-y-6 text-gray-700 max-w-8xl mx-auto'>
           <p className='text-lg leading-relaxed'>
             Brightway to Canada was founded with a simple yet powerful vision: 
             to make the Canadian dream accessible to everyone. What started as 
@@ -147,7 +147,7 @@ const Abouts_Article = () => {
 
       {/* Team Grid - Pass the handler to TeamMember */}
       <section className='mb-20'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
           {filteredTeam.length > 0 ? (
             filteredTeam.map(member => (
               <TeamMember 

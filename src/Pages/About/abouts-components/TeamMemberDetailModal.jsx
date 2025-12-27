@@ -136,9 +136,26 @@ const TeamMemberDetailModal = ({ member, isOpen, onClose }) => {
                 
                 {/* Extended bio if available */}
                 {member.extended_bio && (
-                  <>
-                    <p className="text-lg leading-relaxed mb-4">{member.extended_bio}</p>
-                  </>
+                  <div className="mt-6">
+                    {Array.isArray(member.extended_bio) ? (
+                      // If it's an array (Option 2), render each paragraph
+                      member.extended_bio.map((paragraph, index) => (
+                        <p key={index} className="text-lg leading-relaxed mb-4">
+                          {paragraph}
+                        </p>
+                      ))
+                    ) : typeof member.extended_bio === 'string' && member.extended_bio.includes('\n') ? (
+                      // If it's a string with \n (Option 3), split and render
+                      member.extended_bio.split('\n\n').map((paragraph, index) => (
+                        <p key={index} className="text-lg leading-relaxed mb-4">
+                          {paragraph}
+                        </p>
+                      ))
+                    ) : (
+                      // Default string rendering (backward compatible)
+                      <p className="text-lg leading-relaxed mb-4">{member.extended_bio}</p>
+                    )}
+                  </div>
                 )}
 
                 {/* Education if available */}

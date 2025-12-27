@@ -18,7 +18,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
   // Get first 2 categories to show by default
   const displayedCategories = showAllCategories 
     ? member.categories 
-    : (member.categories || []).slice(0, 2);
+    : (member.categories || []).slice(0, 3);
 
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-navy-100">
@@ -70,7 +70,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
           </div>
           
           {/* Show more/less toggle */}
-          {member.categories && member.categories.length > 2 && (
+          {member.categories && member.categories.length > 3 && (
             <button
               onClick={() => setShowAllCategories(!showAllCategories)}
               className="text-sm text-navy-600 hover:text-navy-800 font-medium"
@@ -80,7 +80,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
           )}
         </div>
 
-        <p className="text-gray-600 mb-6 leading-relaxed">{member.description}</p>
+        {/* <p className="text-gray-600 mb-6 leading-relaxed">{member.description}</p> */}
         
         {/* Contact Links - Updated to use onViewDetails */}
         <div className="pt-4 border-t border-navy-100 flex flex-col sm:flex-row gap-3">
