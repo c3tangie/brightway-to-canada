@@ -6,6 +6,33 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        navy: {
+          50: '#f0f4f8',
+          100: '#d9e2ec',
+          200: '#bcccdc',
+          300: '#9fb3c8',
+          400: '#829ab1',
+          500: '#627d98',
+          600: '#486581',
+          700: '#334e68',
+          800: '#243b53',
+          900: '#102a43',
+        },
+        // If you already have a red color palette, you can use it
+        red: {
+          50: '#fee',
+          100: '#fcc',
+          200: '#f99',
+          300: '#f66',
+          400: '#f33',
+          500: '#f00',
+          600: '#c00',
+          700: '#900',
+          800: '#600',
+          900: '#300',
+        }
+      },
       animation: {
         'fade-in': 'fadeIn 1s ease-in-out forwards',
         'fade-out': 'fadeOut 1s ease-in-out forwards',

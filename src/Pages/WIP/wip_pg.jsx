@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbartest2'
 import Footer from '../../components/Footer'
 
 const WIPPg = ({ showNavbar = true, showFooter = true }) => {
