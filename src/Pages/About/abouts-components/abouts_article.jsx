@@ -1,9 +1,24 @@
-import React, { useState } from 'react'
-import TeamMember from './teamMember'
-import teamData from './teamData'
+import React, { useState } from 'react';
+import TeamMember from './teamMember';
+import teamData from './teamData';
+import TeamMemberDetailModal from './TeamMemberDetailModal';
 
 const Abouts_Article = () => {
-  const [activeFilter, setActiveFilter] = useState('all')
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedMember, setSelectedMember] = useState(null); // Add this
+  const [showDetailModal, setShowDetailModal] = useState(false);
+
+  // Function to handle opening modal
+  const handleOpenModal = (member) => {
+    setSelectedMember(member);
+    setShowDetailModal(true);
+  };
+
+  // Function to handle closing modal
+  const handleCloseModal = () => {
+    setShowDetailModal(false);
+    setSelectedMember(null);
+  };
 
   // Define all possible categories
   const categories = [
@@ -130,12 +145,16 @@ const Abouts_Article = () => {
         )}
       </section>
 
-      {/* Team Grid */}
+      {/* Team Grid - Pass the handler to TeamMember */}
       <section className='mb-20'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {filteredTeam.length > 0 ? (
             filteredTeam.map(member => (
-              <TeamMember key={member.id} member={member} />
+              <TeamMember 
+                key={member.id} 
+                member={member}
+                onViewDetails={() => handleOpenModal(member)} // Pass handler
+              />
             ))
           ) : (
             <div className="col-span-full text-center py-12">
@@ -305,6 +324,15 @@ const Abouts_Article = () => {
           </a>
         </div>
       </section>
+
+      {/* Render the modal at the root level */}
+      {selectedMember && (
+        <TeamMemberDetailModal
+          member={selectedMember}
+          isOpen={showDetailModal}
+          onClose={handleCloseModal}
+        />
+      )}
 
     </div>
   )
