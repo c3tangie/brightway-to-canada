@@ -9,12 +9,12 @@ const Abouts_Article = () => {
   const categories = [
     { id: 'all', label: 'All Team', icon: '👥' },
     { id: 'founder', label: 'Founders', icon: '👑' },
-    { id: 'leadership', label: 'Leadership', icon: '🎯' },
     { id: 'development', label: 'Developers', icon: '💻' },
     { id: 'design', label: 'Designers', icon: '🎨' },
     { id: 'marketing', label: 'Marketing', icon: '📢' },
     { id: 'it-support', label: 'IT Support', icon: '🔧' },
-    { id: 'content', label: 'Content', icon: '✍️' }
+    { id: 'content', label: 'Content', icon: '✍️' },
+    { id: 'tutor', label: 'Tutor', icon: '📖' }
   ]
 
   // Filter team members based on active filter
@@ -145,58 +145,118 @@ const Abouts_Article = () => {
         </div>
       </section>
 
-      {/* Skills/Expertise Matrix */}
+      {/* Tutoring Expertise Matrix */}
       <section className='mb-16 bg-gray-50 rounded-2xl p-8'>
         <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
-          Team Expertise Matrix
+          Tutoring Expertise Matrix
         </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-navy-50">
-                <th className="p-4 text-left border border-gray-200 text-navy-800">Team Member</th>
-                {categories.slice(1).map(category => (
-                  <th key={category.id} className="p-4 text-center border border-gray-200">
-                    <div className="flex flex-col items-center">
-                      <span className="text-xl mb-1">{category.icon}</span>
-                      <span className="text-sm font-medium text-navy-700">{category.label}</span>
-                    </div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {teamData.map(member => (
-                <tr key={member.id} className="border-b border-gray-200 hover:bg-navy-50/30">
-                  <td className="p-4 border border-gray-200">
-                    <div className="flex items-center gap-3">
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-10 h-10 rounded-full object-cover border-2 border-navy-100"
-                      />
-                      <div>
-                        <p className="font-semibold text-navy-800">{member.name}</p>
-                        <p className="text-sm text-gray-600">{member.role}</p>
-                      </div>
-                    </div>
-                  </td>
-                  {categories.slice(1).map(category => (
-                    <td key={category.id} className="p-4 text-center border border-gray-200">
-                      {member.categories && member.categories.includes(category.id) ? (
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-navy-100 text-navy-700 rounded-full border border-navy-200">
-                          ✓
-                        </span>
-                      ) : (
-                        <span className="text-gray-300">—</span>
-                      )}
-                    </td>
+        
+        {/* Filter team members who are tutors */}
+        {(() => {
+          const tutorMembers = teamData.filter(member => 
+            member.categories && member.categories.includes('tutor')
+          );
+          
+          if (tutorMembers.length === 0) {
+            return (
+              <div className="text-center py-8">
+                <p className="text-gray-500 text-lg">No tutoring experts available.</p>
+              </div>
+            );
+          }
+
+          // Get all unique tutoring expertise from tutor members with sorting
+          const allTutorExpertise = new Set();
+          tutorMembers.forEach(member => {
+            if (member.tutor_expertise && Array.isArray(member.tutor_expertise)) {
+              member.tutor_expertise.forEach(expertise => allTutorExpertise.add(expertise));
+            }
+          });
+          
+          // Sort the expertise - languages first, then others alphabetically
+          const uniqueExpertise = Array.from(allTutorExpertise).sort((a, b) => {
+            // Check if both are language-related
+            const isALanguage = a.toLowerCase().includes('language') || a.toLowerCase().includes('mandarin') || a.toLowerCase().includes('chinese') || a.toLowerCase().includes('esl');
+            const isBLanguage = b.toLowerCase().includes('language') || b.toLowerCase().includes('mandarin') || b.toLowerCase().includes('chinese') || b.toLowerCase().includes('esl');
+            
+            // If both are languages, sort alphabetically within languages
+            if (isALanguage && isBLanguage) {
+              return a.localeCompare(b);
+            }
+            // If only A is language, A comes first
+            if (isALanguage && !isBLanguage) {
+              return -1;
+            }
+            // If only B is language, B comes first
+            if (!isALanguage && isBLanguage) {
+              return 1;
+            }
+            // If neither are languages, sort alphabetically
+            return a.localeCompare(b);
+          });
+
+          return (
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-navy-50">
+                    <th className="p-4 text-left border border-gray-200 text-navy-800">Tutor</th>
+                    {uniqueExpertise.map(expertise => {
+                      // Add appropriate icons for each expertise
+                      let icon = '📚'; // Default icon for general tutoring
+                      if (expertise.toLowerCase().includes('language') || expertise.toLowerCase().includes('mandarin') || expertise.toLowerCase().includes('chinese') || expertise.toLowerCase().includes('esl')) {
+                        icon = '🗣️';
+                      } else if (expertise.toLowerCase().includes('math')) {
+                        icon = '🧮';
+                      } else if (expertise.toLowerCase().includes('science')) {
+                        icon = '🔬';
+                      }
+                      
+                      return (
+                        <th key={expertise} className="p-4 text-center border border-gray-200">
+                          <div className="flex flex-col items-center">
+                            <span className="text-xl mb-1">{icon}</span>
+                            <span className="text-sm font-medium text-navy-700">{expertise}</span>
+                          </div>
+                        </th>
+                      );
+                    })}
+                  </tr>
+                </thead>
+                <tbody>
+                  {tutorMembers.map(member => (
+                    <tr key={member.id} className="border-b border-gray-200 hover:bg-navy-50/30">
+                      <td className="p-4 border border-gray-200">
+                        <div className="flex items-center gap-3">
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-10 h-10 rounded-full object-cover border-2 border-navy-100"
+                          />
+                          <div>
+                            <p className="font-semibold text-navy-800">{member.name}</p>
+                            <p className="text-sm text-gray-600">{member.role}</p>
+                          </div>
+                        </div>
+                      </td>
+                      {uniqueExpertise.map(expertise => (
+                        <td key={expertise} className="p-4 text-center border border-gray-200">
+                          {member.tutor_expertise && member.tutor_expertise.includes(expertise) ? (
+                            <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-700 rounded-full border border-green-200">
+                              ✓
+                            </span>
+                          ) : (
+                            <span className="text-gray-300">—</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
                   ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                </tbody>
+              </table>
+            </div>
+          );
+        })()}
       </section>
 
       {/* Stats Section */}

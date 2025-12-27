@@ -6,15 +6,16 @@ const teamData = [
     name: "Ling Wang",
     role: "Founder & CEO & Language (Chinese)",
     image: placeHolderImage,
-    description: "With over 15 years of industry experience, Alex founded the company with a vision to revolutionize the tech space.",
-    categories: ["founder", "leadership"]
+    description: "Ling Wang is the founder and CEO of Brightway to Canada, a company dedicated to helping international students navigate the Canadian education system.",
+    categories: ["founder", "tutor"],
+    tutor_expertise: ["Language (Mandarin)"]
   },
   {
     id: 2,
     name: "Jonathan Tang",
     role: "Technical Support",
     image: placeHolderImage,
-    description: "Sarah leads our technical team with expertise in cloud architecture and AI solutions.",
+    description: "Jonathan Tang.",
     categories: ["development", "design"]
   },
   {
@@ -22,48 +23,54 @@ const teamData = [
     name: "Jay Zang",
     role: "Technical Support & Math & Science",
     image: placeHolderImage,
-    description: "Marcus has been building scalable applications for 8 years and mentors our junior developers.",
-    categories: ["development", "design", "employee"]
+    description: "Jay Zang.",
+    categories: ["development", "design", "tutor"],
+    tutor_expertise: ["Math", "Science"]
   },
   {
     id: 4,
     name: "Peter Stevens",
     role: "Math & Science",
     image: placeHolderImage,
-    description: "Priya creates intuitive user experiences that delight our customers.",
-    categories: ["employee"]
+    description: "Peter Stevens.",
+    categories: ["tutor"],
+    tutor_expertise: ["Math", "Science"]
   },
   {
     id: 5,
     name: "Don Standing",
     role: "Language (ESL)",
     image: placeHolderImage,
-    description: "David develops innovative marketing strategies that drive our brand forward.",
-    categories: ["employee"]
+    description: "Don Standing.",
+    categories: ["tutor"],
+    tutor_expertise: ["Language (ESL)"]
   },
   {
     id: 6,
     name: "Kathryn Collins",
     role: "Language (ESL)",
     image: placeHolderImage,
-    description: "Elena bridges customer needs with technical solutions to create amazing products.",
-    categories: ["employee"]
+    description: "Kathryn Ellis Collins is a former teacher who, after over 30 years in education, is now fulfilling her dream of writing children's books. Her work is inspired by the core challenge of adapting to constant change, especially for children. Her first book, A Rainy Day, uses a simple weather-related problem to teach resilience and positive adaptation.",
+    categories: ["tutor"],
+    tutor_expertise: ["Language (ESL)"]
   },
   {
     id: 7,
     name: "Ray Beraska",
     role: "Language (ESL)",
     image: placeHolderImage,
-    description: "Elena bridges customer needs with technical solutions to create amazing products.",
-    categories: ["employee"]
+    description: "Ray Beraska.",
+    categories: ["tutor"],
+    tutor_expertise: ["Language (ESL)"]
   },
   {
     id: 8,
     name: "Qi Zhu",
     role: "Language (Mandarin)",
     image: placeHolderImage,
-    description: "Elena bridges customer needs with technical solutions to create amazing products.",
-    categories: ["design", "employee"]
+    description: "Qi Zhu.",
+    categories: ["design", "tutor"],
+    tutor_expertise: ["Language (Mandarin)"]
   }
 ];
 

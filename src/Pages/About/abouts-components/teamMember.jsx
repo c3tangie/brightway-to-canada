@@ -3,13 +3,12 @@ import React, { useState } from 'react';
 // Category mapping with icons and colors - Updated for navy/red/white theme
 const categoryConfig = {
   'founder': { label: 'Founder', color: 'bg-navy-100 text-navy-800', icon: '👑' },
-  'leadership': { label: 'Leadership', color: 'bg-navy-100 text-navy-800', icon: '🎯' },
   'development': { label: 'Developer', color: 'bg-navy-100 text-navy-800', icon: '💻' },
   'design': { label: 'Designer', color: 'bg-navy-100 text-navy-800', icon: '🎨' },
   'marketing': { label: 'Marketing', color: 'bg-red-50 text-red-700', icon: '📢' },
   'it-support': { label: 'IT Support', color: 'bg-navy-100 text-navy-800', icon: '🔧' },
   'content': { label: 'Content', color: 'bg-red-50 text-red-700', icon: '✍️' },
-  'employee': { label: 'Team Member', color: 'bg-gray-100 text-gray-800', icon: '👤' }
+  'tutor': { label: 'Tutor', color: 'bg-gray-100 text-gray-800', icon: '📖' }
 };
 
 const TeamMember = ({ member }) => {
