@@ -2,6 +2,7 @@
 // WIP DO NOT USE
 import React, { useEffect } from "react";
 // import { useNavigate } from 'react-router-dom';
+import seaBackground from "./sea-7498910_1920.jpg";
 
 function WF_App() {
   // const navigate = useNavigate();
@@ -79,9 +80,10 @@ function WF_App() {
   };
 
   return (
-    <div class="flex items-center min-h-screen bg-gray-300">
-      <div class="container mx-auto">
-        <div class="max-w-3xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+    <div className="container mx-auto"> {/* Remove min-h-screen and bg-gray-300 */}
+
+      <div className="container relative z-10 mx-auto">
+        <div className="max-w-3xl mx-auto my-10 bg-white/95 p-8 rounded-xl shadow-lg backdrop-blur-sm">
           <div class="text-center">
             <h1 class="my-3 text-3xl font-semibold text-gray-700">
               Contact Us
