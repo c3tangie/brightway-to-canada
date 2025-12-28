@@ -80,7 +80,7 @@ function WF_App() {
   };
 
   return (
-    <div className="container mx-auto"> {/* Remove min-h-screen and bg-gray-300 */}
+    <div className="container mx-auto min-h-screen bg-slate-700"> {/* Remove min-h-screen and bg-gray-300 */}
 
       <div className="container relative z-10 mx-auto">
         <div className="max-w-3xl mx-auto my-10 bg-white/95 p-8 rounded-xl shadow-lg backdrop-blur-sm">
@@ -136,7 +136,7 @@ function WF_App() {
                 <div class="mb-6 text-base">
                   <label for="WF_type" class="block mb-2 text-gray-600">Category</label>
                   <select name="qtype" id="WF_type" required onChange={handleCategoryChange} class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
-                    <option value="" disabled selected class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">[Select Category]</option>
+                    <option value="" disabled selected style={{backgroundColor: 'transparent', color: '#9CA3AF'}} class="cursor-default">[Select Category]</option>
                     <option value="general" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">General</option>
                     <option value="appointments" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Appointments</option>
                     <option value="services" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Services</option>

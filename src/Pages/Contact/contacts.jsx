@@ -6,10 +6,10 @@ import seaBackground from "./contact-components/sea-7498910_1920.jpg";
 
 const OfficialContacts = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-slate-700">
       {/* Full-page background */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-0"
         style={{ 
           backgroundImage: `url(${seaBackground})`,
           backgroundSize: 'cover',
@@ -19,7 +19,7 @@ const OfficialContacts = () => {
       />
       
       {/* Optional overlay for better readability */}
-      <div className="fixed inset-0 bg-white/30"></div>
+      {/* <div className="fixed inset-0 bg-white/30"></div> */}
       
       {/* Content with relative positioning */}
       <div className="relative z-10">

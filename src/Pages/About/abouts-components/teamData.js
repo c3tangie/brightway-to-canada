@@ -2,6 +2,7 @@ import placeHolderImage from './abouts-data/placeholder_img.jpg';
 import peterImage from './abouts-data/peter_prof_img2.jpg';
 import kathrynImage from './abouts-data/kathryn_prof_img2.jpg';
 import donImage from './abouts-data/don_prof_img2.jpg';
+import rayImage from './abouts-data/ray_prof_img2.jpg';
 
 const teamData = [
   {
