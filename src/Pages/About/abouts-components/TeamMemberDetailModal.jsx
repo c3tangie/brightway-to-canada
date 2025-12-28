@@ -8,10 +8,10 @@ const TeamMemberDetailModal = ({ member, isOpen, onClose }) => {
     'founder': { label: 'Founder', color: 'bg-navy-100 text-navy-800', icon: '👑' },
     'development': { label: 'Developer', color: 'bg-navy-100 text-navy-800', icon: '💻' },
     'design': { label: 'Designer', color: 'bg-navy-100 text-navy-800', icon: '🎨' },
-    'marketing': { label: 'Marketing', color: 'bg-red-50 text-red-700', icon: '📢' },
-    'it-support': { label: 'IT Support', color: 'bg-navy-100 text-navy-800', icon: '🔧' },
-    'content': { label: 'Content', color: 'bg-red-50 text-red-700', icon: '✍️' },
-    'tutor': { label: 'Tutor', color: 'bg-gray-100 text-gray-800', icon: '📖' }
+    // 'marketing': { label: 'Marketing', color: 'bg-red-50 text-red-700', icon: '📢' },
+    'advising': { label: 'Advising', color: 'bg-navy-100 text-navy-800', icon: '💡' },
+    // 'content': { label: 'Content', color: 'bg-red-50 text-red-700', icon: '✍️' },
+    'tutor': { label: 'Tutor', color: 'bg-gray-100 text-gray-800', icon: '📚' }
   };
 
   return (
@@ -68,7 +68,7 @@ const TeamMemberDetailModal = ({ member, isOpen, onClose }) => {
                       return (
                         <span
                           key={categoryId}
-                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${config.color} border border-navy-200`}
+                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg ${config.color} border border-navy-200`}
                         >
                           <span className="text-lg">{config.icon}</span>
                           <span className="font-medium">{config.label}</span>
@@ -86,7 +86,7 @@ const TeamMemberDetailModal = ({ member, isOpen, onClose }) => {
                       {member.tutor_expertise.map((expertise, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200"
+                          className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium border border-blue-200"
                         >
                           {expertise}
                         </span>

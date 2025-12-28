@@ -26,10 +26,10 @@ const Abouts_Article = () => {
     { id: 'founder', label: 'Founders', icon: '👑' },
     { id: 'development', label: 'Developers', icon: '💻' },
     { id: 'design', label: 'Designers', icon: '🎨' },
-    { id: 'marketing', label: 'Marketing', icon: '📢' },
-    { id: 'it-support', label: 'IT Support', icon: '🔧' },
-    { id: 'content', label: 'Content', icon: '✍️' },
-    { id: 'tutor', label: 'Tutor', icon: '📖' }
+    // { id: 'marketing', label: 'Marketing', icon: '📢' },
+    { id: 'advising', label: 'Advising', icon: '💡' },
+    // { id: 'content', label: 'Content', icon: '✍️' },
+    { id: 'tutor', label: 'Tutor', icon: '📚' }
   ]
 
   // Filter team members based on active filter
@@ -109,7 +109,7 @@ const Abouts_Article = () => {
               key={category.id}
               className={`
                 relative inline-flex items-center gap-2 
-                px-5 py-2.5 rounded-full transition-all duration-300 
+                px-5 py-2.5 rounded-xl transition-all duration-300 
                 ${activeFilter === category.id 
                   ? 'bg-navy-600 text-white shadow-lg ring-2 ring-navy-400 ring-offset-2' 
                   : 'bg-gray-100 text-navy-700 hover:bg-gray-200'
