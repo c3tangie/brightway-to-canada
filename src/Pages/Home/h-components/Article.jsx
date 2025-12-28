@@ -11,7 +11,7 @@ const Article = () => {
         Choosing a school in a new country can be overwhelming. Academic programs, school culture, language environment, location, safety, and long-term pathways all matter — and every student’s situation is different. Brightway to Canada takes a personalized approach, carefully matching students with schools that align with their academic goals, personal strengths, and future aspirations. We don’t rely on one-size-fits-all recommendations; instead, we focus on what will genuinely help each student thrive.
       </p>
       {/* Video positioned in the middle with text wrapping */}
-      {/* <div className="float-right ml-6 mb-6 max-w-xl">
+      <div className="float-right ml-6 mb-6 max-w-xl">
         <video 
           controls 
           className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -19,7 +19,7 @@ const Article = () => {
           <source src={videoFile} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div> */}
+      </div> 
       <p className="mb-6">
         Equally important is where students live. A supportive homestay environment can shape a student’s entire experience in Canada — academically, emotionally, and socially. We work with carefully selected host families who provide more than just a place to stay. Our homestays offer a welcoming household, a safe and stable environment, and daily opportunities for cultural exchange and language development. Students gain independence while still having the guidance and care they need during an important stage of their lives.
       </p>      

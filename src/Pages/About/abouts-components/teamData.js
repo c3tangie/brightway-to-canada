@@ -76,7 +76,7 @@ const teamData = [
     id: 7,
     name: "Ray Beraska",
     role: "Tutor",
-    image: placeHolderImage,
+    image: rayImage,
     description: "Ray Beraska.",
     categories: ["tutor"],
     tutor_expertise: ["Language (ESL)"]

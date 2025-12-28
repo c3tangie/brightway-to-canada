@@ -67,7 +67,7 @@ const Abouts_Article = () => {
         />
 
         {/* Single gradient overlay - properly fading to white */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-white z-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/25 z-5"></div>
 
         {/* Hero Content Inside Banner */}
         <div className="absolute inset-0 flex items-center justify-center px-4 z-10">

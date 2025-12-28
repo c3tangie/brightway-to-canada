@@ -2,7 +2,6 @@
 // WIP DO NOT USE
 import React, { useEffect } from "react";
 // import { useNavigate } from 'react-router-dom';
-import seaBackground from "./sea-7498910_1920.jpg";
 
 function WF_App() {
   // const navigate = useNavigate();
@@ -80,10 +79,9 @@ function WF_App() {
   };
 
   return (
-    <div className="container mx-auto min-h-screen bg-slate-700"> {/* Remove min-h-screen and bg-gray-300 */}
-
-      <div className="container relative z-10 mx-auto">
-        <div className="max-w-3xl mx-auto my-10 bg-white/95 p-8 rounded-xl shadow-lg backdrop-blur-sm">
+    <div class="flex items-center min-h-screen bg-gray-300 dark:bg-gray-900">
+      <div class="container mx-auto">
+        <div class="max-w-3xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
           <div class="text-center">
             <h1 class="my-3 text-3xl font-semibold text-gray-700">
               Contact Us
@@ -136,12 +134,12 @@ function WF_App() {
                 <div class="mb-6 text-base">
                   <label for="WF_type" class="block mb-2 text-gray-600">Category</label>
                   <select name="qtype" id="WF_type" required onChange={handleCategoryChange} class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
-                    <option value="" disabled selected style={{backgroundColor: 'transparent', color: '#9CA3AF'}} class="cursor-default">[Select Category]</option>
-                    <option value="general" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">General</option>
-                    <option value="appointments" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Appointments</option>
-                    <option value="services" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Services</option>
-                    <option value="career" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Career</option>
-                    <option value="feedback" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">Feedback</option>
+                    <option value="" disabled selected>[Select Category]</option>
+                    <option value="general">General</option>
+                    <option value="appointments">Appointments</option>
+                    <option value="services">Services</option>
+                    <option value="career">Career</option>
+                    <option value="feedback">Feedback</option>
                   </select>
                 </div>
 
