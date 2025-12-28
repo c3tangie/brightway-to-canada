@@ -11,6 +11,8 @@ import OfficialServices from './Pages/Services/services'
 import ThankyouPg from './Pages/Contact/contact_thankyou'
 import WIPPg from './Pages/WIP/wip_pg'
 
+import TeamMemberDetailPage from './Pages/About/abouts-components/TeamMemberDetailPage';
+
 function App() {
 
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/current-students" element={<CurrentStudents />} />
         <Route path="/graduating-students" element={<GraduatingStudents />} />
         <Route path="/about" element={<OfficialAbouts />} />
+        {/* Dynamic route for team members */}
+        <Route path="/team/:memberId" element={<TeamMemberDetailPage />} />
         <Route path="/blog" element={<OfficialBlogs />} />
         <Route path="/contact" element={<OfficialContacts />} />
         <Route path="/thankyou" element={<ThankyouPg />} />

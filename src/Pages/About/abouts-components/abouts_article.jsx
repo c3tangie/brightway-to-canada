@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TeamMember from './teamMember';
 import teamData from './teamData';
 import TeamMemberDetailModal from './TeamMemberDetailModal';
+import TeamTreeSection from './TeamTreeSection';
 import BannerImage from '../../../assets/about_us_assets/abouts_banner.jpg'; // Import banner image
 
 const Abouts_Article = () => {
@@ -47,6 +48,48 @@ const Abouts_Article = () => {
       member.categories && member.categories.includes(categoryId)
     ).length
   }
+
+  // Define hierarchy sections
+  const hierarchySections = [
+    {
+      id: 'founders',
+      title: 'Founders & Leadership',
+      description: 'The visionaries guiding Brightway to Canada',
+      icon: '👑',
+      color: 'bg-gradient-to-r from-navy-700 to-navy-900',
+      filterFn: (member) => member.hierarchyCategory === 'founders'
+    },
+    {
+      id: 'administration',
+      title: 'Administration & Operations',
+      description: 'Managing daily operations and client services',
+      icon: '⚙️',
+      color: 'bg-gradient-to-r from-navy-600 to-navy-800',
+      filterFn: (member) => member.hierarchyCategory === 'administration'
+    },
+    {
+      id: 'tutors',
+      title: 'Tutoring Team',
+      description: 'Expert instructors for academic success',
+      icon: '📚',
+      color: 'bg-gradient-to-r from-navy-500 to-navy-700',
+      filterFn: (member) => member.hierarchyCategory === 'tutors'
+    },
+    {
+      id: 'design',
+      title: 'Design & Creative',
+      description: 'Crafting engaging visual experiences',
+      icon: '🎨',
+      color: 'bg-gradient-to-r from-navy-600 to-navy-800',
+      filterFn: (member) => member.hierarchyCategory === 'design'
+    }
+  ];
+
+  // Group team members by hierarchy
+  const groupedTeam = {};
+  hierarchySections.forEach(section => {
+    groupedTeam[section.id] = teamData.filter(section.filterFn);
+  });
 
   return (
     <div className='font-RobotoFlex'>
@@ -112,71 +155,25 @@ const Abouts_Article = () => {
           </div>
         </section>
 
-        {/* Category Filter */}
-        <section className='mb-12'>
-          <h2 className='text-2xl font-semibold text-navy-700 mb-6 text-center'>
-            Filter by Expertise
-          </h2>
-          
-          {/* Category Filter Buttons */}
-          <div className='flex flex-wrap justify-center gap-3 mb-8'>
-            {categories.map(category => (
-              <button
-                key={category.id}
-                className={`
-                  relative inline-flex items-center gap-2 
-                  px-5 py-2.5 rounded-xl transition-all duration-300 
-                  ${activeFilter === category.id 
-                    ? 'bg-navy-600 text-white shadow-lg ring-2 ring-navy-400 ring-offset-2' 
-                    : 'bg-gray-100 text-navy-700 hover:bg-gray-200'
-                  }
-                `}
-                onClick={() => setActiveFilter(category.id)}
-              >
-                <span className="text-lg">{category.icon}</span>
-                <span className="font-medium">{category.label}</span>
-                <span className={`
-                  absolute -top-2 -right-2 px-2 py-1 rounded-full text-xs font-bold
-                  ${activeFilter === category.id 
-                    ? 'bg-white text-red-600' 
-                    : 'bg-red-50 text-red-700'
-                  }
-                `}>
-                  {getCategoryCount(category.id)}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          {/* Active Filter Info */}
-          {activeFilter !== 'all' && (
-            <div className='text-center mb-8'>
-              <p className='text-gray-600'>
-                Showing {filteredTeam.length} team member{filteredTeam.length !== 1 ? 's' : ''} in 
-                <span className='font-semibold text-navy-600'>
-                  {` ${categories.find(c => c.id === activeFilter)?.label}`}
-                </span>
-              </p>
-            </div>
-          )}
-        </section>
-
-        {/* Team Grid */}
+        {/* Team Hierarchy Tree */}
         <section className='mb-20'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
-            {filteredTeam.length > 0 ? (
-              filteredTeam.map(member => (
-                <TeamMember 
-                  key={member.id} 
-                  member={member}
-                  onViewDetails={() => handleOpenModal(member)}
-                />
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12">
-                <p className="text-gray-500 text-lg">No team members found in this category.</p>
-              </div>
-            )}
+          <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
+            Our Team Structure
+          </h2>
+
+          {/* Alternative: Simple stacked sections without tree visualization */}
+          <div className="space-y-16">
+            {hierarchySections.map(section => (
+              <TeamTreeSection
+                key={section.id}
+                title={section.title}
+                description={section.description}
+                icon={section.icon}
+                members={groupedTeam[section.id]}
+                onViewDetails={handleOpenModal}
+                color={section.color}
+              />
+            ))}
           </div>
         </section>
 

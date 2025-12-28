@@ -13,7 +13,9 @@ const teamData = [
     role: "Founder & CEO",
     image: lingImage,
     description: "Ling Wang is the founder and CEO of Brightway to Canada, a company dedicated to helping international students navigate the Canadian education system.",
-    categories: ["founder", "advising"]
+    categories: ["founder", "advising"],
+    hierarchyLevel: 1, // Add hierarchy level
+    hierarchyCategory: "founders" // Add hierarchy category
   },
   {
     id: 2,
@@ -21,7 +23,9 @@ const teamData = [
     role: "Technical Support",
     image: placeHolderImage,
     description: "Jonathan Tang.",
-    categories: ["development", "design"]
+    categories: ["development", "design"],
+    hierarchyLevel: 2,
+    hierarchyCategory: "administration"
   },
   {
     id: 3,
@@ -34,7 +38,9 @@ const teamData = [
     extended_bio: ["Jay Zang is a tutor and designer at Brightway to Canada, wearing multiple hats to support students from every angle. With a Bachelor's degree in Astronomy and currently completing a Master's degree in Information Systems, he brings not only fresh, up-to-date academic knowledge but also a deep understanding of how students interact with and navigate learning materials.",
       "In tutoring sessions for math and science (from Grade 8 through 12), Jay focuses on tailoring to individual goals, whether it's improving a grade, preparing for an exam, or overcoming a specific hurdle. Because he also helps shape the company's website and artistic assets, he has a unique perspective on creating clear, engaging, and effective educational experiences.",
       "Outside of his dual role in tutoring and design, Jay is also a video/photo editing hobbyist."
-    ]
+    ],
+    hierarchyLevel: 2,
+    hierarchyCategory: "administration"
   },
   {
     id: 4,
@@ -48,7 +54,9 @@ const teamData = [
       "Students who work with Peter often see significant improvement in their performance because he focuses on why things work, not just how to get the answers. His sessions are structured, supportive, and tailored to each student’s goals.",
       "Known for his quick wit, clear explanations, and student-centered teaching  style, Peter works with students from Grade 8 through first-year  university. Many have worked with him long-term and recommend him to  friends and family. His goal is simple: measurable progress, lasting  understanding, and students who feel capable on their own.",
       "When he isn’t working, he’s often powerlifting in the gym or concocting new recipes in the kitchen."
-    ]
+    ],
+    hierarchyLevel: 3,
+    hierarchyCategory: "tutors"
   },
   {
     id: 5,
@@ -58,7 +66,9 @@ const teamData = [
     description: "Don Standing.",
     categories: ["tutor"],
     tutor_expertise: ["Language (ESL)"],
-    extended_bio: ["Born and raised in Ottawa; BA (Hon) majoring in History from Queen's University (Kingston) 1979; B.Ed 1980 Queen's; M.Ed from University of Victoria 1990. Taught English, Social Studies and French at Revelstoke Secondary School (Revelstoke, BC) 1981-1989; taught English, Social Studies and French at Ballenas Secondary School (Parksville, BC) 1991-2016. English tutor 2017- present."]
+    extended_bio: ["Born and raised in Ottawa; BA (Hon) majoring in History from Queen's University (Kingston) 1979; B.Ed 1980 Queen's; M.Ed from University of Victoria 1990. Taught English, Social Studies and French at Revelstoke Secondary School (Revelstoke, BC) 1981-1989; taught English, Social Studies and French at Ballenas Secondary School (Parksville, BC) 1991-2016. English tutor 2017- present."],
+    hierarchyLevel: 3,
+    hierarchyCategory: "tutors"
   },
   {
     id: 6,
@@ -71,7 +81,9 @@ const teamData = [
     extended_bio: ["Kathryn Ellis Collins was raised in Toronto, Ontario, Canada. After High School, she moved to British Columbia where she graduated with a Masters Degree in Education. Now, after 30 years of teaching from kindergarten to grade 12, and six years teaching ESL, she is pursuing her lifelong dream of writing and illustrating children's books.",
     "Kathryn is motivated by this one core concept that change is constant but one's ability to adapt is a particular challenge we all have. Children especially are overwhelmed with making choices in addition to the constant technological bombardment of information. As parents and teachers, we hope to provide our children and students with meaningful experiences and a love of lifelong learning.",
     "In her first book, A Rainy Day, she addresses a simple problem of adapting to changes in the weather and finding a positive solution that will inspire and empower us all to grow from life's everyday experiences and setbacks while increasing in confidence, self-awareness and one's ability to adapt."
-    ]
+    ],
+    hierarchyLevel: 3,
+    hierarchyCategory: "tutors"
   },
   {
     id: 7,
@@ -80,7 +92,9 @@ const teamData = [
     image: rayImage,
     description: "Ray Beraska.",
     categories: ["tutor"],
-    tutor_expertise: ["Language (ESL)"]
+    tutor_expertise: ["Language (ESL)"],
+    hierarchyLevel: 3,
+    hierarchyCategory: "tutors"
   },
   {
     id: 8,
@@ -89,7 +103,9 @@ const teamData = [
     image: placeHolderImage,
     description: "Qi Zhu.",
     categories: ["design", "tutor"],
-    tutor_expertise: ["Language (Mandarin)"]
+    tutor_expertise: ["Language (Mandarin)"],
+    hierarchyLevel: 2,
+    hierarchyCategory: "design"
   }
 ];
 
