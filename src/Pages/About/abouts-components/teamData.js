@@ -1,6 +1,7 @@
 import placeHolderImage from './abouts-data/placeholder_img.jpg';
 import peterImage from './abouts-data/peter_prof_img2.jpg';
 import kathrynImage from './abouts-data/kathryn_prof_img2.jpg';
+import donImage from './abouts-data/don_prof_img2.jpg';
 
 const teamData = [
   {
@@ -51,10 +52,11 @@ const teamData = [
     id: 5,
     name: "Don Standing",
     role: "Professional English Instructor",
-    image: placeHolderImage,
+    image: donImage,
     description: "Don Standing.",
     categories: ["tutor"],
-    tutor_expertise: ["Language (ESL)"]
+    tutor_expertise: ["Language (ESL)"],
+    extended_bio: ["Born and raised in Ottawa; BA (Hon) majoring in History from Queen's University (Kingston) 1979; B.Ed 1980 Queen's; M.Ed from University of Victoria 1990. Taught English, Social Studies and French at Revelstoke Secondary School (Revelstoke, BC) 1981-1989; taught English, Social Studies and French at Ballenas Secondary School (Parksville, BC) 1991-2016. English tutor 2017- present."]
   },
   {
     id: 6,
