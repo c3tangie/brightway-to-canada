@@ -79,7 +79,7 @@ function WF_App() {
   };
 
   return (
-    <div class="flex items-center min-h-screen bg-gray-300 dark:bg-gray-900">
+    <div class="flex items-center min-h-screen bg-gray-300">
       <div class="container mx-auto">
         <div class="max-w-3xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
           <div class="text-center">

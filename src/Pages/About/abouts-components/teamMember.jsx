@@ -5,10 +5,10 @@ const categoryConfig = {
   'founder': { label: 'Founder', color: 'bg-navy-100 text-navy-800', icon: '👑' },
   'development': { label: 'Developer', color: 'bg-navy-100 text-navy-800', icon: '💻' },
   'design': { label: 'Designer', color: 'bg-navy-100 text-navy-800', icon: '🎨' },
-  'marketing': { label: 'Marketing', color: 'bg-red-50 text-red-700', icon: '📢' },
-  'it-support': { label: 'IT Support', color: 'bg-navy-100 text-navy-800', icon: '🔧' },
-  'content': { label: 'Content', color: 'bg-red-50 text-red-700', icon: '✍️' },
-  'tutor': { label: 'Tutor', color: 'bg-gray-100 text-gray-800', icon: '📖' }
+  // 'marketing': { label: 'Marketing', color: 'bg-red-50 text-red-700', icon: '📢' },
+  'advising': { label: 'Advising', color: 'bg-navy-100 text-navy-800', icon: '💡' },
+  // 'content': { label: 'Content', color: 'bg-red-50 text-red-700', icon: '✍️' },
+  'tutor': { label: 'Tutor', color: 'bg-gray-100 text-gray-800', icon: '📚' }
 };
 
 const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
@@ -40,7 +40,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
 
         {/* Category count badge */}
         {member.categories && member.categories.length > 0 && (
-          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-semibold text-navy-800 border border-navy-200">
+          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 text-sm font-semibold text-navy-800 border border-navy-200">
             {member.categories.length} role{member.categories.length > 1 ? 's' : ''}
           </div>
         )}
@@ -60,7 +60,7 @@ const TeamMember = ({ member, onViewDetails }) => { // Add onViewDetails prop
               return (
                 <span
                   key={categoryId}
-                  className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${config.color} border border-navy-200`}
+                  className={`inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-medium ${config.color} border border-navy-200`}
                 >
                   <span>{config.icon}</span>
                   {config.label}
