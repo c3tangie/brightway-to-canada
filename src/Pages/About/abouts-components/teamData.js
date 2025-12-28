@@ -1,9 +1,10 @@
-import placeHolderImage from './abouts-data/placeholder_img.jpg';
-import peterImage from './abouts-data/peter_prof_img2.jpg';
-import kathrynImage from './abouts-data/kathryn_prof_img2.jpg';
-import donImage from './abouts-data/don_prof_img2.jpg';
-import rayImage from './abouts-data/ray_prof_img2.jpg';
-import lingImage from './abouts-data/don_prof_img2.jpg';
+
+import placeHolderImage from '../../../assets/about_us_assets/placeholder_img.jpg';
+import peterImage from '../../../assets/about_us_assets/peter_prof_img2.jpg';
+import kathrynImage from '../../../assets/about_us_assets/kathryn_prof_img2.jpg';
+import donImage from '../../../assets/about_us_assets/don_prof_img2.jpg';
+import rayImage from '../../../assets/about_us_assets/ray_prof_img2.jpg';
+import lingImage from '../../../assets/about_us_assets/ling_prof_img2.jpg';
 
 const teamData = [
   {
@@ -12,8 +13,7 @@ const teamData = [
     role: "Founder & CEO",
     image: lingImage,
     description: "Ling Wang is the founder and CEO of Brightway to Canada, a company dedicated to helping international students navigate the Canadian education system.",
-    categories: ["founder", "advising", "tutor"],
-    tutor_expertise: ["Language (Mandarin)"]
+    categories: ["founder", "advising"]
   },
   {
     id: 2,

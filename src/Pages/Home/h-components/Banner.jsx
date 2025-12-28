@@ -106,14 +106,14 @@ const Banner = () => {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
        {/* Content Container */}
-      <div className="absolute inset-0 flex items-center justify-center px-4 z-10">
-        <div className="text-center max-w-6xl mx-auto">
+      <div className="absolute inset-0 flex flex-col sm:items-center justify-start sm:justify-center px-4 z-10 pt-16 sm:pt-0">
+        <div className="text-center max-w-6xl mx-auto mt-20 sm:mt-0">
           {/* Headline */}
           <h1
-            className={`text-white text-3xl sm:text-4xl lg:text-6xl font-outfit font-bold
-                        flex gap-4 justify-center items-center
+            className={`text-white text-4xl sm:text-4xl lg:text-6xl font-outfit font-bold
+                        flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center
                         transition-all duration-700 ease-out will-change-transform
-                        ${showSlogan ? 'translate-y-16' : '-translate-y-3'}`}
+                        ${showSlogan ? 'translate-y-16 sm:translate-y-20' : '-translate-y-8 sm:translate-y-12'}`}
           >
             <span className={showSlogan ? 'opacity-0 animate-slogan-part1-slow' : ''}>
               YOUR FUTURE,
@@ -124,7 +124,7 @@ const Banner = () => {
           </h1>
 
           {/* Reserved space for paragraph to avoid jump */}
-          <div className="relative h-32 mt-4">
+          <div className="relative h-32 mt-8 sm:mt-20">
             {/* absolutely stacked; key forces re-run of fade-in per slide */}
             {!showSlogan && bannerContent[currentSlide].text && (
               <p

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TeamMember from './teamMember';
 import teamData from './teamData';
 import TeamMemberDetailModal from './TeamMemberDetailModal';
-import BannerImage from './abouts-data/abouts_banner.jpg'; // Import banner image
+import BannerImage from '../../../assets/about_us_assets/abouts_banner.jpg'; // Import banner image
 
 const Abouts_Article = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -152,9 +152,9 @@ const Abouts_Article = () => {
           {activeFilter !== 'all' && (
             <div className='text-center mb-8'>
               <p className='text-gray-600'>
-                Showing {filteredTeam.length} team member{filteredTeam.length !== 1 ? 's' : ''} 
-                in <span className='font-semibold text-navy-600'>
-                  {categories.find(c => c.id === activeFilter)?.label}
+                Showing {filteredTeam.length} team member{filteredTeam.length !== 1 ? 's' : ''} in 
+                <span className='font-semibold text-navy-600'>
+                  {` ${categories.find(c => c.id === activeFilter)?.label}`}
                 </span>
               </p>
             </div>
@@ -163,7 +163,7 @@ const Abouts_Article = () => {
 
         {/* Team Grid */}
         <section className='mb-20'>
-          <div className='grid grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
             {filteredTeam.length > 0 ? (
               filteredTeam.map(member => (
                 <TeamMember 
