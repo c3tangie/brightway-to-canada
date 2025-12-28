@@ -6,7 +6,7 @@ const categoryConfig = {
   'development': { label: 'Developer', color: 'bg-navy-100 text-navy-800', icon: '💻' },
   'design': { label: 'Designer', color: 'bg-navy-100 text-navy-800', icon: '🎨' },
   // 'marketing': { label: 'Marketing', color: 'bg-red-50 text-red-700', icon: '📢' },
-  'advising': { label: 'Advising', color: 'bg-navy-100 text-navy-800', icon: '💡' },
+  'advising': { label: 'Advising', color: 'bg-gray-100 text-gray-800', icon: '💡' },
   // 'content': { label: 'Content', color: 'bg-red-50 text-red-700', icon: '✍️' },
   'tutor': { label: 'Tutor', color: 'bg-gray-100 text-gray-800', icon: '📚' }
 };
