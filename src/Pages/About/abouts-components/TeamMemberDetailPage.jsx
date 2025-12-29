@@ -209,6 +209,21 @@ const TeamMemberDetailPage = () => {
                       </div>
                     </div>
                   )}
+
+                  {/* Extended Expertise - NEW SECTION */}
+                  {member.extended_expertise && member.extended_expertise.length > 0 && (
+                    <div className="mb-8">
+                      <h3 className="text-lg font-semibold text-navy-800 mb-3">Additional Expertise</h3>
+                      <div className="space-y-2">
+                        {member.extended_expertise.map((expertise, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            <span className="text-navy-600">★</span>
+                            <span className="text-gray-700">{expertise}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Right Column - Bio */}

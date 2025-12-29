@@ -27,7 +27,8 @@ const teamData = [
     description: "Jonathan Tang.",
     categories: ["development", "design"],
     hierarchyLevel: 5,
-    hierarchyCategory: "administration"
+    hierarchyCategory: "administration",
+    extended_expertise: ["Video Editing", "Graphic Design"]
   },
   {
     id: 3,
@@ -43,7 +44,8 @@ const teamData = [
       "Outside of his dual role in tutoring and design, Jay is also a video/photo editing hobbyist."
     ],
     hierarchyLevel: 3,
-    hierarchyCategory: "tutor_stem"
+    hierarchyCategory: "tutor_stem",
+    extended_expertise: ["Video Editing", "Graphic Design"]
   },
   {
     id: 4,
@@ -94,7 +96,8 @@ const teamData = [
     "When she isn’t teaching, Kathryn is immersed in her parallel passion: writing and illustrating children’s books, where she continues to explore the beautiful intersection of story and image."
     ],
     hierarchyLevel: 2,
-    hierarchyCategory: "tutor_lang"
+    hierarchyCategory: "tutor_lang",
+    extended_expertise: ["Arts (Visual Arts)", "Children's Literature"]
   },
   {
     id: 7,
@@ -118,7 +121,8 @@ const teamData = [
     categories: ["design", "tutor_lang"],
     tutor_expertise: ["Language (Mandarin)"],
     hierarchyLevel: 4,
-    hierarchyCategory: "design"
+    hierarchyCategory: "design",
+    extended_expertise: ["Content Creation"]
   }
 ];
 
