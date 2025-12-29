@@ -8,7 +8,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
     <section className="mb-16">
       {/* Minimal Centered Header */}
       <div className="text-center mb-10">
-        {icon && <span className="text-4xl mb-4 inline-block">{icon}</span>}
+        {/* {icon && <span className="text-4xl mb-4 inline-block">{icon}</span>} */}
         <h2 className="text-3xl font-bold text-navy-800 mb-3">{title}</h2>
         {description && (
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">{description}</p>
@@ -59,14 +59,14 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                 )}
                 
                 {/* Optional: You can keep a simple "View Profile" link if needed */}
-                <div className="mt-auto pt-4 border-t border-gray-100 text-center">
+                {/* <div className="mt-auto pt-4 border-t border-gray-100 text-center">
                   <Link
                     to={`/team/${member.id}`}
                     className="inline-block px-4 py-2 text-sm font-medium text-navy-600 hover:text-navy-800 hover:bg-navy-50 rounded-lg transition-colors"
                   >
                     View Full Profile →
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
