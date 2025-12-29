@@ -1,17 +1,17 @@
-// TeamMemberDetailPage.jsx - Updated Related Members Section
-import React, { useEffect } from 'react'; // Add useEffect import
+// TeamMemberDetailPage.jsx - Updated with Side-by-Side Layout
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import teamData from './teamData';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
 const TeamMemberDetailPage = () => {
-  const { memberSlug } = useParams(); // Changed from memberId to memberSlug
-  const member = teamData.find(m => m.slug === memberSlug); // Changed to find by slug
+  const { memberSlug } = useParams();
+  const member = teamData.find(m => m.slug === memberSlug);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [memberSlug]); // Changed dependency
+  }, [memberSlug]);
 
   if (!member) {
     return (
@@ -26,46 +26,37 @@ const TeamMemberDetailPage = () => {
     );
   }
 
-  // Filter related members based on shared categories
   const getRelatedMembers = () => {
     if (!member.categories || member.categories.length === 0) {
-      // If member has no categories, show other members with similar roles
       return teamData
         .filter(m => m.slug !== member.slug)
         .slice(0, 3);
     }
 
-    // Find members who share at least one category with the current member
     const relatedMembers = teamData.filter(otherMember => {
       if (otherMember.slug === member.slug) return false;
       
-      // Check if they share any categories
       if (otherMember.categories && member.categories) {
         return otherMember.categories.some(category => 
           member.categories.includes(category)
         );
       }
       
-      // Fallback: check hierarchy category
       return otherMember.hierarchyCategory === member.hierarchyCategory;
     });
 
-    // Sort by hierarchy level or name if needed
     return relatedMembers
       .sort((a, b) => {
-        // First sort by hierarchy level (if available)
         if (a.hierarchyLevel && b.hierarchyLevel) {
           return a.hierarchyLevel - b.hierarchyLevel;
         }
-        // Then sort by name
         return a.name.localeCompare(b.name);
       })
-      .slice(0, 3); // Limit to 3 members
+      .slice(0, 3);
   };
 
   const relatedMembers = getRelatedMembers();
 
-  // Get section title based on member's primary category
   const getRelatedSectionTitle = () => {
     if (!member.categories || member.categories.length === 0) {
       return 'Other Team Members';
@@ -103,22 +94,50 @@ const TeamMemberDetailPage = () => {
         {/* Member Content */}
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            {/* Hero Section */}
-            <div className="relative h-64 md:h-96">
-              <img 
-                src={member.image} 
-                alt={member.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-8 left-8 text-white">
-                <h1 className="text-4xl md:text-5xl font-bold mb-2">{member.name}</h1>
-                <p className="text-xl opacity-90">{member.role}</p>
+            {/* Hero Section - Updated */}
+            <div className="p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-start gap-8">
+                {/* Left: Square Profile Photo */}
+                <div className="flex-shrink-0 mx-auto md:mx-0">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover shadow-lg"
+                  />
+                </div>
+
+                {/* Right: Text Details */}
+                <div className="flex-1">
+                  <h1 className="text-4xl md:text-5xl font-bold text-navy-800 mb-3">
+                    {member.name}
+                  </h1>
+                  <p className="text-2xl text-gray-700 mb-6">{member.role}</p>
+
+                  {member.tagline && (
+                    <p className="text-lg text-gray-600 mb-6">{member.tagline}</p>
+                  )}
+
+                  <div className="flex flex-wrap gap-4">
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-navy-100 text-navy-800 rounded-lg hover:bg-navy-200"
+                      >
+                        ✉️ Email
+                      </a>
+                    )}
+                    {member.phone && (
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-800 rounded-lg">
+                        📱 {member.phone}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Details Section */}
-            <div className="p-8 md:p-12">
+            <div className="p-8 md:p-12 pt-0">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Column - Basic Info */}
                 <div className="lg:col-span-1">
@@ -128,7 +147,6 @@ const TeamMemberDetailPage = () => {
                       <h3 className="text-lg font-semibold text-navy-800 mb-3">Roles</h3>
                       <div className="flex flex-wrap gap-2">
                         {member.categories.map(category => {
-                          // You can add category labels here if needed
                           const categoryLabels = {
                             'founder': '👑 Founder',
                             'development': '💻 Developer',
@@ -163,22 +181,6 @@ const TeamMemberDetailPage = () => {
                       </div>
                     </div>
                   )}
-
-                  {/* Contact Info */}
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-navy-800">Contact</h3>
-                    {member.email && (
-                      <a 
-                        href={`mailto:${member.email}`}
-                        className="block text-navy-600 hover:text-navy-800 hover:underline"
-                      >
-                        ✉️ {member.email}
-                      </a>
-                    )}
-                    {member.phone && (
-                      <p className="text-gray-700">📱 {member.phone}</p>
-                    )}
-                  </div>
                 </div>
 
                 {/* Right Column - Bio */}
@@ -237,7 +239,7 @@ const TeamMemberDetailPage = () => {
               </div>
             </div>
 
-            {/* Related Members - UPDATED */}
+            {/* Related Members */}
             {relatedMembers.length > 0 && (
               <div className="border-t border-gray-200 p-8">
                 <h3 className="text-xl font-semibold text-navy-800 mb-6">
