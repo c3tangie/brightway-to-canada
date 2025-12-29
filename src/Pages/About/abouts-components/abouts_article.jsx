@@ -163,18 +163,27 @@ const Abouts_Article = () => {
           </h2>
 
           {/* Alternative: Simple stacked sections without tree visualization */}
-          <div className="space-y-16">
-            {hierarchySections.map(section => (
-              <TeamTreeSection
-                key={section.id}
-                title={section.title}
-                description={section.description}
-                icon={section.icon}
-                members={groupedTeam[section.id]}
-                onViewDetails={handleOpenModal}
-                color={section.color}
-              />
-            ))}
+          <div className="space-y-16 flex flex-col items-center"> {/* Add flexbox centering */}
+            {hierarchySections.map(section => {
+              // Filter members for this section
+              const sectionMembers = teamData.filter(section.filterFn);
+              
+              // Only render section if there are members
+              if (sectionMembers.length === 0) return null;
+              
+              return (
+                <div key={section.id} className="w-full"> {/* Wrap in a container */}
+                  <TeamTreeSection
+                    title={section.title}
+                    description={section.description}
+                    icon={section.icon}
+                    members={sectionMembers}
+                    onViewDetails={handleOpenModal}
+                    color={section.color}
+                  />
+                </div>
+              );
+            })}
           </div>
         </section>
 

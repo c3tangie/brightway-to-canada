@@ -1,14 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) => {
+  const [shouldCenter, setShouldCenter] = useState(false);
+  const containerRef = useRef(null);
+
   if (!members || members.length === 0) return null;
+
+  // Sort members alphabetically by name
+  const sortedMembers = [...members].sort((a, b) => 
+    a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+  );
+
+  // Check if all cards fit in the viewport
+  useEffect(() => {
+    const checkIfShouldCenter = () => {
+      if (containerRef.current && sortedMembers.length > 0) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const totalCardsWidth = sortedMembers.length * 288; // 288px per card
+        const gapWidth = (sortedMembers.length - 1) * 32; // 32px gap (gap-8 = 2rem = 32px)
+        const totalWidth = totalCardsWidth + gapWidth;
+        
+        // Center only if all cards fit in the container
+        setShouldCenter(totalWidth <= containerWidth);
+      }
+    };
+
+    checkIfShouldCenter();
+    window.addEventListener('resize', checkIfShouldCenter);
+    
+    return () => window.removeEventListener('resize', checkIfShouldCenter);
+  }, [sortedMembers.length]); // Updated dependency
 
   return (
     <section className="mb-16">
       {/* Minimal Centered Header */}
       <div className="text-center mb-10">
-        {/* {icon && <span className="text-4xl mb-4 inline-block">{icon}</span>} */}
         <h2 className="text-3xl font-bold text-navy-800 mb-3">{title}</h2>
         {description && (
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">{description}</p>
@@ -16,13 +43,15 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
       </div>
 
       {/* Horizontal Scrollable Members */}
-      <div className="relative">
-        {/* Scrollable Container */}
-        <div className="flex gap-8 pb-6 overflow-x-auto scroll-smooth scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent px-4">
-          {members.map(member => (
+      <div className="relative" ref={containerRef}>
+        {/* Conditionally apply justify-center */}
+        <div className={`flex gap-8 pb-6 overflow-x-auto scroll-smooth scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent px-4 ${
+          shouldCenter ? 'justify-center' : ''
+        }`}>
+          {sortedMembers.map(member => ( // Use sortedMembers here
             <div 
               key={member.id} 
-              className="flex-shrink-0 w-72" // Fixed width for consistent cards
+              className="flex-shrink-0 w-72"
             >
               {/* Clean Member Card */}
               <div className="bg-white rounded-xl p-5 transition-all h-full flex flex-col">
@@ -43,37 +72,13 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                     {member.role}
                   </p>
                 </Link>
-                
-                {/* Categories Tags (centered) */}
-                {/* {member.categories && member.categories.length > 0 && (
-                  <div className="flex flex-wrap justify-center gap-2 mb-5">
-                    {member.categories.slice(0, 3).map(category => (
-                      <span
-                        key={category}
-                        className="px-3 py-1 text-xs font-medium bg-gray-50 text-gray-700 rounded-full border border-gray-200"
-                      >
-                        {category}
-                      </span>
-                    ))}
-                  </div>
-                )} */}
-                
-                {/* Optional: You can keep a simple "View Profile" link if needed */}
-                {/* <div className="mt-auto pt-4 border-t border-gray-100 text-center">
-                  <Link
-                    to={`/team/${member.id}`}
-                    className="inline-block px-4 py-2 text-sm font-medium text-navy-600 hover:text-navy-800 hover:bg-navy-50 rounded-lg transition-colors"
-                  >
-                    View Full Profile →
-                  </Link>
-                </div> */}
               </div>
             </div>
           ))}
         </div>
         
-        {/* Simple scroll hint */}
-        {members.length > 3 && (
+        {/* Simple scroll hint - only show when NOT centered (when scrolling is needed) */}
+        {!shouldCenter && sortedMembers.length > 0 && ( // Use sortedMembers here
           <div className="text-center mt-4">
             <span className="text-sm text-gray-400 inline-flex items-center gap-2">
               <span className="hidden sm:inline">← Scroll horizontally →</span>
