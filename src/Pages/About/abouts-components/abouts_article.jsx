@@ -135,7 +135,7 @@ const Abouts_Article = () => {
         
         {/* Company Story */}
         <section className='mb-12 pt-12'>
-          <h2 className='text-3xl font-bold text-navy-800 mb-6 text-center'>
+          <h2 className='text-5xl font-bold text-navy-800 mb-6 text-center'>
             Our Story
           </h2>
           <div className='space-y-6 text-gray-700 max-w-8xl mx-auto'>
@@ -158,7 +158,7 @@ const Abouts_Article = () => {
 
         {/* Team Hierarchy Tree */}
         <section className='mb-20'>
-          <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
+          <h2 className='text-5xl font-bold text-navy-800 mb-8 text-center'>
             Our Team Structure
           </h2>
 
@@ -197,7 +197,9 @@ const Abouts_Article = () => {
           {(() => {
             const tutorMembers = teamData.filter(member => 
               member.categories && member.categories.includes('tutor')
-            );
+            ).sort((a, b) => 
+        a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+      );
             
             if (tutorMembers.length === 0) {
               return (
