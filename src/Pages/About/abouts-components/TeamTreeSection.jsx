@@ -17,8 +17,8 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
     const checkIfShouldCenter = () => {
       if (containerRef.current && sortedMembers.length > 0) {
         const containerWidth = containerRef.current.offsetWidth;
-        const totalCardsWidth = sortedMembers.length * 256; // 256px per card
-        const gapWidth = (sortedMembers.length - 1) * 32; // 32px gap (gap-8 = 2rem = 32px)
+        const totalCardsWidth = sortedMembers.length * 60 * 4; // widths per card 
+        const gapWidth = (sortedMembers.length - 1) * 2 * 4; // 32px gap (gap-8 = 2rem = 32px)
         const totalWidth = totalCardsWidth + gapWidth;
         
         // Center only if all cards fit in the container
@@ -51,10 +51,10 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
           {sortedMembers.map(member => ( // Use sortedMembers here
             <div 
               key={member.id} 
-              className="flex-shrink-0 w-64"
+              className="flex-shrink-0 w-60"
             >
               {/* Clean Member Card */}
-              <div className="bg-white rounded-xl p-5 transition-all h-full flex flex-col">
+              <div className="bg-white rounded-xl p-5 transition-all h-full border flex flex-col">
                 {/* Avatar & Basic Info - MADE CLICKABLE */}
                 <Link 
                   to={`/team/${member.slug}`}
