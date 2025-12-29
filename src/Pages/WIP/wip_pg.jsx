@@ -22,7 +22,6 @@ const WIPPg = ({ showNavbar = true, showFooter = true }) => {
         </div>
         <div className="h-40 sm:h-52"></div>  
         {showFooter && <Footer />}
-        
     </div>
   )
 }
