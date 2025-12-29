@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import BackToTop from '../../components/BackToTopButton';
 
 const WIPPg = ({ showNavbar = true, showFooter = true }) => {
   return (
@@ -21,7 +22,9 @@ const WIPPg = ({ showNavbar = true, showFooter = true }) => {
           </div>
         </div>
         <div className="h-40 sm:h-52"></div>  
+        <BackToTop />
         {showFooter && <Footer />}
+        
     </div>
   )
 }
