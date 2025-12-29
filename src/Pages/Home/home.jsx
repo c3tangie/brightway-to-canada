@@ -4,6 +4,7 @@ import Banner from './h-components/Banner'
 import Article from './h-components/Article'
 import Buttons from './h-components/Buttons'
 import Footer from '../../components/Footer'
+import BackToTop from '../../components/BackToTopButton';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <Banner />
         <Article />
         <Buttons />
+        {/* <BackToTop /> */}
         <Footer />
     </div>
   )
