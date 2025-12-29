@@ -20,20 +20,20 @@ const Abouts_Article_Teams = () => {
       filterFn: (member) => member.hierarchyCategory === 'founders'
     },
     {
-      id: 'tutors',
+      id: 'tutor_lang',
       title: 'Language Instructor Team',
       description: 'Expert instructors for academic success',
       icon: '📚',
       color: 'bg-gradient-to-r from-navy-500 to-navy-700',
-      filterFn: (member) => member.hierarchyCategory === 'tutors'
+      filterFn: (member) => member.hierarchyCategory === 'tutor_lang'
     },
     {
-      id: 'tutors_stem',
+      id: 'tutor_stem',
       title: 'STEM Instructor Team',
       description: 'Expert instructors for academic success',
       icon: '📚',
       color: 'bg-gradient-to-r from-navy-500 to-navy-700',
-      filterFn: (member) => member.hierarchyCategory === 'tutors_stem'
+      filterFn: (member) => member.hierarchyCategory === 'tutor_stem'
     },
     {
       id: 'design',
@@ -129,7 +129,7 @@ const Abouts_Article_Teams = () => {
           {(() => {
             const tutorMembers = teamData.filter(member => 
               member.categories && (
-                member.categories.includes('tutor') || 
+                member.categories.includes('tutor_lang') || 
                 member.categories.includes('tutor_stem')  // Add this
               )
             ).sort((a, b) => 
