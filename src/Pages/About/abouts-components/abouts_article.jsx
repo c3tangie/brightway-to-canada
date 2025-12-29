@@ -59,14 +59,7 @@ const Abouts_Article = () => {
       color: 'bg-gradient-to-r from-navy-700 to-navy-900',
       filterFn: (member) => member.hierarchyCategory === 'founders'
     },
-    {
-      id: 'administration',
-      title: 'Administration & Operations',
-      description: 'Managing daily operations and client services',
-      icon: '⚙️',
-      color: 'bg-gradient-to-r from-navy-600 to-navy-800',
-      filterFn: (member) => member.hierarchyCategory === 'administration'
-    },
+    
     {
       id: 'tutors',
       title: 'Tutoring Team',
@@ -82,6 +75,14 @@ const Abouts_Article = () => {
       icon: '🎨',
       color: 'bg-gradient-to-r from-navy-600 to-navy-800',
       filterFn: (member) => member.hierarchyCategory === 'design'
+    },
+    {
+      id: 'administration',
+      title: 'Administration & Operations',
+      description: 'Managing daily operations and client services',
+      icon: '⚙️',
+      color: 'bg-gradient-to-r from-navy-600 to-navy-800',
+      filterFn: (member) => member.hierarchyCategory === 'administration'
     }
   ];
 

@@ -34,7 +34,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md mb-4 hover:opacity-90 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-md mb-4 hover:opacity-90 transition-all duration-300 hover:scale-105 cursor-pointer"
                   />
                   <h3 className="font-bold text-xl text-navy-800 hover:text-navy-900">
                     {member.name}
@@ -45,7 +45,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                 </Link>
                 
                 {/* Categories Tags (centered) */}
-                {member.categories && member.categories.length > 0 && (
+                {/* {member.categories && member.categories.length > 0 && (
                   <div className="flex flex-wrap justify-center gap-2 mb-5">
                     {member.categories.slice(0, 3).map(category => (
                       <span
@@ -56,7 +56,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                       </span>
                     ))}
                   </div>
-                )}
+                )} */}
                 
                 {/* Optional: You can keep a simple "View Profile" link if needed */}
                 {/* <div className="mt-auto pt-4 border-t border-gray-100 text-center">

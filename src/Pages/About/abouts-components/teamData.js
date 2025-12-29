@@ -26,7 +26,7 @@ const teamData = [
     image: placeHolderImage,
     description: "Jonathan Tang.",
     categories: ["development", "design"],
-    hierarchyLevel: 2,
+    hierarchyLevel: 4,
     hierarchyCategory: "administration"
   },
   {
@@ -43,7 +43,7 @@ const teamData = [
       "Outside of his dual role in tutoring and design, Jay is also a video/photo editing hobbyist."
     ],
     hierarchyLevel: 2,
-    hierarchyCategory: "administration"
+    hierarchyCategory: "tutors"
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ const teamData = [
       "Known for his quick wit, clear explanations, and student-centered teaching  style, Peter works with students from Grade 8 through first-year  university. Many have worked with him long-term and recommend him to  friends and family. His goal is simple: measurable progress, lasting  understanding, and students who feel capable on their own.",
       "When he isn’t working, he’s often powerlifting in the gym or concocting new recipes in the kitchen."
     ],
-    hierarchyLevel: 3,
+    hierarchyLevel: 2,
     hierarchyCategory: "tutors"
   },
   {
@@ -72,7 +72,7 @@ const teamData = [
     categories: ["tutor"],
     tutor_expertise: ["Language (ESL)"],
     extended_bio: ["Born and raised in Ottawa; BA (Hon) majoring in History from Queen's University (Kingston) 1979; B.Ed 1980 Queen's; M.Ed from University of Victoria 1990. Taught English, Social Studies and French at Revelstoke Secondary School (Revelstoke, BC) 1981-1989; taught English, Social Studies and French at Ballenas Secondary School (Parksville, BC) 1991-2016. English tutor 2017- present."],
-    hierarchyLevel: 3,
+    hierarchyLevel: 2,
     hierarchyCategory: "tutors"
   },
   {
@@ -88,7 +88,7 @@ const teamData = [
     "Kathryn is motivated by this one core concept that change is constant but one's ability to adapt is a particular challenge we all have. Children especially are overwhelmed with making choices in addition to the constant technological bombardment of information. As parents and teachers, we hope to provide our children and students with meaningful experiences and a love of lifelong learning.",
     "In her first book, A Rainy Day, she addresses a simple problem of adapting to changes in the weather and finding a positive solution that will inspire and empower us all to grow from life's everyday experiences and setbacks while increasing in confidence, self-awareness and one's ability to adapt."
     ],
-    hierarchyLevel: 3,
+    hierarchyLevel: 2,
     hierarchyCategory: "tutors"
   },
   {
@@ -100,7 +100,7 @@ const teamData = [
     description: "Ray Beraska.",
     categories: ["tutor"],
     tutor_expertise: ["Language (ESL)"],
-    hierarchyLevel: 3,
+    hierarchyLevel: 2,
     hierarchyCategory: "tutors"
   },
   {
@@ -112,7 +112,7 @@ const teamData = [
     description: "Qi Zhu.",
     categories: ["design", "tutor"],
     tutor_expertise: ["Language (Mandarin)"],
-    hierarchyLevel: 2,
+    hierarchyLevel: 3,
     hierarchyCategory: "design"
   }
 ];
