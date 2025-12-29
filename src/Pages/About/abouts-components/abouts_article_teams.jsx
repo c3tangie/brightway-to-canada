@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import TeamMember from './teamMember';
 import teamData from './teamData';
 import TeamMemberDetailModal from './TeamMemberDetailModal';
 import TeamTreeSection from './TeamTreeSection';
 import BannerImage from '../../../assets/about_us_assets/abouts_banner.jpg'; // Import banner image
 
-const Abouts_Article = () => {
+const Abouts_Article_Teams = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedMember, setSelectedMember] = useState(null);
   const [showDetailModal, setShowDetailModal] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+  
   // Function to handle opening modal
   const handleOpenModal = (member) => {
     setSelectedMember(member);
@@ -59,14 +64,21 @@ const Abouts_Article = () => {
       color: 'bg-gradient-to-r from-navy-700 to-navy-900',
       filterFn: (member) => member.hierarchyCategory === 'founders'
     },
-    
     {
       id: 'tutors',
-      title: 'Tutoring Team',
+      title: 'Language Instructor Team',
       description: 'Expert instructors for academic success',
       icon: '📚',
       color: 'bg-gradient-to-r from-navy-500 to-navy-700',
       filterFn: (member) => member.hierarchyCategory === 'tutors'
+    },
+    {
+      id: 'tutors_stem',
+      title: 'STEM Instructor Team',
+      description: 'Expert instructors for academic success',
+      icon: '📚',
+      color: 'bg-gradient-to-r from-navy-500 to-navy-700',
+      filterFn: (member) => member.hierarchyCategory === 'tutors_stem'
     },
     {
       id: 'design',
@@ -131,36 +143,10 @@ const Abouts_Article = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6' id="team-section">
-        
-        {/* Company Story */}
-        <section className='mb-12 pt-12'>
-          <h2 className='text-5xl font-bold text-navy-800 mb-6 text-center'>
-            Our Story
-          </h2>
-          <div className='space-y-6 text-gray-700 max-w-8xl mx-auto'>
-            <p className='text-lg leading-relaxed'>
-              Brightway to Canada was founded with a simple yet powerful vision: 
-              to make the Canadian dream accessible to everyone. What started as 
-              a small consultancy has grown into a comprehensive immigration 
-              services provider, helping thousands of individuals and families 
-              successfully navigate their path to Canada.
-            </p>
-            <p className='text-lg leading-relaxed'>
-              Our team combines decades of immigration law expertise with 
-              cutting-edge technology to provide personalized, efficient, 
-              and successful immigration solutions. We believe in building 
-              lasting relationships with our clients, guiding them through 
-              every step of their journey.
-            </p>
-          </div>
-        </section>
+      <div className='mt-16 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6' id="team-section">
 
         {/* Team Hierarchy Tree */}
         <section className='mb-20'>
-          <h2 className='text-5xl font-bold text-navy-800 mb-8 text-center'>
-            Our Team Structure
-          </h2>
 
           {/* Alternative: Simple stacked sections without tree visualization */}
           <div className="space-y-16 flex flex-col items-center"> {/* Add flexbox centering */}
@@ -198,8 +184,8 @@ const Abouts_Article = () => {
             const tutorMembers = teamData.filter(member => 
               member.categories && member.categories.includes('tutor')
             ).sort((a, b) => 
-        a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
-      );
+              a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+            );
             
             if (tutorMembers.length === 0) {
               return (
@@ -231,7 +217,12 @@ const Abouts_Article = () => {
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-navy-50">
-                      <th className="p-4 text-left border border-gray-200 text-navy-800">Tutor</th>
+                      {/* Member column with fixed width */}
+                      <th className="p-4 text-left border border-gray-200 text-navy-800 min-w-[200px] w-[200px]">
+                        Tutor
+                      </th>
+                      
+                      {/* Expertise columns with consistent minimum widths */}
                       {uniqueExpertise.map(expertise => {
                         let icon = '📚';
                         if (expertise.toLowerCase().includes('language') || expertise.toLowerCase().includes('mandarin') || expertise.toLowerCase().includes('chinese') || expertise.toLowerCase().includes('esl')) {
@@ -243,10 +234,15 @@ const Abouts_Article = () => {
                         }
                         
                         return (
-                          <th key={expertise} className="p-4 text-center border border-gray-200">
+                          <th 
+                            key={expertise} 
+                            className="p-4 text-center border border-gray-200 min-w-[100px]"
+                          >
                             <div className="flex flex-col items-center">
                               <span className="text-xl mb-1">{icon}</span>
-                              <span className="text-sm font-medium text-navy-700">{expertise}</span>
+                              <span className="text-sm font-medium text-navy-700">
+                                {expertise}
+                              </span>
                             </div>
                           </th>
                         );
@@ -256,21 +252,31 @@ const Abouts_Article = () => {
                   <tbody>
                     {tutorMembers.map(member => (
                       <tr key={member.id} className="border-b border-gray-200 hover:bg-navy-50/30">
-                        <td className="p-4 border border-gray-200">
-                          <div className="flex items-center gap-3">
+                        {/* Fixed-width member cell with text wrapping */}
+                        <td className="p-4 border border-gray-200 min-w-[200px] w-[200px] align-top">
+                          <div className="flex items-start gap-3">
                             <img 
                               src={member.image} 
                               alt={member.name}
-                              className="w-10 h-10 rounded-full object-cover border-2 border-navy-100"
+                              className="w-10 h-10 rounded-full object-cover border-2 border-navy-100 flex-shrink-0 mt-1"
                             />
-                            <div>
-                              <p className="font-semibold text-navy-800">{member.name}</p>
-                              <p className="text-sm text-gray-600">{member.role}</p>
+                            <div className="overflow-hidden flex-1">
+                              <p className="font-semibold text-navy-800 mb-1 break-words">
+                                {member.name}
+                              </p>
+                              <p className="text-sm text-gray-600 break-words leading-snug">
+                                {member.role}
+                              </p>
                             </div>
                           </div>
                         </td>
+                        
+                        {/* Expertise cells with consistent widths */}
                         {uniqueExpertise.map(expertise => (
-                          <td key={expertise} className="p-4 text-center border border-gray-200">
+                          <td 
+                            key={expertise} 
+                            className="p-4 text-center border border-gray-200 min-w-[100px]"
+                          >
                             {member.tutor_expertise && member.tutor_expertise.includes(expertise) ? (
                               <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-700 rounded-full border border-green-200">
                                 ✓
@@ -323,18 +329,18 @@ const Abouts_Article = () => {
             immigration process. Contact us today for a free consultation.
           </p>
           <div className='flex flex-wrap justify-center gap-4'>
-            <a 
-              href="/contact" 
+            <Link 
+              to="/contact" 
               className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
             >
               Contact Us
-            </a>
-            <a 
-              href="/services" 
+            </Link>
+            <Link 
+              to="/services" 
               className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
             >
               Our Services
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -352,4 +358,4 @@ const Abouts_Article = () => {
   )
 }
 
-export default Abouts_Article
+export default Abouts_Article_Teams

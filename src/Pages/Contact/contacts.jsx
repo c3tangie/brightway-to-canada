@@ -8,7 +8,7 @@ const OfficialContacts = () => {
   return (
     <div className="relative min-h-screen">
       {/* Full-page background */}
-      <div 
+{/*       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{ 
           backgroundImage: `url(${contactBackground})`,
@@ -16,7 +16,7 @@ const OfficialContacts = () => {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed' // Creates nice parallax effect
         }}
-      />
+      /> */}
       
       {/* Content with relative positioning */}
       <div className="relative z-10">

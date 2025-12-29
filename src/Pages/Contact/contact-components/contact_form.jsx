@@ -10,6 +10,7 @@ function WF_App() {
   const [validationMessage, setValidationMessage] = useState("Please select a category.");
   
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Set initial validation message on the hidden input
     const hiddenInput = document.getElementById('category-validation');
     if (hiddenInput) {
@@ -106,7 +107,7 @@ function WF_App() {
   };
 
   return (
-    <div class="flex items-center min-h-screen">
+    <div class="flex items-center min-h-screen bg-gray-300">
       <div class="container mx-auto">
         <div class="max-w-3xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
           <div class="text-center">
@@ -195,7 +196,7 @@ function WF_App() {
                     
                     {isDropdownOpen && (
                       <div class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto">
-                        <ul class="py-1" role="listbox">
+                        <ul class="py-0.5" role="listbox">
                           {categoryOptions.map((option) => (
                             <li
                               key={option.value}
@@ -206,7 +207,7 @@ function WF_App() {
                                   handleCategorySelect(option.value, option.label);
                                 }
                               }}
-                              class="px-3 py-2 text-gray-900 cursor-pointer select-none hover:bg-indigo-50 hover:text-indigo-900 focus:bg-indigo-50 focus:text-indigo-900 focus:outline-none text-left"
+                              class="px-3 py-1 text-gray-900 cursor-pointer select-none hover:bg-indigo-50 hover:text-indigo-900 focus:bg-indigo-50 focus:text-indigo-900 focus:outline-none text-left"
                               role="option"
                               tabIndex={0}
                             >

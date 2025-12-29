@@ -110,8 +110,8 @@ const Footer = () => {
       {/* Bottom Section: Copyright */}
       <div className="w-full bg-blue-950">
 
-        <div className="max-w-screen-2xl mx-auto px-20 py-3 text-white text-sm font-RobotoFlex">
-          <p className="text-right">
+        <div className="max-w-screen-2xl mx-auto px-10 sm:px-20 py-3 text-white text-[14px] sm:text-sm font-RobotoFlex">
+          <p className="text-center sm:text-right">
             &copy; {new Date().getFullYear()} Brightway to Canada. All Rights Reserved.
           </p>
         </div>

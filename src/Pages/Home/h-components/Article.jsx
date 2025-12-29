@@ -4,6 +4,23 @@ import videoFile from '../../../assets/video.mp4'
 const Article = () => {
   return (
     <div className='mt-8 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-xl leading-normal'>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold text-blue-900 mb-4">Student Visa Services</h3>
+          <p className="text-gray-600">Complete assistance with study permit applications, school selection, and academic planning.</p>
+        </div>
+        
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold text-blue-900 mb-4">Immigration Consulting</h3>
+          <p className="text-gray-600">Expert guidance through various immigration programs and pathways to Canadian residency.</p>
+        </div>
+        
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold text-blue-900 mb-4">Documentation Support</h3>
+          <p className="text-gray-600">Professional assistance with preparing and reviewing all required immigration documents.</p>
+        </div>
+      </div>
+
       <p className="mb-6">
         Brightway to Canada is an education-focused consulting and homestay support service built around one simple belief: students succeed best when they feel supported, understood, and at home. We work closely with international students and their families to help them navigate the Canadian education system with clarity, confidence, and peace of mind.
       </p>

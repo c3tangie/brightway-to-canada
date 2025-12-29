@@ -17,7 +17,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
     const checkIfShouldCenter = () => {
       if (containerRef.current && sortedMembers.length > 0) {
         const containerWidth = containerRef.current.offsetWidth;
-        const totalCardsWidth = sortedMembers.length * 60 * 4; // widths per card 
+        const totalCardsWidth = sortedMembers.length * 56 * 4; // widths per card 
         const gapWidth = (sortedMembers.length - 1) * 2 * 4; // 32px gap (gap-8 = 2rem = 32px)
         const totalWidth = totalCardsWidth + gapWidth;
         
@@ -51,10 +51,10 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
           {sortedMembers.map(member => ( // Use sortedMembers here
             <div 
               key={member.id} 
-              className="flex-shrink-0 w-60"
+              className="flex-shrink-0 w-56"
             >
               {/* Clean Member Card */}
-              <div className="bg-white rounded-xl p-5 transition-all h-full border flex flex-col">
+              <div className="bg-white rounded-xl p-3 transition-all h-full flex flex-col">
                 {/* Avatar & Basic Info - MADE CLICKABLE */}
                 <Link 
                   to={`/team/${member.slug}`}
@@ -65,12 +65,15 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                     alt={member.name}
                     className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-md mb-4 hover:opacity-90 transition-all duration-300 hover:scale-105 cursor-pointer"
                   />
-                  <h3 className="font-bold text-xl text-navy-800 hover:text-navy-900">
-                    {member.name}
-                  </h3>
-                  <p className="text-navy-600 text-sm mt-1 hover:text-navy-700">
-                    {member.role}
-                  </p>
+                  {/* Add container with max-width */}
+                  <div className="w-full px-3"> {/* Add padding for breathing room */}
+                    <h3 className="font-bold text-xl text-navy-800 hover:text-navy-900 truncate">
+                      {member.name}
+                    </h3>
+                    <p className="text-navy-600 text-sm mt-1 hover:text-navy-700 line-clamp-2">
+                      {member.role}
+                    </p>
+                  </div>
                 </Link>
               </div>
             </div>

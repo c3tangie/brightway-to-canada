@@ -26,24 +26,24 @@ const teamData = [
     image: placeHolderImage,
     description: "Jonathan Tang.",
     categories: ["development", "design"],
-    hierarchyLevel: 4,
+    hierarchyLevel: 5,
     hierarchyCategory: "administration"
   },
   {
     id: 3,
     name: "Jay Zang",
     slug: "jay-zang",
-    role: "Technical Support & STEM Tutor",
+    role: "STEM Tutor & Technical Support",
     image: placeHolderImage,
-    description: "Jay Zang.",
+    description: "Jay Zang is a tutor and designer at Brightway to Canada, leveraging his background in Astronomy and Information Systems to support students in math and science. His dual role gives him a unique edge in creating clear and engaging educational experiences tailored to individual academic goals.",
     categories: ["development", "design", "tutor"],
     tutor_expertise: ["Math", "Science"],
     extended_bio: ["Jay Zang is a tutor and designer at Brightway to Canada, wearing multiple hats to support students from every angle. With a Bachelor's degree in Astronomy and currently completing a Master's degree in Information Systems, he brings not only fresh, up-to-date academic knowledge but also a deep understanding of how students interact with and navigate learning materials.",
       "In tutoring sessions for math and science (from Grade 8 through 12), Jay focuses on tailoring to individual goals, whether it's improving a grade, preparing for an exam, or overcoming a specific hurdle. Because he also helps shape the company's website and artistic assets, he has a unique perspective on creating clear, engaging, and effective educational experiences.",
       "Outside of his dual role in tutoring and design, Jay is also a video/photo editing hobbyist."
     ],
-    hierarchyLevel: 2,
-    hierarchyCategory: "tutors"
+    hierarchyLevel: 3,
+    hierarchyCategory: "tutors_stem"
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const teamData = [
     slug: "peter-stevens",
     role: "Professional Science Instructor",
     image: peterImage,
-    description: "Peter Stevens.",
+    description: "Peter Stevens is a highly experienced math, physics, and chemistry tutor with nearly 20 years of expertise and a master’s in mathematics. He helps students in grades 8 through university achieve measurable progress by emphasizing deep understanding over memorization. Known for his clear, supportive, and tailored approach, Peter empowers students to build lasting confidence and skills.",
     categories: ["tutor"],
     tutor_expertise: ["Math", "Science"],
     extended_bio: ["Peter Stevens has been helping students achieve strong results in math, physics, and chemistry. With nearly 20 years of tutoring experience and a master’s degree in mathematics from York University, he has helped hundreds of students raise grades, pass courses, and build confidence.",
@@ -59,8 +59,8 @@ const teamData = [
       "Known for his quick wit, clear explanations, and student-centered teaching  style, Peter works with students from Grade 8 through first-year  university. Many have worked with him long-term and recommend him to  friends and family. His goal is simple: measurable progress, lasting  understanding, and students who feel capable on their own.",
       "When he isn’t working, he’s often powerlifting in the gym or concocting new recipes in the kitchen."
     ],
-    hierarchyLevel: 2,
-    hierarchyCategory: "tutors"
+    hierarchyLevel: 3,
+    hierarchyCategory: "tutors_stem"
   },
   {
     id: 5,
@@ -81,12 +81,17 @@ const teamData = [
     slug: "kathryn-collins",
     role: "Former English Teacher & Child Book Author",
     image: kathrynImage,
-    description: "Kathryn Ellis Collins is a former teacher who, after over 30 years in education, is now fulfilling her dream of writing children's books. Her work is inspired by the core challenge of adapting to constant change, especially for children. Her first book, A Rainy Day, uses a simple weather-related problem to teach resilience and positive adaptation.",
+    description: ["Kathryn Ellis Collins is a dedicated tutor and mentor with over 30 years of teaching experience, from kindergarten to grade 12, including ESL. Holding a Master’s in Education, she fosters a genuine love for lifelong learning by blending English with visual art, teaching students to analyze literature and craft writing with an artist’s eye for detail and emotion.",
+      " Her work is guided by the core belief that adapting to change is a skill we can all cultivate. This philosophy is alive in her tutoring and in her role as a published children’s author and illustrator. Her first book, A Rainy Day, tackles the theme of adapting to change—a principle she applies directly in her sessions. Kathryn’s students develop a stronger command of English, more vivid self-expression, and lasting skills for academic and creative success."
+    ],
     categories: ["tutor"],
     tutor_expertise: ["Language (ESL)"],
-    extended_bio: ["Kathryn Ellis Collins was raised in Toronto, Ontario, Canada. After High School, she moved to British Columbia where she graduated with a Masters Degree in Education. Now, after 30 years of teaching from kindergarten to grade 12, and six years teaching ESL, she is pursuing her lifelong dream of writing and illustrating children's books.",
-    "Kathryn is motivated by this one core concept that change is constant but one's ability to adapt is a particular challenge we all have. Children especially are overwhelmed with making choices in addition to the constant technological bombardment of information. As parents and teachers, we hope to provide our children and students with meaningful experiences and a love of lifelong learning.",
-    "In her first book, A Rainy Day, she addresses a simple problem of adapting to changes in the weather and finding a positive solution that will inspire and empower us all to grow from life's everyday experiences and setbacks while increasing in confidence, self-awareness and one's ability to adapt."
+    extended_bio: ["Kathryn Ellis Collins has been guiding students to discover the artistry of language and the power of their own written voice. With over 30 years of teaching experience—from kindergarten to grade 12, plus six years specializing in ESL—she possesses a deep and adaptive understanding of how learners build confidence with words.",
+    "Holding a Master’s Degree in Education, Kathryn is more than a tutor; she is a mentor who focuses on why language moves us, not just how it functions. Her unique approach often blends English with visual art, sending students on a fine art journey that goes beyond blending texts. Through this creative synthesis, students learn to analyze literature with an artist's eye and craft writing with an illustrator's sense of detail, texture, and emotion.",
+    "Kathryn is motivated by a core belief: while change is constant, our ability to adapt and create is a skill we can all cultivate. She understands that students are often overwhelmed by information. In response, she crafts a thoughtful learning environment that provides meaningful, engaging experiences and fosters a genuine love for lifelong learning.",
+    "This philosophy is alive in her tutoring and in her work as a published children’s author and illustrator. In her first book, A Rainy Day, she tackles the theme of adapting to change—a principle she applies directly in her sessions. She guides students to see academic and creative challenges not as setbacks, but as opportunities to grow in confidence, self-awareness, and expressive ability.",
+    "Students who work with Kathryn don’t just raise their grades; they develop a stronger, more intuitive command of English, more vivid self-expression, and lasting skills for academic and creative success. She works with learners from elementary school through high school and adult ESL. Her goal is simple: measurable progress, deeper understanding, and students who feel capable and inspired in their own abilities.",
+    "When she isn’t teaching, Kathryn is immersed in her parallel passion: writing and illustrating children’s books, where she continues to explore the beautiful intersection of story and image."
     ],
     hierarchyLevel: 2,
     hierarchyCategory: "tutors"
@@ -112,7 +117,7 @@ const teamData = [
     description: "Qi Zhu.",
     categories: ["design", "tutor"],
     tutor_expertise: ["Language (Mandarin)"],
-    hierarchyLevel: 3,
+    hierarchyLevel: 4,
     hierarchyCategory: "design"
   }
 ];

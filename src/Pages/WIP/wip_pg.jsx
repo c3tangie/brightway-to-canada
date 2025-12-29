@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
 const WIPPg = ({ showNavbar = true, showFooter = true }) => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+  
   return (
     <div>
         {showNavbar && <Navbar />}

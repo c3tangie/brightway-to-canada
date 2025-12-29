@@ -18,7 +18,7 @@ const TeamMemberDetailPage = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-navy-800 mb-4">Member Not Found</h1>
-          <Link to="/about" className="text-navy-600 hover:text-navy-800 underline">
+          <Link to="/about_teams" className="text-navy-600 hover:text-navy-800 underline">
             Back to Team
           </Link>
         </div>
@@ -83,7 +83,7 @@ const TeamMemberDetailPage = () => {
         <div className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <Link 
-              to="/about" 
+              to="/about_teams" 
               className="inline-flex items-center text-navy-600 hover:text-navy-800"
             >
               ← Back to Team
