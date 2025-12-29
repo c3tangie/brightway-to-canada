@@ -128,7 +128,10 @@ const Abouts_Article_Teams = () => {
           {/* Filter team members who are tutors */}
           {(() => {
             const tutorMembers = teamData.filter(member => 
-              member.categories && member.categories.includes('tutor')
+              member.categories && (
+                member.categories.includes('tutor') || 
+                member.categories.includes('tutor_stem')  // Add this
+              )
             ).sort((a, b) => 
               a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
             );

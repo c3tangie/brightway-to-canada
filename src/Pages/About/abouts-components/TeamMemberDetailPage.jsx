@@ -33,15 +33,34 @@ const TeamMemberDetailPage = () => {
         .slice(0, 3);
     }
 
+    // Check if member is any type of tutor
+    const isTutor = member.categories.includes('tutor') || 
+                    member.categories.includes('tutor_stem');
+    
+    // Determine which tutor type if applicable
+    const tutorType = member.categories.includes('tutor_stem') ? 'tutor_stem' : 
+                      member.categories.includes('tutor') ? 'tutor' : null;
+
     const relatedMembers = teamData.filter(otherMember => {
       if (otherMember.slug === member.slug) return false;
       
-      if (otherMember.categories && member.categories) {
-        return otherMember.categories.some(category => 
-          member.categories.includes(category)
-        );
+      if (!otherMember.categories) return false;
+      
+      // If member is a tutor, only show same-type tutors
+      if (isTutor && tutorType) {
+        return otherMember.categories.includes(tutorType);
       }
       
+      // If not a tutor, use the first non-tutor category
+      const firstNonTutorCategory = member.categories.find(cat => 
+        cat !== 'tutor' && cat !== 'tutor_stem'
+      );
+      
+      if (firstNonTutorCategory) {
+        return otherMember.categories.includes(firstNonTutorCategory);
+      }
+      
+      // Fallback to hierarchy category
       return otherMember.hierarchyCategory === member.hierarchyCategory;
     });
 
@@ -62,16 +81,30 @@ const TeamMemberDetailPage = () => {
       return 'Other Team Members';
     }
 
-    const primaryCategory = member.categories[0];
+    // Check if member is a tutor
+    const isTutor = member.categories.includes('tutor') || 
+                    member.categories.includes('tutor_stem');
+    
+    if (isTutor) {
+      const isStemTutor = member.categories.includes('tutor_stem');
+      return isStemTutor ? 'Other STEM Instructors' : 'Other Language Instructors';
+    }
+    
+    // Find first non-tutor category for title
+    const firstNonTutorCategory = member.categories.find(cat => 
+      cat !== 'tutor' && cat !== 'tutor_stem'
+    );
+    
     const categoryTitles = {
       'founder': 'Other Leadership',
       'development': 'Other Developers',
       'design': 'Other Designers',
       'advising': 'Other Advisors',
-      'tutor': 'Other Tutors',
+      'tutor': 'Other Language Instructors',
+      'tutor_stem': 'Other STEM Instructors',
     };
 
-    return categoryTitles[primaryCategory] || 'Other Team Members';
+    return categoryTitles[firstNonTutorCategory] || 'Other Team Members';
   };
 
   return (
@@ -152,7 +185,8 @@ const TeamMemberDetailPage = () => {
                             'development': '💻 Developer',
                             'design': '🎨 Designer',
                             'advising': '💡 Advisor',
-                            'tutor': '📚 Tutor',
+                            'tutor': '📚 Language Instructor',
+                            'tutor_stem': '📚 STEM Instructor',
                           };
                           return (
                             <span
@@ -170,7 +204,7 @@ const TeamMemberDetailPage = () => {
                   {/* Tutor Expertise */}
                   {member.tutor_expertise && member.tutor_expertise.length > 0 && (
                     <div className="mb-8">
-                      <h3 className="text-lg font-semibold text-navy-800 mb-3">Expertise</h3>
+                      <h3 className="text-lg font-semibold text-navy-800 mb-3">Teaching Expertise</h3>
                       <div className="space-y-2">
                         {member.tutor_expertise.map((expertise, index) => (
                           <div key={index} className="flex items-center gap-2">
@@ -239,44 +273,64 @@ const TeamMemberDetailPage = () => {
               </div>
             </div>
 
-            {/* Related Members */}
+            {/* Related Members - Updated with Scrollable Container */}
             {relatedMembers.length > 0 && (
               <div className="border-t border-gray-200 p-8">
-                <h3 className="text-xl font-semibold text-navy-800 mb-6">
-                  {getRelatedSectionTitle()}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {relatedMembers.map(relatedMember => (
-                    <Link
-                      key={relatedMember.id}
-                      to={`/team/${relatedMember.slug}`}
-                      className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow hover:bg-navy-50/20"
-                    >
-                      <div className="flex items-center gap-4">
-                        <img
-                          src={relatedMember.image}
-                          alt={relatedMember.name}
-                          className="w-16 h-16 rounded-full object-cover border-2 border-navy-100"
-                        />
-                        <div>
-                          <h4 className="font-semibold text-navy-800">{relatedMember.name}</h4>
-                          <p className="text-sm text-gray-600">{relatedMember.role}</p>
-                          {relatedMember.categories && relatedMember.categories.length > 0 && (
-                            <div className="flex flex-wrap gap-1 mt-1">
-                              {relatedMember.categories.slice(0, 2).map(category => (
-                                <span
-                                  key={category}
-                                  className="px-2 py-0.5 text-xs bg-white text-navy-600 rounded-full border border-navy-200"
-                                >
-                                  {category}
-                                </span>
-                              ))}
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-xl font-semibold text-navy-800">
+                    {getRelatedSectionTitle()}
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Scroll to see more →
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="flex space-x-6 pb-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                    {relatedMembers.map(relatedMember => (
+                      <Link
+                        key={relatedMember.id}
+                        to={`/team/${relatedMember.slug}`}
+                        className="min-w-[300px] bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-all duration-200 hover:bg-white hover:border-navy-100 hover:border flex-shrink-0"
+                      >
+                        <div className="flex items-start gap-4">
+                          <img
+                            src={relatedMember.image}
+                            alt={relatedMember.name}
+                            className="w-20 h-20 rounded-xl object-cover border-2 border-navy-100"
+                          />
+                          <div className="flex-1">
+                            <h4 className="font-bold text-lg text-navy-800 mb-1">{relatedMember.name}</h4>
+                            <p className="text-gray-600 mb-2">{relatedMember.role}</p>
+                            {relatedMember.categories && relatedMember.categories.length > 0 && (
+                              <div className="flex flex-wrap gap-1 mb-3">
+                                {relatedMember.categories.slice(0, 2).map(category => {
+                                  const categoryLabels = {
+                                    'founder': '👑 Founder',
+                                    'development': '💻 Developer',
+                                    'design': '🎨 Designer',
+                                    'advising': '💡 Advisor',
+                                    'tutor': '📚 Language Instructor',
+                                    'tutor_stem': '📚 STEM Instructor',
+                                  };
+                                  return (
+                                    <span
+                                      key={category}
+                                      className="px-3 py-1 text-xs bg-navy-50 text-navy-700 rounded-full"
+                                    >
+                                      {categoryLabels[category] || category}
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            )}
+                            <div className="text-sm text-navy-600 font-medium mt-3">
+                              View Profile →
                             </div>
-                          )}
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
