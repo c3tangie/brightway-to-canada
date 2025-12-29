@@ -26,16 +26,23 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
             >
               {/* Clean Member Card */}
               <div className="bg-white rounded-xl p-5 border border-gray-100 hover:border-gray-300 transition-all hover:shadow-lg h-full flex flex-col">
-                {/* Avatar & Basic Info */}
-                <div className="flex flex-col items-center text-center mb-4">
+                {/* Avatar & Basic Info - MADE CLICKABLE */}
+                <Link 
+                  to={`/team/${member.id}`}
+                  className="flex flex-col items-center text-center mb-4 no-underline hover:no-underline"
+                >
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md mb-4"
+                    className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md mb-4 hover:opacity-90 transition-opacity cursor-pointer"
                   />
-                  <h3 className="font-bold text-xl text-navy-800">{member.name}</h3>
-                  <p className="text-navy-600 text-sm mt-1">{member.role}</p>
-                </div>
+                  <h3 className="font-bold text-xl text-navy-800 hover:text-navy-900">
+                    {member.name}
+                  </h3>
+                  <p className="text-navy-600 text-sm mt-1 hover:text-navy-700">
+                    {member.role}
+                  </p>
+                </Link>
                 
                 {/* Categories Tags (centered) */}
                 {member.categories && member.categories.length > 0 && (
@@ -51,25 +58,14 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                   </div>
                 )}
                 
-                {/* View Details Button (centered at bottom) */}
-                <div className="mt-auto pt-4 border-t border-gray-100">
+                {/* Optional: You can keep a simple "View Profile" link if needed */}
+                <div className="mt-auto pt-4 border-t border-gray-100 text-center">
                   <Link
-                        key={member.id}
-                        to={`/team/${member.id}`}
-                        className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow"
-                    >
-                        <div className="flex items-center gap-4">
-                        <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-16 h-16 rounded-full object-cover"
-                        />
-                        <div>
-                            <h4 className="font-semibold text-navy-800">{member.name}</h4>
-                            <p className="text-sm text-gray-600">{member.role}</p>
-                        </div>
-                        </div>
-                    </Link>
+                    to={`/team/${member.id}`}
+                    className="inline-block px-4 py-2 text-sm font-medium text-navy-600 hover:text-navy-800 hover:bg-navy-50 rounded-lg transition-colors"
+                  >
+                    View Full Profile →
+                  </Link>
                 </div>
               </div>
             </div>

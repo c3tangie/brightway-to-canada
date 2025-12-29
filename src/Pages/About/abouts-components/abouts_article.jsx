@@ -278,6 +278,7 @@ const Abouts_Article = () => {
         </section>
 
         {/* Stats Section */}
+        {/*
         <section className='bg-gradient-to-r from-navy-600 via-navy-700 to-navy-800 rounded-2xl p-8 md:p-12 mb-16 text-white'>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
             <div className='text-center'>
@@ -298,6 +299,7 @@ const Abouts_Article = () => {
             </div>
           </div>
         </section>
+        */}
 
         {/* CTA Section */}
         <section className='text-center mb-12'>
