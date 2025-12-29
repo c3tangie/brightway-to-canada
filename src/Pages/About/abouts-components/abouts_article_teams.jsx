@@ -1,58 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import TeamMember from './teamMember';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import teamData from './teamData';
-import TeamMemberDetailModal from './TeamMemberDetailModal';
 import TeamTreeSection from './TeamTreeSection';
-import BannerImage from '../../../assets/about_us_assets/abouts_banner.jpg'; // Import banner image
+import BannerImage from '../../../assets/about_us_assets/abouts_banner.jpg';
 
 const Abouts_Article_Teams = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [selectedMember, setSelectedMember] = useState(null);
-  const [showDetailModal, setShowDetailModal] = useState(false);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   });
-  
-  // Function to handle opening modal
-  const handleOpenModal = (member) => {
-    setSelectedMember(member);
-    setShowDetailModal(true);
-  };
-
-  // Function to handle closing modal
-  const handleCloseModal = () => {
-    setShowDetailModal(false);
-    setSelectedMember(null);
-  };
-
-  // Define all possible categories
-  const categories = [
-    { id: 'all', label: 'All Team', icon: '👥' },
-    { id: 'founder', label: 'Founders', icon: '👑' },
-    { id: 'development', label: 'Developers', icon: '💻' },
-    { id: 'design', label: 'Designers', icon: '🎨' },
-    // { id: 'marketing', label: 'Marketing', icon: '📢' },
-    { id: 'advising', label: 'Advising', icon: '💡' },
-    // { id: 'content', label: 'Content', icon: '✍️' },
-    { id: 'tutor', label: 'Tutor', icon: '📚' }
-  ]
-
-  // Filter team members based on active filter
-  const filteredTeam = activeFilter === 'all' 
-    ? teamData 
-    : teamData.filter(member => 
-        member.categories && member.categories.includes(activeFilter)
-      )
-
-  // Count members in each category (for badges)
-  const getCategoryCount = (categoryId) => {
-    if (categoryId === 'all') return teamData.length
-    return teamData.filter(member => 
-      member.categories && member.categories.includes(categoryId)
-    ).length
-  }
 
   // Define hierarchy sections
   const hierarchySections = [
@@ -98,12 +53,6 @@ const Abouts_Article_Teams = () => {
     }
   ];
 
-  // Group team members by hierarchy
-  const groupedTeam = {};
-  hierarchySections.forEach(section => {
-    groupedTeam[section.id] = teamData.filter(section.filterFn);
-  });
-
   return (
     <div className='font-RobotoFlex'>
       
@@ -147,9 +96,7 @@ const Abouts_Article_Teams = () => {
 
         {/* Team Hierarchy Tree */}
         <section className='mb-20'>
-
-          {/* Alternative: Simple stacked sections without tree visualization */}
-          <div className="space-y-16 flex flex-col items-center"> {/* Add flexbox centering */}
+          <div className="space-y-16 flex flex-col items-center">
             {hierarchySections.map(section => {
               // Filter members for this section
               const sectionMembers = teamData.filter(section.filterFn);
@@ -158,13 +105,12 @@ const Abouts_Article_Teams = () => {
               if (sectionMembers.length === 0) return null;
               
               return (
-                <div key={section.id} className="w-full"> {/* Wrap in a container */}
+                <div key={section.id} className="w-full">
                   <TeamTreeSection
                     title={section.title}
                     description={section.description}
                     icon={section.icon}
                     members={sectionMembers}
-                    onViewDetails={handleOpenModal}
                     color={section.color}
                   />
                 </div>
@@ -295,30 +241,6 @@ const Abouts_Article_Teams = () => {
           })()}
         </section>
 
-        {/* Stats Section */}
-        {/*
-        <section className='bg-gradient-to-r from-navy-600 via-navy-700 to-navy-800 rounded-2xl p-8 md:p-12 mb-16 text-white'>
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
-            <div className='text-center'>
-              <h3 className='text-4xl font-bold mb-2'>5000+</h3>
-              <p className='text-blue-100'>Successful Cases</p>
-            </div>
-            <div className='text-center'>
-              <h3 className='text-4xl font-bold mb-2'>98%</h3>
-              <p className='text-blue-100'>Success Rate</p>
-            </div>
-            <div className='text-center'>
-              <h3 className='text-4xl font-bold mb-2'>15+</h3>
-              <p className='text-blue-100'>Years Experience</p>
-            </div>
-            <div className='text-center'>
-              <h3 className='text-4xl font-bold mb-2'>24/7</h3>
-              <p className='text-blue-100'>Client Support</p>
-            </div>
-          </div>
-        </section>
-        */}
-
         {/* CTA Section */}
         <section className='text-center mb-12'>
           <h2 className='text-3xl font-bold text-navy-800 mb-6'>
@@ -343,15 +265,6 @@ const Abouts_Article_Teams = () => {
             </Link>
           </div>
         </section>
-
-        {/* Render the modal at the root level */}
-        {selectedMember && (
-          <TeamMemberDetailModal
-            member={selectedMember}
-            isOpen={showDetailModal}
-            onClose={handleCloseModal}
-          />
-        )}
 
       </div>
     </div>
