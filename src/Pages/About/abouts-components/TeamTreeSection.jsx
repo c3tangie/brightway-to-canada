@@ -25,7 +25,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
               className="flex-shrink-0 w-72" // Fixed width for consistent cards
             >
               {/* Clean Member Card */}
-              <div className="bg-white rounded-xl p-5 border border-gray-100 hover:border-gray-300 transition-all hover:shadow-lg h-full flex flex-col">
+              <div className="bg-white rounded-xl p-5 transition-all h-full flex flex-col">
                 {/* Avatar & Basic Info - MADE CLICKABLE */}
                 <Link 
                   to={`/team/${member.slug}`}
@@ -34,7 +34,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md mb-4 hover:opacity-90 transition-opacity cursor-pointer"
+                    className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md mb-4 hover:opacity-90 transition-all duration-300 hover:scale-105 cursor-pointer"
                   />
                   <h3 className="font-bold text-xl text-navy-800 hover:text-navy-900">
                     {member.name}
