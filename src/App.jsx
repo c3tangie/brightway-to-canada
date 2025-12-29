@@ -24,7 +24,7 @@ function App() {
         <Route path="/graduating-students" element={<GraduatingStudents />} />
         <Route path="/about" element={<OfficialAbouts />} />
         {/* Dynamic route for team members */}
-        <Route path="/team/:memberId" element={<TeamMemberDetailPage />} />
+        <Route path="/team/:memberSlug" element={<TeamMemberDetailPage />} />
         <Route path="/blog" element={<OfficialBlogs />} />
         <Route path="/contact" element={<OfficialContacts />} />
         <Route path="/thankyou" element={<ThankyouPg />} />

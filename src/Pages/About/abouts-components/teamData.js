@@ -10,6 +10,7 @@ const teamData = [
   {
     id: 1,
     name: "Ling Wang",
+    slug: "ling-wang",
     role: "Founder & CEO",
     image: lingImage,
     description: "Ling Wang is the founder and CEO of Brightway to Canada, a company dedicated to helping international students navigate the Canadian education system.",
@@ -20,6 +21,7 @@ const teamData = [
   {
     id: 2,
     name: "Jonathan Tang",
+    slug: "jonathan-tang",
     role: "Technical Support",
     image: placeHolderImage,
     description: "Jonathan Tang.",
@@ -30,6 +32,7 @@ const teamData = [
   {
     id: 3,
     name: "Jay Zang",
+    slug: "jay-zang",
     role: "Technical Support & STEM Tutor",
     image: placeHolderImage,
     description: "Jay Zang.",
@@ -45,6 +48,7 @@ const teamData = [
   {
     id: 4,
     name: "Peter Stevens",
+    slug: "peter-stevens",
     role: "Professional Science Instructor",
     image: peterImage,
     description: "Peter Stevens.",
@@ -61,6 +65,7 @@ const teamData = [
   {
     id: 5,
     name: "Don Standing",
+    slug: "don-standing",
     role: "Professional English Instructor",
     image: donImage,
     description: "Don Standing.",
@@ -73,6 +78,7 @@ const teamData = [
   {
     id: 6,
     name: "Kathryn Collins",
+    slug: "kathryn-collins",
     role: "Former English Teacher & Child Book Author",
     image: kathrynImage,
     description: "Kathryn Ellis Collins is a former teacher who, after over 30 years in education, is now fulfilling her dream of writing children's books. Her work is inspired by the core challenge of adapting to constant change, especially for children. Her first book, A Rainy Day, uses a simple weather-related problem to teach resilience and positive adaptation.",
@@ -88,6 +94,7 @@ const teamData = [
   {
     id: 7,
     name: "Ray Beraska",
+    slug: "ray-beraska",
     role: "Tutor",
     image: rayImage,
     description: "Ray Beraska.",
@@ -99,6 +106,7 @@ const teamData = [
   {
     id: 8,
     name: "Qi Zhu",
+    slug: "qi-zhu",
     role: "Content Creator & Marketing Advisor & Tutor",
     image: placeHolderImage,
     description: "Qi Zhu.",

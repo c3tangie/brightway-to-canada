@@ -28,7 +28,7 @@ const TeamTreeSection = ({ title, description, icon, members, onViewDetails }) =
               <div className="bg-white rounded-xl p-5 border border-gray-100 hover:border-gray-300 transition-all hover:shadow-lg h-full flex flex-col">
                 {/* Avatar & Basic Info - MADE CLICKABLE */}
                 <Link 
-                  to={`/team/${member.id}`}
+                  to={`/team/${member.slug}`}
                   className="flex flex-col items-center text-center mb-4 no-underline hover:no-underline"
                 >
                   <img 

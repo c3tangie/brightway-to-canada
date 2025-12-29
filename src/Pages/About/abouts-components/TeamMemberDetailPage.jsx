@@ -6,13 +6,12 @@ import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
 const TeamMemberDetailPage = () => {
-  const { memberId } = useParams();
-  const member = teamData.find(m => m.id.toString() === memberId);
+  const { memberSlug } = useParams(); // Changed from memberId to memberSlug
+  const member = teamData.find(m => m.slug === memberSlug); // Changed to find by slug
 
-  // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [memberId]); // Re-run when memberId changes
+  }, [memberSlug]); // Changed dependency
 
   if (!member) {
     return (
@@ -32,13 +31,13 @@ const TeamMemberDetailPage = () => {
     if (!member.categories || member.categories.length === 0) {
       // If member has no categories, show other members with similar roles
       return teamData
-        .filter(m => m.id !== member.id)
+        .filter(m => m.slug !== member.slug)
         .slice(0, 3);
     }
 
     // Find members who share at least one category with the current member
     const relatedMembers = teamData.filter(otherMember => {
-      if (otherMember.id === member.id) return false;
+      if (otherMember.slug === member.slug) return false;
       
       // Check if they share any categories
       if (otherMember.categories && member.categories) {
@@ -248,7 +247,7 @@ const TeamMemberDetailPage = () => {
                   {relatedMembers.map(relatedMember => (
                     <Link
                       key={relatedMember.id}
-                      to={`/team/${relatedMember.id}`}
+                      to={`/team/${relatedMember.slug}`}
                       className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow hover:bg-navy-50/20"
                     >
                       <div className="flex items-center gap-4">
