@@ -36,6 +36,9 @@ const ServiceDetailPage = () => {
   );
 
   const currentQuestion = service.questions[validQuestionIndex];
+  
+  // Use question-specific image if available, otherwise fall back to service image
+  const displayImage = currentQuestion.image || service.featuredImage;
 
   return (
     <div>
@@ -54,14 +57,17 @@ const ServiceDetailPage = () => {
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 py-12">
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            {/* Service Image */}
-            {service.featuredImage && (
+            {/* Question-specific Image */}
+            {displayImage && (
               <div className="mb-8">
                 <img 
-                  src={service.featuredImage} 
-                  alt={service.title}
+                  src={displayImage} 
+                  alt={currentQuestion.question}
                   className="w-full h-64 object-cover rounded-lg"
                 />
+                <p className="text-sm text-gray-500 mt-2 text-center">
+                  {currentQuestion.image ? 'Question-specific image' : 'Service image'}
+                </p>
               </div>
             )}
             
@@ -119,10 +125,8 @@ const ServiceDetailPage = () => {
                     }`}
                   >
                     <div className="flex items-start gap-3">
-                      <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${index === validQuestionIndex 
-                        ? 'bg-navy-600 text-white' 
-                        : 'bg-gray-100 text-gray-600'
-                      }`}>
+                      {/* Remove the thumbnail div completely */}
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-navy-600 text-white">
                         {index + 1}
                       </div>
                       <div className="flex-1">
@@ -135,6 +139,7 @@ const ServiceDetailPage = () => {
                         {index === validQuestionIndex && (
                           <p className="text-sm text-navy-600 mt-1">Currently viewing</p>
                         )}
+                        {/* Remove the "Includes visual guide" text since we're not showing thumbnails */}
                       </div>
                     </div>
                   </Link>
