@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import teamData from './teamData';
 import TeamTreeSection from './TeamTreeSection';
-import BannerImage from '../../../assets/about_us_assets/abouts_banner.jpg';
+import BannerImage from '../../../assets/about_us_assets/abouts_banner5.jpg';
 
 const Abouts_Article_Teams = () => {
   useEffect(() => {
