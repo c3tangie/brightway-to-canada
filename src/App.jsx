@@ -1,8 +1,8 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home/home'
-import ProspectiveStudents from './Pages/Prospective Students/ps'
-import CurrentStudents from './Pages/Current Students/cs'
-import GraduatingStudents from './Pages/Graduating Students/gs'
+import PreStudent from './Pages/Services/services-subpages/pre_student'
+import NowStudent from './Pages/Services/services-subpages/now_student'
+import GradStudent from './Pages/Services/services-subpages/grad_student'
 import OfficialAbouts from './Pages/About/abouts'
 import OfficialAboutsTeams from './Pages/About/abouts_teams'
 import OfficialBlogs from './Pages/Blog/blogs'
@@ -21,9 +21,9 @@ function App() {
     <Router>  
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/prospective-students" element={<ProspectiveStudents />} />
-        <Route path="/current-students" element={<CurrentStudents />} />
-        <Route path="/graduating-students" element={<GraduatingStudents />} />
+        <Route path="/prospective-students" element={<PreStudent />} />
+        <Route path="/current-students" element={<NowStudent />} />
+        <Route path="/graduating-students" element={<GradStudent />} />
         <Route path="/about" element={<OfficialAbouts />} />
         <Route path="/about_teams" element={<OfficialAboutsTeams />} />
         {/* Dynamic route for team members */}

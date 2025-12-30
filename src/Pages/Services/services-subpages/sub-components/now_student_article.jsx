@@ -1,7 +1,7 @@
 import React from 'react'
-import Logo from "../../../assets/logo.png"
+import Logo from "../../../../assets/logo.png"
 
-const Cs_Article = () => {
+const Now_Student_Article = () => {
   return (
     <div className='mt-5 ml-64 mr-64 font-RobotoFlex text-center text-xl'>
         
@@ -47,4 +47,4 @@ const Cs_Article = () => {
   )
 }
 
-export default Cs_Article
+export default Now_Student_Article

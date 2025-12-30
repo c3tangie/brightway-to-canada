@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Gs_Article = () => {
+const Grad_Student_Article = () => {
   return (
     <div className='mt-5 ml-64 mr-64 font-RobotoFlex text-center text-xl'>
         
@@ -16,4 +16,4 @@ const Gs_Article = () => {
   )
 }
 
-export default Gs_Article
+export default Grad_Student_Article

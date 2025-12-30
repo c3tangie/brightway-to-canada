@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Ps_Article = () => {
+const Pre_Student_Article = () => {
   const [openDropdown, setOpenDropdown] = useState(null)
 
   const toggleDropdown = (index) => {
@@ -85,4 +85,4 @@ const Ps_Article = () => {
   )
 }
 
-export default Ps_Article
+export default Pre_Student_Article
