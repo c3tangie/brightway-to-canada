@@ -211,8 +211,17 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
       if (regularCards.length > 0 && containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
         
-        // WIDER: Match CEO width - approximately 85% of screen (same as CEO card)
-        const availableWidth = containerWidth * 0.85; // INCREASED from 75% to 85%
+        // Adjust for inner padding (px-6 on mobile, xl:px-20 on desktop)
+        let paddingAdjustment = 48; // Default: px-6 = 24px each side (mobile)
+        if (window.innerWidth >= 1280) { // xl breakpoint
+          paddingAdjustment = 160; // xl:px-20 = 80px each side
+        }
+        
+        // Available width after subtracting padding
+        const availableWidth = containerWidth - paddingAdjustment;
+        
+        // WIDER: Match CEO width - approximately 85% of available width
+        const targetWidth = availableWidth * 0.85;
         
         // Determine optimal number of visible cards based on count
         let targetVisibleCards;
@@ -227,10 +236,9 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         // Calculate width per card including gap (gap-8 = 32px)
         const gapSize = 32;
         const totalGapWidth = (targetVisibleCards - 1) * gapSize;
-        const cardWidthPx = Math.floor((availableWidth - totalGapWidth) / targetVisibleCards);
+        const cardWidthPx = Math.floor((targetWidth - totalGapWidth) / targetVisibleCards);
         
         // Convert to valid Tailwind width classes
-        // Use standard Tailwind sizes: 56(14rem), 64(16rem), 72(18rem), 80(20rem), 96(24rem)
         let widthClass;
         if (cardWidthPx <= 240) { // 15rem = 240px
           widthClass = 'w-60'; // 15rem
@@ -258,7 +266,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         
         const totalCardsWidth = regularCards.length * cardWidth + 
                               (regularCards.length - 1) * gapSize;
-        setShouldCenter(totalCardsWidth <= availableWidth);
+        setShouldCenter(totalCardsWidth <= targetWidth);
       }
     };
 
@@ -271,42 +279,39 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
 
   // Update fade effects based on scroll position
   useEffect(() => {
-  const updateFadeEffects = () => {
-    if (!scrollContainerRef.current || shouldCenter) {
-      console.log('No scroll container or shouldCenter is true');
-      setShowLeftFade(false);
-      setShowRightFade(false);
-      return;
-    }
+    const updateFadeEffects = () => {
+      if (!scrollContainerRef.current || shouldCenter) {
+        setShowLeftFade(false);
+        setShowRightFade(false);
+        return;
+      }
 
-    const container = scrollContainerRef.current;
-    const scrollLeft = container.scrollLeft;
-    const scrollWidth = container.scrollWidth;
-    const clientWidth = container.clientWidth;
-    const scrollRight = scrollWidth - clientWidth - scrollLeft;
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const scrollRight = scrollWidth - clientWidth - scrollLeft;
 
-    console.log('Scroll info:', { scrollLeft, scrollWidth, clientWidth, scrollRight });
+      // Show left fade if scrolled to the right
+      setShowLeftFade(scrollLeft > 10);
+      
+      // Show right fade if there's more content to scroll
+      setShowRightFade(scrollRight > 10);
+    };
 
-    // Show left fade if scrolled to the right
-    setShowLeftFade(scrollLeft > 10);
-    
-    // Show right fade if there's more content to scroll
-    setShowRightFade(scrollRight > 10);
-  };
-
-  const scrollContainer = scrollContainerRef.current;
-  if (scrollContainer) {
-    scrollContainer.addEventListener('scroll', updateFadeEffects);
-    // Initial check
-    updateFadeEffects();
-  }
-
-  return () => {
+    const scrollContainer = scrollContainerRef.current;
     if (scrollContainer) {
-      scrollContainer.removeEventListener('scroll', updateFadeEffects);
+      scrollContainer.addEventListener('scroll', updateFadeEffects);
+      // Initial check
+      setTimeout(updateFadeEffects, 150); // Slightly longer delay for rendering
     }
-  };
-}, [shouldCenter]);
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', updateFadeEffects);
+      }
+    };
+  }, [shouldCenter]);
 
   // Render Wide Card (CEO or Single Member) - EXTRA WIDE (85%)
   const renderWideCard = (member) => {
@@ -315,11 +320,11 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     
     return (
       <div key={member.id} className="w-full mb-12">
-    <Link 
-      to={`/team/${member.slug}`}
-      className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
-        no-underline hover:no-underline transition-all duration-300 group w-full`}
-    >
+        <Link 
+          to={`/team/${member.slug}`}
+          className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
+            no-underline hover:no-underline transition-all duration-300 group w-full`}
+        >
           {/* Avatar - Larger for wide cards */}
           <div className={`${isHorizontal ? 'md:mr-8 mb-6 md:mb-0' : 'mb-6'} flex-shrink-0`}>
             <img 
@@ -354,7 +359,6 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
                       ? member.description[0] 
                       : member.description}
                 </p>
-                {/* REMOVED: Read full bio link */}
               </div>
             )}
           </div>
@@ -418,9 +422,6 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
                 </p>
               </div>
             )}
-            
-            {/* REMOVED: Subject tags for tutors */}
-            {/* REMOVED: View profile link */}
           </div>
         </Link>
       </div>
@@ -444,46 +445,50 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         </div>
       )}
 
-      {/* Regular Cards Section (Multiple Members) - Match expertise matrix width */}
+      {/* Regular Cards Section (Multiple Members) */}
       {regularCards.length > 0 && (
         <div className="relative max-w-screen-2xl mx-auto" ref={containerRef}>
           {/* Container with padding */}
           <div className="relative 2xl:px-20 xl:px-20 px-6">
-            {/* Fade overlay containers - positioned over the SCROLLABLE AREA */}
-            {!shouldCenter && (
-              <>
-                {/* Left fade - account for scroll container's negative margin */}
-                <div 
-                  className={`absolute left-3 xl:left-14 2xl:left-14 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
-                    transition-opacity duration-300 ${showLeftFade ? 'opacity-100' : 'opacity-0'}`}
-                  style={{
-                    background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
-                  }}
-                />
-                
-                {/* Right fade - symmetrical with left */}
-                <div 
-                  className={`absolute right-6 xl:right-20 2xl:right-20 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
-                    transition-opacity duration-300 ${showRightFade ? 'opacity-100' : 'opacity-0'}`}
-                  style={{
-                    background: 'linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
-                  }}
-                />
-              </>
-            )}
+            {/* Wrapper with negative margins to match expertise matrix width */}
+            <div className="relative -mx-3 xl:-mx-6 2xl:-mx-6">
+              
+              {/* Fade overlay containers - positioned relative to wrapper */}
+              {!shouldCenter && (
+                <>
+                  {/* Left fade */}
+                  <div 
+                    className={`absolute left-0 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
+                      transition-opacity duration-300 ${showLeftFade ? 'opacity-100' : 'opacity-0'}`}
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+                    }}
+                  />
+                  
+                  {/* Right fade - symmetrical with left */}
+                  <div 
+                    className={`absolute right-0 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
+                      transition-opacity duration-300 ${showRightFade ? 'opacity-100' : 'opacity-0'}`}
+                    style={{
+                      background: 'linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+                    }}
+                  />
+                </>
+              )}
 
-            {/* Scroll container - extends beyond padding */}
-            <div 
-              ref={scrollContainerRef}
-              className={`relative flex gap-8 pb-6 overflow-x-auto scroll-smooth 
-                scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
-                ${shouldCenter ? 'justify-center' : ''} 
-                w-full -mx-3 xl:-mx-6 2xl:-mx-6 px-3 xl:px-6 2xl:px-6`}
-            >
-              {/* Small end padding for better scroll feel */}
-              <div className="flex-shrink-0 w-2" />
-              {regularCards.map(renderRegularCard)}
-              <div className="flex-shrink-0 w-2" />
+              {/* Scroll container - NO negative margins, matches wrapper width */}
+              <div 
+                ref={scrollContainerRef}
+                className={`relative flex gap-8 pb-6 overflow-x-auto scroll-smooth 
+                  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
+                  ${shouldCenter ? 'justify-center' : ''} 
+                  w-full px-3 xl:px-6 2xl:px-6`}
+              >
+                {/* Small end padding for better scroll feel */}
+                <div className="flex-shrink-0 w-2" />
+                {regularCards.map(renderRegularCard)}
+                <div className="flex-shrink-0 w-2" />
+              </div>
             </div>
             
             {/* Scroll hint */}
