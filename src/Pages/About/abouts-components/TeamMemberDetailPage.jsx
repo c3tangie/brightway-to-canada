@@ -1,5 +1,5 @@
-// TeamMemberDetailPage.jsx - Updated with Multiple Related Member Lists
-import React, { useEffect } from 'react';
+// TeamMemberDetailPage.jsx - Updated with Multiple Related Member Lists and Fade Effects
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import teamData from './teamData';
 import Navbar from '../../../components/Navbar';
@@ -79,7 +79,7 @@ const TeamMemberDetailPage = () => {
       'advising': 'Other Advisors',
       'tutor_lang': 'Other Language Instructors',
       'tutor_stem': 'Other STEM Instructors',
-      'administration': 'Other Administrative Team', // Added this
+      'administration': 'Other Administrative Team',
       'tutor': 'Other Tutors',
     };
 
@@ -183,7 +183,7 @@ const TeamMemberDetailPage = () => {
                             'advising': '💡 Advisor',
                             'tutor_lang': '📚 Language Instructor',
                             'tutor_stem': '📚 STEM Instructor',
-                            'administration': '📋 Administrative Team', // Added this
+                            'administration': '📋 Administrative Team',
                           };
                           return (
                             <span
@@ -285,7 +285,7 @@ const TeamMemberDetailPage = () => {
               </div>
             </div>
 
-            {/* Multiple Related Members Sections */}
+            {/* Multiple Related Members Sections with Fade Effects */}
             {displayCategories.length > 0 && (
               <div className="border-t border-gray-200">
                 {sortedCategories.map((category, index) => {
@@ -294,65 +294,12 @@ const TeamMemberDetailPage = () => {
                   if (relatedMembers.length === 0) return null;
                   
                   return (
-                    <div key={category} className="p-8 border-b border-gray-100 last:border-b-0">
-                      <div className="flex justify-between items-center mb-6">
-                        <h3 className="text-xl font-semibold text-navy-800">
-                          {getCategorySectionTitle(category)}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          Scroll to see more →
-                        </p>
-                      </div>
-                      <div className="relative">
-                        <div className="flex space-x-6 pb-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                          {relatedMembers.map(relatedMember => (
-                            <Link
-                              key={relatedMember.id}
-                              to={`/team/${relatedMember.slug}`}
-                              className="min-w-[300px] bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-all duration-200 hover:bg-white hover:border-navy-100 hover:border flex-shrink-0"
-                            >
-                              <div className="flex items-start gap-4">
-                                <img
-                                  src={relatedMember.image}
-                                  alt={relatedMember.name}
-                                  className="w-20 h-20 rounded-xl object-cover border-2 border-navy-100"
-                                />
-                                <div className="flex-1">
-                                  <h4 className="font-bold text-lg text-navy-800 mb-1">{relatedMember.name}</h4>
-                                  <p className="text-gray-600 mb-2">{relatedMember.role}</p>
-                                  {relatedMember.categories && relatedMember.categories.length > 0 && (
-                                    <div className="flex flex-wrap gap-1 mb-3">
-                                      {relatedMember.categories.slice(0, 2).map(cat => {
-                                        const categoryLabels = {
-                                          'founder': '👑 Founder',
-                                          'development': '💻 Developer',
-                                          'design': '🎨 Designer',
-                                          'advising': '💡 Advisor',
-                                          'tutor_lang': '📚 Language Instructor',
-                                          'tutor_stem': '📚 STEM Instructor',
-                                          'administration': '📋 Administrative Team',
-                                        };
-                                        return (
-                                          <span
-                                            key={cat}
-                                            className="px-3 py-1 text-xs bg-navy-50 text-navy-700 rounded-full"
-                                          >
-                                            {categoryLabels[cat] || cat}
-                                          </span>
-                                        );
-                                      })}
-                                    </div>
-                                  )}
-                                  <div className="text-sm text-navy-600 font-medium mt-3">
-                                    View Profile →
-                                  </div>
-                                </div>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    <RelatedMembersSection 
+                      key={category}
+                      category={category}
+                      relatedMembers={relatedMembers}
+                      getCategorySectionTitle={getCategorySectionTitle}
+                    />
                   );
                 })}
               </div>
@@ -362,6 +309,138 @@ const TeamMemberDetailPage = () => {
       </div>
       <hr />
       <Footer />
+    </div>
+  );
+};
+
+// New Component for Related Members with Fade Effects
+const RelatedMembersSection = ({ category, relatedMembers, getCategorySectionTitle }) => {
+  const [showLeftFade, setShowLeftFade] = useState(false);
+  const [showRightFade, setShowRightFade] = useState(true);
+  const scrollContainerRef = useRef(null);
+
+  // Update fade effects based on scroll position
+  useEffect(() => {
+    const updateFadeEffects = () => {
+      if (!scrollContainerRef.current) {
+        setShowLeftFade(false);
+        setShowRightFade(false);
+        return;
+      }
+
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const scrollRight = scrollWidth - clientWidth - scrollLeft;
+
+      // Show left fade if scrolled to the right
+      setShowLeftFade(scrollLeft > 10);
+      
+      // Show right fade if there's more content to scroll
+      setShowRightFade(scrollRight > 10);
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', updateFadeEffects);
+      // Initial check
+      setTimeout(updateFadeEffects, 150);
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', updateFadeEffects);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="p-8 border-b border-gray-100 last:border-b-0 relative">
+      <div className="flex justify-between items-center mb-6">
+        <h3 className="text-xl font-semibold text-navy-800">
+          {getCategorySectionTitle(category)}
+        </h3>
+        <p className="text-sm text-gray-500">
+          Scroll to see more →
+        </p>
+      </div>
+      
+      {/* Relative container for fade overlays */}
+      <div className="relative">
+        {/* Left fade overlay */}
+        <div 
+          className={`absolute left-0 top-0 bottom-0 w-12 pointer-events-none z-10 
+            transition-opacity duration-300 ${showLeftFade ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+          }}
+        />
+        
+        {/* Right fade overlay */}
+        <div 
+          className={`absolute right-0 top-0 bottom-0 w-12 pointer-events-none z-10 
+            transition-opacity duration-300 ${showRightFade ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            background: 'linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+          }}
+        />
+
+        {/* Scroll container */}
+        <div 
+          ref={scrollContainerRef}
+          className="flex space-x-6 pb-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 relative"
+        >
+          {relatedMembers.map(relatedMember => (
+            <Link
+              key={relatedMember.id}
+              to={`/team/${relatedMember.slug}`}
+              className="min-w-[300px] bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-all duration-200 hover:bg-white hover:border-navy-100 hover:border flex-shrink-0"
+            >
+              <div className="flex items-start gap-4">
+                <img
+                  src={relatedMember.image}
+                  alt={relatedMember.name}
+                  className="w-20 h-20 rounded-xl object-cover border-2 border-navy-100"
+                />
+                <div className="flex-1">
+                  <h4 className="font-bold text-lg text-navy-800 mb-1">{relatedMember.name}</h4>
+                  <p className="text-gray-600 mb-2">{relatedMember.role}</p>
+                  {relatedMember.categories && relatedMember.categories.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {relatedMember.categories.slice(0, 2).map(cat => {
+                        const categoryLabels = {
+                          'founder': '👑 Founder',
+                          'development': '💻 Developer',
+                          'design': '🎨 Designer',
+                          'advising': '💡 Advisor',
+                          'tutor_lang': '📚 Language Instructor',
+                          'tutor_stem': '📚 STEM Instructor',
+                          'administration': '📋 Administrative Team',
+                        };
+                        return (
+                          <span
+                            key={cat}
+                            className="px-3 py-1 text-xs bg-navy-50 text-navy-700 rounded-full"
+                          >
+                            {categoryLabels[cat] || cat}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
+                  <div className="text-sm text-navy-600 font-medium mt-3">
+                    View Profile →
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+          
+          {/* Add extra padding on the right for better scrolling feel */}
+          <div className="flex-shrink-0 w-4" />
+        </div>
+      </div>
     </div>
   );
 };

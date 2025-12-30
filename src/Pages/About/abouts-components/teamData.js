@@ -112,18 +112,6 @@ const teamData = [
     hierarchyCategory: "tutor_lang"
   },
   {
-    id: 9,
-    name: "Ray Beraska 2",
-    slug: "ray-beraska2",
-    role: "English Instructor",
-    image: rayImage,
-    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
-    categories: ["tutor_lang"],
-    tutor_expertise: ["Language (ESL)"],
-    hierarchyLevel: 2,
-    hierarchyCategory: "tutor_lang"
-  },
-  {
     id: 8,
     name: "Qi Zhu",
     slug: "qi-zhu",
