@@ -13,7 +13,7 @@ const teamData = [
     slug: "ling-wang",
     role: "Founder & CEO",
     image: lingImage,
-    description: "Ling Wang is the founder and CEO of Brightway to Canada, a company dedicated to helping international students navigate the Canadian education system.",
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
     categories: ["founder", "advising"],
     hierarchyLevel: 1, // Add hierarchy level
     hierarchyCategory: "founders" // Add hierarchy category

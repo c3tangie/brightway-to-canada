@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 // Card Layout Configuration - NO BACKGROUNDS, NO BORDERS
 const CARD_LAYOUTS = {
-  // CEO/Founder Layout - EXTRA WIDE (75% of page)
+  // CEO/Founder Layout - EXTRA WIDE (85% of page)
   FOUNDER_CEO: {
-    width: 'w-full md:w-11/12 lg:w-10/12',
+    width: 'w-full md:w-11/12 lg:w-10/12', // This is approximately 85% width
     height: 'h-auto min-h-64',
     direction: 'vertical',
     avatarSize: 'w-56 h-56 md:w-64 md:h-64',
@@ -17,89 +17,103 @@ const CARD_LAYOUTS = {
     avatarBorder: 'border-8 border-white',
     showRole: true,
     nameSize: 'text-3xl md:text-4xl',
-    roleSize: 'text-xl'
+    roleSize: 'text-xl',
+    descriptionSize: 'text-lg'
   },
   // Leadership Layout
   LEADERSHIP: {
-    width: 'w-64 md:w-72',
-    height: 'h-72',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
     avatarSize: 'w-44 h-44',
     shadow: 'shadow-lg',
     priority: 2,
-    showDescription: false,
-    maxLines: 2,
+    showDescription: true,
+    maxLines: 3,
     spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true,
+    showSubjects: false // REMOVED: No subjects for leadership
   },
   // Tutor Layout
   TUTOR: {
-    width: 'w-56 md:w-60',
-    height: 'h-76',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
     avatarSize: 'w-44 h-44',
     shadow: 'shadow-md',
     priority: 3,
-    showSubjects: true,
-    showDescription: false,
-    maxLines: 2,
-    spacing: 'p-4',
+    showSubjects: false, // CHANGED: Disabled subject tags
+    showDescription: true,
+    maxLines: 3,
+    spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true
   },
   // STEM Tutor Layout
   STEM_TUTOR: {
-    width: 'w-56 md:w-60',
-    height: 'h-80',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
     avatarSize: 'w-44 h-44',
     shadow: 'shadow-md',
     priority: 3,
-    showSubjects: true,
-    showDescription: false,
-    maxLines: 2,
-    spacing: 'p-4',
+    showSubjects: false, // CHANGED: Disabled subject tags
+    showDescription: true,
+    maxLines: 3,
+    spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true
   },
   // Design Team Layout
   DESIGN: {
-    width: 'w-60 md:w-64',
-    height: 'h-72',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
     avatarSize: 'w-44 h-44',
     shadow: 'shadow-md',
     priority: 4,
-    showDescription: false,
-    maxLines: 2,
+    showDescription: true,
+    maxLines: 3,
     spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true,
+    showSubjects: false // REMOVED: No subjects for design
   },
   // Default Layout
   DEFAULT: {
-    width: 'w-56',
-    height: 'h-68',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
     avatarSize: 'w-44 h-44',
     shadow: 'shadow',
     priority: 5,
-    showDescription: false,
-    maxLines: 2,
-    spacing: 'p-4',
+    showDescription: true,
+    maxLines: 3,
+    spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true,
+    showSubjects: false // REMOVED: No subjects for default
   }
 };
 
@@ -136,6 +150,7 @@ const getCardLayout = (role, hierarchyCategory, tutor_expertise) => {
 
 const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
   const [shouldCenter, setShouldCenter] = useState(false);
+  const [cardWidthClass, setCardWidthClass] = useState('w-64'); // Default width
   const containerRef = useRef(null);
 
   if (!members || members.length === 0) return null;
@@ -158,76 +173,75 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     [members]
   );
 
-  // Dynamic width calculation - SPECIAL HANDLING FOR WIDE CEO CARD
-  useEffect(() => {
-    const checkIfShouldCenter = () => {
-      if (containerRef.current && sortedMembers.length > 0) {
-        const containerWidth = containerRef.current.offsetWidth;
-        let totalWidth = 0;
-        let hasWideCard = false;
-        
-        // Calculate based on actual card layouts
-        sortedMembers.forEach((member, index) => {
-          const layout = member.layout;
-          
-          // Special handling for CEO wide card
-          if (layout.priority === 1) { // CEO card
-            hasWideCard = true;
-            // CEO card takes full width, so we don't need to calculate
-            // It will be handled separately
-          } else {
-            // Calculate width for regular cards
-            let cardWidth = 224; // Default 56 * 4
-            
-            if (layout.width.includes('w-')) {
-              // Parse Tailwind width classes
-              if (layout.width.includes('/')) {
-                // Fractional width (e.g., w-11/12)
-                const [numerator, denominator] = layout.width
-                  .split('w-')[1]
-                  .split(' ')[0]
-                  .split('/')
-                  .map(Number);
-                cardWidth = (containerWidth * numerator) / denominator;
-              } else {
-                // Fixed width (e.g., w-64)
-                const widthValue = parseInt(layout.width.split('w-')[1].split(' ')[0]);
-                cardWidth = widthValue * 4; // Convert rem to px
-              }
-            }
-            
-            totalWidth += cardWidth;
-            
-            // Add gap if not the last card
-            if (index < sortedMembers.length - 1) {
-              totalWidth += 32; // gap-8 = 32px
-            }
-          }
-        });
-        
-        // If there's a CEO wide card, it takes its own row
-        // Other cards should be centered only if they fit
-        if (hasWideCard) {
-          // For CEO section, check if OTHER cards fit
-          const otherCardsWidth = totalWidth;
-          setShouldCenter(otherCardsWidth <= containerWidth);
-        } else {
-          setShouldCenter(totalWidth <= containerWidth);
-        }
-      }
-    };
-
-    checkIfShouldCenter();
-    window.addEventListener('resize', checkIfShouldCenter);
-    
-    return () => window.removeEventListener('resize', checkIfShouldCenter);
-  }, [sortedMembers]);
-
   // Separate CEO card from other cards
   const ceoMembers = sortedMembers.filter(member => member.layout.priority === 1);
   const otherMembers = sortedMembers.filter(member => member.layout.priority !== 1);
 
-  // Render CEO Card - EXTRA WIDE
+  // Calculate dynamic width for other members - FIXED VERSION
+  useEffect(() => {
+    const calculateCardWidth = () => {
+      if (containerRef.current && otherMembers.length > 0) {
+        const containerWidth = containerRef.current.offsetWidth;
+        
+        // WIDER: Match CEO width - approximately 85% of screen (same as CEO card)
+        const availableWidth = containerWidth * 0.85; // INCREASED from 75% to 85%
+        
+        // Determine optimal number of visible cards based on count
+        let targetVisibleCards;
+        if (otherMembers.length <= 2) {
+          targetVisibleCards = Math.min(2, otherMembers.length);
+        } else if (otherMembers.length <= 4) {
+          targetVisibleCards = Math.min(3, otherMembers.length);
+        } else {
+          targetVisibleCards = Math.min(4, otherMembers.length);
+        }
+        
+        // Calculate width per card including gap (gap-8 = 32px)
+        const gapSize = 32;
+        const totalGapWidth = (targetVisibleCards - 1) * gapSize;
+        const cardWidthPx = Math.floor((availableWidth - totalGapWidth) / targetVisibleCards);
+        
+        // Convert to valid Tailwind width classes
+        // Use standard Tailwind sizes: 56(14rem), 64(16rem), 72(18rem), 80(20rem), 96(24rem)
+        let widthClass;
+        if (cardWidthPx <= 240) { // 15rem = 240px
+          widthClass = 'w-60'; // 15rem
+        } else if (cardWidthPx <= 256) { // 16rem = 256px
+          widthClass = 'w-64'; // 16rem
+        } else if (cardWidthPx <= 288) { // 18rem = 288px
+          widthClass = 'w-72'; // 18rem
+        } else if (cardWidthPx <= 320) { // 20rem = 320px
+          widthClass = 'w-80'; // 20rem
+        } else if (cardWidthPx <= 384) { // 24rem = 384px
+          widthClass = 'w-96'; // 24rem
+        } else {
+          widthClass = 'w-[28rem]'; // 28rem - custom for very wide screens
+        }
+        
+        setCardWidthClass(widthClass);
+        
+        // Calculate if all cards fit without scrolling
+        let cardWidth;
+        if (widthClass === 'w-[28rem]') {
+          cardWidth = 28 * 16; // 28rem * 16px/rem
+        } else {
+          cardWidth = parseInt(widthClass.split('-')[1]) * 0.25 * 16; // Convert rem to px
+        }
+        
+        const totalCardsWidth = otherMembers.length * cardWidth + 
+                              (otherMembers.length - 1) * gapSize;
+        setShouldCenter(totalCardsWidth <= availableWidth);
+      }
+    };
+
+    // Add a small delay to ensure DOM is fully rendered
+    setTimeout(calculateCardWidth, 100);
+    window.addEventListener('resize', calculateCardWidth);
+    
+    return () => window.removeEventListener('resize', calculateCardWidth);
+  }, [otherMembers]);
+
+  // Render CEO Card - EXTRA WIDE (85%)
   const renderCeoCard = (member) => {
     const layout = member.layout;
     const isHorizontal = layout.direction === 'horizontal';
@@ -237,7 +251,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         <Link 
           to={`/team/${member.slug}`}
           className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
-            no-underline hover:no-underline transition-all duration-300 group`}
+            no-underline hover:no-underline transition-all duration-300 group mx-auto ${layout.width}`}
         >
           {/* Avatar - Larger for CEO */}
           <div className={`${isHorizontal ? 'md:mr-8 mb-6 md:mb-0' : 'mb-6'} flex-shrink-0`}>
@@ -273,13 +287,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
                       ? member.description[0] 
                       : member.description}
                 </p>
-                {Array.isArray(member.description) && member.description.length > 1 && (
-                  <div className="mt-4">
-                    <span className="inline-flex items-center text-navy-600 hover:text-navy-800 font-medium">
-                      Read full bio →
-                    </span>
-                  </div>
-                )}
+                {/* REMOVED: Read full bio link */}
               </div>
             )}
           </div>
@@ -288,23 +296,23 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     );
   };
 
-  // Render Regular Card
+  // Render Regular Card - REMOVED "View profile" text and tutor tags
   const renderRegularCard = (member) => {
     const layout = member.layout;
-    const isHorizontal = layout.direction === 'horizontal';
     
     return (
       <div 
         key={member.id} 
-        className={`flex-shrink-0 ${layout.width} transition-all duration-300 hover:-translate-y-2`}
+        className={`flex-shrink-0 ${cardWidthClass} transition-all duration-300 hover:-translate-y-2 flex flex-col h-full`}
+        style={{ minWidth: '0' }} // IMPORTANT: Prevents flex item overflow
       >
         <Link 
           to={`/team/${member.slug}`}
-          className={`rounded-xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-row items-center' : 'flex-col items-center'} 
-            no-underline hover:no-underline transition-all duration-300 group`}
+          className={`rounded-xl ${layout.spacing} h-full flex flex-col items-center 
+            no-underline hover:no-underline transition-all duration-300 group flex-1`}
         >
           {/* Avatar */}
-          <div className={`${isHorizontal ? 'mr-4' : 'mb-4'} flex-shrink-0`}>
+          <div className="mb-4 flex-shrink-0">
             <img 
               src={member.image} 
               alt={member.name}
@@ -313,36 +321,39 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
             />
           </div>
           
-          {/* Content */}
-          <div className={`${isHorizontal ? 'text-left' : 'text-center'} ${isHorizontal ? 'flex-1' : 'w-full'}`}>
-            {/* Name */}
+          {/* Content - Clean version without extra elements */}
+          <div className="text-center w-full flex flex-col flex-1 min-w-0">
+            {/* Name - Proper text wrapping */}
             <h3 className={`font-bold ${layout.nameSize} text-navy-800 group-hover:text-navy-900 
-              ${isHorizontal ? '' : 'truncate'} mb-1`}>
+              break-words overflow-hidden mb-2 leading-tight line-clamp-2`}
+              style={{ wordWrap: 'break-word' }}>
               {member.name}
             </h3>
             
-            {/* Role */}
+            {/* Role - Proper text wrapping */}
             {layout.showRole && member.role && (
-              <p className={`text-navy-600 ${layout.roleSize} ${layout.maxLines === 1 ? 'truncate' : 'line-clamp-2'} mb-2`}>
+              <p className={`text-navy-600 ${layout.roleSize} font-medium break-words overflow-hidden mb-3 leading-snug line-clamp-2`}
+                style={{ wordWrap: 'break-word' }}>
                 {member.role}
               </p>
             )}
             
-            {/* Subjects for Tutors - Minimal inline */}
-            {layout.showSubjects && member.tutor_expertise && member.tutor_expertise.length > 0 && (
-              <div className="mt-2">
-                <div className="flex flex-wrap gap-1 justify-center">
-                  {member.tutor_expertise.slice(0, 2).map((subject, idx) => (
-                    <span 
-                      key={idx}
-                      className="text-xs px-2 py-1 text-gray-600"
-                    >
-                      {subject}
-                    </span>
-                  ))}
-                </div>
+            {/* Description for all members - Clean and centered */}
+            {layout.showDescription && member.description && (
+              <div className="mt-2 flex-1 min-h-0">
+                <p className={`text-gray-600 ${layout.descriptionSize} leading-snug break-words overflow-hidden line-clamp-3`}
+                  style={{ wordWrap: 'break-word' }}>
+                  {typeof member.description === 'string' 
+                    ? member.description 
+                    : Array.isArray(member.description) 
+                      ? member.description[0] 
+                      : member.description}
+                </p>
               </div>
             )}
+            
+            {/* REMOVED: Subject tags for tutors */}
+            {/* REMOVED: View profile link */}
           </div>
         </Link>
       </div>
@@ -351,7 +362,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
 
   return (
     <section className="mb-16">
-      {/* Clean Header - NO ICONS/EMOJIS */}
+      {/* Clean Header */}
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-navy-800 mb-3">{title}</h2>
         {description && (
@@ -359,23 +370,24 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         )}
       </div>
 
-      {/* CEO Section (if any) - Full width */}
+      {/* CEO Section - Already 85% wide */}
       {ceoMembers.length > 0 && (
         <div className="mb-12">
           {ceoMembers.map(renderCeoCard)}
         </div>
       )}
 
-      {/* Other Members Section */}
+      {/* Other Members Section - NOW WIDER to match CEO (85%) */}
       {otherMembers.length > 0 && (
         <div className="relative" ref={containerRef}>
           <div className={`flex gap-8 pb-6 overflow-x-auto scroll-smooth 
-            scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent px-4 
-            ${shouldCenter ? 'justify-center' : ''}`}>
+            scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
+            ${shouldCenter ? 'justify-center' : ''} 
+            w-[85%] mx-auto px-4`}> {/* CHANGED: w-[85%] to match CEO */}
             {otherMembers.map(renderRegularCard)}
           </div>
           
-          {/* Scroll hint only for other members */}
+          {/* Scroll hint */}
           {!shouldCenter && otherMembers.length > 0 && (
             <div className="text-center mt-4">
               <span className="text-sm text-gray-400 inline-flex items-center gap-2">
