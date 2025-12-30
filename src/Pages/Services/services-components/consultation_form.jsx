@@ -86,7 +86,7 @@ function ConsultationForm() {
     setValidationMessages({});
 
     const formDataToSubmit = new FormData(event.target);
-    formDataToSubmit.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY"); // Replace with actual key
+    formDataToSubmit.append("access_key", "b0223251-5a13-4fd9-bdcc-d0d43dd63153"); // Replace with actual key
 
     const object = Object.fromEntries(formDataToSubmit);
     const json = JSON.stringify(object);
@@ -139,7 +139,7 @@ function ConsultationForm() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []); // Empty dependency array means it runs only once on mount
 
   return (
     <div className="flex items-center min-h-screen bg-gray-300">
