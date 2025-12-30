@@ -29,39 +29,43 @@ const ServiceArticle = () => {
           <p className="text-gray-600">Professional assistance with preparing and reviewing all required immigration documents.</p>
         </div>
       </div>
+      
       <div className="text-center">
         <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
             School Selection & Education Planning
         </h3>
         <p className="text-lg text-gray-600 leading-relaxed">
-Selecting the right school is a critical decision that can shape a student’s academic and personal development. Brightway to Canada works closely with families to understand each student’s strengths, interests, and long-term goals. We provide informed guidance on suitable schools and programs within the Canadian education system, helping families make confident, well-considered choices. Our focus is on identifying learning environments where students can grow, adapt, and succeed, both academically and socially.
+          Selecting the right school is a critical decision that can shape a student's academic and personal development. Brightway to Canada works closely with families to understand each student's strengths, interests, and long-term goals. We provide informed guidance on suitable schools and programs within the Canadian education system, helping families make confident, well-considered choices. Our focus is on identifying learning environments where students can grow, adapt, and succeed, both academically and socially.
         </p><br></br>
+        
         <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
             Homestay Placement and Support
         </h3>
         <p className="text-lg text-gray-600 leading-relaxed">
-A supportive home environment is essential for students studying abroad. Brightway to Canada carefully places students with welcoming homestay families who provide a safe, stable, and nurturing living experience. We emphasize compatibility between students and host families, taking into account lifestyle, routines, and individual needs. Beyond placement, we remain actively involved to ensure students feel comfortable, supported, and cared for throughout their stay.
+          A supportive home environment is essential for students studying abroad. Brightway to Canada carefully places students with welcoming homestay families who provide a safe, stable, and nurturing living experience. We emphasize compatibility between students and host families, taking into account lifestyle, routines, and individual needs. Beyond placement, we remain actively involved to ensure students feel comfortable, supported, and cared for throughout their stay.
         </p><br></br>
+        
         <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
             Arrival Settlement and Support
         </h3>
         <p className="text-lg text-gray-600 leading-relaxed">
-Transitioning to a new country can be overwhelming, especially during the initial adjustment period. Brightway to Canada supports students as they adapt to daily life in Canada, helping them understand local customs, school expectations, and everyday routines. Our guidance is designed to ease uncertainty, build confidence, and help students establish a sense of belonging in their new environment.
+          Transitioning to a new country can be overwhelming, especially during the initial adjustment period. Brightway to Canada supports students as they adapt to daily life in Canada, helping them understand local customs, school expectations, and everyday routines. Our guidance is designed to ease uncertainty, build confidence, and help students establish a sense of belonging in their new environment.
         </p><br></br>
-        
         
         <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
             Ongoing Guidance and Family Communication
         </h3>
         <p className="text-lg text-gray-600 leading-relaxed">
-Brightway to Canada believes that ongoing support is just as important as initial planning. We maintain open communication with families and provide continued guidance as students progress through their studies. Whether addressing academic challenges, adjustment concerns, or general questions, we strive to offer timely support and reassurance, ensuring both students and parents feel informed and supported throughout the experience.
+          Brightway to Canada believes that ongoing support is just as important as initial planning. We maintain open communication with families and provide continued guidance as students progress through their studies. Whether addressing academic challenges, adjustment concerns, or general questions, we strive to offer timely support and reassurance, ensuring both students and parents feel informed and supported throughout the experience.
         </p><br></br>
+        
         <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
             Consultation and Personalized Planning
         </h3>
         <p className="text-lg text-gray-600 leading-relaxed">
-Every family’s situation is unique, which is why our services begin with a personalized consultation. This process allows us to better understand the student’s background, goals, and specific needs. By gathering relevant information early on, we are able to provide thoughtful recommendations and create a clear plan that supports a smooth and successful education journey in Canada.
+          Every family's situation is unique, which is why our services begin with a personalized consultation. This process allows us to better understand the student's background, goals, and specific needs. By gathering relevant information early on, we are able to provide thoughtful recommendations and create a clear plan that supports a smooth and successful education journey in Canada.
         </p><br></br>
+        
         {/* Book Consultation Button */}
         <div className="mt-12">
           <a 
@@ -71,10 +75,38 @@ Every family’s situation is unique, which is why our services begin with a per
             Book a Consultation
           </a>
         </div>
+
+        {/* Quick Info Buttons Section */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">
+            Student Looking For Quick Info?
+          </h3>
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              Prospecting Students
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              Current Students
+            </a>
+            
+            <a 
+              href="#/services/graduating-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              Graduating Students
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-
-    
   )
 }
 

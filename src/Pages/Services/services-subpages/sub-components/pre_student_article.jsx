@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Pre_Student_Article = () => {
+
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []); // Empty dependency array means it runs only once on mount  
+
   const [openDropdown, setOpenDropdown] = useState(null)
 
   const toggleDropdown = (index) => {

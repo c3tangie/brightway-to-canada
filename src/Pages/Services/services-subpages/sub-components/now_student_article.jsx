@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Logo from "../../../../assets/logo.png"
 
 const Now_Student_Article = () => {
+
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []); // Empty dependency array means it runs only once on mount  
+
   return (
     <div className='mt-5 ml-64 mr-64 font-RobotoFlex text-center text-xl'>
         

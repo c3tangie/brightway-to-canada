@@ -21,9 +21,9 @@ function App() {
     <Router>  
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/prospective-students" element={<PreStudent />} />
-        <Route path="/current-students" element={<NowStudent />} />
-        <Route path="/graduating-students" element={<GradStudent />} />
+        <Route path="/services/prospective-students" element={<PreStudent />} />
+        <Route path="/services/current-students" element={<NowStudent />} />
+        <Route path="/services/graduating-students" element={<GradStudent />} />
         <Route path="/about" element={<OfficialAbouts />} />
         <Route path="/about_teams" element={<OfficialAboutsTeams />} />
         {/* Dynamic route for team members */}
