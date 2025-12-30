@@ -144,7 +144,7 @@ function ConsultationForm() {
   return (
     <div className="flex items-center min-h-screen bg-gray-300">
       <div className="container mx-auto">
-        <div className="max-w-[1370px] mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+        <div className="max-w-[1375px] mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
           <div className="text-center">
             <h1 className="my-3 text-3xl font-semibold text-gray-700">
               Book a Consultation
