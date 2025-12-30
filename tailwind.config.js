@@ -101,8 +101,12 @@ export default {
         assistant: ['Assistant', 'sans-serif'],
         chironHeiHK: ['Chiron Hei HK', 'sans-serif'],
         RobotoFlex: ['Roboto Flex', 'sans-serif'],
+      },
+      screens: {
+        '3xl': '2200px',   // Full HD / large monitors
+        '4xl': '2560px',   // 2K / ultrawide displays
+      },
     },
   },
   plugins: [],
-}
 }

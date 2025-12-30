@@ -103,7 +103,7 @@ const Banner = () => {
         </div>
         
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
        {/* Content Container */}
       <div className="absolute inset-0 flex flex-col sm:items-center justify-start sm:justify-center px-4 z-10 pt-16 sm:pt-0">
