@@ -13,7 +13,7 @@ const Home = () => {
         <Banner />
         <Article />
         <Buttons />
-        {/* <BackToTop /> */}
+        <BackToTop />
         <Footer />
     </div>
   )

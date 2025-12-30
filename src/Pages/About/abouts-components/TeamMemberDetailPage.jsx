@@ -108,18 +108,6 @@ const TeamMemberDetailPage = () => {
       <Navbar />
       <hr />
       <div className="min-h-screen bg-gray-50">
-        {/* Navigation */}
-        <div className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 py-4">
-            <Link 
-              to="/about_teams" 
-              className="inline-flex items-center text-navy-600 hover:text-navy-800"
-            >
-              ← Back to Team
-            </Link>
-          </div>
-        </div>
-
         {/* Member Content */}
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -304,6 +292,30 @@ const TeamMemberDetailPage = () => {
                 })}
               </div>
             )}
+
+            {/* Back to Team Button - Centered at Bottom */}
+            <div className="p-8 border-t border-gray-200 text-center">
+              <Link 
+                to="/about_teams" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-600 text-white font-semibold rounded-lg hover:bg-navy-700 transition-colors duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >
+                <svg 
+                  className="w-5 h-5" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                  />
+                </svg>
+                Back to Team
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -395,7 +407,7 @@ const RelatedMembersSection = ({ category, relatedMembers, getCategorySectionTit
             <Link
               key={relatedMember.id}
               to={`/team/${relatedMember.slug}`}
-              className="min-w-[300px] bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-all duration-200 hover:bg-white hover:border-navy-100 hover:border flex-shrink-0"
+              className="min-w-[300px] bg-gray-50 rounded-lg p-6 transition-all duration-200 hover:bg-white flex-shrink-0 transform"
             >
               <div className="flex items-start gap-4">
                 <img

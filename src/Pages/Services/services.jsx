@@ -4,6 +4,7 @@ import Footer from '../../components/Footer'
 import ServiceBanner from './services-components/service_banner'
 import ServiceArticle from './services-components/service_article'
 import Buttons from './services-components/Buttons'
+import BackToTop from '../../components/BackToTopButton'
 
 const OfficialServices = () => {
   return (
@@ -14,6 +15,7 @@ const OfficialServices = () => {
         <ServiceArticle />
         {/* <Buttons /> */}
         <hr></hr>
+        <BackToTop />
         <Footer />
     </div>
   )
