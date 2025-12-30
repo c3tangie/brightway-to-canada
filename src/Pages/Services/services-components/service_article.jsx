@@ -79,32 +79,182 @@ const ServiceArticle = () => {
         {/* Quick Info Buttons Section */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
-            Student Looking For Quick Info?
+            As A Student, You May Be Thinking About:
           </h3>
           
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
             <a 
               href="#/services/prospective-students"
               className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
             >
-              Prospecting Students
+              Where the heck do i even begin?
             </a>
             
             <a 
               href="#/services/current-students"
               className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
             >
-              Current Students
+              Now that I'm here, what next?
             </a>
             
             <a 
               href="#/services/graduating-students"
               className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
             >
-              Graduating Students
+              The diploma is in my hand, what now?
             </a>
           </div>
         </div>
+
+        {/* Hooking Questions Section */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">
+            As A Parent, You May Be Wondering:
+          </h3>
+          
+          <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              我的孩子12/13/15岁, 在国内时成绩很普通, 你们如何制定有效方案, 让她学业有成？
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              我的孩子今年初中毕业，在国内时成绩很普通，想来加拿大上高中，你们如何制定有效方案，让我的孩子能上一个比较好的大学？
+            </a>
+            
+            <a 
+              href="#/services/graduating-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              我的孩子年纪这么小，在心理和身体上都不成熟，你们会如何帮助孩子克服压力和心理问题？
+            </a>
+
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              我们孩子在国内高中都是填鸭式教育方式，到了那里学生没有严格管理，孩子成绩下降怎么办？
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              加拿大如何保障我未成年孩子的安全？
+            </a>
+            
+            <a 
+              href="#/services/graduating-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              加拿大初高中学习费用如何计划最划算？
+            </a>
+
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              孩子从国内转到加拿大读书，除了国内英语学习，还需要哪些英语培培训？
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              孩子出国前要打哪些疫苗？在哪里打？
+            </a>
+            
+            <a 
+              href="#/services/graduating-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              孩子出国前要要准备哪些法律材料？
+            </a>
+
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              当我们和孩子飞机落地加拿大第一个月我们将如何开始新的学习和生活？
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              我们觉得国内读书太卷，听说国外学习比较轻松，所以我们想出去读书
+            </a>
+            
+            <a 
+              href="#/services/graduating-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              孩子到了国外一切都会变好，比如心情会好起来，成绩会好起来，人生也会好起来...真的是这样吗？
+            </a>
+
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              女孩子到了国外，在情感上产生困惑的可能性增大，如何避免出现情感问题而影响生活和学习？
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              虽然留学生都是同龄人，但是中国的小留学生如果没有人为帮助，很难“融入”当地学生群体，该怎么办？
+            </a>
+            
+            <a 
+              href="#/services/graduating-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              孩子上中学出去合适还是高中毕业出去留学合适？
+            </a>
+
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              留学孩子的学业规划分哪四个层次？
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              孩子出国留学后，家长需要做哪些事请帮助孩子？
+            </a>
+            
+            <a 
+              href="#/services/graduating-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              小留学生的是住寄宿家庭好还是住学校集体宿舍好？学校和你们如何保持与每一个孩子的联系？
+            </a>
+
+            <a 
+              href="#/services/prospective-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              如果孩子在留学过程中发生突发事件，他们该去找谁？
+            </a>
+            
+            <a 
+              href="#/services/current-students"
+              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+            >
+              孩子生病了，怎么办？留学生在医疗上有什么政策吗？
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   )
