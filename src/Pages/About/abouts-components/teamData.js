@@ -16,7 +16,7 @@ const teamData = [
     description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
     categories: ["founder", "advising"],
     hierarchyLevel: 1, // Add hierarchy level
-    hierarchyCategory: "founders" // Add hierarchy category
+    hierarchyCategory: "founder" // Add hierarchy category
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ const teamData = [
     slug: "jonathan-tang",
     role: "Technical Support",
     image: placeHolderImage,
-    description: "Jonathan Tang.",
-    categories: ["development", "design"],
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
+    categories: ["administration", "development", "design"],
     hierarchyLevel: 5,
     hierarchyCategory: "administration",
     extended_expertise: ["Video Editing", "Graphic Design"]
@@ -70,7 +70,7 @@ const teamData = [
     slug: "don-standing",
     role: "Professional English Instructor",
     image: donImage,
-    description: "Don Standing.",
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
     categories: ["tutor_lang"],
     tutor_expertise: ["Language (ESL)"],
     extended_bio: ["Born and raised in Ottawa; BA (Hon) majoring in History from Queen's University (Kingston) 1979; B.Ed 1980 Queen's; M.Ed from University of Victoria 1990. Taught English, Social Studies and French at Revelstoke Secondary School (Revelstoke, BC) 1981-1989; taught English, Social Studies and French at Ballenas Secondary School (Parksville, BC) 1991-2016. English tutor 2017- present."],
@@ -105,7 +105,7 @@ const teamData = [
     slug: "ray-beraska",
     role: "English Instructor",
     image: rayImage,
-    description: "Ray Beraska.",
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
     categories: ["tutor_lang"],
     tutor_expertise: ["Language (ESL)"],
     hierarchyLevel: 2,
@@ -117,7 +117,7 @@ const teamData = [
     slug: "qi-zhu",
     role: "Content Creator & Marketing Advisor & Mandarin Instructor",
     image: placeHolderImage,
-    description: "Qi Zhu.",
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
     categories: ["design", "tutor_lang"],
     tutor_expertise: ["Language (Mandarin)"],
     hierarchyLevel: 4,

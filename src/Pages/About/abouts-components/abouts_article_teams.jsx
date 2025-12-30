@@ -12,12 +12,12 @@ const Abouts_Article_Teams = () => {
   // Define hierarchy sections
   const hierarchySections = [
     {
-      id: 'founders',
+      id: 'founder',
       title: 'Founders & Leadership',
       description: 'The visionaries guiding Brightway to Canada',
       icon: '👑',
       color: 'bg-gradient-to-r from-navy-700 to-navy-900',
-      filterFn: (member) => member.hierarchyCategory === 'founders'
+      filterFn: (member) => member.hierarchyCategory === 'founder'
     },
     {
       id: 'tutor_lang',

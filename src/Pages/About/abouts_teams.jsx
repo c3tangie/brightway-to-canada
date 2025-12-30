@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import BackToTop from '../../components/BackToTopButton'
 import Abouts_Article_Teams from './abouts-components/abouts_article_teams'
 
 const OfficialAboutsTeams = () => {
@@ -10,6 +11,7 @@ const OfficialAboutsTeams = () => {
         <hr></hr>
         <Abouts_Article_Teams />
         <hr></hr>
+        <BackToTop />
         <Footer />
     </div>
   )

@@ -28,43 +28,44 @@ const TeamMemberDetailPage = () => {
 
   // Function to get related members for a specific category
   const getRelatedMembersByCategory = (category) => {
-    // If no categories, return empty array
-    if (!member.categories || member.categories.length === 0) {
+    // If no category, return empty array
+    if (!category) {
       return [];
     }
 
-    // For tutor categories, we want to show same-type tutors only
-    if (category === 'tutor_lang' || category === 'tutor_stem') {
-      return teamData.filter(otherMember => {
-        if (otherMember.slug === member.slug) return false;
-        if (!otherMember.categories) return false;
-        return otherMember.categories.includes(category);
-      }).slice(0, 3); // Limit to 3 members
-    }
-
-    // For non-tutor categories, filter by exact category match
+    // Filter members based on category
     return teamData.filter(otherMember => {
       if (otherMember.slug === member.slug) return false;
-      if (!otherMember.categories) return false;
-      return otherMember.categories.includes(category);
+      
+      // Check if category exists in categories array
+      if (otherMember.categories && otherMember.categories.includes(category)) {
+        return true;
+      }
+      
+      // Check if category matches hierarchyCategory
+      if (otherMember.hierarchyCategory === category) {
+        return true;
+      }
+      
+      return false;
     }).slice(0, 3); // Limit to 3 members
   };
 
-  // Get all unique categories for the member (excluding hierarchyCategory if it's in categories)
+  // Get all unique categories for the member (including hierarchyCategory)
   const getDisplayCategories = () => {
-    if (!member.categories || member.categories.length === 0) {
-      return [];
+    const categoriesSet = new Set();
+    
+    // Add all categories
+    if (member.categories && member.categories.length > 0) {
+      member.categories.forEach(cat => categoriesSet.add(cat));
     }
     
-    // Start with all categories
-    const allCategories = [...member.categories];
-    
-    // Add hierarchyCategory if it's different and not already included
-    if (member.hierarchyCategory && !allCategories.includes(member.hierarchyCategory)) {
-      allCategories.push(member.hierarchyCategory);
+    // Add hierarchyCategory if it exists
+    if (member.hierarchyCategory) {
+      categoriesSet.add(member.hierarchyCategory);
     }
     
-    return [...new Set(allCategories)]; // Remove duplicates
+    return Array.from(categoriesSet);
   };
 
   const displayCategories = getDisplayCategories();
@@ -78,7 +79,8 @@ const TeamMemberDetailPage = () => {
       'advising': 'Other Advisors',
       'tutor_lang': 'Other Language Instructors',
       'tutor_stem': 'Other STEM Instructors',
-      'administration': 'Other Administrative Team',
+      'administration': 'Other Administrative Team', // Added this
+      'tutor': 'Other Tutors',
     };
 
     return categoryTitles[category] || `Other ${category.charAt(0).toUpperCase() + category.slice(1)}`;
@@ -169,11 +171,11 @@ const TeamMemberDetailPage = () => {
                 {/* Left Column - Basic Info */}
                 <div className="lg:col-span-1">
                   {/* Categories */}
-                  {member.categories && member.categories.length > 0 && (
+                  {displayCategories.length > 0 && (
                     <div className="mb-8">
                       <h3 className="text-lg font-semibold text-navy-800 mb-3">Roles</h3>
                       <div className="flex flex-wrap gap-2">
-                        {member.categories.map(category => {
+                        {displayCategories.map(category => {
                           const categoryLabels = {
                             'founder': '👑 Founder',
                             'development': '💻 Developer',
@@ -181,6 +183,7 @@ const TeamMemberDetailPage = () => {
                             'advising': '💡 Advisor',
                             'tutor_lang': '📚 Language Instructor',
                             'tutor_stem': '📚 STEM Instructor',
+                            'administration': '📋 Administrative Team', // Added this
                           };
                           return (
                             <span
@@ -327,6 +330,7 @@ const TeamMemberDetailPage = () => {
                                           'advising': '💡 Advisor',
                                           'tutor_lang': '📚 Language Instructor',
                                           'tutor_stem': '📚 STEM Instructor',
+                                          'administration': '📋 Administrative Team',
                                         };
                                         return (
                                           <span

@@ -20,6 +20,23 @@ const CARD_LAYOUTS = {
     roleSize: 'text-xl',
     descriptionSize: 'text-lg'
   },
+  // Single Member Layout - WIDE like CEO (85% of page)
+  SINGLE_MEMBER: {
+    width: 'w-full md:w-11/12 lg:w-10/12', // This is approximately 85% width
+    height: 'h-auto min-h-64',
+    direction: 'vertical',
+    avatarSize: 'w-56 h-56 md:w-64 md:h-64',
+    shadow: 'shadow-lg',
+    priority: 1.5, // Between CEO and other members
+    showDescription: true,
+    maxLines: 4,
+    spacing: 'p-6 md:p-8',
+    avatarBorder: 'border-8 border-white',
+    showRole: true,
+    nameSize: 'text-3xl md:text-4xl',
+    roleSize: 'text-xl',
+    descriptionSize: 'text-lg'
+  },
   // Leadership Layout
   LEADERSHIP: {
     width: 'w-full', // Will be set dynamically
@@ -118,7 +135,7 @@ const CARD_LAYOUTS = {
 };
 
 // Helper function to determine layout
-const getCardLayout = (role, hierarchyCategory, tutor_expertise) => {
+const getCardLayout = (role, hierarchyCategory, tutor_expertise, isSingleMember = false) => {
   const upperRole = role?.toUpperCase() || '';
   const upperCategory = hierarchyCategory?.toUpperCase() || '';
   
@@ -126,6 +143,11 @@ const getCardLayout = (role, hierarchyCategory, tutor_expertise) => {
   if (upperRole.includes('CEO') || upperRole.includes('FOUNDER') || 
       upperCategory.includes('FOUNDER') || upperCategory.includes('LEADERSHIP')) {
     return CARD_LAYOUTS.FOUNDER_CEO;
+  }
+  
+  // Single member layout - WIDE like CEO
+  if (isSingleMember) {
+    return CARD_LAYOUTS.SINGLE_MEMBER;
   }
   
   // Tutors
@@ -155,12 +177,15 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
 
   if (!members || members.length === 0) return null;
 
+  // Check if there's only one member in this section
+  const isSingleMemberSection = members.length === 1;
+
   // Sort members by layout priority and then alphabetically
   const sortedMembers = useMemo(() => 
     [...members]
       .map(member => ({
         ...member,
-        layout: getCardLayout(member.role, member.hierarchyCategory, member.tutor_expertise)
+        layout: getCardLayout(member.role, member.hierarchyCategory, member.tutor_expertise, isSingleMemberSection)
       }))
       .sort((a, b) => {
         // First by priority (CEO first, etc.)
@@ -170,17 +195,17 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         // Then alphabetically
         return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
       }),
-    [members]
+    [members, isSingleMemberSection]
   );
 
-  // Separate CEO card from other cards
-  const ceoMembers = sortedMembers.filter(member => member.layout.priority === 1);
-  const otherMembers = sortedMembers.filter(member => member.layout.priority !== 1);
+  // Separate single/CEO cards from regular cards
+  const wideCards = sortedMembers.filter(member => member.layout.priority < 2); // CEO (1) or SINGLE_MEMBER (1.5)
+  const regularCards = sortedMembers.filter(member => member.layout.priority >= 2);
 
-  // Calculate dynamic width for other members - FIXED VERSION
+  // Calculate dynamic width for regular cards - only if there are multiple members
   useEffect(() => {
     const calculateCardWidth = () => {
-      if (containerRef.current && otherMembers.length > 0) {
+      if (regularCards.length > 0 && containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
         
         // WIDER: Match CEO width - approximately 85% of screen (same as CEO card)
@@ -188,12 +213,12 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         
         // Determine optimal number of visible cards based on count
         let targetVisibleCards;
-        if (otherMembers.length <= 2) {
-          targetVisibleCards = Math.min(2, otherMembers.length);
-        } else if (otherMembers.length <= 4) {
-          targetVisibleCards = Math.min(3, otherMembers.length);
+        if (regularCards.length <= 2) {
+          targetVisibleCards = Math.min(2, regularCards.length);
+        } else if (regularCards.length <= 4) {
+          targetVisibleCards = Math.min(3, regularCards.length);
         } else {
-          targetVisibleCards = Math.min(4, otherMembers.length);
+          targetVisibleCards = Math.min(4, regularCards.length);
         }
         
         // Calculate width per card including gap (gap-8 = 32px)
@@ -228,8 +253,8 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
           cardWidth = parseInt(widthClass.split('-')[1]) * 0.25 * 16; // Convert rem to px
         }
         
-        const totalCardsWidth = otherMembers.length * cardWidth + 
-                              (otherMembers.length - 1) * gapSize;
+        const totalCardsWidth = regularCards.length * cardWidth + 
+                              (regularCards.length - 1) * gapSize;
         setShouldCenter(totalCardsWidth <= availableWidth);
       }
     };
@@ -239,10 +264,10 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     window.addEventListener('resize', calculateCardWidth);
     
     return () => window.removeEventListener('resize', calculateCardWidth);
-  }, [otherMembers]);
+  }, [regularCards]);
 
-  // Render CEO Card - EXTRA WIDE (85%)
-  const renderCeoCard = (member) => {
+  // Render Wide Card (CEO or Single Member) - EXTRA WIDE (85%)
+  const renderWideCard = (member) => {
     const layout = member.layout;
     const isHorizontal = layout.direction === 'horizontal';
     
@@ -253,7 +278,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
           className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
             no-underline hover:no-underline transition-all duration-300 group mx-auto ${layout.width}`}
         >
-          {/* Avatar - Larger for CEO */}
+          {/* Avatar - Larger for wide cards */}
           <div className={`${isHorizontal ? 'md:mr-8 mb-6 md:mb-0' : 'mb-6'} flex-shrink-0`}>
             <img 
               src={member.image} 
@@ -277,7 +302,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
               </p>
             )}
             
-            {/* Description for CEO */}
+            {/* Description for wide cards */}
             {layout.showDescription && member.description && (
               <div className="mt-4">
                 <p className="text-gray-700 text-lg leading-relaxed line-clamp-4 md:line-clamp-none">
@@ -296,7 +321,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     );
   };
 
-  // Render Regular Card - REMOVED "View profile" text and tutor tags
+  // Render Regular Card - for sections with multiple members
   const renderRegularCard = (member) => {
     const layout = member.layout;
     
@@ -370,25 +395,25 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         )}
       </div>
 
-      {/* CEO Section - Already 85% wide */}
-      {ceoMembers.length > 0 && (
+      {/* Wide Cards Section (CEO or Single Members) - Already 85% wide */}
+      {wideCards.length > 0 && (
         <div className="mb-12">
-          {ceoMembers.map(renderCeoCard)}
+          {wideCards.map(renderWideCard)}
         </div>
       )}
 
-      {/* Other Members Section - NOW WIDER to match CEO (85%) */}
-      {otherMembers.length > 0 && (
+      {/* Regular Cards Section (Multiple Members) - WIDER to match CEO (85%) */}
+      {regularCards.length > 0 && (
         <div className="relative" ref={containerRef}>
           <div className={`flex gap-8 pb-6 overflow-x-auto scroll-smooth 
             scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
             ${shouldCenter ? 'justify-center' : ''} 
             w-[85%] mx-auto px-4`}> {/* CHANGED: w-[85%] to match CEO */}
-            {otherMembers.map(renderRegularCard)}
+            {regularCards.map(renderRegularCard)}
           </div>
           
           {/* Scroll hint */}
-          {!shouldCenter && otherMembers.length > 0 && (
+          {!shouldCenter && regularCards.length > 0 && (
             <div className="text-center mt-4">
               <span className="text-sm text-gray-400 inline-flex items-center gap-2">
                 <span className="hidden sm:inline">← Scroll horizontally →</span>
