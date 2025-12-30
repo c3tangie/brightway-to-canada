@@ -12,28 +12,28 @@ const Abouts_Article_Teams = () => {
   // Define hierarchy sections
   const hierarchySections = [
     {
-      id: 'founders',
+      id: 'founder',
       title: 'Founders & Leadership',
       description: 'The visionaries guiding Brightway to Canada',
       icon: '👑',
       color: 'bg-gradient-to-r from-navy-700 to-navy-900',
-      filterFn: (member) => member.hierarchyCategory === 'founders'
+      filterFn: (member) => member.hierarchyCategory === 'founder'
     },
     {
-      id: 'tutors',
+      id: 'tutor_lang',
       title: 'Language Instructor Team',
       description: 'Expert instructors for academic success',
       icon: '📚',
       color: 'bg-gradient-to-r from-navy-500 to-navy-700',
-      filterFn: (member) => member.hierarchyCategory === 'tutors'
+      filterFn: (member) => member.hierarchyCategory === 'tutor_lang'
     },
     {
-      id: 'tutors_stem',
+      id: 'tutor_stem',
       title: 'STEM Instructor Team',
       description: 'Expert instructors for academic success',
       icon: '📚',
       color: 'bg-gradient-to-r from-navy-500 to-navy-700',
-      filterFn: (member) => member.hierarchyCategory === 'tutors_stem'
+      filterFn: (member) => member.hierarchyCategory === 'tutor_stem'
     },
     {
       id: 'design',
@@ -92,11 +92,11 @@ const Abouts_Article_Teams = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className='mt-16 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6' id="team-section">
+      <div className='mt-16 max-w-screen-2xl mx-auto' id="team-section">
 
         {/* Team Hierarchy Tree */}
         <section className='mb-20'>
-          <div className="space-y-16 flex flex-col items-center">
+          <div className="space-y-16">
             {hierarchySections.map(section => {
               // Filter members for this section
               const sectionMembers = teamData.filter(section.filterFn);
@@ -120,7 +120,7 @@ const Abouts_Article_Teams = () => {
         </section>
 
         {/* Tutoring Expertise Matrix */}
-        <section className='mb-16 bg-gray-50 rounded-2xl p-8'>
+        <section className='mb-16 bg-gray-50 rounded-2xl p-8 mx-6 xl:mx-20 2xl:mx-20'>
           <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
             Tutoring Expertise Matrix
           </h2>
@@ -129,7 +129,7 @@ const Abouts_Article_Teams = () => {
           {(() => {
             const tutorMembers = teamData.filter(member => 
               member.categories && (
-                member.categories.includes('tutor') || 
+                member.categories.includes('tutor_lang') || 
                 member.categories.includes('tutor_stem')  // Add this
               )
             ).sort((a, b) => 
@@ -245,7 +245,7 @@ const Abouts_Article_Teams = () => {
         </section>
 
         {/* CTA Section */}
-        <section className='text-center mb-12'>
+        <section className='text-center mb-12 mx-6 xl:mx-20 2xl:mx-20'>
           <h2 className='text-3xl font-bold text-navy-800 mb-6'>
             Ready to Start Your Journey?
           </h2>

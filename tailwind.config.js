@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      width: {
+        '60': '15rem', // 240px
+        '72': '18rem', // 288px
+        '80': '20rem', // 320px
+        '96': '24rem', // 384px
+      },
       colors: {
         navy: {
           50: '#f0f4f8',

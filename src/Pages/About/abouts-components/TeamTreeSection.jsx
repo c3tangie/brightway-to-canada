@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 // Card Layout Configuration - NO BACKGROUNDS, NO BORDERS
 const CARD_LAYOUTS = {
-  // CEO/Founder Layout - EXTRA WIDE (75% of page)
+  // CEO/Founder Layout - Use full container width
   FOUNDER_CEO: {
-    width: 'w-full md:w-11/12 lg:w-10/12',
+    width: 'w-full', // Changed from fixed width to full width
     height: 'h-auto min-h-64',
-    direction: 'horizontal',
+    direction: 'vertical',
     avatarSize: 'w-56 h-56 md:w-64 md:h-64',
     shadow: 'shadow-xl',
     priority: 1,
@@ -17,94 +17,125 @@ const CARD_LAYOUTS = {
     avatarBorder: 'border-8 border-white',
     showRole: true,
     nameSize: 'text-3xl md:text-4xl',
-    roleSize: 'text-xl'
+    roleSize: 'text-xl',
+    descriptionSize: 'text-lg'
+  },
+  // Single Member Layout - Use full container width
+  SINGLE_MEMBER: {
+    width: 'w-full', // Changed from fixed width to full width
+    height: 'h-auto min-h-64',
+    direction: 'vertical',
+    avatarSize: 'w-56 h-56 md:w-64 md:h-64',
+    shadow: 'shadow-lg',
+    priority: 1.5,
+    showDescription: true,
+    maxLines: 4,
+    spacing: 'p-6 md:p-8',
+    avatarBorder: 'border-8 border-white',
+    showRole: true,
+    nameSize: 'text-3xl md:text-4xl',
+    roleSize: 'text-xl',
+    descriptionSize: 'text-lg'
   },
   // Leadership Layout
   LEADERSHIP: {
-    width: 'w-64 md:w-72',
-    height: 'h-72',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
     avatarSize: 'w-44 h-44',
     shadow: 'shadow-lg',
     priority: 2,
-    showDescription: false,
-    maxLines: 2,
+    showDescription: true,
+    maxLines: 3,
     spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true,
+    showSubjects: false // REMOVED: No subjects for leadership
   },
   // Tutor Layout
   TUTOR: {
-    width: 'w-56 md:w-60',
-    height: 'h-76',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
-    avatarSize: 'w-40 h-40',
+    avatarSize: 'w-44 h-44',
     shadow: 'shadow-md',
     priority: 3,
-    showSubjects: true,
-    showDescription: false,
-    maxLines: 2,
-    spacing: 'p-4',
+    showSubjects: false, // CHANGED: Disabled subject tags
+    showDescription: true,
+    maxLines: 3,
+    spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true
   },
   // STEM Tutor Layout
   STEM_TUTOR: {
-    width: 'w-56 md:w-60',
-    height: 'h-80',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
-    avatarSize: 'w-40 h-40',
+    avatarSize: 'w-44 h-44',
     shadow: 'shadow-md',
     priority: 3,
-    showSubjects: true,
-    showDescription: false,
-    maxLines: 2,
-    spacing: 'p-4',
+    showSubjects: false, // CHANGED: Disabled subject tags
+    showDescription: true,
+    maxLines: 3,
+    spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true
   },
   // Design Team Layout
   DESIGN: {
-    width: 'w-60 md:w-64',
-    height: 'h-72',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
     avatarSize: 'w-44 h-44',
     shadow: 'shadow-md',
     priority: 4,
-    showDescription: false,
-    maxLines: 2,
+    showDescription: true,
+    maxLines: 3,
     spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true,
+    showSubjects: false // REMOVED: No subjects for design
   },
   // Default Layout
   DEFAULT: {
-    width: 'w-56',
-    height: 'h-68',
+    width: 'w-full', // Will be set dynamically
+    height: 'h-auto min-h-96',
     direction: 'vertical',
-    avatarSize: 'w-40 h-40',
+    avatarSize: 'w-44 h-44',
     shadow: 'shadow',
     priority: 5,
-    showDescription: false,
-    maxLines: 2,
-    spacing: 'p-4',
+    showDescription: true,
+    maxLines: 3,
+    spacing: 'p-5',
     avatarBorder: 'border-4 border-white',
     showRole: true,
-    nameSize: 'text-lg',
-    roleSize: 'text-sm'
+    nameSize: 'text-xl',
+    roleSize: 'text-base',
+    descriptionSize: 'text-sm',
+    textWrap: true,
+    showSubjects: false // REMOVED: No subjects for default
   }
 };
 
 // Helper function to determine layout
-const getCardLayout = (role, hierarchyCategory, tutor_expertise) => {
+const getCardLayout = (role, hierarchyCategory, tutor_expertise, isSingleMember = false) => {
   const upperRole = role?.toUpperCase() || '';
   const upperCategory = hierarchyCategory?.toUpperCase() || '';
   
@@ -112,6 +143,11 @@ const getCardLayout = (role, hierarchyCategory, tutor_expertise) => {
   if (upperRole.includes('CEO') || upperRole.includes('FOUNDER') || 
       upperCategory.includes('FOUNDER') || upperCategory.includes('LEADERSHIP')) {
     return CARD_LAYOUTS.FOUNDER_CEO;
+  }
+  
+  // Single member layout - WIDE like CEO
+  if (isSingleMember) {
+    return CARD_LAYOUTS.SINGLE_MEMBER;
   }
   
   // Tutors
@@ -136,16 +172,23 @@ const getCardLayout = (role, hierarchyCategory, tutor_expertise) => {
 
 const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
   const [shouldCenter, setShouldCenter] = useState(false);
+  const [cardWidthClass, setCardWidthClass] = useState('w-64'); // Default width
+  const [showLeftFade, setShowLeftFade] = useState(false);
+  const [showRightFade, setShowRightFade] = useState(true);
   const containerRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   if (!members || members.length === 0) return null;
+
+  // Check if there's only one member in this section
+  const isSingleMemberSection = members.length === 1;
 
   // Sort members by layout priority and then alphabetically
   const sortedMembers = useMemo(() => 
     [...members]
       .map(member => ({
         ...member,
-        layout: getCardLayout(member.role, member.hierarchyCategory, member.tutor_expertise)
+        layout: getCardLayout(member.role, member.hierarchyCategory, member.tutor_expertise, isSingleMemberSection)
       }))
       .sort((a, b) => {
         // First by priority (CEO first, etc.)
@@ -155,80 +198,123 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         // Then alphabetically
         return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
       }),
-    [members]
+    [members, isSingleMemberSection]
   );
 
-  // Dynamic width calculation - SPECIAL HANDLING FOR WIDE CEO CARD
+  // Separate single/CEO cards from regular cards
+  const wideCards = sortedMembers.filter(member => member.layout.priority < 2); // CEO (1) or SINGLE_MEMBER (1.5)
+  const regularCards = sortedMembers.filter(member => member.layout.priority >= 2);
+
+  // Calculate dynamic width for regular cards - only if there are multiple members
   useEffect(() => {
-    const checkIfShouldCenter = () => {
-      if (containerRef.current && sortedMembers.length > 0) {
+    const calculateCardWidth = () => {
+      if (regularCards.length > 0 && containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        let totalWidth = 0;
-        let hasWideCard = false;
         
-        // Calculate based on actual card layouts
-        sortedMembers.forEach((member, index) => {
-          const layout = member.layout;
-          
-          // Special handling for CEO wide card
-          if (layout.priority === 1) { // CEO card
-            hasWideCard = true;
-            // CEO card takes full width, so we don't need to calculate
-            // It will be handled separately
-          } else {
-            // Calculate width for regular cards
-            let cardWidth = 224; // Default 56 * 4
-            
-            if (layout.width.includes('w-')) {
-              // Parse Tailwind width classes
-              if (layout.width.includes('/')) {
-                // Fractional width (e.g., w-11/12)
-                const [numerator, denominator] = layout.width
-                  .split('w-')[1]
-                  .split(' ')[0]
-                  .split('/')
-                  .map(Number);
-                cardWidth = (containerWidth * numerator) / denominator;
-              } else {
-                // Fixed width (e.g., w-64)
-                const widthValue = parseInt(layout.width.split('w-')[1].split(' ')[0]);
-                cardWidth = widthValue * 4; // Convert rem to px
-              }
-            }
-            
-            totalWidth += cardWidth;
-            
-            // Add gap if not the last card
-            if (index < sortedMembers.length - 1) {
-              totalWidth += 32; // gap-8 = 32px
-            }
-          }
-        });
-        
-        // If there's a CEO wide card, it takes its own row
-        // Other cards should be centered only if they fit
-        if (hasWideCard) {
-          // For CEO section, check if OTHER cards fit
-          const otherCardsWidth = totalWidth;
-          setShouldCenter(otherCardsWidth <= containerWidth);
-        } else {
-          setShouldCenter(totalWidth <= containerWidth);
+        // Adjust for inner padding (px-6 on mobile, xl:px-20 on desktop)
+        let paddingAdjustment = 48; // Default: px-6 = 24px each side (mobile)
+        if (window.innerWidth >= 1280) { // xl breakpoint
+          paddingAdjustment = 160; // xl:px-20 = 80px each side
         }
+        
+        // Available width after subtracting padding
+        const availableWidth = containerWidth - paddingAdjustment;
+        
+        // WIDER: Match CEO width - approximately 85% of available width
+        const targetWidth = availableWidth * 0.85;
+        
+        // Determine optimal number of visible cards based on count
+        let targetVisibleCards;
+        if (regularCards.length <= 2) {
+          targetVisibleCards = Math.min(2, regularCards.length);
+        } else if (regularCards.length <= 4) {
+          targetVisibleCards = Math.min(3, regularCards.length);
+        } else {
+          targetVisibleCards = Math.min(4, regularCards.length);
+        }
+        
+        // Calculate width per card including gap (gap-8 = 32px)
+        const gapSize = 32;
+        const totalGapWidth = (targetVisibleCards - 1) * gapSize;
+        const cardWidthPx = Math.floor((targetWidth - totalGapWidth) / targetVisibleCards);
+        
+        // Convert to valid Tailwind width classes
+        let widthClass;
+        if (cardWidthPx <= 240) { // 15rem = 240px
+          widthClass = 'w-60'; // 15rem
+        } else if (cardWidthPx <= 256) { // 16rem = 256px
+          widthClass = 'w-64'; // 16rem
+        } else if (cardWidthPx <= 288) { // 18rem = 288px
+          widthClass = 'w-72'; // 18rem
+        } else if (cardWidthPx <= 320) { // 20rem = 320px
+          widthClass = 'w-80'; // 20rem
+        } else if (cardWidthPx <= 384) { // 24rem = 384px
+          widthClass = 'w-96'; // 24rem
+        } else {
+          widthClass = 'w-[28rem]'; // 28rem - custom for very wide screens
+        }
+        
+        setCardWidthClass(widthClass);
+        
+        // Calculate if all cards fit without scrolling
+        let cardWidth;
+        if (widthClass === 'w-[28rem]') {
+          cardWidth = 28 * 16; // 28rem * 16px/rem
+        } else {
+          cardWidth = parseInt(widthClass.split('-')[1]) * 0.25 * 16; // Convert rem to px
+        }
+        
+        const totalCardsWidth = regularCards.length * cardWidth + 
+                              (regularCards.length - 1) * gapSize;
+        setShouldCenter(totalCardsWidth <= targetWidth);
       }
     };
 
-    checkIfShouldCenter();
-    window.addEventListener('resize', checkIfShouldCenter);
+    // Add a small delay to ensure DOM is fully rendered
+    setTimeout(calculateCardWidth, 100);
+    window.addEventListener('resize', calculateCardWidth);
     
-    return () => window.removeEventListener('resize', checkIfShouldCenter);
-  }, [sortedMembers]);
+    return () => window.removeEventListener('resize', calculateCardWidth);
+  }, [regularCards]);
 
-  // Separate CEO card from other cards
-  const ceoMembers = sortedMembers.filter(member => member.layout.priority === 1);
-  const otherMembers = sortedMembers.filter(member => member.layout.priority !== 1);
+  // Update fade effects based on scroll position
+  useEffect(() => {
+    const updateFadeEffects = () => {
+      if (!scrollContainerRef.current || shouldCenter) {
+        setShowLeftFade(false);
+        setShowRightFade(false);
+        return;
+      }
 
-  // Render CEO Card - EXTRA WIDE
-  const renderCeoCard = (member) => {
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const scrollRight = scrollWidth - clientWidth - scrollLeft;
+
+      // Show left fade if scrolled to the right
+      setShowLeftFade(scrollLeft > 10);
+      
+      // Show right fade if there's more content to scroll
+      setShowRightFade(scrollRight > 10);
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', updateFadeEffects);
+      // Initial check
+      setTimeout(updateFadeEffects, 150); // Slightly longer delay for rendering
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', updateFadeEffects);
+      }
+    };
+  }, [shouldCenter]);
+
+  // Render Wide Card (CEO or Single Member) - EXTRA WIDE (85%)
+  const renderWideCard = (member) => {
     const layout = member.layout;
     const isHorizontal = layout.direction === 'horizontal';
     
@@ -237,9 +323,9 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         <Link 
           to={`/team/${member.slug}`}
           className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
-            no-underline hover:no-underline transition-all duration-300 group`}
+            no-underline hover:no-underline transition-all duration-300 group w-full`}
         >
-          {/* Avatar - Larger for CEO */}
+          {/* Avatar - Larger for wide cards */}
           <div className={`${isHorizontal ? 'md:mr-8 mb-6 md:mb-0' : 'mb-6'} flex-shrink-0`}>
             <img 
               src={member.image} 
@@ -263,7 +349,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
               </p>
             )}
             
-            {/* Description for CEO */}
+            {/* Description for wide cards */}
             {layout.showDescription && member.description && (
               <div className="mt-4">
                 <p className="text-gray-700 text-lg leading-relaxed line-clamp-4 md:line-clamp-none">
@@ -273,13 +359,6 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
                       ? member.description[0] 
                       : member.description}
                 </p>
-                {Array.isArray(member.description) && member.description.length > 1 && (
-                  <div className="mt-4">
-                    <span className="inline-flex items-center text-navy-600 hover:text-navy-800 font-medium">
-                      Read full bio →
-                    </span>
-                  </div>
-                )}
               </div>
             )}
           </div>
@@ -288,23 +367,23 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     );
   };
 
-  // Render Regular Card
+  // Render Regular Card - for sections with multiple members
   const renderRegularCard = (member) => {
     const layout = member.layout;
-    const isHorizontal = layout.direction === 'horizontal';
     
     return (
       <div 
         key={member.id} 
-        className={`flex-shrink-0 ${layout.width} transition-all duration-300 hover:-translate-y-2`}
+        className={`flex-shrink-0 ${cardWidthClass} transition-all duration-300 hover:-translate-y-2 flex flex-col h-full`}
+        style={{ minWidth: '0' }} // IMPORTANT: Prevents flex item overflow
       >
         <Link 
           to={`/team/${member.slug}`}
-          className={`rounded-xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-row items-center' : 'flex-col items-center'} 
-            no-underline hover:no-underline transition-all duration-300 group`}
+          className={`rounded-xl ${layout.spacing} h-full flex flex-col items-center 
+            no-underline hover:no-underline transition-all duration-300 group flex-1`}
         >
           {/* Avatar */}
-          <div className={`${isHorizontal ? 'mr-4' : 'mb-4'} flex-shrink-0`}>
+          <div className="mb-4 flex-shrink-0">
             <img 
               src={member.image} 
               alt={member.name}
@@ -313,34 +392,34 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
             />
           </div>
           
-          {/* Content */}
-          <div className={`${isHorizontal ? 'text-left' : 'text-center'} ${isHorizontal ? 'flex-1' : 'w-full'}`}>
-            {/* Name */}
+          {/* Content - Clean version without extra elements */}
+          <div className="text-center w-full flex flex-col flex-1 min-w-0">
+            {/* Name - Proper text wrapping */}
             <h3 className={`font-bold ${layout.nameSize} text-navy-800 group-hover:text-navy-900 
-              ${isHorizontal ? '' : 'truncate'} mb-1`}>
+              break-words overflow-hidden mb-2 leading-tight line-clamp-2`}
+              style={{ wordWrap: 'break-word' }}>
               {member.name}
             </h3>
             
-            {/* Role */}
+            {/* Role - Proper text wrapping */}
             {layout.showRole && member.role && (
-              <p className={`text-navy-600 ${layout.roleSize} ${layout.maxLines === 1 ? 'truncate' : 'line-clamp-2'} mb-2`}>
+              <p className={`text-navy-600 ${layout.roleSize} font-medium break-words overflow-hidden mb-3 leading-snug line-clamp-2`}
+                style={{ wordWrap: 'break-word' }}>
                 {member.role}
               </p>
             )}
             
-            {/* Subjects for Tutors - Minimal inline */}
-            {layout.showSubjects && member.tutor_expertise && member.tutor_expertise.length > 0 && (
-              <div className="mt-2">
-                <div className="flex flex-wrap gap-1 justify-center">
-                  {member.tutor_expertise.slice(0, 2).map((subject, idx) => (
-                    <span 
-                      key={idx}
-                      className="text-xs px-2 py-1 text-gray-600"
-                    >
-                      {subject}
-                    </span>
-                  ))}
-                </div>
+            {/* Description for all members - Clean and centered */}
+            {layout.showDescription && member.description && (
+              <div className="mt-2 flex-1 min-h-0">
+                <p className={`text-gray-600 ${layout.descriptionSize} leading-snug break-words overflow-hidden line-clamp-3`}
+                  style={{ wordWrap: 'break-word' }}>
+                  {typeof member.description === 'string' 
+                    ? member.description 
+                    : Array.isArray(member.description) 
+                      ? member.description[0] 
+                      : member.description}
+                </p>
               </div>
             )}
           </div>
@@ -351,7 +430,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
 
   return (
     <section className="mb-16">
-      {/* Clean Header - NO ICONS/EMOJIS */}
+      {/* Clean Header */}
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-navy-800 mb-3">{title}</h2>
         {description && (
@@ -359,31 +438,69 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         )}
       </div>
 
-      {/* CEO Section (if any) - Full width */}
-      {ceoMembers.length > 0 && (
+      {/* Wide Cards Section (CEO or Single Members) - Already 85% wide */}
+      {wideCards.length > 0 && (
         <div className="mb-12">
-          {ceoMembers.map(renderCeoCard)}
+          {wideCards.map(renderWideCard)}
         </div>
       )}
 
-      {/* Other Members Section */}
-      {otherMembers.length > 0 && (
-        <div className="relative" ref={containerRef}>
-          <div className={`flex gap-8 pb-6 overflow-x-auto scroll-smooth 
-            scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent px-4 
-            ${shouldCenter ? 'justify-center' : ''}`}>
-            {otherMembers.map(renderRegularCard)}
-          </div>
-          
-          {/* Scroll hint only for other members */}
-          {!shouldCenter && otherMembers.length > 0 && (
-            <div className="text-center mt-4">
-              <span className="text-sm text-gray-400 inline-flex items-center gap-2">
-                <span className="hidden sm:inline">← Scroll horizontally →</span>
-                <span className="sm:hidden">← Swipe →</span>
-              </span>
+      {/* Regular Cards Section (Multiple Members) */}
+      {regularCards.length > 0 && (
+        <div className="relative max-w-screen-2xl mx-auto" ref={containerRef}>
+          {/* Container with padding */}
+          <div className="relative 2xl:px-20 xl:px-20 px-6">
+            {/* Wrapper with negative margins to match expertise matrix width */}
+            <div className="relative -mx-3 xl:-mx-6 2xl:-mx-6">
+              
+              {/* Fade overlay containers - positioned relative to wrapper */}
+              {!shouldCenter && (
+                <>
+                  {/* Left fade */}
+                  <div 
+                    className={`absolute left-0 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
+                      transition-opacity duration-300 ${showLeftFade ? 'opacity-100' : 'opacity-0'}`}
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+                    }}
+                  />
+                  
+                  {/* Right fade - symmetrical with left */}
+                  <div 
+                    className={`absolute right-0 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
+                      transition-opacity duration-300 ${showRightFade ? 'opacity-100' : 'opacity-0'}`}
+                    style={{
+                      background: 'linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+                    }}
+                  />
+                </>
+              )}
+
+              {/* Scroll container - NO negative margins, matches wrapper width */}
+              <div 
+                ref={scrollContainerRef}
+                className={`relative flex gap-8 pb-6 overflow-x-auto scroll-smooth 
+                  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
+                  ${shouldCenter ? 'justify-center' : ''} 
+                  w-full px-3 xl:px-6 2xl:px-6`}
+              >
+                {/* Small end padding for better scroll feel */}
+                <div className="flex-shrink-0 w-2" />
+                {regularCards.map(renderRegularCard)}
+                <div className="flex-shrink-0 w-2" />
+              </div>
             </div>
-          )}
+            
+            {/* Scroll hint */}
+            {!shouldCenter && regularCards.length > 0 && (
+              <div className="text-center mt-4">
+                <span className="text-sm text-gray-400 inline-flex items-center gap-2">
+                  <span className="hidden sm:inline">← Scroll horizontally →</span>
+                  <span className="sm:hidden">← Swipe →</span>
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </section>

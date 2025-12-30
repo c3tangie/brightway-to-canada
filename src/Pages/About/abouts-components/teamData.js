@@ -13,10 +13,10 @@ const teamData = [
     slug: "ling-wang",
     role: "Founder & CEO",
     image: lingImage,
-    description: "Ling Wang is the founder and CEO of Brightway to Canada, a company dedicated to helping international students navigate the Canadian education system.",
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
     categories: ["founder", "advising"],
     hierarchyLevel: 1, // Add hierarchy level
-    hierarchyCategory: "founders" // Add hierarchy category
+    hierarchyCategory: "founder" // Add hierarchy category
   },
   {
     id: 2,
@@ -24,10 +24,11 @@ const teamData = [
     slug: "jonathan-tang",
     role: "Technical Support",
     image: placeHolderImage,
-    description: "Jonathan Tang.",
-    categories: ["development", "design"],
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
+    categories: ["administration", "development", "design"],
     hierarchyLevel: 5,
-    hierarchyCategory: "administration"
+    hierarchyCategory: "administration",
+    extended_expertise: ["Video Editing", "Graphic Design"]
   },
   {
     id: 3,
@@ -43,7 +44,8 @@ const teamData = [
       "Outside of his dual role in tutoring and design, Jay is also a video/photo editing hobbyist."
     ],
     hierarchyLevel: 3,
-    hierarchyCategory: "tutors_stem"
+    hierarchyCategory: "tutor_stem",
+    extended_expertise: ["Video Editing", "Graphic Design"]
   },
   {
     id: 4,
@@ -60,7 +62,7 @@ const teamData = [
       "When he isn’t working, he’s often powerlifting in the gym or concocting new recipes in the kitchen."
     ],
     hierarchyLevel: 3,
-    hierarchyCategory: "tutors_stem"
+    hierarchyCategory: "tutor_stem"
   },
   {
     id: 5,
@@ -68,12 +70,12 @@ const teamData = [
     slug: "don-standing",
     role: "Professional English Instructor",
     image: donImage,
-    description: "Don Standing.",
-    categories: ["tutor"],
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
+    categories: ["tutor_lang"],
     tutor_expertise: ["Language (ESL)"],
     extended_bio: ["Born and raised in Ottawa; BA (Hon) majoring in History from Queen's University (Kingston) 1979; B.Ed 1980 Queen's; M.Ed from University of Victoria 1990. Taught English, Social Studies and French at Revelstoke Secondary School (Revelstoke, BC) 1981-1989; taught English, Social Studies and French at Ballenas Secondary School (Parksville, BC) 1991-2016. English tutor 2017- present."],
     hierarchyLevel: 2,
-    hierarchyCategory: "tutors"
+    hierarchyCategory: "tutor_lang"
   },
   {
     id: 6,
@@ -84,7 +86,7 @@ const teamData = [
     description: ["Kathryn Ellis Collins is a dedicated tutor and mentor with over 30 years of teaching experience, from kindergarten to grade 12, including ESL. Holding a Master’s in Education, she fosters a genuine love for lifelong learning by blending English with visual art, teaching students to analyze literature and craft writing with an artist’s eye for detail and emotion.",
       " Her work is guided by the core belief that adapting to change is a skill we can all cultivate. This philosophy is alive in her tutoring and in her role as a published children’s author and illustrator. Her first book, A Rainy Day, tackles the theme of adapting to change—a principle she applies directly in her sessions. Kathryn’s students develop a stronger command of English, more vivid self-expression, and lasting skills for academic and creative success."
     ],
-    categories: ["tutor"],
+    categories: ["tutor_lang"],
     tutor_expertise: ["Language (ESL)"],
     extended_bio: ["Kathryn Ellis Collins has been guiding students to discover the artistry of language and the power of their own written voice. With over 30 years of teaching experience—from kindergarten to grade 12, plus six years specializing in ESL—she possesses a deep and adaptive understanding of how learners build confidence with words.",
     "Holding a Master’s Degree in Education, Kathryn is more than a tutor; she is a mentor who focuses on why language moves us, not just how it functions. Her unique approach often blends English with visual art, sending students on a fine art journey that goes beyond blending texts. Through this creative synthesis, students learn to analyze literature with an artist's eye and craft writing with an illustrator's sense of detail, texture, and emotion.",
@@ -94,31 +96,33 @@ const teamData = [
     "When she isn’t teaching, Kathryn is immersed in her parallel passion: writing and illustrating children’s books, where she continues to explore the beautiful intersection of story and image."
     ],
     hierarchyLevel: 2,
-    hierarchyCategory: "tutors"
+    hierarchyCategory: "tutor_lang",
+    extended_expertise: ["Arts (Visual Arts)", "Children's Literature"]
   },
   {
     id: 7,
     name: "Ray Beraska",
     slug: "ray-beraska",
-    role: "Tutor",
+    role: "English Instructor",
     image: rayImage,
-    description: "Ray Beraska.",
-    categories: ["tutor"],
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
+    categories: ["tutor_lang"],
     tutor_expertise: ["Language (ESL)"],
     hierarchyLevel: 2,
-    hierarchyCategory: "tutors"
+    hierarchyCategory: "tutor_lang"
   },
   {
     id: 8,
     name: "Qi Zhu",
     slug: "qi-zhu",
-    role: "Content Creator & Marketing Advisor & Tutor",
+    role: "Content Creator & Marketing Advisor & Mandarin Instructor",
     image: placeHolderImage,
-    description: "Qi Zhu.",
-    categories: ["design", "tutor"],
+    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam. Efficitur taciti tempus sem cras fusce felis vitae magnis interdum rhoncus auctor. Maecenas nostra iaculis integer fringilla odio natoque euismod condimentum mus himenaeos convallis imperdiet. Nostra ipsum cubilia cursus primis congue et magna suscipit vel posuere nibh pellentesque fusce. Curae lacinia sociosqu inceptos vestibulum leo vivamus imperdiet turpis ultricies conubia adipiscing urna commodo.",
+    categories: ["design", "tutor_lang"],
     tutor_expertise: ["Language (Mandarin)"],
     hierarchyLevel: 4,
-    hierarchyCategory: "design"
+    hierarchyCategory: "design",
+    extended_expertise: ["Content Creation"]
   }
 ];
 
