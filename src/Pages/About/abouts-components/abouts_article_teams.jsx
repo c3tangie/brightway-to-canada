@@ -92,7 +92,7 @@ const Abouts_Article_Teams = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className='mt-16 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6' id="team-section">
+      <div className='mt-16 max-w-screen-2xl mx-auto' id="team-section">
 
         {/* Team Hierarchy Tree */}
         <section className='mb-20'>
@@ -120,7 +120,7 @@ const Abouts_Article_Teams = () => {
         </section>
 
         {/* Tutoring Expertise Matrix */}
-        <section className='mb-16 bg-gray-50 rounded-2xl p-8'>
+        <section className='mb-16 bg-gray-50 rounded-2xl p-8 mx-6 xl:mx-20 2xl:mx-20'>
           <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
             Tutoring Expertise Matrix
           </h2>
@@ -245,7 +245,7 @@ const Abouts_Article_Teams = () => {
         </section>
 
         {/* CTA Section */}
-        <section className='text-center mb-12'>
+        <section className='text-center mb-12 mx-6 xl:mx-20 2xl:mx-20'>
           <h2 className='text-3xl font-bold text-navy-800 mb-6'>
             Ready to Start Your Journey?
           </h2>

@@ -173,7 +173,10 @@ const getCardLayout = (role, hierarchyCategory, tutor_expertise, isSingleMember 
 const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
   const [shouldCenter, setShouldCenter] = useState(false);
   const [cardWidthClass, setCardWidthClass] = useState('w-64'); // Default width
+  const [showLeftFade, setShowLeftFade] = useState(false);
+  const [showRightFade, setShowRightFade] = useState(true);
   const containerRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   if (!members || members.length === 0) return null;
 
@@ -265,6 +268,45 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     
     return () => window.removeEventListener('resize', calculateCardWidth);
   }, [regularCards]);
+
+  // Update fade effects based on scroll position
+  useEffect(() => {
+  const updateFadeEffects = () => {
+    if (!scrollContainerRef.current || shouldCenter) {
+      console.log('No scroll container or shouldCenter is true');
+      setShowLeftFade(false);
+      setShowRightFade(false);
+      return;
+    }
+
+    const container = scrollContainerRef.current;
+    const scrollLeft = container.scrollLeft;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+    const scrollRight = scrollWidth - clientWidth - scrollLeft;
+
+    console.log('Scroll info:', { scrollLeft, scrollWidth, clientWidth, scrollRight });
+
+    // Show left fade if scrolled to the right
+    setShowLeftFade(scrollLeft > 10);
+    
+    // Show right fade if there's more content to scroll
+    setShowRightFade(scrollRight > 10);
+  };
+
+  const scrollContainer = scrollContainerRef.current;
+  if (scrollContainer) {
+    scrollContainer.addEventListener('scroll', updateFadeEffects);
+    // Initial check
+    updateFadeEffects();
+  }
+
+  return () => {
+    if (scrollContainer) {
+      scrollContainer.removeEventListener('scroll', updateFadeEffects);
+    }
+  };
+}, [shouldCenter]);
 
   // Render Wide Card (CEO or Single Member) - EXTRA WIDE (85%)
   const renderWideCard = (member) => {
@@ -403,26 +445,59 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
       )}
 
       {/* Regular Cards Section (Multiple Members) - Match expertise matrix width */}
-    {regularCards.length > 0 && (
-      <div className="relative max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6" ref={containerRef}> {/* Added width constraint */}
-        <div className={`flex gap-8 pb-6 overflow-x-auto scroll-smooth 
-          scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
-          ${shouldCenter ? 'justify-center' : ''} 
-          w-full px-4`}> {/* Changed: w-full to fill container */}
-          {regularCards.map(renderRegularCard)}
-        </div>
-        
-        {/* Scroll hint */}
-        {!shouldCenter && regularCards.length > 0 && (
-          <div className="text-center mt-4">
-            <span className="text-sm text-gray-400 inline-flex items-center gap-2">
-              <span className="hidden sm:inline">← Scroll horizontally →</span>
-              <span className="sm:hidden">← Swipe →</span>
-            </span>
+      {regularCards.length > 0 && (
+        <div className="relative max-w-screen-2xl mx-auto" ref={containerRef}>
+          {/* Container with padding */}
+          <div className="relative 2xl:px-20 xl:px-20 px-6">
+            {/* Fade overlay containers - positioned over the SCROLLABLE AREA */}
+            {!shouldCenter && (
+              <>
+                {/* Left fade - account for scroll container's negative margin */}
+                <div 
+                  className={`absolute left-3 xl:left-14 2xl:left-14 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
+                    transition-opacity duration-300 ${showLeftFade ? 'opacity-100' : 'opacity-0'}`}
+                  style={{
+                    background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+                  }}
+                />
+                
+                {/* Right fade - symmetrical with left */}
+                <div 
+                  className={`absolute right-6 xl:right-20 2xl:right-20 top-0 bottom-0 w-12 xl:w-24 2xl:w-24 pointer-events-none z-20 
+                    transition-opacity duration-300 ${showRightFade ? 'opacity-100' : 'opacity-0'}`}
+                  style={{
+                    background: 'linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 100%)',
+                  }}
+                />
+              </>
+            )}
+
+            {/* Scroll container - extends beyond padding */}
+            <div 
+              ref={scrollContainerRef}
+              className={`relative flex gap-8 pb-6 overflow-x-auto scroll-smooth 
+                scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
+                ${shouldCenter ? 'justify-center' : ''} 
+                w-full -mx-3 xl:-mx-6 2xl:-mx-6 px-3 xl:px-6 2xl:px-6`}
+            >
+              {/* Small end padding for better scroll feel */}
+              <div className="flex-shrink-0 w-2" />
+              {regularCards.map(renderRegularCard)}
+              <div className="flex-shrink-0 w-2" />
+            </div>
+            
+            {/* Scroll hint */}
+            {!shouldCenter && regularCards.length > 0 && (
+              <div className="text-center mt-4">
+                <span className="text-sm text-gray-400 inline-flex items-center gap-2">
+                  <span className="hidden sm:inline">← Scroll horizontally →</span>
+                  <span className="sm:hidden">← Swipe →</span>
+                </span>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    )}
+        </div>
+      )}
     </section>
   );
 };
