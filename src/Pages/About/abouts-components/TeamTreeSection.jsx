@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 // Card Layout Configuration - NO BACKGROUNDS, NO BORDERS
 const CARD_LAYOUTS = {
-  // CEO/Founder Layout - EXTRA WIDE (85% of page)
+  // CEO/Founder Layout - Use full container width
   FOUNDER_CEO: {
-    width: 'w-full md:w-11/12 lg:w-10/12', // This is approximately 85% width
+    width: 'w-full', // Changed from fixed width to full width
     height: 'h-auto min-h-64',
     direction: 'vertical',
     avatarSize: 'w-56 h-56 md:w-64 md:h-64',
@@ -20,14 +20,14 @@ const CARD_LAYOUTS = {
     roleSize: 'text-xl',
     descriptionSize: 'text-lg'
   },
-  // Single Member Layout - WIDE like CEO (85% of page)
+  // Single Member Layout - Use full container width
   SINGLE_MEMBER: {
-    width: 'w-full md:w-11/12 lg:w-10/12', // This is approximately 85% width
+    width: 'w-full', // Changed from fixed width to full width
     height: 'h-auto min-h-64',
     direction: 'vertical',
     avatarSize: 'w-56 h-56 md:w-64 md:h-64',
     shadow: 'shadow-lg',
-    priority: 1.5, // Between CEO and other members
+    priority: 1.5,
     showDescription: true,
     maxLines: 4,
     spacing: 'p-6 md:p-8',
@@ -273,11 +273,11 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     
     return (
       <div key={member.id} className="w-full mb-12">
-        <Link 
-          to={`/team/${member.slug}`}
-          className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
-            no-underline hover:no-underline transition-all duration-300 group mx-auto ${layout.width}`}
-        >
+    <Link 
+      to={`/team/${member.slug}`}
+      className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
+        no-underline hover:no-underline transition-all duration-300 group w-full`}
+    >
           {/* Avatar - Larger for wide cards */}
           <div className={`${isHorizontal ? 'md:mr-8 mb-6 md:mb-0' : 'mb-6'} flex-shrink-0`}>
             <img 
@@ -402,27 +402,27 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
         </div>
       )}
 
-      {/* Regular Cards Section (Multiple Members) - WIDER to match CEO (85%) */}
-      {regularCards.length > 0 && (
-        <div className="relative" ref={containerRef}>
-          <div className={`flex gap-8 pb-6 overflow-x-auto scroll-smooth 
-            scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
-            ${shouldCenter ? 'justify-center' : ''} 
-            w-[85%] mx-auto px-4`}> {/* CHANGED: w-[85%] to match CEO */}
-            {regularCards.map(renderRegularCard)}
-          </div>
-          
-          {/* Scroll hint */}
-          {!shouldCenter && regularCards.length > 0 && (
-            <div className="text-center mt-4">
-              <span className="text-sm text-gray-400 inline-flex items-center gap-2">
-                <span className="hidden sm:inline">← Scroll horizontally →</span>
-                <span className="sm:hidden">← Swipe →</span>
-              </span>
-            </div>
-          )}
+      {/* Regular Cards Section (Multiple Members) - Match expertise matrix width */}
+    {regularCards.length > 0 && (
+      <div className="relative max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6" ref={containerRef}> {/* Added width constraint */}
+        <div className={`flex gap-8 pb-6 overflow-x-auto scroll-smooth 
+          scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent 
+          ${shouldCenter ? 'justify-center' : ''} 
+          w-full px-4`}> {/* Changed: w-full to fill container */}
+          {regularCards.map(renderRegularCard)}
         </div>
-      )}
+        
+        {/* Scroll hint */}
+        {!shouldCenter && regularCards.length > 0 && (
+          <div className="text-center mt-4">
+            <span className="text-sm text-gray-400 inline-flex items-center gap-2">
+              <span className="hidden sm:inline">← Scroll horizontally →</span>
+              <span className="sm:hidden">← Swipe →</span>
+            </span>
+          </div>
+        )}
+      </div>
+    )}
     </section>
   );
 };
