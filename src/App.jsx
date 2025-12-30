@@ -12,6 +12,8 @@ import OfficialServices from './Pages/Services/services'
 import ConsultationPage from './Pages/Services/consultation'
 import ThankyouPg from './Pages/Contact/contact_thankyou'
 import WIPPg from './Pages/WIP/wip_pg'
+import ServicesPage from './Pages/Services/services-components/ServicesPage';
+import ServiceDetailPage from './Pages/Services/services-components/ServiceDetailPage';
 
 import TeamMemberDetailPage from './Pages/About/abouts-components/TeamMemberDetailPage';
 
@@ -34,6 +36,8 @@ function App() {
         <Route path="/wip" element={<WIPPg />} />
         <Route path="/network" element={<OfficialNetwork />} />
         <Route path="/services" element={<OfficialServices />} />
+        <Route path="/servicesX" element={<ServicesPage />} />
+        <Route path="/servicesX/:serviceSlug" element={<ServiceDetailPage />} />
         <Route path="/consultation" element={<ConsultationPage />} />
       </Routes>
     </Router>
