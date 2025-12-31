@@ -1,12 +1,14 @@
-import StudyImageOne from '../../../assets/services_assets/services_img_study1.jpg';
-import EmotionImageOne from '../../../assets/services_assets/services_img_emotion1.jpg';
-import EmotionImageTwo from '../../../assets/services_assets/services_img_emotion2.jpg';
-import ConnectImageOne from '../../../assets/services_assets/services_img_connect1.jpg';
-import ConnectImageTwo from '../../../assets/services_assets/services_img_connect2.jpg';
-import CareImageOne from '../../../assets/services_assets/services_img_care1.jpg';
-import CareImageTwo from '../../../assets/services_assets/services_img_care2.jpg';
-import CareImageThree from '../../../assets/services_assets/services_img_care3.jpg';
-import DocsImageOne from '../../../assets/services_assets/services_img_docs1.jpg';
+import StudyImageOne from '../../../assets/services_assets/services_img_study1.webp';
+import EmotionImageOne from '../../../assets/services_assets/services_img_emotion1.webp';
+import EmotionImageTwo from '../../../assets/services_assets/services_img_emotion2.webp';
+import ConnectImageOne from '../../../assets/services_assets/services_img_connect1.webp';
+import ConnectImageTwo from '../../../assets/services_assets/services_img_connect2.webp';
+import ConnectImageThree from '../../../assets/services_assets/services_img_connect3.webp';
+import CareImageOne from '../../../assets/services_assets/services_img_care1.webp';
+import CareImageTwo from '../../../assets/services_assets/services_img_care2.webp';
+import CareImageThree from '../../../assets/services_assets/services_img_care3.webp';
+import DocsImageOne from '../../../assets/services_assets/services_img_docs1.webp';
+import DocsImageTwo from '../../../assets/services_assets/services_img_docs2.webp';
 
 const serviceData = [
   {
@@ -34,12 +36,12 @@ const serviceData = [
       {
         question: "Besides English studies in China, what other English training will my child need when transferring to study in Canada?",
         answer: "We offer specialized Academic English preparation focusing on classroom participation, academic writing, and subject-specific vocabulary to ensure smooth transition.",
-        image: '/images/services/academic-planning-4.jpg'
+        image: DocsImageTwo
       },
       {
         question: "What are the four levels of academic planning for children studying abroad?",
         answer: "1) Foundation building, 2) Language & cultural adaptation, 3) Academic pathway development, 4) University preparation and application strategy.",
-        image: '/images/services/academic-planning-5.jpg'
+        image: ConnectImageThree
       },
       {
         question: "Is it better for children to go abroad during middle school or after graduating from high school?",
