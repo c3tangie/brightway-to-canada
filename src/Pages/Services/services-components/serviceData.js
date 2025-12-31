@@ -4,6 +4,11 @@ import EmotionImageTwo from '../../../assets/services_assets/services_img_emotio
 import ConnectImageOne from '../../../assets/services_assets/services_img_connect1.webp';
 import ConnectImageTwo from '../../../assets/services_assets/services_img_connect2.webp';
 import ConnectImageThree from '../../../assets/services_assets/services_img_connect3.webp';
+import ConnectImageFour from '../../../assets/services_assets/services_img_connect4.webp';
+import ConnectImageFive from '../../../assets/services_assets/services_img_connect5.webp';
+import ConnectImageSix from '../../../assets/services_assets/services_img_connect6.webp';
+import ConnectImageSeven from '../../../assets/services_assets/services_img_connect7.webp';
+import ConnectImageEight from '../../../assets/services_assets/services_img_connect8.webp';
 import CareImageOne from '../../../assets/services_assets/services_img_care1.webp';
 import CareImageTwo from '../../../assets/services_assets/services_img_care2.webp';
 import CareImageThree from '../../../assets/services_assets/services_img_care3.webp';
@@ -26,12 +31,12 @@ const serviceData = [
       {
         question: "My child just graduated from junior high in China with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a relatively good university?",
         answer: "We work with Canadian high schools that offer university pathway programs, academic upgrading, and personalized guidance to strengthen university applications over 2-4 years.",
-        image: '/images/services/academic-planning-2.jpg'
+        image: StudyImageOne
       },
       {
         question: "My child is used to the 'cramming' teaching style in Chinese high schools. If there is less strict management there and my child's grades drop, what then?",
         answer: "We provide academic monitoring, regular check-ins, and time management coaching to help students adapt to Canada's more independent learning environment.",
-        image: '/images/services/academic-planning-3.jpg'
+        image: StudyImageOne
       },
       {
         question: "Besides English studies in China, what other English training will my child need when transferring to study in Canada?",
@@ -46,7 +51,7 @@ const serviceData = [
       {
         question: "Is it better for children to go abroad during middle school or after graduating from high school?",
         answer: "We assess each family's situation to determine the optimal timing based on academic goals, language readiness, and emotional maturity.",
-        image: '/images/services/academic-planning-6.jpg'
+        image: ConnectImageSix
       }
     ]
   },
@@ -75,12 +80,12 @@ const serviceData = [
       {
         question: "Is it better for young international students to live in a homestay or in a school dormitory? How does the school and your organization maintain contact with each child?",
         answer: "We assess each student's needs to recommend the best living arrangement. We maintain weekly check-ins, monthly reports, and coordinate closely with schools and host families.",
-        image: '/images/services/accommodation-1.jpg'
+        image: ConnectImageThree
       },
       {
         question: "My child is so young and not yet mature physically or mentally. How will you help them cope with stress and psychological issues?",
         answer: "We provide access to school counselors, cultural adaptation workshops, regular emotional check-ins, and connect families with Mandarin-speaking mental health professionals when needed.",
-        image: '/images/services/mental-health-1.jpg'
+        image: ConnectImageFour
       }
     ]
   },
@@ -99,7 +104,7 @@ const serviceData = [
       {
         question: "Will everything become better once my child goes abroad? For example, will their mood improve, will their grades improve, will their life get better... Is that really true?",
         answer: "While many students thrive, success requires proper preparation and support. We focus on realistic expectations, gradual adaptation, and ongoing monitoring to ensure positive outcomes.",
-        image: '/images/services/expectations-1.jpg'
+        image: ConnectImageEight
       },
       {
         question: "For girls going abroad, the likelihood of experiencing emotional confusion increases. How to avoid emotional issues affecting life and studies?",
@@ -109,7 +114,7 @@ const serviceData = [
       {
         question: "We think studying in China is too intense and competitive. We hear studying abroad is easier, so we want to go study abroad...",
         answer: "Studying abroad presents different challenges. We help families understand realistic expectations and prepare for academic, social, and emotional adjustments.",
-        image: '/images/services/reality-check-1.jpg'
+        image: ConnectImageFive
       },
       {
         question: "How will my child and I begin our new study and life in the first month after landing in Canada?",
@@ -119,7 +124,7 @@ const serviceData = [
       {
         question: "What should parents do to help their children after they go abroad to study?",
         answer: "We offer parental guidance on communication strategies, emotional support techniques, and how to stay involved while respecting their child's growing independence.",
-        image: '/images/services/parent-guidance-1.jpg'
+        image: ConnectImageFour
       }
     ]
   },
@@ -133,7 +138,7 @@ const serviceData = [
       {
         question: "What is the most cost-effective way to plan for Canadian junior high/high school study expenses?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: '/images/services/cost-planning-1.jpg'
+        image: ConnectImageSeven
       },
       {
         question: "What legal documents need to be prepared before my child goes abroad?",

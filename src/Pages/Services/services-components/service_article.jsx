@@ -29,37 +29,92 @@ const ServiceArticle = () => {
     <div className='max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex py-16'>
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-          Professional Immigration Services
+          Personalized Helps For Your Child
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed">
           At Brightway to Canada, we provide comprehensive immigration and education consulting services 
-          to help you navigate your journey to Canada with confidence and success.
+          to help your child through the process of settling in Canada and to bring you peace of mind.
         </p>
       </div>
 
       <div className="text-center">
         <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
-          Our Star Offerings
+          Our Star Specialties
         </h3>
         <p className="text-lg text-gray-600 leading-relaxed">
           Our company's strength lies in its deeply rooted expertise. The founder brings years of firsthand experience, not only as a homestay host but also from working within a BC School District. This insider perspective is amplified by our team, many of whom are former international students or have served as instructors in BC schools. We leverage this unique background to expertly place students in supportive living environments, from nurturing homestays to structured boarding, and provide unparalleled guidance to help adolescents navigate cultural transitions, ensuring their academic, social, and emotional well-being.
         </p><br></br>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Student Visa Services</h3>
-          <p className="text-gray-600">Complete assistance with study permit applications, school selection, and academic planning.</p>
+      {/* Horizontal Sections with Backgrounds */}
+      <div className="space-y-8 mb-16">
+        {/* Section 1 */}
+        <div className="relative rounded-xl overflow-hidden shadow-xl">
+          {/* Background with overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-700 opacity-90"></div>
+          {/* Next line is used for background image */}
+          {/* <div className="absolute inset-0 bg-[url('path/to/student-visa-image.jpg')] bg-cover bg-center opacity-20"></div> */}
+          
+          <div className="relative z-10 p-8 md:p-12">
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Lifestyle Integrations, Not Just Studies</h3>
+              <p className="text-lg text-blue-100 leading-relaxed mb-6">
+                We understand that the challenges a new student feel is not only with studying in a foreign language, but also the lifestyle changes, as seen by the founder and many former teachers in our team. We are here to help...
+              </p>
+              <Link 
+                to="/services/student-visa" 
+                className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
         </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Immigration Consulting</h3>
-          <p className="text-gray-600">Expert guidance through various immigration programs and pathways to Canadian residency.</p>
+
+        {/* Section 2 */}
+        <div className="relative rounded-xl overflow-hidden shadow-xl">
+          {/* Background with overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-800 to-navy-600 opacity-90"></div>
+          {/* Next line is used for background image */}
+          {/* <div className="absolute inset-0 bg-[url('path/to/immigration-image.jpg')] bg-cover bg-center opacity-20"></div> */}
+          
+          <div className="relative z-10 p-8 md:p-12">
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Growing Together, Not Just Academics</h3>
+              <p className="text-lg text-blue-100 leading-relaxed mb-6">
+                We believe that every child is unique and strong, yet we also recognize that they are still growing and may experience mental challenges, the ones their parents would like to overcome by their side yet cannot. Some of our staffs even experienced this first-hand. That's why we...
+              </p>
+              <Link 
+                to="/services/immigration" 
+                className="inline-block bg-white text-navy-800 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
         </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Documentation Support</h3>
-          <p className="text-gray-600">Professional assistance with preparing and reviewing all required immigration documents.</p>
+
+        {/* Section 3 */}
+        <div className="relative rounded-xl overflow-hidden shadow-xl">
+          {/* Background with overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-700 to-teal-500 opacity-90"></div>
+          {/* Next line is used for background image */}
+          {/* <div className="absolute inset-0 bg-[url('path/to/documentation-image.jpg')] bg-cover bg-center opacity-20"></div> */}
+          
+          <div className="relative z-10 p-8 md:p-12">
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">In This With You: Sharing the Journey</h3>
+              <p className="text-lg text-blue-100 leading-relaxed mb-6">
+                Many of our staffs have either worked in the local education system, or have been (or still is) a student who had gone through the same path. We understand and emphasize both the student's and the parent's ambitions, struggles, and concerns. Therefore, we...
+              </p>
+              <Link 
+                to="/services/documentation" 
+                className="inline-block bg-white text-teal-700 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -109,7 +164,7 @@ const ServiceArticle = () => {
           </Link>
         </div>
 
-        {/* Add this link to view all services */}
+        {/* Link to view all services */}
         <div className="mt-8 text-center">
           <Link 
             to="/service-list" 
