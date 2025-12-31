@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-// Card Layout Configuration - NO BACKGROUNDS, NO BORDERS
+// Card Layout Configuration
 const CARD_LAYOUTS = {
   // All cards use the same layout - consistent across all types
   DEFAULT: {
@@ -9,12 +9,12 @@ const CARD_LAYOUTS = {
     height: 'h-auto min-h-64',
     direction: 'horizontal',
     avatarSize: 'w-56 h-56 md:w-64 md:h-64',
-    shadow: 'shadow-lg',
+    shadow: 'shadow-md',
     priority: 1,
     showDescription: true,
     maxLines: 4,
     spacing: 'p-6 md:p-8',
-    avatarBorder: 'border-8 border-white',
+    avatarBorder: 'ring-4 ring-white',
     showRole: true,
     nameSize: 'text-3xl md:text-4xl',
     roleSize: 'text-xl',
@@ -27,7 +27,7 @@ const getCardLayout = (role, hierarchyCategory, tutor_expertise, isSingleMember 
   return CARD_LAYOUTS.DEFAULT;
 };
 
-const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
+const TeamTreeSection = ({ title, description, icon, color, members, onViewDetails }) => {
   if (!members || members.length === 0) return null;
 
   // Sort members alphabetically
@@ -47,26 +47,30 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
     const isHorizontal = layout.direction === 'horizontal';
     
     return (
-      <div key={member.id} className="w-full mb-12">
+      <div key={member.id} className="w-full">
         <Link 
           to={`/team/${member.slug}`}
-          className={`rounded-2xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'} 
+          aria-label={`View details for ${member.name}`}
+          className={`rounded-3xl ${layout.spacing} h-full flex ${isHorizontal ? 'flex-col md:flex-row md:items-center' : 'flex-col items-center'}
+            bg-white ring-1 ring-navy-100 shadow-sm hover:shadow-lg hover:ring-navy-200
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-400
             no-underline hover:no-underline transition-all duration-300 group w-full`}
         >
           {/* Avatar - Larger for all cards */}
-          <div className={`${isHorizontal ? 'md:mr-8 mb-6 md:mb-0' : 'mb-6'} flex-shrink-0`}>
+          <div className={`${isHorizontal ? 'md:mr-10 mb-6 md:mb-0' : 'mb-6'} flex-shrink-0`}>
             <img 
               src={member.image} 
               alt={member.name}
-              className={`${layout.avatarSize} rounded-full object-cover ${layout.avatarBorder} 
-                group-hover:scale-105 transition-transform duration-300 ${layout.shadow}`}
+              loading="lazy"
+              className={`${layout.avatarSize} rounded-full object-cover ${layout.avatarBorder}
+                group-hover:scale-[1.03] transition-transform duration-300 ${layout.shadow}`}
             />
           </div>
           
           {/* Content - Left aligned for all */}
           <div className={`text-left ${isHorizontal ? 'md:flex-1' : 'w-full'}`}>
             {/* Name with special styling */}
-            <h3 className={`font-bold ${layout.nameSize} text-navy-900 group-hover:text-navy-950 mb-3`}>
+            <h3 className={`font-bold ${layout.nameSize} text-navy-900 group-hover:text-navy-800 mb-3`}>
               {member.name}
             </h3>
             
@@ -80,7 +84,7 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
             {/* Description */}
             {layout.showDescription && member.description && (
               <div className="mt-4">
-                <p className="text-gray-700 text-lg leading-relaxed line-clamp-4 md:line-clamp-none">
+                <p className="text-gray-700 text-xl leading-relaxed line-clamp-4 md:line-clamp-5">
                   {typeof member.description === 'string' 
                     ? member.description 
                     : Array.isArray(member.description) 
@@ -96,18 +100,18 @@ const TeamTreeSection = ({ title, description, members, onViewDetails }) => {
   };
 
   return (
-    <section className="mb-16">
-      {/* Clean Header */}
+    <section className="mb-20 px-6 xl:px-20 2xl:px-20">
+      {/* Section Header */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-navy-800 mb-3">{title}</h2>
-        {description && (
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">{description}</p>
-        )}
+        <h2 className="text-3xl sm:text-4xl font-bold text-navy-800 mb-1">
+          {title}
+        </h2>
+        <div className="mt-3 h-px w-28 bg-navy-100 mx-auto" />
       </div>
 
-      {/* All Members Cards - Full width like CEO card */}
-      <div>
-        <div className="space-y-8">
+      {/* Cards */}
+      <div className="max-w-6xl mx-auto">
+        <div className="space-y-10">
           {sortedMembers.map(renderMemberCard)}
         </div>
       </div>
