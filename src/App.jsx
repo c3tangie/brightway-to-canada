@@ -36,8 +36,9 @@ function App() {
         <Route path="/wip" element={<WIPPg />} />
         <Route path="/network" element={<OfficialNetwork />} />
         <Route path="/services" element={<OfficialServices />} />
-        <Route path="/servicesX" element={<ServicesPage />} />
-        <Route path="/servicesX/:serviceSlug" element={<ServiceDetailPage />} />
+        {/* Updated routes to use /service instead of /servicesX */}
+        <Route path="/service" element={<ServicesPage />} />
+        <Route path="/service/:serviceSlug" element={<ServiceDetailPage />} />
         <Route path="/consultation" element={<ConsultationPage />} />
       </Routes>
     </Router>

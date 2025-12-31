@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Add this import
 
 const ServiceArticle = () => {
   const [openCategory, setOpenCategory] = useState(null);
@@ -7,44 +8,45 @@ const ServiceArticle = () => {
     setOpenCategory(openCategory === category ? null : category);
   };
 
+  // Update to use service slugs instead of general links
   const parentQuestions = {
     "Academic Planning & School Selection": [
-      { text: "My children are 12/13/15 years old and had average grades in China. How can you develop an effective plan to ensure their academic success?", link: "#/services/prospective-students" },
-      { text: "My child just graduated from junior high in China with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a relatively good university?", link: "#/services/current-students" },
-      { text: "My child is used to the 'cramming' teaching style in Chinese high schools. If there is less strict management there and my child's grades drop, what then?", link: "#/services/prospective-students" },
-      { text: "Besides English studies in China, what other English training will my child need when transferring to study in Canada?", link: "#/services/prospective-students" },
-      { text: "What are the four levels of academic planning for children studying abroad?", link: "#/services/prospective-students" },
-      { text: "Is it better for children to go abroad during middle school or after graduating from high school?", link: "#/services/graduating-students" }
+      { text: "My children are 12/13/15 years old and had average grades in China. How can you develop an effective plan to ensure their academic success?", serviceSlug: "academic-planning-school-selection", questionIndex: 0 },
+      { text: "My child just graduated from junior high in China with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a relatively good university?", serviceSlug: "academic-planning-school-selection", questionIndex: 1 },
+      { text: "My child is used to the 'cramming' teaching style in Chinese high schools. If there is less strict management there and my child's grades drop, what then?", serviceSlug: "academic-planning-school-selection", questionIndex: 2 },
+      { text: "Besides English studies in China, what other English training will my child need when transferring to study in Canada?", serviceSlug: "academic-planning-school-selection", questionIndex: 3 },
+      { text: "What are the four levels of academic planning for children studying abroad?", serviceSlug: "academic-planning-school-selection", questionIndex: 4 },
+      { text: "Is it better for children to go abroad during middle school or after graduating from high school?", serviceSlug: "academic-planning-school-selection", questionIndex: 5 }
     ],
     "Well-being, Safety & Daily Life": [
-      { text: "How does Canada ensure the safety of my underage child?", link: "#/services/current-students" },
-      { text: "What if my child gets sick? What policies are there regarding healthcare for international students?", link: "#/services/current-students" },
-      { text: "Which vaccines does my child need before going abroad? Where can they get them?", link: "#/services/current-students" },
-      { text: "What legal documents need to be prepared before my child goes abroad?", link: "#/services/graduating-students" },
-      { text: "If an emergency occurs during my child's studies abroad, who should they contact?", link: "#/services/prospective-students" },
-      { text: "Is it better for young international students to live in a homestay or in a school dormitory? How does the school and your organization maintain contact with each child?", link: "#/services/graduating-students" },
-      { text: "My child is so young and not yet mature physically or mentally. How will you help them cope with stress and psychological issues?", link: "#/services/graduating-students" }
+      { text: "How does Canada ensure the safety of my underage child?", serviceSlug: "wellbeing-safety-daily-life", questionIndex: 0 },
+      { text: "What if my child gets sick? What policies are there regarding healthcare for international students?", serviceSlug: "wellbeing-safety-daily-life", questionIndex: 1 },
+      { text: "Which vaccines does my child need before going abroad? Where can they get them?", serviceSlug: "wellbeing-safety-daily-life", questionIndex: 2 },
+      { text: "What legal documents need to be prepared before my child goes abroad?", serviceSlug: "wellbeing-safety-daily-life", questionIndex: 3 },
+      { text: "If an emergency occurs during my child's studies abroad, who should they contact?", serviceSlug: "wellbeing-safety-daily-life", questionIndex: 4 },
+      { text: "Is it better for young international students to live in a homestay or in a school dormitory? How does the school and your organization maintain contact with each child?", serviceSlug: "wellbeing-safety-daily-life", questionIndex: 5 },
+      { text: "My child is so young and not yet mature physically or mentally. How will you help them cope with stress and psychological issues?", serviceSlug: "wellbeing-safety-daily-life", questionIndex: 6 }
     ],
     "Social & Emotional Adaptation": [
-      { text: "Although international students are peers, young Chinese students studying abroad may find it difficult to 'integrate' into local student groups without help. What should be done?", link: "#/services/current-students" },
-      { text: "Will everything become better once my child goes abroad? For example, will their mood improve, will their grades improve, will their life get better... Is that really true?", link: "#/services/graduating-students" },
-      { text: "For girls going abroad, the likelihood of experiencing emotional confusion increases. How to avoid emotional issues affecting life and studies?", link: "#/services/prospective-students" },
-      { text: "We think studying in China is too intense and competitive. We hear studying abroad is easier, so we want to go study abroad...", link: "#/services/current-students" },
-      { text: "How will my child and I begin our new study and life in the first month after landing in Canada?", link: "#/services/prospective-students" },
-      { text: "What should parents do to help their children after they go abroad to study?", link: "#/services/current-students" }
+      { text: "Although international students are peers, young Chinese students studying abroad may find it difficult to 'integrate' into local student groups without help. What should be done?", serviceSlug: "social-emotional-adaptation", questionIndex: 0 },
+      { text: "Will everything become better once my child goes abroad? For example, will their mood improve, will their grades improve, will their life get better... Is that really true?", serviceSlug: "social-emotional-adaptation", questionIndex: 1 },
+      { text: "For girls going abroad, the likelihood of experiencing emotional confusion increases. How to avoid emotional issues affecting life and studies?", serviceSlug: "social-emotional-adaptation", questionIndex: 2 },
+      { text: "We think studying in China is too intense and competitive. We hear studying abroad is easier, so we want to go study abroad...", serviceSlug: "social-emotional-adaptation", questionIndex: 3 },
+      { text: "How will my child and I begin our new study and life in the first month after landing in Canada?", serviceSlug: "social-emotional-adaptation", questionIndex: 4 },
+      { text: "What should parents do to help their children after they go abroad to study?", serviceSlug: "social-emotional-adaptation", questionIndex: 5 }
     ],
     "Financial & Practical Preparation": [
-      { text: "What is the most cost-effective way to plan for Canadian junior high/high school study expenses?", link: "#/services/graduating-students" },
-      { text: "What legal documents need to be prepared before my child goes abroad?", link: "#/services/graduating-students" },
-      { text: "Which vaccines does my child need before going abroad? Where can they get them?", link: "#/services/current-students" },
-      { text: "What if my child gets sick? What policies are there regarding healthcare for international students?", link: "#/services/current-students" }
+      { text: "What is the most cost-effective way to plan for Canadian junior high/high school study expenses?", serviceSlug: "financial-practical-preparation", questionIndex: 0 },
+      { text: "What legal documents need to be prepared before my child goes abroad?", serviceSlug: "financial-practical-preparation", questionIndex: 1 },
+      { text: "Which vaccines does my child need before going abroad? Where can they get them?", serviceSlug: "financial-practical-preparation", questionIndex: 2 },
+      { text: "What if my child gets sick? What policies are there regarding healthcare for international students?", serviceSlug: "financial-practical-preparation", questionIndex: 3 }
     ]
   };
 
   const studentQuestions = [
-    { text: "Where the heck do i even begin?", link: "#/services/prospective-students" },
-    { text: "Now that I'm here, what next?", link: "#/services/current-students" },
-    { text: "The diploma is in my hand, what now?", link: "#/services/graduating-students" }
+    { text: "Where the heck do i even begin?", link: "/services/prospective-students" },
+    { text: "Now that I'm here, what next?", link: "/services/current-students" },
+    { text: "The diploma is in my hand, what now?", link: "/services/graduating-students" }
   ];
 
   return (
@@ -114,12 +116,12 @@ const ServiceArticle = () => {
         
         {/* Book Consultation Button */}
         <div className="mt-12">
-          <a 
-            href="#/consultation" 
+          <Link 
+            to="/consultation" 
             className="inline-block bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
           >
             Book a Consultation
-          </a>
+          </Link>
         </div>
 
         {/* Student Questions Section */}
@@ -130,13 +132,13 @@ const ServiceArticle = () => {
           
           <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
             {studentQuestions.map((question, index) => (
-              <a 
+              <Link 
                 key={index}
-                href={question.link}
+                to={question.link}
                 className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
               >
                 {question.text}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -173,13 +175,13 @@ const ServiceArticle = () => {
                 >
                   <div className="p-4 bg-blue-50 space-y-3">
                     {questions.map((question, qIndex) => (
-                      <a 
+                      <Link
                         key={qIndex}
-                        href={question.link}
+                        to={`/service/${question.serviceSlug}?q=${question.questionIndex}`}
                         className="block bg-white hover:bg-blue-100 text-blue-900 font-medium py-3 px-4 rounded-lg text-base transition-all duration-300 border border-blue-100 hover:border-blue-300 hover:shadow-sm"
                       >
                         {question.text}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
