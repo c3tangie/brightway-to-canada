@@ -166,10 +166,10 @@ const ServiceDetailPage = () => {
                 
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <Link 
-                    to="/service" 
+                    to="/service-list"  // Changed from "/service" to "/service-list"
                     className="text-navy-600 hover:text-navy-800 font-medium inline-flex items-center gap-2"
                   >
-                    ← Back to all services
+                    ← Back to all service categories
                   </Link>
                 </div>
               </div>

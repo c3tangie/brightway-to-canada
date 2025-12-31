@@ -12,10 +12,20 @@ const ServicesPage = () => {
         {/* Hero */}
         <div className="bg-gradient-to-r from-navy-600 to-navy-800 text-white py-16">
           <div className="max-w-6xl mx-auto px-4 text-center">
-            <h1 className="text-5xl font-bold mb-6">Our Services</h1>
+            <h1 className="text-5xl font-bold mb-6">Service Categories</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Comprehensive support for students and parents navigating Canadian education and immigration.
+              Browse our detailed service categories to find answers to your specific questions.
             </p>
+            
+            {/* Back to main services page */}
+            <div className="mt-8">
+              <Link 
+                to="/services" 
+                className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
+              >
+                ← Back to Services Overview
+              </Link>
+            </div>
           </div>
         </div>
 

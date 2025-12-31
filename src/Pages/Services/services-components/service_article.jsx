@@ -61,6 +61,8 @@ const ServiceArticle = () => {
         </p>
       </div>
 
+      
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold text-blue-900 mb-4">Student Visa Services</h3>
@@ -121,6 +123,16 @@ const ServiceArticle = () => {
             className="inline-block bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
           >
             Book a Consultation
+          </Link>
+        </div>
+
+        {/* Add this link to view all services */}
+        <div className="mt-8 text-center">
+          <Link 
+            to="/service-list" 
+            className="inline-block bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+          >
+            View All Service Categories
           </Link>
         </div>
 

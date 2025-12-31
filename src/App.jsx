@@ -28,17 +28,22 @@ function App() {
         <Route path="/services/graduating-students" element={<GradStudent />} />
         <Route path="/about" element={<OfficialAbouts />} />
         <Route path="/about_teams" element={<OfficialAboutsTeams />} />
-        {/* Dynamic route for team members */}
         <Route path="/team/:memberSlug" element={<TeamMemberDetailPage />} />
         <Route path="/blog" element={<OfficialBlogs />} />
         <Route path="/contact" element={<OfficialContacts />} />
         <Route path="/thankyou" element={<ThankyouPg />} />
         <Route path="/wip" element={<WIPPg />} />
         <Route path="/network" element={<OfficialNetwork />} />
+        
+        {/* Main Service Article - The landing page for services */}
         <Route path="/services" element={<OfficialServices />} />
-        {/* Updated routes to use /service instead of /servicesX */}
-        <Route path="/service" element={<ServicesPage />} />
+        
+        {/* Service List Page - Shows all service categories */}
+        <Route path="/service-list" element={<ServicesPage />} />
+        
+        {/* Individual Service Detail Page */}
         <Route path="/service/:serviceSlug" element={<ServiceDetailPage />} />
+        
         <Route path="/consultation" element={<ConsultationPage />} />
       </Routes>
     </Router>
