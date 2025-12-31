@@ -16,7 +16,7 @@ const ServiceDetailPage = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-navy-800 mb-4">Service Not Found</h1>
-          <Link to="/servicesX" className="text-navy-600 hover:text-navy-800 underline">
+          <Link to="/service" className="text-navy-600 hover:text-navy-800 underline">
             Back to Services
           </Link>
         </div>
@@ -82,7 +82,7 @@ const ServiceDetailPage = () => {
                 <div className="flex gap-2">
                   {validQuestionIndex > 0 && (
                     <Link
-                      to={`/servicesX/${service.slug}?q=${validQuestionIndex - 1}`}
+                      to={`/service/${service.slug}?q=${validQuestionIndex - 1}`}
                       className="px-4 py-2 text-sm font-medium text-navy-700 bg-white border border-navy-300 rounded-lg hover:bg-navy-50 transition-colors"
                     >
                       ← Previous
@@ -90,7 +90,7 @@ const ServiceDetailPage = () => {
                   )}
                   {validQuestionIndex < service.questions.length - 1 && (
                     <Link
-                      to={`/servicesX/${service.slug}?q=${validQuestionIndex + 1}`}
+                      to={`/service/${service.slug}?q=${validQuestionIndex + 1}`}
                       className="px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors"
                     >
                       Next Question →
@@ -118,14 +118,13 @@ const ServiceDetailPage = () => {
                 {service.questions.map((q, index) => (
                   <Link
                     key={index}
-                    to={`/servicesX/${service.slug}?q=${index}`}
+                    to={`/service/${service.slug}?q=${index}`}
                     className={`block p-4 border rounded-lg transition-colors ${index === validQuestionIndex 
                       ? 'bg-navy-50 border-navy-300' 
                       : 'border-gray-200 hover:bg-gray-50 hover:border-navy-300'
                     }`}
                   >
                     <div className="flex items-start gap-3">
-                      {/* Remove the thumbnail div completely */}
                       <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-navy-600 text-white">
                         {index + 1}
                       </div>
@@ -139,7 +138,6 @@ const ServiceDetailPage = () => {
                         {index === validQuestionIndex && (
                           <p className="text-sm text-navy-600 mt-1">Currently viewing</p>
                         )}
-                        {/* Remove the "Includes visual guide" text since we're not showing thumbnails */}
                       </div>
                     </div>
                   </Link>
@@ -158,17 +156,17 @@ const ServiceDetailPage = () => {
                 </p>
                 
                 <div className="mt-6">
-                  <a 
-                    href="#/consultation" 
+                  <Link 
+                    to="/consultation" 
                     className="inline-block bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
                   >
                     Book a Consultation
-                  </a>
+                  </Link>
                 </div>
                 
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <Link 
-                    to="/servicesX" 
+                    to="/service" 
                     className="text-navy-600 hover:text-navy-800 font-medium inline-flex items-center gap-2"
                   >
                     ← Back to all services

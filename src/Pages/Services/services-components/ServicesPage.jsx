@@ -25,7 +25,7 @@ const ServicesPage = () => {
             {serviceData.map(service => (
               <Link
                 key={service.id}
-                to={`/servicesX/${service.slug}`}
+                to={`/service/${service.slug}`}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 {/* Service Header */}
@@ -56,7 +56,7 @@ const ServicesPage = () => {
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 border-t border-gray-200 p-6">
                   <div className="text-center">
                     <Link
-                      to={`/servicesX/${service.slug}`}
+                      to={`/service/${service.slug}`}
                       className="px-6 py-3 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-lg transition-colors inline-block"
                     >
                       View Questions & Answers
