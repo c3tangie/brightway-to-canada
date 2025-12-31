@@ -1,3 +1,8 @@
+import StudyImageOne from '../../../assets/services_assets/services_img_study1.jpg';
+import EmotionImageOne from '../../../assets/services_assets/services_img_emotion1.jpg';
+import EmotionImageTwo from '../../../assets/services_assets/services_img_emotion2.jpg';
+import ConnectImageOne from '../../../assets/services_assets/services_img_connect1.jpg';
+
 const serviceData = [
   {
     id: 1,
@@ -9,7 +14,7 @@ const serviceData = [
       {
         question: "My children are 12/13/15 years old and had average grades in China. How can you develop an effective plan to ensure their academic success?",
         answer: "We create personalized academic roadmaps that focus on skill-building, language preparation, and strategic school placement based on your child's strengths and learning style.",
-        image: '/images/services/academic-planning-1.jpg'
+        image: StudyImageOne
       },
       {
         question: "My child just graduated from junior high in China with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a relatively good university?",
@@ -68,7 +73,7 @@ const serviceData = [
       {
         question: "If an emergency occurs during my child's studies abroad, who should they contact?",
         answer: "Your child will have access to our 24/7 emergency hotline, local coordinators, school contacts, and a personalized emergency response plan.",
-        image: '/images/services/emergency-1.jpg'
+        image: ConnectImageOne
       },
       {
         question: "Is it better for young international students to live in a homestay or in a school dormitory? How does the school and your organization maintain contact with each child?",
@@ -92,7 +97,7 @@ const serviceData = [
       {
         question: "Although international students are peers, young Chinese students studying abroad may find it difficult to 'integrate' into local student groups without help. What should be done?",
         answer: "We organize orientation programs, buddy systems with local students, cultural exchange activities, and social integration workshops throughout the school year.",
-        image: '/images/services/integration-1.jpg'
+        image: EmotionImageTwo
       },
       {
         question: "Will everything become better once my child goes abroad? For example, will their mood improve, will their grades improve, will their life get better... Is that really true?",
@@ -102,7 +107,7 @@ const serviceData = [
       {
         question: "For girls going abroad, the likelihood of experiencing emotional confusion increases. How to avoid emotional issues affecting life and studies?",
         answer: "We provide gender-specific support including mentorship programs, healthy relationship education, and access to female counselors who understand cultural nuances.",
-        image: '/images/services/gender-support-1.jpg'
+        image: EmotionImageOne
       },
       {
         question: "We think studying in China is too intense and competitive. We hear studying abroad is easier, so we want to go study abroad...",
