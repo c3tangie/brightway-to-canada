@@ -5,6 +5,7 @@ import kathrynImage from '../../../assets/about_us_assets/kathryn_prof_img2.jpg'
 import donImage from '../../../assets/about_us_assets/don_prof_img2.jpg';
 import rayImage from '../../../assets/about_us_assets/ray_prof_img2.jpg';
 import lingImage from '../../../assets/about_us_assets/ling_prof_img2.jpg';
+import qiImage from '../../../assets/about_us_assets/qi_prof_img2.jpg';
 
 const teamData = [
   {
@@ -77,10 +78,14 @@ const teamData = [
     slug: "don-standing",
     role: "Professional English Instructor",
     image: donImage,
-    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam.",
+    description: "Don Standing is a veteran writing tutor with decades of teaching experience. He holds a BA in History, a B.Ed, and an M.Ed, and taught in British Columbia secondary schools for more than 30 years. Since 2017, he has dedicated himself to one-on-one tutoring. He has two core philosophies: having something meaningful to say and knowing how to say it. He prioritizes helping students clarify and justify their own ideas through discussion, then guides them to structure their reasoning with purpose. He also focuses on polishing rhetorical and grammatical technique and believes all motivated students can improve their writing through this tailored, experience-guided journey.",
     categories: ["tutor_lang"],
     tutor_expertise: ["Language (ESL)"],
-    extended_bio: ["Born and raised in Ottawa; BA (Hon) majoring in History from Queen's University (Kingston) 1979; B.Ed 1980 Queen's; M.Ed from University of Victoria 1990. Taught English, Social Studies and French at Revelstoke Secondary School (Revelstoke, BC) 1981-1989; taught English, Social Studies and French at Ballenas Secondary School (Parksville, BC) 1991-2016. English tutor 2017- present."],
+    extended_bio: ["Most of my students come to me because they want to improve their writing. Good writing, to me, is the result of two things: having something to say and knowing how to say it. The former is the hardest problem to solve. Many students have never been pushed to justify, examine or explain their beliefs or opinions. This is reflected in their writing: they can state their position, but cannot explain it to others as they have never done it  even to themselves. Discussion and Socratic questioning, therefore, can take up a significant amount of time in my teaching of writing. Only when the student has something interesting to say and actually realises that, can they start to improve their writing.",
+      "The next step is recognising the inherent structure in their reasoning. Teenagers tend to jump from idea to idea as those ideas occur rather than doing the thinking first, gathering their ideas and then deciding how best to present them. During this phase it is often important to discuss purpose. Students often write simply because they’ve been told to produce a certain number of words. Once they understand that they need a purpose for their writing can we address the final piece.",
+      "After realising they have something to say and seeing how their thoughts interrelate and then deciding on the purpose of the product, we can start to polish. Rhetorical and grammatical flourishes - the tricks of the trade that can change the merely competent into the memorable.",
+      "Results, of course, vary. Some students move more quickly than others. Some have an affinity for the work that others lack, but all students can improve their writing if they wish to. I can help with that.",
+      "My approach is grounded in over four decades of teaching experience. After completing a BA in History and a B.Ed at Queen’s University, I taught English, Social Studies, and French at secondary schools in Revelstoke and Parksville, British Columbia, for more than 30 years. I later earned an M.Ed from the University of Victoria. Since 2017, I have focused solely on one-on-one tutoring, drawing on this extensive background to guide each student’s unique writing journey."],
     hierarchyLevel: 2,
     hierarchyCategory: "tutor_lang"
   },
@@ -123,13 +128,17 @@ const teamData = [
     name: "Qi Zhu",
     slug: "qi-zhu",
     role: "Marketing Advisor & Mandarin Instructor",
-    image: placeHolderImage,
-    description: "Velit cursus egestas hac fames mauris quis nisl habitasse aliquet, sed nulla congue purus morbi integer feugiat fermentum. Inceptos taciti maximus consequat hendrerit eleifend vivamus lobortis himenaeos volutpat ornare praesent. Ultricies orci netus habitant massa tempor finibus litora sagittis nunc duis sollicitudin diam. Mattis aptent natoque accumsan magna luctus curabitur cubilia ut aenean semper leo. Etiam ac ante in ex viverra suspendisse dignissim quis morbi facilisi arcu sagittis quam.",
+    image: qiImage,
+    description: "Qi Zhu is an experienced educator with decades of experience who has more recently specialized in adolescent psychological therapy and cross-cultural subject instruction. Certified as an international therapist and TCSOL instructor, she focuses on preparing high school students for overseas academic success: bridging curriculum gaps, strengthening the foundations, and meeting admission requirements. Skilled in multimedia course design and diverse teaching methods, she provides tailored guidance for students abroad and in-person tutoring for returnees, ensuring sustained academic adaptation and support throughout their international education journey.",
     categories: ["design", "tutor_lang"],
     tutor_expertise: ["Language (Mandarin)"],
     hierarchyLevel: 4,
     hierarchyCategory: "design",
-    extended_expertise: ["Content Creation"]
+    extended_expertise: ["Content Creation"],
+    extended_bio: ["Qi Zhu has decades of dedicated experience in education, with dual core expertise in adolescent psychological therapy and cross-cultural subject instruction. She holds an International Therapist Certification and professional qualifications in Teaching Chinese to Speakers of Other Languages (TCSOL).",
+      "Drawing on higher education resources, she specializes in bridging senior high school students to their target overseas majors—addressing gaps between Chinese and foreign academic frameworks, building solid subject foundations, and aligning preparation with overseas admission requirements.",
+      "Proficient in multimedia courseware development, she integrates diverse teaching methodologies into curriculum design to match overseas classroom norms. She offers remote academic guidance for international students abroad and customized offline tutoring for returnees, providing full-cycle support to help students overcome academic challenges and adapt to overseas learning rhythms."
+    ]
   }
 ];
 
