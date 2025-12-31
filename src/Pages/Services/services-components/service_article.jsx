@@ -101,7 +101,7 @@ const ServiceArticle = () => {
         {/* Section 1 - Wellbeing & Safety */}
         <div className="relative rounded-xl overflow-hidden shadow-xl">
           {/* Background with overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-700 opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-navy-600 opacity-90"></div>
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
@@ -133,7 +133,7 @@ const ServiceArticle = () => {
         {/* Section 2 - Emotional Support */}
         <div className="relative rounded-xl overflow-hidden shadow-xl">
           {/* Background with overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-800 to-navy-600 opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-600 to-slate-700 opacity-90"></div>
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
@@ -165,7 +165,7 @@ const ServiceArticle = () => {
         {/* Section 3 - Academic Planning (as placeholder) */}
         <div className="relative rounded-xl overflow-hidden shadow-xl">
           {/* Background with overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-700 to-teal-500 opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-700 to-navy-600 opacity-90"></div>
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
