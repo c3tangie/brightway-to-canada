@@ -132,7 +132,7 @@ const serviceData = [
     id: 4,
     slug: 'financial-practical-preparation',
     title: 'Financial & Practical Preparation',
-    featuredImage: '/images/services/financial-planning.jpg',
+    featuredImage: ConnectImageSeven,
     
     questions: [
       {
@@ -149,6 +149,45 @@ const serviceData = [
         question: "Which vaccines does my child need before going abroad? Where can they get them?",
         answer: "Standard requirements include MMR, Tetanus, Hepatitis B. We provide a complete checklist and recommend International Travel Health Centers in major Chinese cities. We provide a complete vaccination checklist based on Canadian requirements and recommendations for local vaccination centers in China.",
         image: CareImageTwo
+      }
+    ]
+  },
+  {
+    id: 5,
+    slug: 'academic-niche',
+    title: 'Academic Niche Questions',
+    featuredImage: ConnectImageSeven,
+    
+    questions: [
+      {
+        question: "My children showed me their grade reports, why do i only see teachers' comments on behavior and attitude but no specific scores?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "I used to have a well formed plan for my child, however looking at other international students' plans I am not certain anymore. How can I be sure my child's plan is effective?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child wants to apply to a specific university but that institution's QS scores and popularity seem to be quite low. Will that affect their future?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "Should I encourage or discourage my child to take 'Grade-Booster' courses offered by some schools to improve their grades?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "I just got a panicked phone call from my child saying they may have to delay graduation due to available course sections being full. How common is this and what can be done to prevent it?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child's favorite teacher and the school counselor is suggesting a career path for my child that I don't agree with. What should I do?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
       }
     ]
   }

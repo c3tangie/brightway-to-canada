@@ -33,7 +33,7 @@ const teamData = [
     extended_bio: ["Jonathan Tang is a key contributor in shaping the technical foundation of Brightway to Canada. As the architect behind the website framework, he is responsible for the platform’s structure, functionality, and long-term scalability. His work ensures that the site remains stable, efficient, and to optimize usability for students and families navigating the Canadian education system.", "A former student supported by Ling, Jonathan brings a unique perspective to his role. Having experienced the challenges of academic planning firsthand, he is deeply committed to building systems that are clear, dependable, and genuinely helpful. Known for his reliability, attention to detail, and great experience with UI design, he approaches technical challenges methodically and follows through consistently, making him a trusted leader on the technical side of the company.", "Jonathan began developing his programming skills through computer science courses in high school and has continued building his expertise through university-level coursework, including fundamentals of deep learning. He is experienced in Python, C++, C, and JavaScript, and applies this technical background to both front-end and back-end development.", "Outside of Professional work and academics, Jonathan is passionate about badminton and plays regularly. He is also deeply involved in music, playing guitar and piano and producing music in his free time."],
     hierarchyLevel: 5,
     hierarchyCategory: "administration",
-    extended_expertise: ["Video Editing", "Graphic Design"]
+    extended_expertise: ["Video Editing", "Graphic Design", "Music Production"]
   },
   {
     id: 3,
