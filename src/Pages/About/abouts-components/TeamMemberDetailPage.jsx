@@ -109,10 +109,10 @@ const TeamMemberDetailPage = () => {
       <hr />
       <div className="min-h-screen bg-gray-50">
         {/* Member Content */}
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
             {/* Hero Section - Updated */}
-            <div className="p-8 md:p-12">
+            <div className="pt-8 md:pt-12 px-6 md:px-10 pb-4 md:pb-8">
               <div className="flex flex-col md:flex-row items-start gap-8">
                 {/* Left: Square Profile Photo */}
                 <div className="flex-shrink-0 mx-auto md:mx-0">
@@ -134,6 +134,17 @@ const TeamMemberDetailPage = () => {
                     <p className="text-lg text-gray-600 mb-6">{member.tagline}</p>
                   )}
 
+                  {/* About (moved here) */}
+                  {member.description && (
+                    <div className="">
+                      <div className="prose prose-lg max-w-none">
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                          {member.description}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="flex flex-wrap gap-4">
                     {member.email && (
                       <a
@@ -153,11 +164,14 @@ const TeamMemberDetailPage = () => {
               </div>
             </div>
 
+            {/* Divider */}
+            <div className="h-px bg-gray-200 mx-6 md:mx-10 mb-2" />
+
             {/* Details Section */}
-            <div className="p-8 md:p-12 pt-0">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="px-6 md:px-10 pb-6 md:pb-8 pt-2 md:pt-4">
+              <div className="grid grid-cols-1 md:grid-cols-[20rem,1fr] gap-6 md:gap-8">
                 {/* Left Column - Basic Info */}
-                <div className="lg:col-span-1">
+                <div>
                   {/* Categories */}
                   {displayCategories.length > 0 && (
                     <div className="mb-8">
@@ -203,7 +217,7 @@ const TeamMemberDetailPage = () => {
 
                   {/* Extended Expertise - NEW SECTION */}
                   {member.extended_expertise && member.extended_expertise.length > 0 && (
-                    <div className="mb-8">
+                    <div>
                       <h3 className="text-lg font-semibold text-navy-800 mb-3">Additional Expertise</h3>
                       <div className="space-y-2">
                         {member.extended_expertise.map((expertise, index) => (
@@ -218,24 +232,15 @@ const TeamMemberDetailPage = () => {
                 </div>
 
                 {/* Right Column - Bio */}
-                <div className="lg:col-span-2">
-                  <h2 className="text-2xl font-bold text-navy-800 mb-6">About</h2>
-                  
-                  {/* Basic Description */}
-                  <div className="prose prose-lg max-w-none mb-8">
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      {member.description}
-                    </p>
-                  </div>
-
+                <div>
                   {/* Extended Bio */}
                   {member.extended_bio && (
-                    <div className="mt-8">
-                      <h3 className="text-xl font-semibold text-navy-800 mb-4">Detailed Biography</h3>
+                    <div>
+                      <h2 className="text-2xl font-bold text-navy-800 mb-6">Detailed Biography</h2>
                       <div className="space-y-6">
                         {Array.isArray(member.extended_bio) ? (
                           member.extended_bio.map((paragraph, index) => (
-                            <p key={index} className="text-gray-700 leading-relaxed">
+                            <p key={index} className="text-gray-700 leading-relaxed text-lg">
                               {paragraph}
                             </p>
                           ))
@@ -246,8 +251,8 @@ const TeamMemberDetailPage = () => {
                     </div>
                   )}
 
-                  {/* Additional Info Sections */}
-                  {member.education && (
+                  {/* Additional Info Sections ------- TEMPORARILY COMMENTED OUT */}
+                  {/* {member.education && (
                     <div className="mt-8">
                       <h3 className="text-xl font-semibold text-navy-800 mb-4">Education</h3>
                       <p className="text-gray-700">{member.education}</p>
@@ -268,13 +273,13 @@ const TeamMemberDetailPage = () => {
                         ))}
                       </div>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
 
-            {/* Multiple Related Members Sections with Fade Effects */}
-            {displayCategories.length > 0 && (
+            {/* Multiple Related Members Sections with Fade Effects ------ TEMPORARILLY COMMENT OUT */}
+            {/* {displayCategories.length > 0 && (
               <div className="border-t border-gray-200">
                 {sortedCategories.map((category, index) => {
                   const relatedMembers = getRelatedMembersByCategory(category);
@@ -291,13 +296,16 @@ const TeamMemberDetailPage = () => {
                   );
                 })}
               </div>
-            )}
+            )} */}
+
+            {/* Divider */}
+            <div className="h-px bg-gray-200 mx-6 md:mx-10" />
 
             {/* Back to Team Button - Centered at Bottom */}
-            <div className="p-8 border-t border-gray-200 text-center">
+            <div className="p-8 text-center">
               <Link 
                 to="/about_teams" 
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-600 text-white font-semibold rounded-lg hover:bg-navy-700 transition-colors duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-600 text-white font-semibold rounded-lg hover:bg-navy-700 transition-colors duration-200 shadow-md"
               >
                 <svg 
                   className="w-5 h-5" 

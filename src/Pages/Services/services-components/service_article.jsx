@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; // Add this import
 
 const ServiceArticle = () => {
@@ -61,7 +61,14 @@ const ServiceArticle = () => {
         </p>
       </div>
 
-      
+      <div className="text-center">
+        <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
+          Our Star Offerings
+        </h3>
+        <p className="text-lg text-gray-600 leading-relaxed">
+          Our company's strength lies in its deeply rooted expertise. The founder brings years of firsthand experience, not only as a homestay host but also from working within a BC School District. This insider perspective is amplified by our team, many of whom are former international students or have served as instructors in BC schools. We leverage this unique background to expertly place students in supportive living environments, from nurturing homestays to structured boarding, and provide unparalleled guidance to help adolescents navigate cultural transitions, ensuring their academic, social, and emotional well-being.
+        </p><br></br>
+      </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -110,7 +117,7 @@ const ServiceArticle = () => {
         </p><br></br>
         
         <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
-            Consultation and Personalized Planning
+          Consultation and Personalized Planning
         </h3>
         <p className="text-lg text-gray-600 leading-relaxed">
           Every family's situation is unique, which is why our services begin with a personalized consultation. This process allows us to better understand the student's background, goals, and specific needs. By gathering relevant information early on, we are able to provide thoughtful recommendations and create a clear plan that supports a smooth and successful education journey in Canada.
@@ -120,7 +127,7 @@ const ServiceArticle = () => {
         <div className="mt-12">
           <Link 
             to="/consultation" 
-            className="inline-block bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+            className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
           >
             Book a Consultation
           </Link>
@@ -130,14 +137,14 @@ const ServiceArticle = () => {
         <div className="mt-8 text-center">
           <Link 
             to="/service-list" 
-            className="inline-block bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+            className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
           >
             View All Service Categories
           </Link>
         </div>
 
         {/* Student Questions Section */}
-        <div className="mt-16">
+        {/* <div className="mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
             As A Student, You May Be Thinking About:
           </h3>
@@ -153,12 +160,12 @@ const ServiceArticle = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Parent Questions Section with Dropdown Categories */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
-            As A Parent, You May Be Wondering:
+            As a parent, you may be wondering:
           </h3>
           
           <div className="max-w-4xl mx-auto space-y-4">
@@ -167,7 +174,7 @@ const ServiceArticle = () => {
                 {/* Category Header */}
                 <button
                   onClick={() => toggleCategory(category)}
-                  className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-6 text-lg text-left flex justify-between items-center transition-colors duration-300"
+                  className="w-full bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-6 text-lg text-left flex justify-between items-center transition-colors duration-300"
                 >
                   <span>{category}</span>
                   <svg 

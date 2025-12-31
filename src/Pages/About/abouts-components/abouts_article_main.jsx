@@ -32,13 +32,13 @@ const Abouts_Article_Main = () => {
           <div className="text-center max-w-6xl mx-auto">
             {/* Main Headline */}
             <h1 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
-              YEEHAW
+              About Brightway to Canada
             </h1>
 
             {/* Hero Description */}
             <p className="text-white text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto mb-8 drop-shadow-xl">
               We're a passionate group of innovators, creators, and problem-solvers 
-              dedicated to building amazing solutions for your journey to Canada.
+              dedicated to building amazing solutions for international students' journey to Canada.
             </p>
           </div>
         </div>

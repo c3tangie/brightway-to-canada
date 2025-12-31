@@ -70,7 +70,7 @@ const TeamTreeSection = ({ title, description, icon, color, members, onViewDetai
           {/* Content - Left aligned for all */}
           <div className={`text-left ${isHorizontal ? 'md:flex-1' : 'w-full'}`}>
             {/* Name with special styling */}
-            <h3 className={`font-bold ${layout.nameSize} text-navy-900 group-hover:text-navy-800 mb-3`}>
+            <h3 className={`font-bold ${layout.nameSize} text-sky-900 group-hover:text-sky-800 mb-3`}>
               {member.name}
             </h3>
             
@@ -103,14 +103,14 @@ const TeamTreeSection = ({ title, description, icon, color, members, onViewDetai
     <section className="mb-20 px-6 xl:px-20 2xl:px-20">
       {/* Section Header */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl sm:text-4xl font-bold text-navy-800 mb-1">
+        <h2 className="text-4xl sm:text-5xl font-bold text-sky-900 mb-1">
           {title}
         </h2>
         <div className="mt-3 h-px w-28 bg-navy-100 mx-auto" />
       </div>
 
       {/* Cards */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-screen-2xl mx-auto">
         <div className="space-y-10">
           {sortedMembers.map(renderMemberCard)}
         </div>

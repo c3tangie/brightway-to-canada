@@ -230,13 +230,13 @@ function WF_App() {
                 </div>
 
                 <div class="mb-6">
-                  <button type="reset" onClick={handleResetClick} class="w-full px-3 py-4 text-white bg-sky-900 rounded-md active:bg-sky-600 focus:outline-none transition-colors duration-100">
+                  <button type="reset" onClick={handleResetClick} class="w-full px-3 py-4 text-white  bg-gray-500 hover:bg-gray-600 rounded-md focus:outline-none transition-colors duration-100">
                     Reset
                   </button>
                 </div>
 
                 <div class="mb-6">
-                  <button type="submit" onClick={handleSubmitClick} class="w-full px-3 py-4 text-white bg-sky-900 rounded-md active:bg-sky-600 focus:outline-none transition-colors duration-100">
+                  <button type="submit" onClick={handleSubmitClick} class="w-full px-3 py-4 text-white  bg-navy-600 hover:bg-navy-700 rounded-md focus:outline-none transition-colors duration-100">
                     Send Message
                   </button>
                 </div>

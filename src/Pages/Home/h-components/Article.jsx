@@ -1,23 +1,48 @@
 import React from 'react'
 import videoFile from '../../../assets/video.mp4'
+import { Link } from 'react-router-dom';
 
 const Article = () => {
   return (
     <div className='mt-8 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-xl leading-normal'>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Student Visa Services</h3>
+          <h3 className="text-xl font-semibold text-blue-900 mb-4">Eyeing A Study Permit?</h3>
           <p className="text-gray-600">Complete assistance with study permit applications, school selection, and academic planning.</p>
+          <div className="mt-12 text-center">
+            <Link 
+              to="/consultation" 
+              className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              Book a Consultation
+            </Link>
+          </div>
         </div>
         
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Immigration Consulting</h3>
+          <h3 className="text-xl font-semibold text-blue-900 mb-4">Troubles Picking Schools?</h3>
           <p className="text-gray-600">Expert guidance through various immigration programs and pathways to Canadian residency.</p>
+          <div className="mt-12 text-center">
+            <Link 
+              to="/consultation" 
+              className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              Book a Consultation
+            </Link>
+          </div>
         </div>
         
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Documentation Support</h3>
+          <h3 className="text-xl font-semibold text-blue-900 mb-4">Wanting Better Grades?</h3>
           <p className="text-gray-600">Professional assistance with preparing and reviewing all required immigration documents.</p>
+          <div className="mt-12 text-center">
+            <Link 
+              to="/consultation" 
+              className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              Book a Consultation
+            </Link>
+          </div>
         </div>
       </div>
 

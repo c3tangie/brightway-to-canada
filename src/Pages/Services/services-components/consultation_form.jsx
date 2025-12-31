@@ -564,7 +564,7 @@ function ConsultationForm() {
                 <button
                   type="submit"
                   onClick={handleSubmitClick}
-                  className="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-md transition-colors duration-300 shadow-lg hover:shadow-xl"
+                  className="bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-md transition-colors duration-300 shadow-lg hover:shadow-xl"
                 >
                   Submit Consultation Request
                 </button>

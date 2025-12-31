@@ -12,7 +12,7 @@ import OfficialServices from './Pages/Services/services'
 import ConsultationPage from './Pages/Services/consultation'
 import ThankyouPg from './Pages/Contact/contact_thankyou'
 import WIPPg from './Pages/WIP/wip_pg'
-import ServicesPage from './Pages/Services/services-components/ServicesPage';
+import ServicesListPage from './Pages/Services/services-components/ServicesListPage';
 import ServiceDetailPage from './Pages/Services/services-components/ServiceDetailPage';
 
 import TeamMemberDetailPage from './Pages/About/abouts-components/TeamMemberDetailPage';
@@ -39,7 +39,7 @@ function App() {
         <Route path="/services" element={<OfficialServices />} />
         
         {/* Service List Page - Shows all service categories */}
-        <Route path="/service-list" element={<ServicesPage />} />
+        <Route path="/service-list" element={<ServicesListPage />} />
         
         {/* Individual Service Detail Page */}
         <Route path="/service/:serviceSlug" element={<ServiceDetailPage />} />

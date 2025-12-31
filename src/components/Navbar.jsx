@@ -240,12 +240,12 @@ const Navbar = () => {
                 ref={mobileMenuButtonRef}
                 onClick={toggleMobileMenu}
                 onTouchEnd={handleTouchEnd}
-                className={`inline-flex items-center justify-center p-2 rounded-md transition-all duration-300 scale-90 focus:outline-none ${
+                className={`inline-flex items-center justify-center p-2 rounded-md transition-all duration-300 scale-90 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0 ${
                   isScrolled ? 'md:scale-90' : 'md:scale-100'
                 } ${
                   isMobileMenuOpen 
-                    ? 'text-blue-900 bg-gray-100 ring-2 ring-inset ring-blue-500' 
-                    : 'text-gray-700 focus:ring-2 focus:ring-inset focus:ring-blue-500'
+                    ? 'text-blue-900 bg-gray-100' 
+                    : 'text-gray-700'
                 }`}
                 style={{ 
                   WebkitTapHighlightColor: 'transparent'

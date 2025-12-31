@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import teamData from './teamData';
 import TeamTreeSection from './TeamTreeSection';
@@ -21,7 +21,7 @@ const Abouts_Article_Teams = () => {
     },
     {
       id: 'tutor_lang',
-      title: 'Language Instructor Team',
+      title: 'Language Instructing Team',
       description: 'Expert instructors for academic success',
       icon: '📚',
       color: 'bg-gradient-to-r from-navy-500 to-navy-700',
@@ -29,7 +29,7 @@ const Abouts_Article_Teams = () => {
     },
     {
       id: 'tutor_stem',
-      title: 'STEM Instructor Team',
+      title: 'STEM Instructing Team',
       description: 'Expert instructors for academic success',
       icon: '📚',
       color: 'bg-gradient-to-r from-navy-500 to-navy-700',
@@ -119,130 +119,7 @@ const Abouts_Article_Teams = () => {
           </div>
         </section>
 
-        {/* Tutoring Expertise Matrix */}
-        <section className='mb-16 bg-gray-50 rounded-2xl p-8 mx-6 xl:mx-20 2xl:mx-20'>
-          <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
-            Tutoring Expertise Matrix
-          </h2>
-          
-          {/* Filter team members who are tutors */}
-          {(() => {
-            const tutorMembers = teamData.filter(member => 
-              member.categories && (
-                member.categories.includes('tutor_lang') || 
-                member.categories.includes('tutor_stem')  // Add this
-              )
-            ).sort((a, b) => 
-              a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
-            );
-            
-            if (tutorMembers.length === 0) {
-              return (
-                <div className="text-center py-8">
-                  <p className="text-gray-500 text-lg">No tutoring experts available.</p>
-                </div>
-              );
-            }
-
-            const allTutorExpertise = new Set();
-            tutorMembers.forEach(member => {
-              if (member.tutor_expertise && Array.isArray(member.tutor_expertise)) {
-                member.tutor_expertise.forEach(expertise => allTutorExpertise.add(expertise));
-              }
-            });
-            
-            const uniqueExpertise = Array.from(allTutorExpertise).sort((a, b) => {
-              const isALanguage = a.toLowerCase().includes('language') || a.toLowerCase().includes('mandarin') || a.toLowerCase().includes('chinese') || a.toLowerCase().includes('esl');
-              const isBLanguage = b.toLowerCase().includes('language') || b.toLowerCase().includes('mandarin') || b.toLowerCase().includes('chinese') || b.toLowerCase().includes('esl');
-              
-              if (isALanguage && isBLanguage) return a.localeCompare(b);
-              if (isALanguage && !isBLanguage) return -1;
-              if (!isALanguage && isBLanguage) return 1;
-              return a.localeCompare(b);
-            });
-
-            return (
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="bg-navy-50">
-                      {/* Member column with fixed width */}
-                      <th className="p-4 text-left border border-gray-200 text-navy-800 min-w-[200px] w-[200px]">
-                        Tutor
-                      </th>
-                      
-                      {/* Expertise columns with consistent minimum widths */}
-                      {uniqueExpertise.map(expertise => {
-                        let icon = '📚';
-                        if (expertise.toLowerCase().includes('language') || expertise.toLowerCase().includes('mandarin') || expertise.toLowerCase().includes('chinese') || expertise.toLowerCase().includes('esl')) {
-                          icon = '🗣️';
-                        } else if (expertise.toLowerCase().includes('math')) {
-                          icon = '🧮';
-                        } else if (expertise.toLowerCase().includes('science')) {
-                          icon = '🔬';
-                        }
-                        
-                        return (
-                          <th 
-                            key={expertise} 
-                            className="p-4 text-center border border-gray-200 min-w-[100px]"
-                          >
-                            <div className="flex flex-col items-center">
-                              <span className="text-xl mb-1">{icon}</span>
-                              <span className="text-sm font-medium text-navy-700">
-                                {expertise}
-                              </span>
-                            </div>
-                          </th>
-                        );
-                      })}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tutorMembers.map(member => (
-                      <tr key={member.id} className="border-b border-gray-200 hover:bg-navy-50/30">
-                        {/* Fixed-width member cell with text wrapping */}
-                        <td className="p-4 border border-gray-200 min-w-[200px] w-[200px] align-top">
-                          <div className="flex items-start gap-3">
-                            <img 
-                              src={member.image} 
-                              alt={member.name}
-                              className="w-10 h-10 rounded-full object-cover border-2 border-navy-100 flex-shrink-0 mt-1"
-                            />
-                            <div className="overflow-hidden flex-1">
-                              <p className="font-semibold text-navy-800 mb-1 break-words">
-                                {member.name}
-                              </p>
-                              <p className="text-sm text-gray-600 break-words leading-snug">
-                                {member.role}
-                              </p>
-                            </div>
-                          </div>
-                        </td>
-                        
-                        {/* Expertise cells with consistent widths */}
-                        {uniqueExpertise.map(expertise => (
-                          <td 
-                            key={expertise} 
-                            className="p-4 text-center border border-gray-200 min-w-[100px]"
-                          >
-                            {member.tutor_expertise && member.tutor_expertise.includes(expertise) ? (
-                              <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-700 rounded-full border border-green-200">
-                                ✓
-                              </span>
-                            ) : (
-                              <span className="text-gray-300">—</span>
-                            )}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            );
-          })()}
-        </section>
+        <TutoringExpertiseMatrix />
 
         {/* CTA Section */}
         <section className='text-center mb-12 mx-6 xl:mx-20 2xl:mx-20'>
@@ -275,3 +152,219 @@ const Abouts_Article_Teams = () => {
 }
 
 export default Abouts_Article_Teams
+
+const TutoringExpertiseMatrix = () => {
+  const scrollContainerRef = useRef(null);
+  const [isScrollable, setIsScrollable] = useState(false);
+  const [showLeftFade, setShowLeftFade] = useState(false);
+  const [showRightFade, setShowRightFade] = useState(false);
+
+  const tutorMembers = useMemo(() => (
+    teamData
+      .filter(member => member.categories && (
+        member.categories.includes('tutor_lang') || member.categories.includes('tutor_stem')
+      ))
+      .sort((a, b) => (a.hierarchyLevel ?? 999) - (b.hierarchyLevel ?? 999))
+  ), []);
+
+  const uniqueExpertise = useMemo(() => {
+    const allTutorExpertise = new Set();
+    tutorMembers.forEach(member => {
+      if (member.tutor_expertise && Array.isArray(member.tutor_expertise)) {
+        member.tutor_expertise.forEach(expertise => allTutorExpertise.add(expertise));
+      }
+    });
+
+    return Array.from(allTutorExpertise).sort((a, b) => {
+      const isALanguage = a.toLowerCase().includes('language') || a.toLowerCase().includes('mandarin') || a.toLowerCase().includes('chinese') || a.toLowerCase().includes('esl');
+      const isBLanguage = b.toLowerCase().includes('language') || b.toLowerCase().includes('mandarin') || b.toLowerCase().includes('chinese') || b.toLowerCase().includes('esl');
+
+      if (isALanguage && isBLanguage) return a.localeCompare(b);
+      if (isALanguage && !isBLanguage) return -1;
+      if (!isALanguage && isBLanguage) return 1;
+      return a.localeCompare(b);
+    });
+  }, [tutorMembers]);
+
+  // Keep column widths stable when horizontal scrolling starts.
+  // These should match the CSS vars in src/index.css under .tutor-matrix.
+  const TUTOR_COL_MIN_PX = 170;
+  const EXPERTISE_COL_MIN_PX = 92;
+  const tableMinWidthPx = TUTOR_COL_MIN_PX + (EXPERTISE_COL_MIN_PX * uniqueExpertise.length);
+
+  useEffect(() => {
+    const update = () => {
+      const container = scrollContainerRef.current;
+      if (!container) return;
+
+      const scrollLeft = container.scrollLeft;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const canScroll = scrollWidth > clientWidth + 1;
+
+      setIsScrollable(canScroll);
+
+      if (!canScroll) {
+        setShowLeftFade(false);
+        setShowRightFade(false);
+        return;
+      }
+
+      const scrollRight = scrollWidth - clientWidth - scrollLeft;
+      setShowLeftFade(scrollLeft > 10);
+      setShowRightFade(scrollRight > 10);
+    };
+
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    container.addEventListener('scroll', update);
+    const resizeObserver = new ResizeObserver(() => {
+      requestAnimationFrame(update);
+    });
+    resizeObserver.observe(container);
+
+    // Initial check
+    setTimeout(update, 0);
+
+    return () => {
+      container.removeEventListener('scroll', update);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  if (tutorMembers.length === 0) {
+    return (
+      <section className='mb-16 bg-gray-50 rounded-2xl p-8 mx-6 xl:mx-20 2xl:mx-20'>
+        <h2 className='text-3xl font-bold text-navy-800 mb-8 text-center'>
+          Tutoring Expertise Summary
+        </h2>
+        <div className="text-center py-8">
+          <p className="text-gray-500 text-lg">No tutoring experts available.</p>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className='mb-16 bg-gray-50 rounded-2xl p-8 mx-6 xl:mx-20 2xl:mx-20'>
+      <div className="flex items-center justify-between mb-8">
+        <h2 className='text-3xl font-bold text-navy-800 text-center flex-1'>
+          Tutoring Expertise Summary
+        </h2>
+      </div>
+
+      {isScrollable && (
+        <p className="text-sm text-gray-500 text-center mb-3">
+          ← Scroll to see more →
+        </p>
+      )}
+
+      <div className="relative tutor-matrix">
+        {/* Left fade overlay */}
+        <div
+          className={`absolute left-0 top-0 bottom-0 w-10 pointer-events-none z-10 transition-opacity duration-300 ${isScrollable && showLeftFade ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            background: 'linear-gradient(90deg, rgba(249,250,251,1) 0%, rgba(249,250,251,0.75) 35%, rgba(249,250,251,0) 100%)',
+          }}
+        />
+
+        {/* Right fade overlay */}
+        <div
+          className={`absolute right-0 top-0 bottom-0 w-10 pointer-events-none z-10 transition-opacity duration-300 ${isScrollable && showRightFade ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            background: 'linear-gradient(270deg, rgba(249,250,251,1) 0%, rgba(249,250,251,0.75) 35%, rgba(249,250,251,0) 100%)',
+          }}
+        />
+
+        <div ref={scrollContainerRef} className="tutor-matrix__scroller overflow-x-auto">
+          <table
+            className="w-full border-collapse table-fixed"
+            style={{ minWidth: `${tableMinWidthPx}px` }}
+          >
+            <thead>
+              <tr className="bg-navy-50">
+                <th className="tutor-matrix__tutor-col p-3 sm:p-4 text-left border border-gray-200 text-navy-800">
+                  Tutor
+                </th>
+
+                {uniqueExpertise.map(expertise => {
+                  let icon = '📚';
+                  if (expertise.toLowerCase().includes('language') || expertise.toLowerCase().includes('mandarin') || expertise.toLowerCase().includes('chinese') || expertise.toLowerCase().includes('esl')) {
+                    icon = '🗣️';
+                  } else if (expertise.toLowerCase().includes('math')) {
+                    icon = '🧮';
+                  } else if (expertise.toLowerCase().includes('science')) {
+                    icon = '🔬';
+                  }
+
+                  return (
+                    <th
+                      key={expertise}
+                      className="tutor-matrix__expertise-col p-2 sm:p-3 text-center border border-gray-200"
+                    >
+                      <div className="flex flex-col items-center">
+                        <span className="text-xl mb-1">{icon}</span>
+                        <span
+                          className="tutor-matrix__expertise-label block w-full text-xs sm:text-sm font-medium text-navy-700 leading-tight"
+                          title={expertise}
+                        >
+                          {expertise}
+                        </span>
+                      </div>
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+
+            <tbody>
+              {tutorMembers.map(member => (
+                <tr key={member.id} className="border-b border-gray-200 hover:bg-navy-50/30">
+                  <td className="tutor-matrix__tutor-col p-3 sm:p-4 border border-gray-200 align-top">
+                    <div className="flex items-start gap-3">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-10 h-10 rounded-full object-cover border-2 border-navy-100 flex-shrink-0 mt-1"
+                      />
+                      <div className="overflow-hidden flex-1">
+                        <p className="font-semibold text-navy-800 mb-1 break-words">
+                          {member.name}
+                        </p>
+                        <p className="text-sm text-gray-600 break-words leading-snug">
+                          {member.role}
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+
+                  {uniqueExpertise.map(expertise => (
+                    <td
+                      key={expertise}
+                      className="tutor-matrix__expertise-col p-2 sm:p-3 text-center border border-gray-200"
+                    >
+                      {member.tutor_expertise && member.tutor_expertise.includes(expertise) ? (
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-700 rounded-full border border-green-200">
+                          ✓
+                        </span>
+                      ) : (
+                        <span className="text-gray-300">—</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {isScrollable && (
+        <p className="text-sm text-gray-500 text-center mt-3">
+          ← Scroll to see more →
+        </p>
+      )}
+    </section>
+  );
+};

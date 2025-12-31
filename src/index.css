@@ -51,3 +51,50 @@
 .animate-fade-in {
   animation: fade-in 1s ease-out 0.3s forwards;
 }
+
+/*
+  Tutor Expertise Matrix
+  Behavior:
+  - Expertise columns remain evenly sized (table-layout: fixed distribution).
+  - As the viewport narrows, columns shrink naturally.
+  - Expertise columns STOP shrinking at a minimum width (prevents text touching borders).
+  - The Tutor column keeps shrinking until its minimum.
+  - After minimums are hit, the table overflows horizontally and the scrollbar appears,
+    but column widths STOP changing (no more "random" resizing while scrolling).
+
+  Tuning knobs:
+  - Change --tutor-col-percent (how much space Tutor gets on wider screens)
+  - Change --tutor-col-min (how narrow Tutor can get)
+  - Change --expertise-col-min (how narrow each expertise column can get)
+*/
+.tutor-matrix {
+  --tutor-col-percent: 34%;
+  --tutor-col-min: 170px;
+  --expertise-col-min: 92px;
+}
+
+.tutor-matrix__scroller {
+  /* Mobile-friendly horizontal scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.tutor-matrix table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.tutor-matrix__tutor-col {
+  width: var(--tutor-col-percent);
+  min-width: var(--tutor-col-min);
+}
+
+.tutor-matrix__expertise-col {
+  min-width: var(--expertise-col-min);
+}
+
+.tutor-matrix__expertise-label {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

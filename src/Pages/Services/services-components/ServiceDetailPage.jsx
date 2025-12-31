@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import serviceData from './serviceData';
 import Navbar from '../../../components/Navbar';
@@ -39,6 +39,10 @@ const ServiceDetailPage = () => {
   
   // Use question-specific image if available, otherwise fall back to service image
   const displayImage = currentQuestion.image || service.featuredImage;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
@@ -83,7 +87,7 @@ const ServiceDetailPage = () => {
                   {validQuestionIndex > 0 && (
                     <Link
                       to={`/service/${service.slug}?q=${validQuestionIndex - 1}`}
-                      className="px-4 py-2 text-sm font-medium text-navy-700 bg-white border border-navy-300 rounded-lg hover:bg-navy-50 transition-colors"
+                      className="px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors"
                     >
                       ← Previous
                     </Link>
@@ -158,7 +162,7 @@ const ServiceDetailPage = () => {
                 <div className="mt-6">
                   <Link 
                     to="/consultation" 
-                    className="inline-block bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+                    className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
                   >
                     Book a Consultation
                   </Link>
