@@ -6,13 +6,24 @@ function ConsultationForm() {
     parentLastName: '',
     studentFirstName: '',
     studentLastName: '',
+    studentAge: '',
+    studentGrade: '',
     email: '',
     phone: '',
+    currentLocation: '',
     consultationType: '',
     currentStatus: '',
     timeframe: '',
     previousApplication: '',
     budget: '',
+    academicBackground: '',
+    englishProficiency: '',
+    safetyConcerns: '',
+    emotionalSupport: '',
+    socialIntegration: '',
+    livingArrangement: '',
+    emergencyContact: '',
+    healthcareQuestions: '',
     specificConcerns: '',
     additionalInfo: ''
   });
@@ -20,39 +31,45 @@ function ConsultationForm() {
   const [validationMessages, setValidationMessages] = useState({});
 
   const consultationTypes = [
+    { value: "academic-planning", label: "Academic Planning & School Selection" },
     { value: "student-visa", label: "Student Visa Services" },
-    { value: "immigration", label: "Immigration Consulting" },
-    { value: "documentation", label: "Documentation Support" },
-    { value: "school-selection", label: "School Selection & Education Planning" },
     { value: "homestay", label: "Homestay Placement and Support" },
     { value: "settlement", label: "Arrival Settlement and Support" },
+    { value: "wellbeing-support", label: "Well-being & Emotional Support" },
     { value: "general", label: "General Consultation" }
   ];
 
   const currentStatusOptions = [
-    { value: "prospective-student", label: "Prospective Student" },
-    { value: "current-student", label: "Current Student" },
-    { value: "graduate", label: "Recent Graduate" },
-    { value: "working-professional", label: "Working Professional" },
-    { value: "family-member", label: "Family Member/Parent" },
-    { value: "other", label: "Other" }
+    { value: "middle-school", label: "Middle School Student (China)" },
+    { value: "junior-high-grad", label: "Junior High Graduate (China)" },
+    { value: "high-school", label: "High School Student (China)" },
+    { value: "high-school-grad", label: "High School Graduate (China)" },
+    { value: "current-canada", label: "Currently Studying in Canada" },
+    { value: "planning-stage", label: "Planning Stage" }
   ];
 
   const timeframeOptions = [
     { value: "immediate", label: "Immediate (within 1 month)" },
     { value: "short-term", label: "Short-term (1-3 months)" },
     { value: "medium-term", label: "Medium-term (3-6 months)" },
-    { value: "long-term", label: "Long-term (6+ months)" },
+    { value: "long-term", label: "Long-term (6-12 months)" },
     { value: "exploring", label: "Just exploring options" }
   ];
 
-  const budgetOptions = [
-    { value: "under-1000", label: "Under $1,000 CAD" },
-    { value: "1000-2500", label: "$1,000 - $2,500 CAD" },
-    { value: "2500-5000", label: "$2,500 - $5,000 CAD" },
-    { value: "5000-10000", label: "$5,000 - $10,000 CAD" },
-    { value: "above-10000", label: "Above $10,000 CAD" },
-    { value: "flexible", label: "Flexible/Depends on services needed" }
+  const englishProficiencyOptions = [
+    { value: "beginner", label: "Beginner" },
+    { value: "intermediate", label: "Intermediate" },
+    { value: "advanced", label: "Advanced" },
+    { value: "fluent", label: "Fluent/Native-like" },
+    { value: "ielts-toefl", label: "Has IELTS/TOEFL scores" }
+  ];
+
+  const livingArrangementOptions = [
+    { value: "unsure", label: "Not sure yet" },
+    { value: "homestay", label: "Homestay preferred" },
+    { value: "dormitory", label: "School dormitory preferred" },
+    { value: "parent-accompany", label: "Parent will accompany" },
+    { value: "relative", label: "Stay with relatives in Canada" }
   ];
 
   const handleInputChange = (e) => {
@@ -123,13 +140,24 @@ function ConsultationForm() {
         parentLastName: '',
         studentFirstName: '',
         studentLastName: '',
+        studentAge: '',
+        studentGrade: '',
         email: '',
         phone: '',
+        currentLocation: '',
         consultationType: '',
         currentStatus: '',
         timeframe: '',
         previousApplication: '',
         budget: '',
+        academicBackground: '',
+        englishProficiency: '',
+        safetyConcerns: '',
+        emotionalSupport: '',
+        socialIntegration: '',
+        livingArrangement: '',
+        emergencyContact: '',
+        healthcareQuestions: '',
         specificConcerns: '',
         additionalInfo: ''
       });
@@ -139,7 +167,7 @@ function ConsultationForm() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array means it runs only once on mount
+  }, []);
 
   return (
     <div className="flex items-center min-h-screen bg-gray-300">
@@ -222,6 +250,20 @@ function ConsultationForm() {
                     />
                   </div>
                 </div>
+
+                <div className="mb-6">
+                  <label htmlFor="currentLocation" className="block mb-2 text-sm text-gray-600">Current Location <span class="text-red-500">*</span></label>
+                  <input 
+                    type="text" 
+                    name="currentLocation" 
+                    id="currentLocation" 
+                    placeholder="City, Country (e.g., Shanghai, China)" 
+                    required 
+                    value={formData.currentLocation}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                  />
+                </div>
               </div>
 
               {/* Student Information */}
@@ -255,14 +297,74 @@ function ConsultationForm() {
                     />
                   </div>
                 </div>
+
+                <div className="flex mb-6 space-x-4">
+                  <div className="w-full md:w-1/2">
+                    <label htmlFor="studentAge" className="block mb-2 text-sm text-gray-600">Student Age <span class="text-red-500">*</span></label>
+                    <input 
+                      type="number" 
+                      name="studentAge" 
+                      id="studentAge" 
+                      placeholder="15" 
+                      min="10" 
+                      max="25" 
+                      required 
+                      value={formData.studentAge}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                    />
+                  </div>
+                  <div className="w-full md:w-1/2">
+                    <label htmlFor="studentGrade" className="block mb-2 text-sm text-gray-600">Current Grade Level <span class="text-red-500">*</span></label>
+                    <input 
+                      type="text" 
+                      name="studentGrade" 
+                      id="studentGrade" 
+                      placeholder="Grade 9 / Junior High 3" 
+                      required 
+                      value={formData.studentGrade}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="academicBackground" className="block mb-2 text-sm text-gray-600">Academic Background & Grades</label>
+                  <textarea 
+                    name="academicBackground" 
+                    id="academicBackground" 
+                    rows="3"
+                    placeholder="Describe your child's academic performance, strengths, weaknesses, and any special needs..."
+                    value={formData.academicBackground}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  ></textarea>
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="englishProficiency" className="block mb-2 text-sm text-gray-600">English Proficiency Level</label>
+                  <select 
+                    name="englishProficiency" 
+                    id="englishProficiency" 
+                    value={formData.englishProficiency}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  >
+                    <option value="">Select English level...</option>
+                    {englishProficiencyOptions.map(option => (
+                      <option key={option.value} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               {/* Consultation Details */}
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-gray-700 mb-4">Consultation Details</h2>
+                <h2 className="text-xl font-semibold text-gray-700 mb-4">Study Abroad Planning</h2>
                 
                 <div className="mb-6">
-                  <label htmlFor="consultationType" className="block mb-2 text-sm text-gray-600">Type of Consultation Needed <span class="text-red-500">*</span></label>
+                  <label htmlFor="consultationType" className="block mb-2 text-sm text-gray-600">Main Area of Concern <span class="text-red-500">*</span></label>
                   <select 
                     name="consultationType" 
                     id="consultationType" 
@@ -271,7 +373,7 @@ function ConsultationForm() {
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   >
-                    <option value="">Select consultation type...</option>
+                    <option value="">Select main concern...</option>
                     {consultationTypes.map(option => (
                       <option key={option.value} value={option.value}>{option.label}</option>
                     ))}
@@ -283,7 +385,7 @@ function ConsultationForm() {
 
                 <div className="flex mb-6 space-x-4">
                   <div className="w-full md:w-1/2">
-                    <label htmlFor="currentStatus" className="block mb-2 text-sm text-gray-600">Current Status <span class="text-red-500">*</span></label>
+                    <label htmlFor="currentStatus" className="block mb-2 text-sm text-gray-600">Student's Current Status <span class="text-red-500">*</span></label>
                     <select 
                       name="currentStatus" 
                       id="currentStatus" 
@@ -292,7 +394,7 @@ function ConsultationForm() {
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                     >
-                      <option value="">Select your status...</option>
+                      <option value="">Select status...</option>
                       {currentStatusOptions.map(option => (
                         <option key={option.value} value={option.value}>{option.label}</option>
                       ))}
@@ -302,7 +404,7 @@ function ConsultationForm() {
                     )}
                   </div>
                   <div className="w-full md:w-1/2">
-                    <label htmlFor="timeframe" className="block mb-2 text-sm text-gray-600">Timeframe <span class="text-red-500">*</span></label>
+                    <label htmlFor="timeframe" className="block mb-2 text-sm text-gray-600">Planned Study Abroad Timeframe <span class="text-red-500">*</span></label>
                     <select 
                       name="timeframe" 
                       id="timeframe" 
@@ -323,7 +425,23 @@ function ConsultationForm() {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="previousApplication" className="block mb-2 text-sm text-gray-600">Have you previously applied for Canadian immigration/study permits?</label>
+                  <label htmlFor="livingArrangement" className="block mb-2 text-sm text-gray-600">Preferred Living Arrangement in Canada</label>
+                  <select 
+                    name="livingArrangement" 
+                    id="livingArrangement" 
+                    value={formData.livingArrangement}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  >
+                    <option value="">Select preferred option...</option>
+                    {livingArrangementOptions.map(option => (
+                      <option key={option.value} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="previousApplication" className="block mb-2 text-sm text-gray-600">Previous Canadian Study/Immigration Applications</label>
                   <select 
                     name="previousApplication" 
                     id="previousApplication" 
@@ -332,75 +450,81 @@ function ConsultationForm() {
                     className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   >
                     <option value="">Please select...</option>
-                    <option value="no">No, this is my first time</option>
+                    <option value="no">No, this is our first time</option>
                     <option value="yes-approved">Yes, and it was approved</option>
                     <option value="yes-rejected">Yes, but it was rejected</option>
                     <option value="yes-pending">Yes, and it's currently pending</option>
                   </select>
                 </div>
+              </div>
+
+              {/* Parent Concerns - Based on ServiceArticle Questions */}
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold text-gray-700 mb-4">Your Specific Concerns</h2>
+                
+                <div className="mb-6">
+                  <label htmlFor="safetyConcerns" className="block mb-2 text-sm text-gray-600">Safety & Well-being Concerns</label>
+                  <textarea 
+                    name="safetyConcerns" 
+                    id="safetyConcerns" 
+                    rows="3"
+                    placeholder="Any concerns about your child's safety, healthcare, or emotional well-being in Canada?"
+                    value={formData.safetyConcerns}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  ></textarea>
+                </div>
 
                 <div className="mb-6">
-                  <label htmlFor="budget" className="block mb-2 text-sm text-gray-600">Expected Budget for Services</label>
-                  <select 
-                    name="budget" 
-                    id="budget" 
-                    value={formData.budget}
+                  <label htmlFor="emotionalSupport" className="block mb-2 text-sm text-gray-600">Emotional & Psychological Support Needs</label>
+                  <textarea 
+                    name="emotionalSupport" 
+                    id="emotionalSupport" 
+                    rows="3"
+                    placeholder="Concerns about stress, adaptation, emotional support, or maturity issues?"
+                    value={formData.emotionalSupport}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                  >
-                    <option value="">Select budget range...</option>
-                    {budgetOptions.map(option => (
-                      <option key={option.value} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
+                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  ></textarea>
                 </div>
 
-                 <div className="mb-6">
-                  <label htmlFor="budget" className="block mb-2 text-sm text-gray-600">Placeholder Question 1</label>
-                  <select 
-                    name="budget" 
-                    id="budget" 
-                    value={formData.budget}
+                <div className="mb-6">
+                  <label htmlFor="socialIntegration" className="block mb-2 text-sm text-gray-600">Social Integration & Cultural Adaptation</label>
+                  <textarea 
+                    name="socialIntegration" 
+                    id="socialIntegration" 
+                    rows="3"
+                    placeholder="Concerns about making friends, cultural adjustment, or integration with local students?"
+                    value={formData.socialIntegration}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                  >
-                    <option value="">Select budget range...</option>
-                    {budgetOptions.map(option => (
-                      <option key={option.value} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
+                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  ></textarea>
                 </div>
 
-                 <div className="mb-6">
-                  <label htmlFor="budget" className="block mb-2 text-sm text-gray-600">Placeholder Question 2</label>
-                  <select 
-                    name="budget" 
-                    id="budget" 
-                    value={formData.budget}
+                <div className="mb-6">
+                  <label htmlFor="emergencyContact" className="block mb-2 text-sm text-gray-600">Emergency & Healthcare Questions</label>
+                  <textarea 
+                    name="emergencyContact" 
+                    id="emergencyContact" 
+                    rows="2"
+                    placeholder="Questions about emergency procedures, healthcare policies, or vaccinations?"
+                    value={formData.emergencyContact}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                  >
-                    <option value="">Select budget range...</option>
-                    {budgetOptions.map(option => (
-                      <option key={option.value} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
+                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  ></textarea>
                 </div>
 
-                 <div className="mb-6">
-                  <label htmlFor="budget" className="block mb-2 text-sm text-gray-600">Placeholder Question 3</label>
-                  <select 
-                    name="budget" 
-                    id="budget" 
-                    value={formData.budget}
+                <div className="mb-6">
+                  <label htmlFor="healthcareQuestions" className="block mb-2 text-sm text-gray-600">Financial & Practical Preparation Questions</label>
+                  <textarea 
+                    name="healthcareQuestions" 
+                    id="healthcareQuestions" 
+                    rows="2"
+                    placeholder="Questions about costs, budgeting, required documents, or practical preparations?"
+                    value={formData.healthcareQuestions}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-                  >
-                    <option value="">Select budget range...</option>
-                    {budgetOptions.map(option => (
-                      <option key={option.value} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
+                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                  ></textarea>
                 </div>
               </div>
 
@@ -409,12 +533,12 @@ function ConsultationForm() {
                 <h2 className="text-xl font-semibold text-gray-700 mb-4">Additional Information</h2>
                 
                 <div className="mb-6">
-                  <label htmlFor="specificConcerns" className="block mb-2 text-sm text-gray-600">Specific Concerns or Questions</label>
+                  <label htmlFor="specificConcerns" className="block mb-2 text-sm text-gray-600">Any Other Specific Questions or Concerns</label>
                   <textarea 
                     name="specificConcerns" 
                     id="specificConcerns" 
                     rows="4"
-                    placeholder="Please describe any specific concerns, questions, or challenges you're facing..."
+                    placeholder="Please list any other specific questions or concerns you'd like to discuss..."
                     value={formData.specificConcerns}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -422,12 +546,12 @@ function ConsultationForm() {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="additionalInfo" className="block mb-2 text-sm text-gray-600">Additional Information</label>
+                  <label htmlFor="additionalInfo" className="block mb-2 text-sm text-gray-600">Additional Information About Your Family</label>
                   <textarea 
                     name="additionalInfo" 
                     id="additionalInfo" 
                     rows="3"
-                    placeholder="Any other information you'd like us to know before the consultation..."
+                    placeholder="Any other information about your family situation, goals, or expectations..."
                     value={formData.additionalInfo}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
@@ -455,6 +579,7 @@ function ConsultationForm() {
 
               <div className="text-center mt-6 text-sm text-gray-600">
                 <p>We'll review your request and contact you within 24-48 hours to schedule your consultation.</p>
+                <p className="mt-2">Based on your concerns, we'll prepare specific guidance for your family's unique situation.</p>
               </div>
 
             </form>
