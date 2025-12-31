@@ -2,6 +2,9 @@ import StudyImageOne from '../../../assets/services_assets/services_img_study1.j
 import EmotionImageOne from '../../../assets/services_assets/services_img_emotion1.jpg';
 import EmotionImageTwo from '../../../assets/services_assets/services_img_emotion2.jpg';
 import ConnectImageOne from '../../../assets/services_assets/services_img_connect1.jpg';
+import CareImageOne from '../../../assets/services_assets/services_img_care1.jpg';
+import CareImageTwo from '../../../assets/services_assets/services_img_care2.jpg';
+import CareImageThree from '../../../assets/services_assets/services_img_care3.jpg';
 
 const serviceData = [
   {
@@ -53,17 +56,17 @@ const serviceData = [
       {
         question: "How does Canada ensure the safety of my underage child?",
         answer: "Canadian schools have strict safety protocols, 24/7 supervision for boarding students, and mandatory reporting systems. We also conduct thorough homestay vetting.",
-        image: '/images/services/safety-1.jpg'
+        image: CareImageOne
       },
       {
         question: "What if my child gets sick? What policies are there regarding healthcare for international students?",
         answer: "All international students must have comprehensive health insurance. We assist with enrollment and provide guidance on accessing medical services, including 24/7 emergency support.",
-        image: '/images/services/healthcare-1.jpg'
+        image: CareImageThree
       },
       {
         question: "Which vaccines does my child need before going abroad? Where can they get them?",
         answer: "We provide a complete vaccination checklist based on Canadian requirements and recommendations for local vaccination centers in China.",
-        image: '/images/services/vaccination-1.jpg'
+        image: CareImageTwo
       },
       {
         question: "What legal documents need to be prepared before my child goes abroad?",
