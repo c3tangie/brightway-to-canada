@@ -1,6 +1,52 @@
-import React from 'react'   
+import React, { useState } from 'react';
 
 const ServiceArticle = () => {
+  const [openCategory, setOpenCategory] = useState(null);
+
+  const toggleCategory = (category) => {
+    setOpenCategory(openCategory === category ? null : category);
+  };
+
+  const parentQuestions = {
+    "Academic Planning & School Selection": [
+      { text: "My children are 12/13/15 years old and had average grades in China. How can you develop an effective plan to ensure their academic success?", link: "#/services/prospective-students" },
+      { text: "My child just graduated from junior high in China with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a relatively good university?", link: "#/services/current-students" },
+      { text: "My child is used to the 'cramming' teaching style in Chinese high schools. If there is less strict management there and my child's grades drop, what then?", link: "#/services/prospective-students" },
+      { text: "Besides English studies in China, what other English training will my child need when transferring to study in Canada?", link: "#/services/prospective-students" },
+      { text: "What are the four levels of academic planning for children studying abroad?", link: "#/services/prospective-students" },
+      { text: "Is it better for children to go abroad during middle school or after graduating from high school?", link: "#/services/graduating-students" }
+    ],
+    "Well-being, Safety & Daily Life": [
+      { text: "How does Canada ensure the safety of my underage child?", link: "#/services/current-students" },
+      { text: "What if my child gets sick? What policies are there regarding healthcare for international students?", link: "#/services/current-students" },
+      { text: "Which vaccines does my child need before going abroad? Where can they get them?", link: "#/services/current-students" },
+      { text: "What legal documents need to be prepared before my child goes abroad?", link: "#/services/graduating-students" },
+      { text: "If an emergency occurs during my child's studies abroad, who should they contact?", link: "#/services/prospective-students" },
+      { text: "Is it better for young international students to live in a homestay or in a school dormitory? How does the school and your organization maintain contact with each child?", link: "#/services/graduating-students" },
+      { text: "My child is so young and not yet mature physically or mentally. How will you help them cope with stress and psychological issues?", link: "#/services/graduating-students" }
+    ],
+    "Social & Emotional Adaptation": [
+      { text: "Although international students are peers, young Chinese students studying abroad may find it difficult to 'integrate' into local student groups without help. What should be done?", link: "#/services/current-students" },
+      { text: "Will everything become better once my child goes abroad? For example, will their mood improve, will their grades improve, will their life get better... Is that really true?", link: "#/services/graduating-students" },
+      { text: "For girls going abroad, the likelihood of experiencing emotional confusion increases. How to avoid emotional issues affecting life and studies?", link: "#/services/prospective-students" },
+      { text: "We think studying in China is too intense and competitive. We hear studying abroad is easier, so we want to go study abroad...", link: "#/services/current-students" },
+      { text: "How will my child and I begin our new study and life in the first month after landing in Canada?", link: "#/services/prospective-students" },
+      { text: "What should parents do to help their children after they go abroad to study?", link: "#/services/current-students" }
+    ],
+    "Financial & Practical Preparation": [
+      { text: "What is the most cost-effective way to plan for Canadian junior high/high school study expenses?", link: "#/services/graduating-students" },
+      { text: "What legal documents need to be prepared before my child goes abroad?", link: "#/services/graduating-students" },
+      { text: "Which vaccines does my child need before going abroad? Where can they get them?", link: "#/services/current-students" },
+      { text: "What if my child gets sick? What policies are there regarding healthcare for international students?", link: "#/services/current-students" }
+    ]
+  };
+
+  const studentQuestions = [
+    { text: "Where the heck do i even begin?", link: "#/services/prospective-students" },
+    { text: "Now that I'm here, what next?", link: "#/services/current-students" },
+    { text: "The diploma is in my hand, what now?", link: "#/services/graduating-students" }
+  ];
+
   return (
     <div className='max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex py-16'>
       <div className="text-center mb-12">
@@ -76,193 +122,74 @@ const ServiceArticle = () => {
           </a>
         </div>
 
-        {/* Quick Info Buttons Section */}
+        {/* Student Questions Section */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
             As A Student, You May Be Thinking About:
           </h3>
           
           <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Where the heck do i even begin?
-            </a>
-            
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Now that I'm here, what next?
-            </a>
-            
-            <a 
-              href="#/services/graduating-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              The diploma is in my hand, what now?
-            </a>
+            {studentQuestions.map((question, index) => (
+              <a 
+                key={index}
+                href={question.link}
+                className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
+              >
+                {question.text}
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Hooking Questions Section */}
+        {/* Parent Questions Section with Dropdown Categories */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
             As A Parent, You May Be Wondering:
           </h3>
           
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              My children are 12/13/15 years old and had average grades in China. How can you develop an effective plan to ensure their academic success?
-            </a>
-            
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              My child just graduated from junior high in China with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a relatively good university?
-            </a>
-            
-            {/* LOW RISK */}
-            <a 
-              href="#/services/graduating-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              My child is so young and not yet mature physically or mentally. How will you help them cope with stress and psychological issues?
-            </a>
-
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              My child is used to the 'cramming' teaching style in Chinese high schools. If there is less strict management there and my child's grades drop, what then?
-            </a>
-            
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              How does Canada ensure the safety of my underage child?
-            </a>
-            
-            <a 
-              href="#/services/graduating-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              What is the most cost-effective way to plan for Canadian junior high/high school study expenses?
-            </a>
-
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Besides English studies in China, what other English training will my child need when transferring to study in Canada?
-            </a>
-            
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Which vaccines does my child need before going abroad? Where can they get them?
-            </a>
-            
-            <a 
-              href="#/services/graduating-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              What legal documents need to be prepared before my child goes abroad?
-            </a>
-
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              How will my child and I begin our new study and life in the first month after landing in Canada?
-            </a>
-            
-            {/* MEDIUM RISK */}
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              We think studying in China is too intense and competitive. We hear studying abroad is easier, so we want to go study abroad...
-            </a>
-            
-            {/* MEDIUM RISK */}
-            <a 
-              href="#/services/graduating-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Will everything become better once my child goes abroad? For example, will their mood improve, will their grades improve, will their life get better... Is that really true?
-            </a>
-
-            {/* HIGH RISK */}
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              For girls going abroad, the likelihood of experiencing emotional confusion increases. How to avoid emotional issues affecting life and studies?
-            </a>
-            
-            {/* MEDIUM RISK */}
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Although international students are peers, young Chinese students studying abroad may find it difficult to 'integrate' into local student groups without help. What should be done?
-            </a>
-            
-            <a 
-              href="#/services/graduating-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Is it better for children to go abroad during middle school or after graduating from high school?
-            </a>
-
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              What are the four levels of academic planning for children studying abroad?
-            </a>
-            
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              What should parents do to help their children after they go abroad to study?
-            </a>
-            
-            <a 
-              href="#/services/graduating-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              Is it better for young international students to live in a homestay or in a school dormitory? How does the school and your organization maintain contact with each child?
-            </a>
-
-            <a 
-              href="#/services/prospective-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              If an emergency occurs during my child's studies abroad, who should they contact?
-            </a>
-            
-            <a 
-              href="#/services/current-students"
-              className="bg-gray-100 hover:bg-blue-50 text-blue-900 font-semibold py-4 px-6 rounded-lg text-lg transition-all duration-300 border border-blue-200 hover:border-blue-400 hover:shadow-md"
-            >
-              What if my child gets sick? What policies are there regarding healthcare for international students?
-            </a>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {Object.entries(parentQuestions).map(([category, questions], index) => (
+              <div key={index} className="border border-blue-200 rounded-lg overflow-hidden">
+                {/* Category Header */}
+                <button
+                  onClick={() => toggleCategory(category)}
+                  className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-6 text-lg text-left flex justify-between items-center transition-colors duration-300"
+                >
+                  <span>{category}</span>
+                  <svg 
+                    className={`w-5 h-5 transform transition-transform duration-300 ${openCategory === category ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                
+                {/* Questions Dropdown */}
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openCategory === category ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
+                >
+                  <div className="p-4 bg-blue-50 space-y-3">
+                    {questions.map((question, qIndex) => (
+                      <a 
+                        key={qIndex}
+                        href={question.link}
+                        className="block bg-white hover:bg-blue-100 text-blue-900 font-medium py-3 px-4 rounded-lg text-base transition-all duration-300 border border-blue-100 hover:border-blue-300 hover:shadow-sm"
+                      >
+                        {question.text}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-
       </div>
     </div>
   )
 }
 
-export default ServiceArticle
+export default ServiceArticle;
