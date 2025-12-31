@@ -60,7 +60,15 @@ const ServiceDetailPage = () => {
                     <img
                       src={displayImage}
                       alt={currentQuestion.question}
+                      loading="lazy"
                       className="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover shadow-lg"
+                      // Fallback for older browsers
+                      onLoad={(e) => {
+                        if (!('loading' in HTMLImageElement.prototype)) {
+                          // Implement your own lazy loading if needed
+                          console.log('Browser does not support native lazy loading');
+                        }
+                      }}
                     />
                   )}
                   {!displayImage && (
