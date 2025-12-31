@@ -2,9 +2,11 @@ import StudyImageOne from '../../../assets/services_assets/services_img_study1.j
 import EmotionImageOne from '../../../assets/services_assets/services_img_emotion1.jpg';
 import EmotionImageTwo from '../../../assets/services_assets/services_img_emotion2.jpg';
 import ConnectImageOne from '../../../assets/services_assets/services_img_connect1.jpg';
+import ConnectImageTwo from '../../../assets/services_assets/services_img_connect2.jpg';
 import CareImageOne from '../../../assets/services_assets/services_img_care1.jpg';
 import CareImageTwo from '../../../assets/services_assets/services_img_care2.jpg';
 import CareImageThree from '../../../assets/services_assets/services_img_care3.jpg';
+import DocsImageOne from '../../../assets/services_assets/services_img_docs1.jpg';
 
 const serviceData = [
   {
@@ -60,18 +62,8 @@ const serviceData = [
       },
       {
         question: "What if my child gets sick? What policies are there regarding healthcare for international students?",
-        answer: "All international students must have comprehensive health insurance. We assist with enrollment and provide guidance on accessing medical services, including 24/7 emergency support.",
+        answer: "All international students must have comprehensive health insurance. We assist with enrollment and provide guidance on accessing medical services, including 24/7 emergency support. We help enroll students in comprehensive health insurance plans and provide guidance on accessing clinics, hospitals, and understanding coverage details.",
         image: CareImageThree
-      },
-      {
-        question: "Which vaccines does my child need before going abroad? Where can they get them?",
-        answer: "We provide a complete vaccination checklist based on Canadian requirements and recommendations for local vaccination centers in China.",
-        image: CareImageTwo
-      },
-      {
-        question: "What legal documents need to be prepared before my child goes abroad?",
-        answer: "We provide a comprehensive checklist including study permits, notarized guardianship documents, medical records, and insurance policies with step-by-step guidance.",
-        image: '/images/services/legal-1.jpg'
       },
       {
         question: "If an emergency occurs during my child's studies abroad, who should they contact?",
@@ -120,7 +112,7 @@ const serviceData = [
       {
         question: "How will my child and I begin our new study and life in the first month after landing in Canada?",
         answer: "We provide a comprehensive first-month plan including airport pickup, orientation, school registration, banking setup, and weekly check-ins to ensure smooth transition.",
-        image: '/images/services/first-month-1.jpg'
+        image: ConnectImageTwo
       },
       {
         question: "What should parents do to help their children after they go abroad to study?",
@@ -143,18 +135,13 @@ const serviceData = [
       },
       {
         question: "What legal documents need to be prepared before my child goes abroad?",
-        answer: "Study permits, notarized guardianship agreements, medical records, insurance policies, and power of attorney documents for emergency situations.",
-        image: '/images/services/legal-docs-1.jpg'
+        answer: "Study permits, notarized guardianship agreements, medical records, insurance policies, and power of attorney documents for emergency situations. We provide a comprehensive checklist including study permits, notarized guardianship documents, medical records, and insurance policies with step-by-step guidance.",
+        image: DocsImageOne
       },
       {
         question: "Which vaccines does my child need before going abroad? Where can they get them?",
-        answer: "Standard requirements include MMR, Tetanus, Hepatitis B. We provide a complete checklist and recommend International Travel Health Centers in major Chinese cities.",
-        image: '/images/services/vaccination-guide-1.jpg'
-      },
-      {
-        question: "What if my child gets sick? What policies are there regarding healthcare for international students?",
-        answer: "We help enroll students in comprehensive health insurance plans and provide guidance on accessing clinics, hospitals, and understanding coverage details.",
-        image: '/images/services/health-insurance-1.jpg'
+        answer: "Standard requirements include MMR, Tetanus, Hepatitis B. We provide a complete checklist and recommend International Travel Health Centers in major Chinese cities. We provide a complete vaccination checklist based on Canadian requirements and recommendations for local vaccination centers in China.",
+        image: CareImageTwo
       }
     ]
   }
