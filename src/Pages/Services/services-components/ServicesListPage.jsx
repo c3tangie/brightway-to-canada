@@ -15,7 +15,7 @@ const ServicesListPage = () => {
       <Navbar />
       <div className="min-h-screen bg-gray-50">
         {/* Hero */}
-        <div className="bg-gradient-to-r from-navy-600 to-navy-800 text-white py-16">
+        <div className="bg-gradient-to-r from-navy-200 to-navy-400 text-white py-16">
           <div className="max-w-6xl mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-6">Service Categories</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -25,10 +25,24 @@ const ServicesListPage = () => {
             {/* Back to main services page */}
             <div className="mt-8">
               <Link 
-                to="/services" 
-                className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
+                to="/services"
+                className="text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors font-semibold inline-flex items-center gap-2 duration-300 py-4 px-8"
               >
-                ← Back to Services Overview
+                <svg 
+                  className="w-5 h-5" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                  />
+                </svg>
+                <span>Back to Services Overview</span>
               </Link>
             </div>
           </div>

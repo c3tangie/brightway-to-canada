@@ -40,18 +40,14 @@ function ConsultationForm() {
   ];
 
   const currentStatusOptions = [
-    { value: "middle-school", label: "Middle School Student (China)" },
-    { value: "junior-high-grad", label: "Junior High Graduate (China)" },
-    { value: "high-school", label: "High School Student (China)" },
-    { value: "high-school-grad", label: "High School Graduate (China)" },
+    { value: "middle-school", label: "Grade K-7" },
+    { value: "junior-high-grad", label: "Grade 8-12" },
     { value: "current-canada", label: "Currently Studying in Canada" },
     { value: "planning-stage", label: "Planning Stage" }
   ];
 
   const timeframeOptions = [
-    { value: "immediate", label: "Immediate (within 1 month)" },
-    { value: "short-term", label: "Short-term (1-3 months)" },
-    { value: "medium-term", label: "Medium-term (3-6 months)" },
+    { value: "short-term", label: "Short-term (1-6 months)" },
     { value: "long-term", label: "Long-term (6-12 months)" },
     { value: "exploring", label: "Just exploring options" }
   ];
@@ -66,8 +62,8 @@ function ConsultationForm() {
 
   const livingArrangementOptions = [
     { value: "unsure", label: "Not sure yet" },
-    { value: "homestay", label: "Homestay preferred" },
-    { value: "dormitory", label: "School dormitory preferred" },
+    { value: "school-homestay", label: "School-Assigned Homestay preferred" },
+    { value: "private-homestay", label: "Private Homestay preferred" },
     { value: "parent-accompany", label: "Parent will accompany" },
     { value: "relative", label: "Stay with relatives in Canada" }
   ];

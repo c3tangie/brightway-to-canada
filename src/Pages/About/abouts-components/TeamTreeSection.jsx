@@ -8,7 +8,7 @@ const CARD_LAYOUTS = {
     width: 'w-full',
     height: 'h-auto min-h-64',
     direction: 'horizontal',
-    avatarSize: 'w-56 h-56 md:w-64 md:h-64',
+    avatarSize: 'w-56 h-56 md:w-72 md:h-72',
     shadow: 'shadow-md',
     priority: 1,
     showDescription: true,
@@ -70,13 +70,13 @@ const TeamTreeSection = ({ title, description, icon, color, members, onViewDetai
           {/* Content - Left aligned for all */}
           <div className={`text-left ${isHorizontal ? 'md:flex-1' : 'w-full'}`}>
             {/* Name with special styling */}
-            <h3 className={`font-bold ${layout.nameSize} text-sky-900 group-hover:text-sky-800 mb-3`}>
+            <h3 className={`font-bold ${layout.nameSize} text-gray-800 mb-3`}>
               {member.name}
             </h3>
             
             {/* Role */}
             {layout.showRole && member.role && (
-              <p className={`${layout.roleSize} text-navy-700 font-semibold mb-4`}>
+              <p className={`${layout.roleSize} text-gray-700 font-semibold mb-4`}>
                 {member.role}
               </p>
             )}
@@ -84,7 +84,7 @@ const TeamTreeSection = ({ title, description, icon, color, members, onViewDetai
             {/* Description */}
             {layout.showDescription && member.description && (
               <div className="mt-4">
-                <p className="text-gray-700 text-xl leading-relaxed line-clamp-4 md:line-clamp-5">
+                <p className="text-gray-700 text-xl leading-relaxed">
                   {typeof member.description === 'string' 
                     ? member.description 
                     : Array.isArray(member.description) 
@@ -103,7 +103,7 @@ const TeamTreeSection = ({ title, description, icon, color, members, onViewDetai
     <section className="mb-20 px-6 xl:px-20 2xl:px-20">
       {/* Section Header */}
       <div className="text-center mb-10">
-        <h2 className="text-4xl sm:text-5xl font-bold text-sky-900 mb-1">
+        <h2 className="text-4xl sm:text-5xl font-bold text-blue-950 mb-1">
           {title}
         </h2>
         <div className="mt-3 h-px w-28 bg-navy-100 mx-auto" />

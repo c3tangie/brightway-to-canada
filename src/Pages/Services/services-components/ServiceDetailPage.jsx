@@ -100,17 +100,45 @@ const ServiceDetailPage = () => {
                       {validQuestionIndex > 0 && (
                         <Link
                           to={`/service/${service.slug}?q=${validQuestionIndex - 1}`}
-                          className="px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors"
+                          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors gap-2"
                         >
-                          ← Previous
+                          <svg 
+                            className="w-5 h-5" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24" 
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round" 
+                              strokeWidth={2} 
+                              d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                            />
+                          </svg>
+                          <span>Previous</span>
                         </Link>
                       )}
                       {validQuestionIndex < service.questions.length - 1 && (
                         <Link
                           to={`/service/${service.slug}?q=${validQuestionIndex + 1}`}
-                          className="px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors"
+                          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors gap-2"
                         >
-                          Next Question →
+                          <span>Next Question</span>
+                          <svg 
+                            className="w-5 h-5 transform rotate-180" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24" 
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round" 
+                              strokeWidth={2} 
+                              d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                            />
+                          </svg>
                         </Link>
                       )}
                     </div>
@@ -266,9 +294,23 @@ const ServiceDetailPage = () => {
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <Link 
                     to="/service-list"
-                    className="text-navy-600 hover:text-navy-800 font-medium inline-flex items-center gap-2"
+                    className="text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors font-semibold inline-flex items-center gap-2 duration-300 py-4 px-8"
                   >
-                    ← Back to all service categories
+                    <svg 
+                      className="w-5 h-5" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                      />
+                    </svg>
+                    <span>Back to all service categories</span>
                   </Link>
                 </div>
               </div>

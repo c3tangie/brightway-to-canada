@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import teamData from './teamData';
 import TeamTreeSection from './TeamTreeSection';
-import BannerImage from '../../../assets/about_us_assets/abouts_banner5.jpg';
+import BannerImage from '../../../assets/about_us_assets/abouts_banner6.jpg';
 
 const Abouts_Article_Teams = () => {
   useEffect(() => {
@@ -83,9 +83,8 @@ const Abouts_Article_Teams = () => {
             </h1>
 
             {/* Hero Description */}
-            <p className="text-white text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto mb-8">
-              We're a passionate group of innovators, creators, and problem-solvers 
-              dedicated to building amazing solutions for your journey to Canada.
+            <p className="text-white text-2xl sm:text-2xl lg:text-3xl leading-relaxed max-w-4xl mx-auto mb-8">
+              We're a passionate team dedicated to building personalized solutions for your journey to Canada.
             </p>
           </div>
         </div>

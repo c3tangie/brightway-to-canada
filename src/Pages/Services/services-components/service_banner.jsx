@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import BannerImage from '../../../assets/banner.png'
+import BannerImage from '../../../assets/about_us_assets/abouts_banner5.jpg';
 
 const ServiceBanner = () => {
 
