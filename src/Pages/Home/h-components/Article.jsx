@@ -1,47 +1,82 @@
 import React from 'react'
 import videoFile from '../../../assets/video.mp4'
+import DocsImageTwo from '../../../assets/services_assets/services_img_docs2.webp';
+import ConnectImageSix from '../../../assets/services_assets/services_img_connect6.webp';
+import ConnectImageFive from '../../../assets/services_assets/services_img_connect5.webp';
 import { Link } from 'react-router-dom';
 
 const Article = () => {
   return (
     <div className='mt-8 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-xl leading-normal'>
+      
+      <p className="mb-6">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed aliquam, urna ut bibendum scelerisque, nisi arcu euismod massa, id tincidunt magna velit a eros. Cras a elementum enim. Duis non mi sit amet ligula gravida vulputate. Integer ut mi ac justo accumsan rhoncus a eu justo. Nulla facilisi. Maecenas feugiat, nunc vitae tincidunt malesuada, elit sapien lacinia leo, in convallis nisi sapien at nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed aliquam, urna ut bibendum scelerisque, nisi arcu euismod massa, id tincidunt magna velit a eros. Cras a elementum enim. Duis non mi sit amet ligula gravida vulputate. Integer ut mi ac justo accumsan rhoncus a eu justo. Nulla facilisi. Maecenas feugiat, nunc vitae tincidunt malesuada, elit sapien lacinia leo, in convallis nisi sapien at nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed aliquam, urna ut bibendum scelerisque, nisi arcu euismod massa, id tincidunt magna velit a eros. Cras a elementum enim. Duis non mi sit amet ligula gravida vulputate. Integer ut mi ac justo accumsan rhoncus a eu justo. Nulla facilisi. Maecenas feugiat, nunc vitae tincidunt malesuada, elit sapien lacinia leo, in convallis nisi sapien at nisl.
+      </p>
+      
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Eyeing A Study Permit?</h3>
-          <p className="text-gray-600">Complete assistance with study permit applications, school selection, and academic planning.</p>
-          <div className="mt-12 text-center">
-            <Link 
-              to="/consultation" 
-              className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-            >
-              Book a Consultation
-            </Link>
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="w-full h-72 overflow-hidden">
+            <img 
+              src={ConnectImageFive} 
+              alt="Study Permit Assistance" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-xl font-semibold text-blue-900 mb-4">Eyeing A Study Permit?</h3>
+            <p className="text-gray-600">Complete assistance with study permit applications, school selection, and academic planning.</p>
+            <div className="mt-12 text-center">
+              <Link 
+                to="/consultation" 
+                className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Book a Consultation
+              </Link>
+            </div>
           </div>
         </div>
         
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Troubles Picking Schools?</h3>
-          <p className="text-gray-600">Expert guidance through various immigration programs and pathways to Canadian residency.</p>
-          <div className="mt-12 text-center">
-            <Link 
-              to="/consultation" 
-              className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-            >
-              Book a Consultation
-            </Link>
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="w-full h-72 overflow-hidden">
+            <img 
+              src={ConnectImageSix} 
+              alt="School Selection Guidance" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-xl font-semibold text-blue-900 mb-4">Troubles Picking Schools?</h3>
+            <p className="text-gray-600">Expert guidance through various immigration programs and pathways to Canadian residency.</p>
+            <div className="mt-12 text-center">
+              <Link 
+                to="/consultation" 
+                className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Book a Consultation
+              </Link>
+            </div>
           </div>
         </div>
         
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-900 mb-4">Wanting Better Grades?</h3>
-          <p className="text-gray-600">Professional assistance with preparing and reviewing all required immigration documents.</p>
-          <div className="mt-12 text-center">
-            <Link 
-              to="/consultation" 
-              className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-            >
-              Book a Consultation
-            </Link>
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="w-full h-72 overflow-hidden">
+            <img 
+              src={DocsImageTwo} 
+              alt="Academic Improvement Support" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-xl font-semibold text-blue-900 mb-4">Wanting Better Grades?</h3>
+            <p className="text-gray-600">Professional assistance with preparing and reviewing all required immigration documents.</p>
+            <div className="mt-12 text-center">
+              <Link 
+                to="/consultation" 
+                className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Book a Consultation
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -50,7 +85,7 @@ const Article = () => {
         Brightway to Canada is an education-focused consulting and homestay support service built around one simple belief: students succeed best when they feel supported, understood, and at home. We work closely with international students and their families to help them navigate the Canadian education system with clarity, confidence, and peace of mind.
       </p>
       <p className="mb-6">
-        Choosing a school in a new country can be overwhelming. Academic programs, school culture, language environment, location, safety, and long-term pathways all matter — and every student’s situation is different. Brightway to Canada takes a personalized approach, carefully matching students with schools that align with their academic goals, personal strengths, and future aspirations. We don’t rely on one-size-fits-all recommendations; instead, we focus on what will genuinely help each student thrive.
+        Choosing a school in a new country can be overwhelming. Academic programs, school culture, language environment, location, safety, and long-term pathways all matter — and every student's situation is different. Brightway to Canada takes a personalized approach, carefully matching students with schools that align with their academic goals, personal strengths, and future aspirations. We don't rely on one-size-fits-all recommendations; instead, we focus on what will genuinely help each student thrive.
       </p>
       {/* Video positioned in the middle with text wrapping */}
       <div className="float-right ml-6 mb-6 max-w-xl">
@@ -63,17 +98,17 @@ const Article = () => {
         </video>
       </div> 
       <p className="mb-6">
-        Equally important is where students live. A supportive homestay environment can shape a student’s entire experience in Canada — academically, emotionally, and socially. We work with carefully selected host families who provide more than just a place to stay. Our homestays offer a welcoming household, a safe and stable environment, and daily opportunities for cultural exchange and language development. Students gain independence while still having the guidance and care they need during an important stage of their lives.
+        Equally important is where students live. A supportive homestay environment can shape a student's entire experience in Canada — academically, emotionally, and socially. We work with carefully selected host families who provide more than just a place to stay. Our homestays offer a welcoming household, a safe and stable environment, and daily opportunities for cultural exchange and language development. Students gain independence while still having the guidance and care they need during an important stage of their lives.
       </p>      
       
-            <p className="mb-6">
+      <p className="mb-6">
         Our support extends well beyond initial placement. Brightway to Canada assists families throughout the transition process, helping them understand school expectations, daily life in Canada, and common challenges international students may face. We aim to reduce uncertainty for parents and empower students to adapt confidently to their new surroundings.
       </p>
       <p className="mb-6">
-        What sets Brightway to Canada apart is our commitment to long-term success. We care not only about getting students to Canada, but about how they grow once they arrive. Whether it’s adjusting to classroom expectations, building routines, or settling comfortably into a new home and community, we are there to provide guidance and reassurance when it matters most.
+        What sets Brightway to Canada apart is our commitment to long-term success. We care not only about getting students to Canada, but about how they grow once they arrive. Whether it's adjusting to classroom expectations, building routines, or settling comfortably into a new home and community, we are there to provide guidance and reassurance when it matters most.
       </p>
       <p>
-        With a deep understanding of both international families’ concerns and the Canadian education environment, Brightway to Canada serves as a trusted bridge between home and a new beginning. We believe that with the right preparation, the right school, and the right home, students can focus on learning, personal growth, and building a strong foundation for their future.
+        With a deep understanding of both international families' concerns and the Canadian education environment, Brightway to Canada serves as a trusted bridge between home and a new beginning. We believe that with the right preparation, the right school, and the right home, students can focus on learning, personal growth, and building a strong foundation for their future.
       </p>
     </div>
   )
