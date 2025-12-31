@@ -96,7 +96,7 @@ const Abouts_Article_Teams = () => {
 
         {/* Team Hierarchy Tree */}
         <section className='mb-20'>
-          <div className="space-y-16">
+          <div className="space-y-36">
             {hierarchySections.map(section => {
               // Filter members for this section
               const sectionMembers = teamData.filter(section.filterFn);
