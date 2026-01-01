@@ -7,7 +7,7 @@ import Footer from '../../../components/Footer';
 const ServiceDetailPage = () => {
   const { serviceSlug } = useParams();
   const [searchParams] = useSearchParams();
-  const questionIndexParam = searchParams.get('q');
+  const questionIdParam = searchParams.get('q');
   
   const service = serviceData.find(s => s.slug === serviceSlug);
   
@@ -24,25 +24,41 @@ const ServiceDetailPage = () => {
     );
   }
 
-  // Get current question index from URL or default to 0 (first question)
-  const currentQuestionIndex = questionIndexParam 
-    ? parseInt(questionIndexParam) 
-    : 0;
+  // Find current question by ID
+  let currentQuestion;
+  if (questionIdParam) {
+    // Try to find by ID
+    const questionId = parseInt(questionIdParam);
+    currentQuestion = service.questions.find(q => q.id === questionId);
+  }
   
-  // Ensure index is within bounds
-  const validQuestionIndex = Math.min(
-    Math.max(0, currentQuestionIndex),
-    service.questions.length - 1
-  );
+  // If not found by ID or no ID provided, use first question
+  if (!currentQuestion) {
+    currentQuestion = service.questions[0];
+  }
+  
+  // Get the index of the current question for navigation
+  const currentQuestionIndex = service.questions.findIndex(q => q.id === currentQuestion.id);
+  
+  // Get previous and next questions
+  const prevQuestion = currentQuestionIndex > 0 ? service.questions[currentQuestionIndex - 1] : null;
+  const nextQuestion = currentQuestionIndex < service.questions.length - 1 ? service.questions[currentQuestionIndex + 1] : null;
 
-  const currentQuestion = service.questions[validQuestionIndex];
-  
   // Use question-specific image if available, otherwise fall back to service image
   const displayImage = currentQuestion.image || service.featuredImage;
 
+  // Determine which section to link back to based on isNiche flag
+  const getBackToServicesLink = () => {
+    if (service.isNiche) {
+      return "/service-list#niche-services";
+    } else {
+      return "/service-list#regular-services";
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [validQuestionIndex, serviceSlug]); // Added dependencies
+  }, [currentQuestion.id, serviceSlug]); // Watch for question ID changes instead of index
 
   return (
     <div>
@@ -81,15 +97,15 @@ const ServiceDetailPage = () => {
                   <div className="w-64 md:w-80">
                     {/* Question indicator */}
                     <p className="text-lg text-gray-600 mb-4 text-center md:text-left">
-                      Question {validQuestionIndex + 1} of {service.questions.length}
+                      Question {currentQuestionIndex + 1} of {service.questions.length}
                     </p>
 
                     {/* Question Navigation */}
                     {service.questions.length > 1 && (
                       <div className="flex flex-col sm:flex-row gap-2">
-                        {validQuestionIndex > 0 && (
+                        {prevQuestion && (
                           <Link
-                            to={`/service/${service.slug}?q=${validQuestionIndex - 1}`}
+                            to={`/service/${service.slug}?q=${prevQuestion.id}`}
                             className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors gap-2"
                           >
                             <svg 
@@ -109,9 +125,9 @@ const ServiceDetailPage = () => {
                             <span>Previous</span>
                           </Link>
                         )}
-                        {validQuestionIndex < service.questions.length - 1 && (
+                        {nextQuestion && (
                           <Link
-                            to={`/service/${service.slug}?q=${validQuestionIndex + 1}`}
+                            to={`/service/${service.slug}?q=${nextQuestion.id}`}
                             className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors gap-2"
                           >
                             <span>Next Question</span>
@@ -230,7 +246,7 @@ const ServiceDetailPage = () => {
               </div>
             </div>
 
-            {/* All Questions List - Keep original styling */}
+            {/* All Questions List - Updated to use IDs */}
             <div className="border-t border-gray-200 pt-8 px-6 md:px-10 pb-8">
               <h3 className="text-xl font-bold text-navy-800 mb-6">
                 All questions about {service.title}:
@@ -255,9 +271,9 @@ const ServiceDetailPage = () => {
                   <div className="space-y-3 px-1 pb-6">
                     {service.questions.map((q, index) => (
                       <Link
-                        key={index}
-                        to={`/service/${service.slug}?q=${index}`}
-                        className={`block p-4 border rounded-lg transition-all duration-200 ${index === validQuestionIndex 
+                        key={q.id} // Use question ID as key
+                        to={`/service/${service.slug}?q=${q.id}`}
+                        className={`block p-4 border rounded-lg transition-all duration-200 ${q.id === currentQuestion.id 
                           ? 'bg-navy-50 border-navy-300 shadow-sm' 
                           : 'border-gray-200 hover:bg-gray-50 hover:border-navy-300 hover:shadow-sm'
                         }`}
@@ -267,13 +283,13 @@ const ServiceDetailPage = () => {
                             {index + 1}
                           </div>
                           <div className="flex-1">
-                            <p className={`font-medium ${index === validQuestionIndex 
+                            <p className={`font-medium ${q.id === currentQuestion.id 
                               ? 'text-navy-800' 
                               : 'text-navy-700'
                             }`}>
                               {q.question}
                             </p>
-                            {index === validQuestionIndex && (
+                            {q.id === currentQuestion.id && (
                               <p className="text-sm text-navy-600 mt-1">Currently viewing</p>
                             )}
                           </div>
@@ -300,12 +316,12 @@ const ServiceDetailPage = () => {
               </div>
             </div>
 
-            {/* Removed the old Booking Section and replaced with Back to Services link only */}
+            {/* Dynamic Back to Services Link */}
             <div className="border-t border-gray-200 pt-8 px-6 md:px-10 pb-8">
               <div className="text-center">
                 <div className="mt-8">
                   <Link 
-                    to="/service-list"
+                    to={getBackToServicesLink()}
                     className="text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors font-semibold inline-flex items-center gap-2 duration-300 py-4 px-8"
                   >
                     <svg 
@@ -322,7 +338,12 @@ const ServiceDetailPage = () => {
                         d="M10 19l-7-7m0 0l7-7m-7 7h18" 
                       />
                     </svg>
-                    <span>Back to all service categories</span>
+                    <span>
+                      {service.isNiche 
+                        ? "Back to Specialized Services" 
+                        : "Back to Regular Services"
+                      }
+                    </span>
                   </Link>
                 </div>
               </div>

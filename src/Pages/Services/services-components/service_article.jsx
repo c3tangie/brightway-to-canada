@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import serviceData from './serviceData';
 
 // Component for cycling questions with fade transition
-const CyclingQuestions = ({ categoryId, questions, intervalTime = 3000 }) => {
+const CyclingQuestions = ({ categoryId, questions, intervalTime = 3000, serviceSlug }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -36,14 +36,29 @@ const CyclingQuestions = ({ categoryId, questions, intervalTime = 3000 }) => {
 
   if (shuffledQuestions.length === 0) return null;
 
+  // Get current question and its ID
+  const currentQuestion = shuffledQuestions[currentIndex];
+  const questionId = currentQuestion.id;
+
   return (
-    <div className="mt-6 mb-8 min-h-[160px] md:min-h-[140px] lg:min-h-[120px] flex flex-col justify-center">
-      <div className={`transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/30">
-          <p className="text-white text-lg font-medium italic text-center leading-relaxed line-clamp-4">
-            "{shuffledQuestions[currentIndex]}"
-          </p>
+    <div>
+      <div className="mt-6 mb-8 min-h-[160px] md:min-h-[140px] lg:min-h-[120px] flex flex-col justify-center">
+        <div className={`transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/30">
+            <p className="text-white text-lg font-medium italic text-center leading-relaxed line-clamp-4">
+              "{currentQuestion.question}"
+            </p>
+          </div>
         </div>
+        
+      </div>
+      <div className="text-center mt-4">
+        <Link 
+          to={`/service/${serviceSlug}?q=${currentQuestion.id}`} // Use ID, not originalIndex
+          className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-2 px-4 rounded-lg text-base transition-colors duration-300 shadow-lg hover:shadow-xl"
+        >
+          Get Answer to This Question
+        </Link>
       </div>
     </div>
   );
@@ -59,10 +74,10 @@ const ServiceArticle = () => {
   // Now fetches info and updates accordingly
   const parentQuestions = {};
   serviceData.forEach(service => {
-    parentQuestions[service.title] = service.questions.map((question, index) => ({
+    parentQuestions[service.title] = service.questions.map(question => ({
       text: question.question,
       serviceSlug: service.slug,
-      questionIndex: index
+      questionId: question.id
     }));
   });
 
@@ -70,39 +85,23 @@ const ServiceArticle = () => {
   serviceData.forEach(service => {
     // Check if service has isNiche attribute and it's set to true
     if (service.isNiche === true) {
-      parentQuestions[service.title] = service.questions.map((question, index) => ({
+      parentQuestions[service.title] = service.questions.map(question => ({
         text: question.question,
         serviceSlug: service.slug,
-        questionIndex: index
+        questionId: question.id
       }));
     }
   });
 
+  // Extract niche services
+  const academicNicheService = serviceData.find(service => service.slug === 'academic-niche');
+  const wellbeingNicheService = serviceData.find(service => service.slug === 'well-being-niche');
+  const emotionalSocialNicheService = serviceData.find(service => service.slug === 'emotional-social-niche');
+
   // Extract questions for each section
-  const wellbeingQuestions = serviceData
-    .find(service => service.slug === 'wellbeing-safety-daily-life')
-    ?.questions.map(q => q.question) || [];
-
-  const emotionalSupportQuestions = serviceData
-    .find(service => service.slug === 'social-emotional-adaptation')
-    ?.questions.map(q => q.question) || [];
-
-  const academicPlanningQuestions = serviceData
-    .find(service => service.slug === 'academic-planning-school-selection')
-    ?.questions.map(q => q.question) || [];
-
-  // Extract niche questions
-  const academicNicheQuestions = serviceData
-    .find(service => service.slug === 'academic-niche')
-    ?.questions.map(q => q.question) || [];
-
-  const wellbeingNicheQuestions = serviceData
-    .find(service => service.slug === 'well-being-niche')
-    ?.questions.map(q => q.question) || [];
-
-  const emotionalSocialNicheQuestions = serviceData
-    .find(service => service.slug === 'emotional-social-niche')
-    ?.questions.map(q => q.question) || [];
+  const wellbeingNicheQuestions = wellbeingNicheService?.questions || [];
+  const emotionalSocialNicheQuestions = emotionalSocialNicheService?.questions || [];
+  const academicNicheQuestions = academicNicheService?.questions || [];
 
   // Financial questions for dropdown
   const financialQuestions = serviceData
@@ -144,20 +143,13 @@ const ServiceArticle = () => {
                   categoryId="wellbeing-niche"
                   questions={wellbeingNicheQuestions}
                   intervalTime={8900}
+                  serviceSlug="well-being-niche"
                 />
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
                 To study in Canada is to live in Canada. We understand that academic success is deeply intertwined with a student's ability to adapt to and thrive within their new cultural environment. Our approach goes beyond mere academic placement; we focus on holistic lifestyle integration. By fostering connections within the community, encouraging participation in local activities, and providing ongoing support, we help students build a fulfilling life abroad. This comprehensive support system ensures that students not only excel academically but also develop the social and emotional skills necessary for long-term success.
               </p>
-              <div className="text-center">
-                <Link 
-                  to="/service-list#niche-services" 
-                  className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Specialized Support Services
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -178,20 +170,13 @@ const ServiceArticle = () => {
                   categoryId="emotional-niche"
                   questions={emotionalSocialNicheQuestions}
                   intervalTime={9000}
+                  serviceSlug="emotional-social-niche"
                 />
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
                 We believe that every child is unique and strong, yet we also recognize that they are still growing and may experience mental challenges, the ones their parents would like to overcome by their side yet cannot. Some of our staffs even experienced this first-hand. That's why we...
               </p>
-              <div className="text-center">
-                <Link 
-                  to="/service-list#niche-services" 
-                  className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Learn More
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -212,20 +197,13 @@ const ServiceArticle = () => {
                   categoryId="academic-niche"
                   questions={academicNicheQuestions}
                   intervalTime={9100}
+                  serviceSlug="academic-niche"
                 />
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
                 We understand and emphasize both the student's and the parent's ambitions, struggles, and concerns. Therefore, we...
               </p>
-              <div className="text-center">
-                <Link 
-                  to="/service-list#niche-services" 
-                  className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Learn More
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -318,10 +296,10 @@ const ServiceArticle = () => {
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${openCategory === category ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                   <div className="p-4 bg-blue-50 space-y-3">
-                    {questions.map((question, qIndex) => (
+                    {questions.map((question) => (
                       <Link
-                        key={qIndex}
-                        to={`/service/${question.serviceSlug}?q=${question.questionIndex}`}
+                        key={question.questionId} // Use questionId
+                        to={`/service/${question.serviceSlug}?q=${question.questionId}`} // Use questionId
                         className="block bg-white hover:bg-blue-100 text-blue-900 font-medium py-3 px-4 rounded-lg text-base transition-all duration-300 border border-blue-100 hover:border-blue-300 hover:shadow-sm"
                       >
                         {question.text}
