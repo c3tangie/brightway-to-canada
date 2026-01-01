@@ -60,6 +60,21 @@ const ServiceDetailPage = () => {
     window.scrollTo(0, 0);
   }, [currentQuestion.id, serviceSlug]); // Watch for question ID changes instead of index
 
+  function QuestionAnswer({ q }) {
+    const ans = q.answer;
+    if (Array.isArray(ans)) {
+      return (
+        <div>
+          {ans.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
+        </div>
+      );
+    }
+    // fallback for existing single-string answers (or Markdown)
+    return <p>{ans}</p>;
+  }
+
   return (
     <div>
       <Navbar />
@@ -265,7 +280,8 @@ const ServiceDetailPage = () => {
                     <h3 className="text-xl font-bold text-navy-800 mb-6">Detailed Answer</h3>
                     <div className="prose prose-lg max-w-none">
                       <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
-                        {currentQuestion.answer}
+                        {QuestionAnswer({q:currentQuestion})}
+                        {/* {currentQuestion.answer} */}
                       </div>
                     </div>
                     
