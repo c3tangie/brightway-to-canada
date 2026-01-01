@@ -7,6 +7,7 @@ import rayImage from '../../../assets/about_us_assets/ray_prof_img3.jpg';
 import lingImage from '../../../assets/about_us_assets/ling_prof_img2.jpg';
 import qiImage from '../../../assets/about_us_assets/qi_prof_img3.jpg';
 import jonathanImage from '../../../assets/about_us_assets/jonathan_prof_img2.jpg';
+import jayImage from '../../../assets/about_us_assets/jay_prof_img2.jpg';
 
 const teamData = [
   {
@@ -42,7 +43,7 @@ const teamData = [
     name: "Jay Zang",
     slug: "jay-zang",
     role: "STEM Tutor & Technical Support",
-    image: placeHolderImage,
+    image: jayImage,
     description: "Jay Zang is a tutor and designer at Brightway to Canada, leveraging his background in Astronomy and Information Systems to support students in math and science. His dual role gives him a unique edge in creating clear and engaging educational experiences tailored to individual academic goals.",
     categories: ["tutor_stem", "development", "design"],
     tutor_expertise: ["Math", "Science"],

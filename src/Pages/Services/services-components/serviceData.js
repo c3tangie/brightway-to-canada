@@ -190,6 +190,79 @@ const serviceData = [
         image: ConnectImageSeven
       }
     ]
+  },
+  {
+    id: 6,
+    slug: 'well-being-niche',
+    title: 'Well-Being Niche Questions',
+    featuredImage: ConnectImageSeven,
+    
+    questions: [
+      {
+        question: "My child received some medical help and they are charging them? Didn't we enroll in health insurance?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child forgot to renew their health insurance and they are too afarid to contact officials thinking they will get 'arrested' or 'expelled'. What should we do?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child's favorite food/snack is not available in Canada, and border controls are preventing us from sending them packages. How can we help them cope with this?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      }
+    ]
+  },
+  {
+    id: 7,
+    slug: 'emotional-social-niche',
+    title: 'Emotional-Social Niche Questions',
+    featuredImage: ConnectImageSeven,
+    
+    questions: [
+      {
+        question: "My child is only contacting me every few months while my friend's child contacts their parents weekly. Is this normal?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child seems to be missing home so much they video call us every day and sometimes cries during the call. How can we help them adjust better?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "I miss my child so much and demands them to call me but it seems that they are not happy to do so. How can I improve our communication?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "I do not wish to force relationship advises on my child, but I am worried they may be too lonely and may fall into unhealthy relationships. How can I help them?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child is doing fine but us parents are developing serious anxiety about their well-being and safety. How can we ease our worries?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child is integrating well socially, a bit too well perhaps. They seem to care about their friends more than family now. Is this normal?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "After a few months abroad, my child are starting to use niche slangs and phrases I do not understand. How can I keep up with their language?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child seems to be losing the friendships they had back home due to the distance, time difference, and even jealousy. How can we help them maintain those important relationships?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      }
+    ]
   }
 ];
 
