@@ -7,10 +7,12 @@ import { Link } from 'react-router-dom';
 
 const Article = () => {
   return (
-    <div className='mt-8 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-xl leading-normal'>
-      
-      <p className="mb-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed aliquam, urna ut bibendum scelerisque, nisi arcu euismod massa, id tincidunt magna velit a eros. Cras a elementum enim. Duis non mi sit amet ligula gravida vulputate. Integer ut mi ac justo accumsan rhoncus a eu justo. Nulla facilisi. Maecenas feugiat, nunc vitae tincidunt malesuada, elit sapien lacinia leo, in convallis nisi sapien at nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed aliquam, urna ut bibendum scelerisque, nisi arcu euismod massa, id tincidunt magna velit a eros. Cras a elementum enim. Duis non mi sit amet ligula gravida vulputate. Integer ut mi ac justo accumsan rhoncus a eu justo. Nulla facilisi. Maecenas feugiat, nunc vitae tincidunt malesuada, elit sapien lacinia leo, in convallis nisi sapien at nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed aliquam, urna ut bibendum scelerisque, nisi arcu euismod massa, id tincidunt magna velit a eros. Cras a elementum enim. Duis non mi sit amet ligula gravida vulputate. Integer ut mi ac justo accumsan rhoncus a eu justo. Nulla facilisi. Maecenas feugiat, nunc vitae tincidunt malesuada, elit sapien lacinia leo, in convallis nisi sapien at nisl.
+    <div className='mt-8 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-xl leading-normal text-gray-600'>
+      <div className="mt-12 text-4xl font-bold text-blue-900 mb-4 text-center">
+        Welcome to Brightway to Canada
+      </div>
+      <p className="mb-12 text-center text-xl leading-relaxed">
+        Brightway to Canada is an education consulting company dedicated to helping international students and their families confidently navigate the Canadian K-12 education system. We specialize in school selection, study planning, academic support, student well-being, and smooth transitions to post-secondary institutions. Through this comprehensive support, Brightway to Canada helps students achieve academic success while building a meaningful and fulfilling life in Canada. With deep experience working alongside Canadian primary and high schools, educators, and homestay families, we guide students toward environments where they can learn, adapt, and grow with confidence.
       </p>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

@@ -66,6 +66,18 @@ const ServiceArticle = () => {
     }));
   });
 
+  const targetedQuestions = {};
+  serviceData.forEach(service => {
+    // Check if service has isNiche attribute and it's set to true
+    if (service.isNiche === true) {
+      parentQuestions[service.title] = service.questions.map((question, index) => ({
+        text: question.question,
+        serviceSlug: service.slug,
+        questionIndex: index
+      }));
+    }
+  });
+
   // Extract questions for each section
   const wellbeingQuestions = serviceData
     .find(service => service.slug === 'wellbeing-safety-daily-life')
@@ -123,7 +135,7 @@ const ServiceArticle = () => {
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Safety&Well-Being Questions You Won't Find Elsewhere</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Safety & Well-Being Questions You Won't Find Elsewhere</h3>
               
               {/* Cycling Questions Preview - NICHE ONLY */}
               <div className="my-6">

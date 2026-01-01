@@ -162,32 +162,32 @@ const serviceData = [
       {
         question: "My children showed me their grade reports, why do i only see teachers' comments on behavior and attitude but no specific scores?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: DocsImageTwo
       },
       {
         question: "I used to have a well formed plan for my child, however looking at other international students' plans I am not certain anymore. How can I be sure my child's plan is effective?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: StudyImageOne
       },
       {
         question: "My child wants to apply to a specific university but that institution's QS scores and popularity seem to be quite low. Will that affect their future?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: DocsImageTwo
       },
       {
         question: "Should I encourage or discourage my child to take 'Grade-Booster' courses offered by some schools to improve their grades?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: StudyImageOne
       },
       {
         question: "I just got a panicked phone call from my child saying they may have to delay graduation due to available course sections being full. How common is this and what can be done to prevent it?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: DocsImageTwo
       },
       {
         question: "My child's favorite teacher and the school counselor is suggesting a career path for my child that I don't agree with. What should I do?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: StudyImageOne
       }
     ]
   },
@@ -201,17 +201,17 @@ const serviceData = [
       {
         question: "My child received some medical help and they are charging them? Didn't we enroll in health insurance?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageOne
       },
       {
-        question: "My child forgot to renew their health insurance and they are too afarid to contact officials thinking they will get 'arrested' or 'expelled'. What should we do?",
+        question: "My child forgot to renew their health insurance and they are too afraid to contact officials thinking they will get 'arrested' or 'expelled'. What should we do?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageOne
       },
       {
         question: "My child's favorite food/snack is not available in Canada, and border controls are preventing us from sending them packages. How can we help them cope with this?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageOne
       }
     ]
   },
@@ -225,42 +225,42 @@ const serviceData = [
       {
         question: "My child is only contacting me every few months while my friend's child contacts their parents weekly. Is this normal?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       },
       {
         question: "My child seems to be missing home so much they video call us every day and sometimes cries during the call. How can we help them adjust better?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       },
       {
         question: "I miss my child so much and demands them to call me but it seems that they are not happy to do so. How can I improve our communication?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       },
       {
         question: "I do not wish to force relationship advises on my child, but I am worried they may be too lonely and may fall into unhealthy relationships. How can I help them?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       },
       {
         question: "My child is doing fine but us parents are developing serious anxiety about their well-being and safety. How can we ease our worries?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       },
       {
         question: "My child is integrating well socially, a bit too well perhaps. They seem to care about their friends more than family now. Is this normal?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       },
       {
         question: "After a few months abroad, my child are starting to use niche slangs and phrases I do not understand. How can I keep up with their language?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       },
       {
         question: "My child seems to be losing the friendships they had back home due to the distance, time difference, and even jealousy. How can we help them maintain those important relationships?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
-        image: ConnectImageSeven
+        image: ConnectImageFour
       }
     ]
   },

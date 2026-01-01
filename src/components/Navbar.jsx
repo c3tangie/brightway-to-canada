@@ -6,6 +6,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const mobileMenuButtonRef = useRef(null);
 
   // Add CSS for hover effect
@@ -66,6 +67,7 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setIsAboutDropdownOpen(false);
+    setIsServicesDropdownOpen(false);
   };
 
   return (
@@ -160,7 +162,10 @@ const Navbar = () => {
                 {/* About Dropdown */}
                 <div 
                   className="relative"
-                  onMouseEnter={() => setIsAboutDropdownOpen(true)}
+                  onMouseEnter={() => {
+                    setIsAboutDropdownOpen(true);
+                    setIsServicesDropdownOpen(false);
+                  }}
                   onMouseLeave={() => setIsAboutDropdownOpen(false)}
                 >
                   <button 
@@ -195,15 +200,48 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
-                <a 
-                  href="#/services" 
-                  className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
-                    isScrolled ? 'text-base' : 'text-base md:text-lg'
-                  }`}
+                
+                {/* Services Dropdown */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => {
+                    setIsServicesDropdownOpen(true);
+                    setIsAboutDropdownOpen(false);
+                  }}
+                  onMouseLeave={() => setIsServicesDropdownOpen(false)}
                 >
-                  Services
-                  <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
-                </a>
+                  <button 
+                    className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
+                      isScrolled ? 'text-base' : 'text-base md:text-lg'
+                    }`}
+                  >
+                    Services
+                    <svg className="w-3 h-3 absolute -right-4 top-1/2 transform -translate-y-1/2 transition-transform duration-200" style={{ transform: `translateY(-50%) ${isServicesDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}` }} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                    <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
+                  </button>
+                  
+                  {/* Dropdown Menu */}
+                  <div className={`absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg border border-gray-200 transition-all duration-200 ${
+                    isServicesDropdownOpen ? 'opacity-100 visible transform translate-y-0' : 'opacity-0 invisible transform -translate-y-2'
+                  } z-50`}>
+                    <div className="py-2">
+                      <a 
+                        href="#/services" 
+                        className="block px-4 py-2 text-sm text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        Our Services
+                      </a>
+                      <a 
+                        href="#/service-list" 
+                        className="block px-4 py-2 text-sm text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        Service Categories
+                      </a>
+                    </div>
+                  </div>
+                </div>
                 {/* <a 
                   href="#/blog" 
                   className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
@@ -314,7 +352,13 @@ const Navbar = () => {
                       ? 'text-blue-900 bg-gray-50' 
                       : 'text-gray-700'
                   } mobile-about-button`}
-                  onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                  onClick={() => {
+                    setIsAboutDropdownOpen(prev => {
+                      const next = !prev;
+                      if (next) setIsServicesDropdownOpen(false);
+                      return next;
+                    });
+                  }}
                   onMouseEnter={(e) => {
                     if (!isAboutDropdownOpen && window.matchMedia('(hover: hover)').matches) {
                       e.target.closest('.mobile-about-container').classList.add('hover-border-active');
@@ -355,13 +399,62 @@ const Navbar = () => {
                 </div>
               </div>
               
-              <a 
-                href="#/services" 
-                className="block px-4 py-3 text-gray-700 hover:text-blue-900 hover:bg-gray-50 font-semibold transition-colors duration-200 border-l-4 border-transparent hover:border-blue-900"
-                onClick={closeMobileMenu}
-              >
-                Services
-              </a>
+              {/* Mobile Services Section */}
+              <div className={`border-l-4 transition-colors duration-200 ${
+                isServicesDropdownOpen ? 'border-blue-900' : 'border-transparent'
+              } mobile-services-container`}>
+                <button 
+                  className={`w-full text-left px-4 py-3 font-semibold transition-colors duration-200 flex items-center justify-between ${
+                    isServicesDropdownOpen 
+                      ? 'text-blue-900 bg-gray-50' 
+                      : 'text-gray-700'
+                  } mobile-services-button`}
+                  onClick={() => {
+                    setIsServicesDropdownOpen(prev => {
+                      const next = !prev;
+                      if (next) setIsAboutDropdownOpen(false);
+                      return next;
+                    });
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isServicesDropdownOpen && window.matchMedia('(hover: hover)').matches) {
+                      e.target.closest('.mobile-services-container').classList.add('hover-border-active');
+                      e.target.classList.add('hover-about-active');
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.closest('.mobile-services-container').classList.remove('hover-border-active');
+                    e.target.classList.remove('hover-about-active');
+                  }}
+                  onTouchEnd={(e) => {
+                    e.target.closest('.mobile-services-container').classList.remove('hover-border-active');
+                    e.target.classList.remove('hover-about-active');
+                  }}
+                >
+                  Services
+                  <svg className={`w-4 h-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : 'rotate-0'}`} fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <div className={`transition-all duration-200 overflow-hidden ${
+                  isServicesDropdownOpen ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <a 
+                    href="#/services" 
+                    className="block pl-8 pr-4 py-2 text-gray-600 hover:text-blue-900 hover:bg-gray-50 transition-colors duration-200"
+                    onClick={closeMobileMenu}
+                  >
+                    Our Services
+                  </a>
+                  <a 
+                    href="#/service-list" 
+                    className="block pl-8 pr-4 py-2 text-gray-600 hover:text-blue-900 hover:bg-gray-50 transition-colors duration-200"
+                    onClick={closeMobileMenu}
+                  >
+                    Service Categories
+                  </a>
+                </div>
+              </div>
               {/* <a 
                 href="#/network" 
                 className="block px-4 py-3 text-gray-700 hover:text-blue-900 hover:bg-gray-50 font-semibold transition-colors duration-200 border-l-4 border-transparent hover:border-blue-900"

@@ -44,7 +44,7 @@ const ServicesListPage = () => {
       {/* Service Header */}
       <div className="p-8 flex-grow">
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-4xl">{service.icon || '🔧'}</span>
+          {/* <span className="text-4xl">{service.icon || '🔧'}</span> */}
           <div>
             <h3 className="text-2xl font-bold text-navy-800">{service.title}</h3>
           </div>
