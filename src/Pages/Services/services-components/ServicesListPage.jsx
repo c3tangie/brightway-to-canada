@@ -1,14 +1,83 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import serviceData from './serviceData';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
 const ServicesListPage = () => {
+  const [regularServices, setRegularServices] = useState([]);
+  const [nicheServices, setNicheServices] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    
+    // Separate regular and niche services based on slug
+    const regular = serviceData.filter(service => 
+      !service.slug.includes('niche') && service.slug !== 'academic-niche'
+    );
+    const niche = serviceData.filter(service => 
+      service.slug.includes('niche') || service.slug === 'academic-niche'
+    );
+    
+    setRegularServices(regular);
+    setNicheServices(niche);
+    
+    // Check for hash in URL and scroll to section
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.replace('#', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+
+  // Service card component to avoid code duplication
+  const ServiceCard = ({ service }) => (
+    <Link
+      key={service.id}
+      to={`/service/${service.slug}`}
+      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col"
+    >
+      {/* Service Header */}
+      <div className="p-8 flex-grow">
+        <div className="flex items-center gap-4 mb-4">
+          <span className="text-4xl">{service.icon || '🔧'}</span>
+          <div>
+            <h3 className="text-2xl font-bold text-navy-800">{service.title}</h3>
+          </div>
+        </div>
+        
+        {/* Quick Q&A Preview - Only show if questions exist */}
+        {service.questions && service.questions.length > 0 && (
+          <div className="space-y-3 mb-6">
+            {service.questions.slice(0, 2).map((q, index) => (
+              <div key={index} className="p-3 bg-gray-50 rounded-lg">
+                <h4 className="font-semibold text-navy-700 mb-1 line-clamp-2">
+                  {q.question}
+                </h4>
+                <p className="text-sm text-gray-600 line-clamp-2">{q.answer}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      
+      {/* Booking Footer */}
+      <div className="bg-gradient-to-r from-green-50 to-blue-50 border-t border-gray-200 p-6 mt-auto">
+        <div className="text-center">
+          <Link
+            to={`/service/${service.slug}`}
+            className="px-6 py-3 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-lg transition-colors inline-block"
+          >
+            View Questions & Answers
+          </Link>
+        </div>
+      </div>
+    </Link>
+  );
 
   return (
     <div>
@@ -49,52 +118,37 @@ const ServicesListPage = () => {
         </div>
 
         <div className="max-w-6xl mx-auto px-4 py-12">
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {serviceData.map(service => (
-              <Link
-                key={service.id}
-                to={`/service/${service.slug}`}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              >
-                {/* Service Header */}
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl">{service.icon || '🔧'}</span>
-                    <div>
-                      <h3 className="text-2xl font-bold text-navy-800">{service.title}</h3>
-                    </div>
-                  </div>
-                  
-                  {/* Quick Q&A Preview - Only show if questions exist */}
-                  {service.questions && service.questions.length > 0 && (
-                    <div className="space-y-3 mb-6">
-                      {service.questions.slice(0, 2).map((q, index) => (
-                        <div key={index} className="p-3 bg-gray-50 rounded-lg">
-                          <h4 className="font-semibold text-navy-700 mb-1 line-clamp-2">
-                            {q.question} {/* Show the actual question */}
-                          </h4>
-                          <p className="text-sm text-gray-600 line-clamp-2">{q.answer}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                
-                {/* Booking Footer */}
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 border-t border-gray-200 p-6">
-                  <div className="text-center">
-                    <Link
-                      to={`/service/${service.slug}`}
-                      className="px-6 py-3 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-lg transition-colors inline-block"
-                    >
-                      View Questions & Answers
-                    </Link>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {/* Regular Services Section */}
+          <section id="regular-services" className="mb-16 scroll-mt-24">
+            <div className="text-center mb-10">
+              <h2 className="text-4xl font-bold text-navy-800 mb-4">Regular Services</h2>
+              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+                Comprehensive support for common study abroad concerns and planning
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {regularServices.map(service => (
+                <ServiceCard key={service.id} service={service} />
+              ))}
+            </div>
+          </section>
+          
+          {/* Niche Services Section */}
+          <section id="niche-services" className="scroll-mt-24">
+            <div className="text-center mb-10">
+              <h2 className="text-4xl font-bold text-navy-800 mb-4">Niche Services</h2>
+              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+                Specialized support for unique situations and specific concerns
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {nicheServices.map(service => (
+                <ServiceCard key={service.id} service={service} />
+              ))}
+            </div>
+          </section>
         </div>
       </div>
       <Footer />

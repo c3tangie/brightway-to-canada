@@ -79,6 +79,24 @@ const ServiceArticle = () => {
     .find(service => service.slug === 'academic-planning-school-selection')
     ?.questions.map(q => q.question) || [];
 
+  // Extract niche questions
+  const academicNicheQuestions = serviceData
+    .find(service => service.slug === 'academic-niche')
+    ?.questions.map(q => q.question) || [];
+
+  const wellbeingNicheQuestions = serviceData
+    .find(service => service.slug === 'well-being-niche')
+    ?.questions.map(q => q.question) || [];
+
+  const emotionalSocialNicheQuestions = serviceData
+    .find(service => service.slug === 'emotional-social-niche')
+    ?.questions.map(q => q.question) || [];
+
+  // Financial questions for dropdown
+  const financialQuestions = serviceData
+    .find(service => service.slug === 'financial-practical-preparation')
+    ?.questions.map(q => q.question) || [];
+
   const studentQuestions = [
     { text: "Where the heck do i even begin?", link: "/services/prospective-students" },
     { text: "Now that I'm here, what next?", link: "/services/current-students" },
@@ -105,14 +123,14 @@ const ServiceArticle = () => {
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">"We Wish There Were Someone To Help Our Child, Not As A Teacher Or An Advisor, But As A Friend, As Part Of A Family..."</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Safety&Well-Being Questions You Won't Find Elsewhere</h3>
               
-              {/* Cycling Questions Preview */}
+              {/* Cycling Questions Preview - NICHE ONLY */}
               <div className="my-6">
-                <h4 className="text-white text-xl font-semibold mb-2 text-center">Common Questions About Well-being & Safety:</h4>
+                <h4 className="text-white text-xl font-semibold mb-2 text-center">Specific Well-being & Safety Questions:</h4>
                 <CyclingQuestions 
-                  categoryId="wellbeing"
-                  questions={wellbeingQuestions}
+                  categoryId="wellbeing-niche"
+                  questions={wellbeingNicheQuestions}
                   intervalTime={3500}
                 />
               </div>
@@ -137,14 +155,14 @@ const ServiceArticle = () => {
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">"My Child May Experience Mental Struggles As They Grow, But They Are In A Different Country And We Can't Be On Their Side..."</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Emotional Challenges Others Don't Address</h3>
               
-              {/* Cycling Questions Preview */}
+              {/* Cycling Questions Preview - NICHE ONLY */}
               <div className="my-6">
-                <h4 className="text-white text-xl font-semibold mb-2 text-center">Common Questions About Emotional Support:</h4>
+                <h4 className="text-white text-xl font-semibold mb-2 text-center">Specific Emotional & Social Questions:</h4>
                 <CyclingQuestions 
-                  categoryId="emotional"
-                  questions={emotionalSupportQuestions}
+                  categoryId="emotional-niche"
+                  questions={emotionalSocialNicheQuestions}
                   intervalTime={4000}
                 />
               </div>
@@ -162,21 +180,21 @@ const ServiceArticle = () => {
           </div>
         </div>
 
-        {/* Section 3 - Academic Planning (as placeholder) */}
+        {/* Section 3 - Academic Planning */}
         <div className="relative rounded-xl overflow-hidden shadow-xl">
           {/* Background with overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-teal-700 to-navy-600 opacity-90"></div>
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">"We Are Tired Of Receiving The Same Old Advises, Can You Answer The Niche Questions From Us And Our Child?"</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Academic Nuances Most Companies Miss</h3>
               
-              {/* Cycling Questions Preview */}
+              {/* Cycling Questions Preview - NICHE ONLY */}
               <div className="my-6">
-                <h4 className="text-white text-xl font-semibold mb-2 text-center">Common Questions About Academic Planning:</h4>
+                <h4 className="text-white text-xl font-semibold mb-2 text-center">Specific Academic Planning Questions:</h4>
                 <CyclingQuestions 
-                  categoryId="academic"
-                  questions={academicPlanningQuestions}
+                  categoryId="academic-niche"
+                  questions={academicNicheQuestions}
                   intervalTime={3200}
                 />
               </div>
