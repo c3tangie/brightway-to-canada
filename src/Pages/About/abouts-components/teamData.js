@@ -1,11 +1,12 @@
 
 import placeHolderImage from '../../../assets/about_us_assets/placeholder_img.jpg';
-import peterImage from '../../../assets/about_us_assets/peter_prof_img2.jpg';
+import peterImage from '../../../assets/about_us_assets/peter_prof_img3.jpg';
 import kathrynImage from '../../../assets/about_us_assets/kathryn_prof_img2.jpg';
 import donImage from '../../../assets/about_us_assets/don_prof_img2.jpg';
-import rayImage from '../../../assets/about_us_assets/ray_prof_img2.jpg';
+import rayImage from '../../../assets/about_us_assets/ray_prof_img3.jpg';
 import lingImage from '../../../assets/about_us_assets/ling_prof_img2.jpg';
-import qiImage from '../../../assets/about_us_assets/qi_prof_img2.jpg';
+import qiImage from '../../../assets/about_us_assets/qi_prof_img3.jpg';
+import jonathanImage from '../../../assets/about_us_assets/jonathan_prof_img2.jpg';
 
 const teamData = [
   {
@@ -29,7 +30,7 @@ const teamData = [
     name: "Jonathan Tang",
     slug: "jonathan-tang",
     role: "Frontend Developer & Technical lead",
-    image: placeHolderImage,
+    image: jonathanImage,
     description: "Jonathan Tang is the Technical Lead at Brightway to Canada and a former student who directly benefited from Ling’s guidance since a young age. Now studying engineering at the University of Toronto, he leads the technical development of the company’s digital platform, combining firsthand student experience with strong engineering and programming expertise to build reliable, student-focused systems.",
     extended_bio: ["Jonathan Tang is a key contributor in shaping the technical foundation of Brightway to Canada. As the architect behind the website framework, he is responsible for the platform’s structure, functionality, and long-term scalability. His work ensures that the site remains stable, efficient, and to optimize usability for students and families navigating the Canadian education system.", "A former student supported by Ling, Jonathan brings a unique perspective to his role. Having experienced the challenges of academic planning firsthand, he is deeply committed to building systems that are clear, dependable, and genuinely helpful. Known for his reliability, attention to detail, and great experience with UI design, he approaches technical challenges methodically and follows through consistently, making him a trusted leader on the technical side of the company.", "Jonathan began developing his programming skills through computer science courses in high school and has continued building his expertise through university-level coursework, including fundamentals of deep learning. He is experienced in Python, C++, C, and JavaScript, and applies this technical background to both front-end and back-end development.", "Outside of Professional work and academics, Jonathan is passionate about badminton and plays regularly. He is also deeply involved in music, playing guitar and piano and producing music in his free time."],
     hierarchyLevel: 5,
