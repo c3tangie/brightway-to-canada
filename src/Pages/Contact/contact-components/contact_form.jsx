@@ -109,7 +109,7 @@ function WF_App() {
   return (
     <div class="flex items-center min-h-screen bg-gray-300">
       <div class="container mx-auto">
-        <div class="max-w-3xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+        <div class="max-w-3xl mx-auto my-10 bg-white p-2 sm:p-5 rounded-md shadow-sm">
           <div class="text-center">
             <h1 class="my-3 text-3xl font-semibold text-gray-700">
               Contact Us
@@ -118,19 +118,19 @@ function WF_App() {
               Please do not put in additional sensitive information
             </p>
           </div>
-          <div class="m-7">
-            <form className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-center text-xl leading-normal' onSubmit={onSubmit}>
+          <div class="m-3 sm:m-7">
+            <form className='mt-5 max-w-screen-2xl mx-auto px-2 sm:px-6 xl:px-20 2xl:px-20 font-RobotoFlex text-center text-xl leading-normal' onSubmit={onSubmit}>
                 <div class="flex mb-6 space-x-4 text-base">
                   <div class="w-full md:w-1/2">
                     <label for="WF_fname" class="block mb-2 text-sm text-gray-600">First Name</label>
-                    <input type="text" name="name" id="WF_fname" placeholder="John" required class="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                    <input type="text" name="name" id="WF_fname" placeholder="John" required class="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                     {/* <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
                       Please provide your first name.
                     </div> */}
                   </div>
                   <div class="w-full md:w-1/2">
                     <label for="WF_lname" class="block mb-2 text-sm text-gray-600">Last Name</label>
-                    <input type="text" name="last_name" id="WF_lname" placeholder="Smith" required class="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                    <input type="text" name="last_name" id="WF_lname" placeholder="Smith" required class="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                     {/* <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
                       Please provide your last name.
                     </div> */}
@@ -140,7 +140,7 @@ function WF_App() {
                 <div class="flex mb-6 space-x-4 text-base">
                   <div class="w-full md:w-1/2">
                     <label for="WF_email" class="block mb-2 text-sm text-gray-600">Email Address</label>
-                    <input type="email" name="email" id="WF_email" placeholder="you@company.com" required class="w-full px-3 py-2 text- placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                    <input type="email" name="email" id="WF_email" placeholder="you@company.com" required class="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                     {/* <div class="empty-feedback text-red-400 text-sm mt-1">
                       Please provide your email address.
                     </div>
@@ -151,7 +151,7 @@ function WF_App() {
 
                   <div class="w-full md:w-1/2">
                     <label for="WF_phone" class="block text-sm mb-2 text-gray-600">Phone Number</label>
-                    <input type="text" name="phone" id="WF_phone" placeholder="+1 (123) 456-789" required class="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                    <input type="text" name="phone" id="WF_phone" placeholder="+1 (123) 456-789" required class="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
 
                     {/* <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
                       Please provide your phone number.
@@ -179,7 +179,7 @@ function WF_App() {
                       type="button"
                       id="WF_type"
                       onClick={toggleDropdown}
-                      class={`w-full px-3 py-2 text-left border-2 border-gray-200 bg-white rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 ${selectedCategory ? 'text-gray-900' : 'text-gray-400'}`}
+                      class={`w-full px-3 py-2 text-left text-sm sm:text-base border-2 border-gray-200 bg-white rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 ${selectedCategory ? 'text-gray-900' : 'text-gray-400'}`}
                       aria-expanded={isDropdownOpen}
                       aria-haspopup="listbox"
                       aria-labelledby="category-label"
@@ -223,7 +223,7 @@ function WF_App() {
                 <div class="mb-6 text-base">
                   <label for="WF_message" class="block mb-2 text-gray-600">Your Message</label>
 
-                  <textarea rows="5" name="message" id="WF_message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
+                  <textarea rows="5" name="message" id="WF_message" placeholder="Your Message" class="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
                   {/* <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
                     Please enter your message.
                   </div> */}

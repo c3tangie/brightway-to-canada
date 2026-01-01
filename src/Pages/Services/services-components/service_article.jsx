@@ -109,7 +109,7 @@ const ServiceArticle = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
           Personalized Support Backed By Real Experience
         </h2>
-        <p className="text-lg text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-600 leading-relaxed">
           Our company's strength lies in its deeply rooted expertise. The founder brings years of firsthand experience, not only as a homestay host but also from working within a BC School District. This insider perspective is amplified by our team, many of whom are former international students or have served as instructors in BC schools. We leverage this unique background to expertly place students in supportive living environments, from nurturing homestays to structured boarding, and provide unparalleled guidance to help adolescents navigate cultural transitions, ensuring their academic, social, and emotional well-being.
         </p>
       </div>
@@ -214,38 +214,38 @@ const ServiceArticle = () => {
       </div>
       
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
+        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4"> 
             School Selection & Education Planning
         </h3>
-        <p className="text-lg text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-600 leading-relaxed">
           Selecting the right school is a critical decision that can shape a student's academic and personal development. Brightway to Canada works closely with families to understand each student's strengths, interests, and long-term goals. We provide informed guidance on suitable schools and programs within the Canadian education system, helping families make confident, well-considered choices. Our focus is on identifying learning environments where students can grow, adapt, and succeed, both academically and socially.
         </p><br></br>
         
-        <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
+        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4"> 
             Homestay Placement and Support
         </h3>
-        <p className="text-lg text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-600 leading-relaxed">
           A supportive home environment is essential for students studying abroad. Brightway to Canada carefully places students with welcoming homestay families who provide a safe, stable, and nurturing living experience. We emphasize compatibility between students and host families, taking into account lifestyle, routines, and individual needs. Beyond placement, we remain actively involved to ensure students feel comfortable, supported, and cared for throughout their stay.
         </p><br></br>
         
-        <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
+        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4"> 
             Arrival Settlement and Support
         </h3>
-        <p className="text-lg text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-600 leading-relaxed">
           Transitioning to a new country can be overwhelming, especially during the initial adjustment period. Brightway to Canada supports students as they adapt to daily life in Canada, helping them understand local customs, school expectations, and everyday routines. Our guidance is designed to ease uncertainty, build confidence, and help students establish a sense of belonging in their new environment.
         </p><br></br>
         
-        <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
+        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4"> 
             Ongoing Guidance and Family Communication
         </h3>
-        <p className="text-lg text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-600 leading-relaxed">
           Brightway to Canada believes that ongoing support is just as important as initial planning. We maintain open communication with families and provide continued guidance as students progress through their studies. Whether addressing academic challenges, adjustment concerns, or general questions, we strive to offer timely support and reassurance, ensuring both students and parents feel informed and supported throughout the experience.
         </p><br></br>
         
-        <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4"> 
+        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4"> 
           Consultation and Personalized Planning
         </h3>
-        <p className="text-lg text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-600 leading-relaxed">
           Every family's situation is unique, which is why our services begin with a personalized consultation. This process allows us to better understand the student's background, goals, and specific needs. By gathering relevant information early on, we are able to provide thoughtful recommendations and create a clear plan that supports a smooth and successful education journey in Canada.
         </p><br></br>
         
@@ -271,7 +271,7 @@ const ServiceArticle = () => {
 
         {/* Parent Questions Section with Dropdown Categories */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">
+          <h3 className="text-3xl font-bold text-gray-900 mb-8">
             As a parent, you may be wondering:
           </h3>
           

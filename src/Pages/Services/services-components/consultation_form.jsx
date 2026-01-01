@@ -168,7 +168,7 @@ function ConsultationForm() {
   return (
     <div className="flex items-center min-h-screen bg-gray-300">
       <div className="container mx-auto">
-        <div className="max-w-[1375px] mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+        <div className="max-w-[1375px] mx-auto my-10 bg-white p-2 sm:p-5 rounded-md shadow-sm">
           <div className="text-center">
             <h1 className="my-3 text-3xl font-semibold text-gray-700">
               Book a Consultation
@@ -177,8 +177,8 @@ function ConsultationForm() {
               Tell us about your child's immigration and education goals so we can provide personalized guidance for your family
             </p>
           </div>
-          <div className="m-7">
-            <form className='mt-5 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-left text-base leading-normal' onSubmit={onSubmit}>
+          <div className="m-3 sm:m-7">
+            <form className='mt-5 max-w-screen-2xl mx-auto px-2 sm:px-6 xl:px-20 2xl:px-20 font-RobotoFlex text-left text-base leading-normal' onSubmit={onSubmit}>
               
               {/* Personal Information */}
               <div className="mb-8">
@@ -201,7 +201,7 @@ function ConsultationForm() {
                       required 
                       value={formData.parentFirstName}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                   <div className="w-full md:w-1/2">
@@ -214,7 +214,7 @@ function ConsultationForm() {
                       required 
                       value={formData.parentLastName}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                 </div>
@@ -230,7 +230,7 @@ function ConsultationForm() {
                       required 
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                   <div className="w-full md:w-1/2">
@@ -242,7 +242,7 @@ function ConsultationForm() {
                       placeholder="+1 (555) 123-4567" 
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                 </div>
@@ -257,7 +257,7 @@ function ConsultationForm() {
                     required 
                     value={formData.currentLocation}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                   />
                 </div>
               </div>
@@ -276,7 +276,7 @@ function ConsultationForm() {
                       required 
                       value={formData.studentFirstName}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                   <div className="w-full md:w-1/2">
@@ -289,7 +289,7 @@ function ConsultationForm() {
                       required 
                       value={formData.studentLastName}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                 </div>
@@ -307,7 +307,7 @@ function ConsultationForm() {
                       required 
                       value={formData.studentAge}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                   <div className="w-full md:w-1/2">
@@ -320,7 +320,7 @@ function ConsultationForm() {
                       required 
                       value={formData.studentGrade}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
+                      className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" 
                     />
                   </div>
                 </div>
@@ -334,7 +334,7 @@ function ConsultationForm() {
                     placeholder="Describe your child's academic performance, strengths, weaknesses, and any special needs..."
                     value={formData.academicBackground}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
 
@@ -345,7 +345,7 @@ function ConsultationForm() {
                     id="englishProficiency" 
                     value={formData.englishProficiency}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   >
                     <option value="">Select English level...</option>
                     {englishProficiencyOptions.map(option => (
@@ -367,7 +367,7 @@ function ConsultationForm() {
                     required
                     value={formData.consultationType}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   >
                     <option value="">Select main concern...</option>
                     {consultationTypes.map(option => (
@@ -388,7 +388,7 @@ function ConsultationForm() {
                       required
                       value={formData.currentStatus}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                      className="w-full px-3 py-2 text-sm sm:text-base border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                     >
                       <option value="">Select status...</option>
                       {currentStatusOptions.map(option => (
@@ -407,7 +407,7 @@ function ConsultationForm() {
                       required
                       value={formData.timeframe}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                      className="w-full px-3 py-2 text-sm sm:text-base border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                     >
                       <option value="">Select timeframe...</option>
                       {timeframeOptions.map(option => (
@@ -427,7 +427,7 @@ function ConsultationForm() {
                     id="livingArrangement" 
                     value={formData.livingArrangement}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   >
                     <option value="">Select preferred option...</option>
                     {livingArrangementOptions.map(option => (
@@ -443,7 +443,7 @@ function ConsultationForm() {
                     id="previousApplication" 
                     value={formData.previousApplication}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   >
                     <option value="">Please select...</option>
                     <option value="no">No, this is our first time</option>
@@ -467,7 +467,7 @@ function ConsultationForm() {
                     placeholder="Any concerns about your child's safety, healthcare, or emotional well-being in Canada?"
                     value={formData.safetyConcerns}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
 
@@ -480,7 +480,7 @@ function ConsultationForm() {
                     placeholder="Concerns about stress, adaptation, emotional support, or maturity issues?"
                     value={formData.emotionalSupport}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
 
@@ -493,7 +493,7 @@ function ConsultationForm() {
                     placeholder="Concerns about making friends, cultural adjustment, or integration with local students?"
                     value={formData.socialIntegration}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
 
@@ -506,7 +506,7 @@ function ConsultationForm() {
                     placeholder="Questions about emergency procedures, healthcare policies, or vaccinations?"
                     value={formData.emergencyContact}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
 
@@ -519,7 +519,7 @@ function ConsultationForm() {
                     placeholder="Questions about costs, budgeting, required documents, or practical preparations?"
                     value={formData.healthcareQuestions}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
               </div>
@@ -537,7 +537,7 @@ function ConsultationForm() {
                     placeholder="Please list any other specific questions or concerns you'd like to discuss..."
                     value={formData.specificConcerns}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
 
@@ -550,7 +550,7 @@ function ConsultationForm() {
                     placeholder="Any other information about your family situation, goals, or expectations..."
                     value={formData.additionalInfo}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    className="w-full px-3 py-2 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base placeholder-gray-400 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                   ></textarea>
                 </div>
               </div>
@@ -560,14 +560,14 @@ function ConsultationForm() {
                 <button
                   type="submit"
                   onClick={handleSubmitClick}
-                  className="bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-md transition-colors duration-300 shadow-lg hover:shadow-xl"
+                  className="bg-navy-600 hover:bg-navy-700 text-white font-semibold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-8 rounded-md transition-colors duration-300 shadow-lg hover:shadow-xl"
                 >
                   Submit Consultation Request
                 </button>
                 <button
                   type="reset"
                   onClick={handleResetClick}
-                  className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-md transition-colors duration-300"
+                  className="bg-gray-500 hover:bg-gray-600 text-white font-semibold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-8 rounded-md transition-colors duration-300"
                 >
                   Reset Form
                 </button>

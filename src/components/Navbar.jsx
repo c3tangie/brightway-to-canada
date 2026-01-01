@@ -143,9 +143,9 @@ const Navbar = () => {
 
             
             {/* Navigation Links */}
-            <div className="hidden xl:flex items-center space-x-8">
+            <div className="hidden xl:flex items-center">
               <nav className={`flex transition-all duration-300 ${
-                isScrolled ? 'space-x-8' : 'space-x-8 md:space-x-10'
+                isScrolled ? 'space-x-12' : 'space-x-12 md:space-x-14'
               }`}>
                 <a 
                   href="/" 
@@ -213,7 +213,7 @@ const Navbar = () => {
                   Blog
                   <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
                 </a> */}
-                <a 
+                {/* <a 
                   href="#/network" 
                   className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
                     isScrolled ? 'text-base' : 'text-base md:text-lg'
@@ -221,7 +221,7 @@ const Navbar = () => {
                 >
                   Network
                   <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
-                </a>
+                </a> */}
                 <a 
                   href="#/contact" 
                   className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
@@ -295,7 +295,7 @@ const Navbar = () => {
           <div className={`xl:hidden transition-all duration-300 overflow-hidden ${
             isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}>
-            <div className="pt-4 pb-1 space-y-1">
+            <div className="pt-4 pb-1 space-y-2">
               <a 
                 href="/" 
                 className="block px-4 py-3 text-gray-700 hover:text-blue-900 hover:bg-gray-50 font-semibold transition-colors duration-200 border-l-4 border-transparent hover:border-blue-900"
@@ -362,13 +362,13 @@ const Navbar = () => {
               >
                 Services
               </a>
-              <a 
+              {/* <a 
                 href="#/network" 
                 className="block px-4 py-3 text-gray-700 hover:text-blue-900 hover:bg-gray-50 font-semibold transition-colors duration-200 border-l-4 border-transparent hover:border-blue-900"
                 onClick={closeMobileMenu}
               >
                 Network
-              </a>
+              </a> */}
               <a 
                 href="#/contact" 
                 className="block px-4 py-3 text-gray-700 hover:text-blue-900 hover:bg-gray-50 font-semibold transition-colors duration-200 border-l-4 border-transparent hover:border-blue-900"

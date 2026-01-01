@@ -40,9 +40,10 @@ const Footer = () => {
             </div>
             <div className="text-white text-sm min-[1425px]:text-base font-RobotoFlex leading-loose tracking-wider text-center min-[1425px]:text-left">
               <p>
-                Office: PO Box 1234, 5413 Jacobs Lane, Nanaimo, BC, V9T 0B8 <br />
+                {/* Office: PO Box 1234, 5413 Jacobs Lane, Nanaimo, BC, V9T 0B8 <br /> */}
                 Phone: +1 (250) 797-7886 | Email: info@brightwaytocanada.ca <br className="min-[1425px]:hidden" />
-                <span className="hidden min-[1425px]:inline">| </span>Office Hours: 9:00 AM - 4:00 PM (PST)
+                <span className="hidden min-[1425px]:inline"></span>
+                {/* | Office Hours: 9:00 AM - 4:00 PM (PST) */}
               </p>
             </div>
           </div>
