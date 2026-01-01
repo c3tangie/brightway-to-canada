@@ -71,29 +71,46 @@ const ServiceArticle = () => {
     setOpenCategory(openCategory === category ? null : category);
   };
 
-  // Now fetches info and updates accordingly
-  const parentQuestions = {};
-  serviceData.forEach(service => {
-    parentQuestions[service.title] = service.questions.map(question => ({
-      text: question.question,
-      serviceSlug: service.slug,
-      questionId: question.id
-    }));
-  });
+  // Separate regular and niche services
+  const regularServices = serviceData.filter(service => !service.isNiche);
+  const nicheServices = serviceData.filter(service => service.isNiche);
 
-  const targetedQuestions = {};
-  serviceData.forEach(service => {
-    // Check if service has isNiche attribute and it's set to true
-    if (service.isNiche === true) {
-      parentQuestions[service.title] = service.questions.map(question => ({
-        text: question.question,
-        serviceSlug: service.slug,
-        questionId: question.id
-      }));
-    }
-  });
+  // Group regular services logically
+  const groupedRegularServices = {
+    'Academic & Planning': regularServices.filter(s => 
+      ['Academic Planning'].includes(s.title)
+    ),
+    'Well-being & Safety': regularServices.filter(s => 
+      ['Well-being & Safety'].includes(s.title)
+    ),
+    'Daily Life & Support': regularServices.filter(s => 
+      ['Daily Life Support', 'Social Integration', 'Emotional Support'].includes(s.title)
+    ),
+    'Financial & Documentation': regularServices.filter(s => 
+      ['Financial & Documentation'].includes(s.title)
+    )
+  };
 
-  // Extract niche services
+  // Group niche services logically
+  const groupedNicheServices = {
+    'Academic Nuances': nicheServices.filter(s => 
+      s.slug === 'academic-niche'
+    ),
+    'Well-being & Safety Details': nicheServices.filter(s => 
+      s.slug === 'well-being-niche'
+    ),
+    'Emotional & Social Nuances': nicheServices.filter(s => 
+      s.slug === 'emotional-social-niche'
+    ),
+    'Financial & Documentation Details': nicheServices.filter(s => 
+      ['financial-niche', 'documentation-niche'].includes(s.slug)
+    ),
+    'Student-Focused Concerns': nicheServices.filter(s => 
+      s.slug === 'student-niche'
+    )
+  };
+
+  // Extract niche services for the top sections
   const academicNicheService = serviceData.find(service => service.slug === 'academic-niche');
   const wellbeingNicheService = serviceData.find(service => service.slug === 'well-being-niche');
   const emotionalSocialNicheService = serviceData.find(service => service.slug === 'emotional-social-niche');
@@ -103,16 +120,22 @@ const ServiceArticle = () => {
   const emotionalSocialNicheQuestions = emotionalSocialNicheService?.questions || [];
   const academicNicheQuestions = academicNicheService?.questions || [];
 
-  // Financial questions for dropdown
-  const financialQuestions = serviceData
-    .find(service => service.slug === 'financial-practical-preparation')
-    ?.questions.map(q => q.question) || [];
+  // Helper function to create question objects
+  const createQuestionObjects = (services) => {
+    const questions = {};
+    services.forEach(service => {
+      questions[service.title] = service.questions.map(question => ({
+        text: question.question,
+        serviceSlug: service.slug,
+        questionId: question.id
+      }));
+    });
+    return questions;
+  };
 
-  const studentQuestions = [
-    { text: "Where the heck do i even begin?", link: "/services/prospective-students" },
-    { text: "Now that I'm here, what next?", link: "/services/current-students" },
-    { text: "The diploma is in my hand, what now?", link: "/services/graduating-students" }
-  ];
+  // Create separate question collections
+  const regularQuestions = createQuestionObjects(regularServices);
+  const nicheQuestions = createQuestionObjects(nicheServices);
 
   return (
     <div className='max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex py-16'>
@@ -265,50 +288,130 @@ const ServiceArticle = () => {
           </Link>
         </div>
 
-        {/* Parent Questions Section with Dropdown Categories */}
+        {/* Parent Questions Section - Divided into Regular and Specialized */}
         <div className="mt-16">
           <h3 className="text-3xl font-bold text-gray-900 mb-8">
             As a parent, you may be wondering:
           </h3>
           
-          <div className="max-w-4xl mx-auto space-y-4">
-            {Object.entries(parentQuestions).map(([category, questions], index) => (
-              <div key={index} className="border border-blue-200 rounded-lg overflow-hidden">
-                {/* Category Header */}
-                <button
-                  onClick={() => toggleCategory(category)}
-                  className="w-full bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-6 text-lg text-left flex justify-between items-center transition-colors duration-300"
-                >
-                  <span>{category}</span>
-                  <svg 
-                    className={`w-5 h-5 transform transition-transform duration-300 ${openCategory === category ? 'rotate-180' : ''}`} 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
+          {/* REGULAR SERVICES SECTION */}
+          <div className="mb-12">
+            <div className="flex justify-center items-center mb-6">
+              <h4 className="text-2xl text-center font-bold text-navy-700">General Support Questions</h4>
+            </div>
+            
+            <div className="max-w-4xl mx-auto space-y-4">
+              {Object.entries(groupedRegularServices).map(([groupName, services], index) => {
+                // Collect all questions from services in this group
+                const groupQuestions = [];
+                services.forEach(service => {
+                  if (regularQuestions[service.title]) {
+                    groupQuestions.push(...regularQuestions[service.title]);
+                  }
+                });
                 
-                {/* Questions Dropdown */}
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openCategory === category ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
-                >
-                  <div className="p-4 bg-blue-50 space-y-3">
-                    {questions.map((question) => (
-                      <Link
-                        key={question.questionId} // Use questionId
-                        to={`/service/${question.serviceSlug}?q=${question.questionId}`} // Use questionId
-                        className="block bg-white hover:bg-blue-100 text-blue-900 font-medium py-3 px-4 rounded-lg text-base transition-all duration-300 border border-blue-100 hover:border-blue-300 hover:shadow-sm"
-                      >
-                        {question.text}
-                      </Link>
-                    ))}
+                if (groupQuestions.length === 0) return null;
+                
+                return (
+                  <div key={`regular-${index}`} className="border border-blue-200 rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => toggleCategory(`regular-${groupName}`)}
+                      className="w-full bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-6 text-lg text-left flex justify-between items-center transition-colors duration-300"
+                    >
+                      <span>{groupName} ({groupQuestions.length} questions)</span>
+                      <svg className={`w-5 h-5 transform transition-transform duration-300 ${openCategory === `regular-${groupName}` ? 'rotate-180' : ''}`} 
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </button>
+                    
+                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openCategory === `regular-${groupName}` ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="p-4 bg-blue-50 space-y-3">
+                        {groupQuestions.slice(0, 3).map((question, idx) => ( // Limit to 3 per group
+                          <Link
+                            key={`${question.serviceSlug}-${question.questionId}`}
+                            to={`/service/${question.serviceSlug}?q=${question.questionId}`}
+                            className="block bg-white hover:bg-blue-100 text-blue-900 font-medium py-3 px-4 rounded-lg text-base transition-all duration-300 border border-blue-100 hover:border-blue-300 hover:shadow-sm"
+                          >
+                            {question.text}
+                          </Link>
+                        ))}
+                        
+                        {/* "Show more" link if there are more than 3 questions */}
+                        {groupQuestions.length > 3 && (
+                          <Link
+                            to="/service-list#regular-services"
+                            className="block text-center text-blue-600 hover:text-blue-800 font-medium py-2 text-sm"
+                          >
+                            View all {groupQuestions.length} questions
+                          </Link>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* NICHE/SPECIALIZED SERVICES SECTION */}
+          <div>
+            <div className="flex justify-center items-center mb-6">
+              <h4 className="text-2xl text-centerfont-bold text-teal-700">Specialized & Detailed Questions</h4>
+            </div>
+            
+            <div className="max-w-4xl mx-auto space-y-4">
+              {Object.entries(groupedNicheServices).map(([groupName, services], index) => {
+                // Collect all questions from services in this group
+                const groupQuestions = [];
+                services.forEach(service => {
+                  if (nicheQuestions[service.title]) {
+                    groupQuestions.push(...nicheQuestions[service.title]);
+                  }
+                });
+                
+                if (groupQuestions.length === 0) return null;
+                
+                return (
+                  <div key={`niche-${index}`} className="border border-teal-200 rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => toggleCategory(`niche-${groupName}`)}
+                      className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-4 px-6 text-lg text-left flex justify-between items-center transition-colors duration-300"
+                    >
+                      <span>{groupName} ({groupQuestions.length} questions)</span>
+                      <svg className={`w-5 h-5 transform transition-transform duration-300 ${openCategory === `niche-${groupName}` ? 'rotate-180' : ''}`} 
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </button>
+                    
+                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openCategory === `niche-${groupName}` ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="p-4 bg-teal-50 space-y-3">
+                        {groupQuestions.slice(0, 3).map((question, idx) => ( // Limit to 3 per group
+                          <Link
+                            key={`${question.serviceSlug}-${question.questionId}`}
+                            to={`/service/${question.serviceSlug}?q=${question.questionId}`}
+                            className="block bg-white hover:bg-teal-100 text-teal-900 font-medium py-3 px-4 rounded-lg text-base transition-all duration-300 border border-teal-100 hover:border-teal-300 hover:shadow-sm"
+                          >
+                            {question.text}
+                          </Link>
+                        ))}
+                        
+                        {/* "Show more" link if there are more than 3 questions */}
+                        {groupQuestions.length > 3 && (
+                          <Link
+                            to="/service-list#niche-services"
+                            className="block text-center text-teal-600 hover:text-teal-800 font-medium py-2 text-sm"
+                          >
+                            View all {groupQuestions.length} specialized questions
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
