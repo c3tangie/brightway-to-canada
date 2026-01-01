@@ -188,13 +188,35 @@ const ServiceDetailPage = () => {
                   )}
                 </div>
 
-                {/* Right Column - Answer Content */}
+                {/* Right Column - Answer Content with Booking Button */}
                 <div>
                   <div className="mb-8">
                     <h2 className="text-2xl font-bold text-navy-800 mb-6">Detailed Answer</h2>
                     <div className="prose prose-lg max-w-none">
                       <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
                         {currentQuestion.answer}
+                      </div>
+                    </div>
+                    
+                    {/* Booking Consultation Button - Embedded in Answer Section */}
+                    <div className="mt-10 p-6 bg-gradient-to-r from-navy-50 to-blue-50 rounded-xl border border-navy-100">
+                      <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-navy-800 mb-2">
+                            Need Personalized Help?
+                          </h3>
+                          <p className="text-gray-600">
+                            Book a one-on-one consultation to discuss {service.title} in detail and get tailored advice.
+                          </p>
+                        </div>
+                        <div className="flex-shrink-0">
+                          <Link 
+                            to="/consultation" 
+                            className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+                          >
+                            Book Consultation
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -272,26 +294,10 @@ const ServiceDetailPage = () => {
               </div>
             </div>
 
-            {/* Booking Section */}
+            {/* Removed the old Booking Section and replaced with Back to Services link only */}
             <div className="border-t border-gray-200 pt-8 px-6 md:px-10 pb-8">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-navy-800 mb-4">
-                  Still have questions?
-                </h3>
-                <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Book a one-on-one consultation to discuss {service.title} in detail.
-                </p>
-                
-                <div className="mt-6">
-                  <Link 
-                    to="/consultation" 
-                    className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    Book a Consultation
-                  </Link>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t border-gray-200">
+                <div className="mt-8">
                   <Link 
                     to="/service-list"
                     className="text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors font-semibold inline-flex items-center gap-2 duration-300 py-4 px-8"
