@@ -137,7 +137,7 @@ const ServicesListPage = () => {
           {/* Niche Services Section */}
           <section id="niche-services" className="scroll-mt-24">
             <div className="text-center mb-10">
-              <h2 className="text-4xl font-bold text-navy-800 mb-4">Niche Services</h2>
+              <h2 className="text-4xl font-bold text-navy-800 mb-4">Specialized Support Services</h2>
               <p className="text-gray-600 text-lg max-w-3xl mx-auto">
                 Specialized support for unique situations and specific concerns
               </p>

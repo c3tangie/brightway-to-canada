@@ -42,7 +42,7 @@ const ServiceDetailPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [validQuestionIndex, serviceSlug]); // Added dependencies
 
   return (
     <div>
@@ -54,14 +54,14 @@ const ServiceDetailPage = () => {
             {/* Hero Section - Updated to match TeamMemberDetailPage */}
             <div className="pt-8 md:pt-12 px-6 md:px-10 pb-4 md:pb-8">
               <div className="flex flex-col md:flex-row items-start gap-8">
-                {/* Left: Square Image */}
+                {/* Left: Square Image and Navigation */}
                 <div className="flex-shrink-0 mx-auto md:mx-0">
                   {displayImage && (
                     <img
                       src={displayImage}
                       alt={currentQuestion.question}
                       loading="lazy"
-                      className="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover shadow-lg"
+                      className="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover shadow-lg mb-6"
                       // Fallback for older browsers
                       onLoad={(e) => {
                         if (!('loading' in HTMLImageElement.prototype)) {
@@ -72,77 +72,83 @@ const ServiceDetailPage = () => {
                     />
                   )}
                   {!displayImage && (
-                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-gray-200 flex items-center justify-center shadow-lg">
+                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-gray-200 flex items-center justify-center shadow-lg mb-6">
                       <span className="text-gray-500">No image available</span>
                     </div>
                   )}
+                  
+                  {/* Question indicator and navigation under the image */}
+                  <div className="w-64 md:w-80">
+                    {/* Question indicator */}
+                    <p className="text-lg text-gray-600 mb-4 text-center md:text-left">
+                      Question {validQuestionIndex + 1} of {service.questions.length}
+                    </p>
+
+                    {/* Question Navigation */}
+                    {service.questions.length > 1 && (
+                      <div className="flex flex-col sm:flex-row gap-2">
+                        {validQuestionIndex > 0 && (
+                          <Link
+                            to={`/service/${service.slug}?q=${validQuestionIndex - 1}`}
+                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors gap-2"
+                          >
+                            <svg 
+                              className="w-5 h-5" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24" 
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                strokeWidth={2} 
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                              />
+                            </svg>
+                            <span>Previous</span>
+                          </Link>
+                        )}
+                        {validQuestionIndex < service.questions.length - 1 && (
+                          <Link
+                            to={`/service/${service.slug}?q=${validQuestionIndex + 1}`}
+                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors gap-2"
+                          >
+                            <span>Next Question</span>
+                            <svg 
+                              className="w-5 h-5 transform rotate-180" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24" 
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                strokeWidth={2} 
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                              />
+                            </svg>
+                          </Link>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Right: Text Details */}
                 <div className="flex-1">
+                  {/* Main Header - Service Title */}
                   <div className="mb-4">
-                    <span className="text-sm font-medium text-navy-600 bg-navy-50 px-3 py-1 rounded-full">
-                      {service.title}
-                    </span>
+                    <h1 className="text-3xl md:text-4xl font-bold text-navy-800 mb-3">
+                      {service.title+":"}
+                    </h1>
                   </div>
                   
-                  <h1 className="text-4xl md:text-5xl font-bold text-navy-800 mb-3">
+                  {/* Question as secondary header */}
+                  <h2 className="text-xl md:text-2xl font-semibold text-navy-700">
                     {currentQuestion.question}
-                  </h1>
-                  
-                  <p className="text-xl text-gray-600 mb-6">
-                    Question {validQuestionIndex + 1} of {service.questions.length}
-                  </p>
-
-                  {/* Question Navigation - Moved here */}
-                  {service.questions.length > 1 && (
-                    <div className="flex gap-2 mb-6">
-                      {validQuestionIndex > 0 && (
-                        <Link
-                          to={`/service/${service.slug}?q=${validQuestionIndex - 1}`}
-                          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors gap-2"
-                        >
-                          <svg 
-                            className="w-5 h-5" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24" 
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path 
-                              strokeLinecap="round" 
-                              strokeLinejoin="round" 
-                              strokeWidth={2} 
-                              d="M10 19l-7-7m0 0l7-7m-7 7h18" 
-                            />
-                          </svg>
-                          <span>Previous</span>
-                        </Link>
-                      )}
-                      {validQuestionIndex < service.questions.length - 1 && (
-                        <Link
-                          to={`/service/${service.slug}?q=${validQuestionIndex + 1}`}
-                          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors gap-2"
-                        >
-                          <span>Next Question</span>
-                          <svg 
-                            className="w-5 h-5 transform rotate-180" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24" 
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path 
-                              strokeLinecap="round" 
-                              strokeLinejoin="round" 
-                              strokeWidth={2} 
-                              d="M10 19l-7-7m0 0l7-7m-7 7h18" 
-                            />
-                          </svg>
-                        </Link>
-                      )}
-                    </div>
-                  )}
+                  </h2>
                 </div>
               </div>
             </div>
@@ -191,7 +197,7 @@ const ServiceDetailPage = () => {
                 {/* Right Column - Answer Content with Booking Button */}
                 <div>
                   <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-navy-800 mb-6">Detailed Answer</h2>
+                    <h3 className="text-xl font-bold text-navy-800 mb-6">Detailed Answer</h3>
                     <div className="prose prose-lg max-w-none">
                       <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
                         {currentQuestion.answer}

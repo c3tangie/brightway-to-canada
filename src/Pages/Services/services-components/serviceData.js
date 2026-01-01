@@ -155,9 +155,9 @@ const serviceData = [
   {
     id: 5,
     slug: 'academic-niche',
-    title: 'Academic Niche Issues Support',
+    title: 'Specialized Academic Support',
     featuredImage: ConnectImageSeven,
-    
+    isNiche: true,
     questions: [
       {
         question: "My children showed me their grade reports, why do i only see teachers' comments on behavior and attitude but no specific scores?",
@@ -175,7 +175,7 @@ const serviceData = [
         image: DocsImageTwo
       },
       {
-        question: "Should I encourage or discourage my child to take 'Grade-Booster' courses offered by some schools to improve their grades?",
+        question: "Should I encourage or discourage my child to take 'Grade-Booster' courses offered by some schools to improve their grades? Would that be viewed negatively by the prestigious universities they are applying to?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
         image: StudyImageOne
       },
@@ -194,9 +194,9 @@ const serviceData = [
   {
     id: 6,
     slug: 'well-being-niche',
-    title: 'Well-Being Niche Issues Support',
+    title: 'Specialized Well-Being Support',
     featuredImage: ConnectImageSeven,
-    
+    isNiche: true,
     questions: [
       {
         question: "My child received some medical help and they are charging them? Didn't we enroll in health insurance?",
@@ -218,9 +218,9 @@ const serviceData = [
   {
     id: 7,
     slug: 'emotional-social-niche',
-    title: 'Emotional-Social Niche Issues Support',
+    title: 'Specialized Emotional-Social Support',
     featuredImage: ConnectImageSeven,
-    
+    isNiche: true,
     questions: [
       {
         question: "My child is only contacting me every few months while my friend's child contacts their parents weekly. Is this normal?",
@@ -267,9 +267,9 @@ const serviceData = [
   {
     id: 8,
     slug: 'financial-niche',
-    title: 'Financial Niche Issues Support',
+    title: 'Specialized Financial Support',
     featuredImage: ConnectImageSeven,
-    
+    isNiche: true,
     questions: [
       {
         question: "Why do we see so many additional fees and charges on our child's school statements? Can we dispute any of them?",
@@ -311,9 +311,9 @@ const serviceData = [
   {
     id: 9,
     slug: 'documentation-niche',
-    title: 'Documentation Niche Issues Support',
+    title: 'Specialized Documentation Support',
     featuredImage: DocsImageOne,
-    
+    isNiche: true,
     questions: [
       {
         question: "My child graduated but lost their paper diploma. Now our home country won't recognize their degree without it. What's the secret to getting replacement documents from Canadian institutions?",
@@ -345,9 +345,9 @@ const serviceData = [
   {
     id: 10,
     slug: 'student-niche',
-    title: 'Student-Oriented Niche Issues Support',
+    title: 'Student-Oriented Specialized Support',
     featuredImage: ConnectImageSeven,
-    
+    isNiche: true,
     questions: [
       {
         question: "My homestay does not allow me to lock my bedroom doors and I do not feel secure at all...",

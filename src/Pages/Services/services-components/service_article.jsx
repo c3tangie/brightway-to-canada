@@ -37,10 +37,10 @@ const CyclingQuestions = ({ categoryId, questions, intervalTime = 3000 }) => {
   if (shuffledQuestions.length === 0) return null;
 
   return (
-    <div className="mt-6 mb-8 min-h-[120px] flex flex-col justify-center">
+    <div className="mt-6 mb-8 min-h-[160px] md:min-h-[140px] lg:min-h-[120px] flex flex-col justify-center">
       <div className={`transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}>
         <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/30">
-          <p className="text-white text-lg font-medium italic text-center leading-relaxed">
+          <p className="text-white text-lg font-medium italic text-center leading-relaxed line-clamp-4">
             "{shuffledQuestions[currentIndex]}"
           </p>
         </div>
@@ -143,19 +143,21 @@ const ServiceArticle = () => {
                 <CyclingQuestions 
                   categoryId="wellbeing-niche"
                   questions={wellbeingNicheQuestions}
-                  intervalTime={3500}
+                  intervalTime={8900}
                 />
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
                 To study in Canada is to live in Canada. We understand that academic success is deeply intertwined with a student's ability to adapt to and thrive within their new cultural environment. Our approach goes beyond mere academic placement; we focus on holistic lifestyle integration. By fostering connections within the community, encouraging participation in local activities, and providing ongoing support, we help students build a fulfilling life abroad. This comprehensive support system ensures that students not only excel academically but also develop the social and emotional skills necessary for long-term success.
               </p>
-              <Link 
-                to="/services/lifestyle-integration" 
-                className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-              >
-                Learn More
-              </Link>
+              <div className="text-center">
+                <Link 
+                  to="/service-list#niche-services" 
+                  className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Specialized Support Services
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -175,19 +177,21 @@ const ServiceArticle = () => {
                 <CyclingQuestions 
                   categoryId="emotional-niche"
                   questions={emotionalSocialNicheQuestions}
-                  intervalTime={4000}
+                  intervalTime={9000}
                 />
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
                 We believe that every child is unique and strong, yet we also recognize that they are still growing and may experience mental challenges, the ones their parents would like to overcome by their side yet cannot. Some of our staffs even experienced this first-hand. That's why we...
               </p>
-              <Link 
-                to="/services/growth-support" 
-                className="inline-block bg-white text-navy-800 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-              >
-                Learn More
-              </Link>
+              <div className="text-center">
+                <Link 
+                  to="/service-list#niche-services" 
+                  className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -207,19 +211,21 @@ const ServiceArticle = () => {
                 <CyclingQuestions 
                   categoryId="academic-niche"
                   questions={academicNicheQuestions}
-                  intervalTime={3200}
+                  intervalTime={9100}
                 />
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
                 We understand and emphasize both the student's and the parent's ambitions, struggles, and concerns. Therefore, we...
               </p>
-              <Link 
-                to="/services/shared-journey" 
-                className="inline-block bg-white text-teal-700 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-              >
-                Learn More
-              </Link>
+              <div className="text-center">
+                <Link 
+                  to="/service-list#niche-services" 
+                  className="inline-block bg-white text-blue-900 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
