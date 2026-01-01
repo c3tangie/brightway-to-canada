@@ -24,33 +24,33 @@ const serviceData = [
     
     questions: [
       {
-        question: "My children are 12/13/15 years old and had average grades in China. How can you develop an effective plan to ensure their academic success?",
+        question: "My child is entering secondary school with average academic performance. How can you develop an effective plan to ensure their academic success?",
         answer: "We create personalized academic roadmaps that focus on skill-building, language preparation, and strategic school placement based on your child's strengths and learning style.",
         image: StudyImageOne
       },
       {
-        question: "My child just graduated from junior high in China with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a relatively good university?",
+        question: "My child has completed middle school with average grades and wants to attend high school in Canada. How can you develop an effective plan to help my child get into a good university?",
         answer: "We work with Canadian high schools that offer university pathway programs, academic upgrading, and personalized guidance to strengthen university applications over 2-4 years.",
         image: StudyImageOne
       },
       {
-        question: "My child is used to the 'cramming' teaching style in Chinese high schools. If there is less strict management there and my child's grades drop, what then?",
-        answer: "We provide academic monitoring, regular check-ins, and time management coaching to help students adapt to Canada's more independent learning environment.",
+        question: "My child is used to highly structured educational systems. How can they adapt to Canada's more independent learning environment?",
+        answer: "We provide academic monitoring, regular check-ins, and time management coaching to help students adapt to different learning approaches and maintain academic performance.",
         image: StudyImageOne
       },
       {
-        question: "Besides English studies in China, what other English training will my child need when transferring to study in Canada?",
+        question: "What additional English language support will my child need when transitioning to study in Canada?",
         answer: "We offer specialized Academic English preparation focusing on classroom participation, academic writing, and subject-specific vocabulary to ensure smooth transition.",
         image: DocsImageTwo
       },
       {
-        question: "What are the four levels of academic planning for children studying abroad?",
+        question: "What are the key stages of academic planning for students studying abroad?",
         answer: "1) Foundation building, 2) Language & cultural adaptation, 3) Academic pathway development, 4) University preparation and application strategy.",
         image: ConnectImageThree
       },
       {
-        question: "Is it better for children to go abroad during middle school or after graduating from high school?",
-        answer: "We assess each family's situation to determine the optimal timing based on academic goals, language readiness, and emotional maturity.",
+        question: "What is the optimal time for students to begin studying abroad—during secondary school or after high school graduation?",
+        answer: "We assess each student's situation to determine the optimal timing based on academic goals, language readiness, and emotional maturity.",
         image: ConnectImageSix
       }
     ]
@@ -63,28 +63,28 @@ const serviceData = [
     
     questions: [
       {
-        question: "How does Canada ensure the safety of my underage child?",
+        question: "How does Canada ensure the safety of international students?",
         answer: "Canadian schools have strict safety protocols, 24/7 supervision for boarding students, and mandatory reporting systems. We also conduct thorough homestay vetting.",
         image: CareImageOne
       },
       {
-        question: "What if my child gets sick? What policies are there regarding healthcare for international students?",
-        answer: "All international students must have comprehensive health insurance. We assist with enrollment and provide guidance on accessing medical services, including 24/7 emergency support. We help enroll students in comprehensive health insurance plans and provide guidance on accessing clinics, hospitals, and understanding coverage details.",
+        question: "What healthcare support is available for international students in Canada?",
+        answer: "All international students must have comprehensive health insurance. We assist with enrollment and provide guidance on accessing medical services, including 24/7 emergency support.",
         image: CareImageThree
       },
       {
-        question: "If an emergency occurs during my child's studies abroad, who should they contact?",
+        question: "Who should my child contact in case of an emergency during their studies?",
         answer: "Your child will have access to our 24/7 emergency hotline, local coordinators, school contacts, and a personalized emergency response plan.",
         image: ConnectImageOne
       },
       {
-        question: "Is it better for young international students to live in a homestay or in a school dormitory? How does the school and your organization maintain contact with each child?",
+        question: "What living arrangement is better for international students—homestay or school dormitory?",
         answer: "We assess each student's needs to recommend the best living arrangement. We maintain weekly check-ins, monthly reports, and coordinate closely with schools and host families.",
         image: ConnectImageThree
       },
       {
-        question: "My child is so young and not yet mature physically or mentally. How will you help them cope with stress and psychological issues?",
-        answer: "We provide access to school counselors, cultural adaptation workshops, regular emotional check-ins, and connect families with Mandarin-speaking mental health professionals when needed.",
+        question: "How will you support my child's emotional well-being and help them cope with stress?",
+        answer: "We provide access to school counselors, cultural adaptation workshops, regular emotional check-ins, and connect families with mental health professionals when needed.",
         image: ConnectImageFour
       }
     ]
@@ -97,32 +97,32 @@ const serviceData = [
     
     questions: [
       {
-        question: "Although international students are peers, young Chinese students studying abroad may find it difficult to 'integrate' into local student groups without help. What should be done?",
+        question: "How can international students integrate into local student communities?",
         answer: "We organize orientation programs, buddy systems with local students, cultural exchange activities, and social integration workshops throughout the school year.",
         image: EmotionImageTwo
       },
       {
-        question: "Will everything become better once my child goes abroad? For example, will their mood improve, will their grades improve, will their life get better... Is that really true?",
+        question: "What realistic expectations should families have about studying abroad?",
         answer: "While many students thrive, success requires proper preparation and support. We focus on realistic expectations, gradual adaptation, and ongoing monitoring to ensure positive outcomes.",
         image: ConnectImageEight
       },
       {
-        question: "For girls going abroad, the likelihood of experiencing emotional confusion increases. How to avoid emotional issues affecting life and studies?",
-        answer: "We provide gender-specific support including mentorship programs, healthy relationship education, and access to female counselors who understand cultural nuances.",
+        question: "How can students maintain emotional balance while adjusting to life abroad?",
+        answer: "We provide mentorship programs, healthy relationship education, and access to counselors who understand the unique challenges of studying abroad.",
         image: EmotionImageOne
       },
       {
-        question: "We think studying in China is too intense and competitive. We hear studying abroad is easier, so we want to go study abroad...",
-        answer: "Studying abroad presents different challenges. We help families understand realistic expectations and prepare for academic, social, and emotional adjustments.",
+        question: "How does studying abroad compare to domestic education systems?",
+        answer: "Studying abroad presents different challenges and opportunities. We help families understand realistic expectations and prepare for academic, social, and emotional adjustments.",
         image: ConnectImageFive
       },
       {
-        question: "How will my child and I begin our new study and life in the first month after landing in Canada?",
+        question: "What support is provided during the first month after arriving in Canada?",
         answer: "We provide a comprehensive first-month plan including airport pickup, orientation, school registration, banking setup, and weekly check-ins to ensure smooth transition.",
         image: ConnectImageTwo
       },
       {
-        question: "What should parents do to help their children after they go abroad to study?",
+        question: "How can parents support their children after they go abroad to study?",
         answer: "We offer parental guidance on communication strategies, emotional support techniques, and how to stay involved while respecting their child's growing independence.",
         image: ConnectImageFour
       }
@@ -136,18 +136,18 @@ const serviceData = [
     
     questions: [
       {
-        question: "What is the most cost-effective way to plan for Canadian junior high/high school study expenses?",
+        question: "What is the most cost-effective way to plan for Canadian secondary school study expenses?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
         image: ConnectImageSeven
       },
       {
-        question: "What legal documents need to be prepared before my child goes abroad?",
-        answer: "Study permits, notarized guardianship agreements, medical records, insurance policies, and power of attorney documents for emergency situations. We provide a comprehensive checklist including study permits, notarized guardianship documents, medical records, and insurance policies with step-by-step guidance.",
+        question: "What legal documents need to be prepared before studying abroad?",
+        answer: "We provide a comprehensive checklist including study permits, guardianship documents, medical records, and insurance policies with step-by-step guidance.",
         image: DocsImageOne
       },
       {
-        question: "Which vaccines does my child need before going abroad? Where can they get them?",
-        answer: "Standard requirements include MMR, Tetanus, Hepatitis B. We provide a complete checklist and recommend International Travel Health Centers in major Chinese cities. We provide a complete vaccination checklist based on Canadian requirements and recommendations for local vaccination centers in China.",
+        question: "What medical preparations are needed before studying abroad?",
+        answer: "We provide a complete vaccination checklist based on Canadian requirements and recommendations for appropriate medical preparation.",
         image: CareImageTwo
       }
     ]
@@ -155,7 +155,7 @@ const serviceData = [
   {
     id: 5,
     slug: 'academic-niche',
-    title: 'Academic Niche Questions',
+    title: 'Academic Niche Issues Support',
     featuredImage: ConnectImageSeven,
     
     questions: [
@@ -194,7 +194,7 @@ const serviceData = [
   {
     id: 6,
     slug: 'well-being-niche',
-    title: 'Well-Being Niche Questions',
+    title: 'Well-Being Niche Issues Support',
     featuredImage: ConnectImageSeven,
     
     questions: [
@@ -218,7 +218,7 @@ const serviceData = [
   {
     id: 7,
     slug: 'emotional-social-niche',
-    title: 'Emotional-Social Niche Questions',
+    title: 'Emotional-Social Niche Issues Support',
     featuredImage: ConnectImageSeven,
     
     questions: [
@@ -259,6 +259,113 @@ const serviceData = [
       },
       {
         question: "My child seems to be losing the friendships they had back home due to the distance, time difference, and even jealousy. How can we help them maintain those important relationships?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      }
+    ]
+  },
+  {
+    id: 8,
+    slug: 'financial-niche',
+    title: 'Financial Niche Issues Support',
+    featuredImage: ConnectImageSeven,
+    
+    questions: [
+      {
+        question: "Why do we see so many additional fees and charges on our child's school statements? Can we dispute any of them?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "We had issues with our bank and our child's tuition payment was delayed. The school is now charging us late fees but we felt that was out of our control. What can we do?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "Our child wants to open a credit card to build their credit history, is that a good idea?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "For reasons We cannot cover our child's expenses for a few months. What options do we have to manage the situation without jeopardizing our child's studies?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "There are temporary holds due to delayed payments, would this affect our child's study permit or visa status?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child received a scholarship but we do not understand the terms and conditions. How can we ensure we comply with all requirements?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My child says their homestay family is receving a tax return. Does that mean we can get some money back too?",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      }
+    ]
+  },
+  {
+    id: 9,
+    slug: 'documentation-niche',
+    title: 'Documentation Niche Issues Support',
+    featuredImage: DocsImageOne,
+    
+    questions: [
+      {
+        question: "My child graduated but lost their paper diploma. Now our home country won't recognize their degree without it. What's the secret to getting replacement documents from Canadian institutions?",
+        answer: "[Real answer about registrar office relationships, notarization workarounds, and timeline management]",
+        image: DocsImageOne
+      },
+      {
+        question: "We forgot the medical records. Now my child needs surgery and the hospital wants history we don't have. Is this a deal-breaker or is there a workaround?",
+        answer: "[Real answer about emergency medical protocols, international record retrieval, and Canadian healthcare system navigation]",
+        image: CareImageThree
+      },
+      {
+        question: "IRCC changed requirements AFTER we prepared everything. Are we back to square one or are there grandfathering clauses nobody talks about?",
+        answer: "[Real answer about policy transition periods, alternative documentation, and advisor connections with immigration officers]",
+        image: DocsImageTwo
+      },
+      {
+        question: "My child's home country status expired, but renewal requires physical presence. They can't leave Canada during studies. Is this an impossible situation?",
+        answer: "[Real answer about consulate exceptions, power of attorney setups, and timing strategies that preserve both statuses]",
+        image: ConnectImageSeven
+      },
+      {
+        question: "The school says they sent the transcript but it never arrived. Now university applications are due. Who actually tracks these things down?",
+        answer: "[Real answer about courier investigations, digital workarounds, and institutional escalation contacts]",
+        image: DocsImageOne
+      }
+    ]
+  },
+  {
+    id: 10,
+    slug: 'student-niche',
+    title: 'Student-Oriented Niche Issues Support',
+    featuredImage: ConnectImageSeven,
+    
+    questions: [
+      {
+        question: "My homestay does not allow me to lock my bedroom doors and I do not feel secure at all...",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "I stored a lot of photos and projects on my school's Google Account/other cloud platforms and after graduating they disabled my account before I managed to create a backup. Now I felt like a part of my memory has been taken away from me...",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "I was hanging out with my friends and they saw the personal conversations my parents sent me on my phone, I feel so embarrassed...",
+        answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
+        image: ConnectImageSeven
+      },
+      {
+        question: "My Youtube/other social media account was linked to my phone number back in my home country and my old phone number has been deactivated due to inactivity. Does that mean I'll lose my account permanently if something goes wrong? my saved playlists, friend lists...all can be lost...what can i do?",
         answer: "We provide budgeting templates, compare public vs. private school costs, recommend scholarship opportunities, and suggest financial strategies for different family situations.",
         image: ConnectImageSeven
       }
