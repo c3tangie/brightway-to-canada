@@ -107,7 +107,7 @@ const ServiceArticle = () => {
     <div className='max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex py-16'>
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-          Personalized Helps For Your Child
+          Personalized Support Backed By Real Experience
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed">
           Our company's strength lies in its deeply rooted expertise. The founder brings years of firsthand experience, not only as a homestay host but also from working within a BC School District. This insider perspective is amplified by our team, many of whom are former international students or have served as instructors in BC schools. We leverage this unique background to expertly place students in supportive living environments, from nurturing homestays to structured boarding, and provide unparalleled guidance to help adolescents navigate cultural transitions, ensuring their academic, social, and emotional well-being.
@@ -123,7 +123,7 @@ const ServiceArticle = () => {
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Safety&Well-Being Questions You Won't Find Elsewhere</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Safety&Well-Being Questions You Won't Find Elsewhere</h3>
               
               {/* Cycling Questions Preview - NICHE ONLY */}
               <div className="my-6">
@@ -155,7 +155,7 @@ const ServiceArticle = () => {
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Emotional Challenges Others Don't Address</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Emotional Challenges Others Don't Address</h3>
               
               {/* Cycling Questions Preview - NICHE ONLY */}
               <div className="my-6">
@@ -187,7 +187,7 @@ const ServiceArticle = () => {
           
           <div className="relative z-10 p-8 md:p-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Academic Nuances Most Companies Miss</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Academic Nuances Most Companies Miss</h3>
               
               {/* Cycling Questions Preview - NICHE ONLY */}
               <div className="my-6">
