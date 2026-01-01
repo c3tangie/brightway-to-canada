@@ -6,7 +6,7 @@ import donImage from '../../../assets/about_us_assets/don_prof_img2.jpg';
 import rayImage from '../../../assets/about_us_assets/ray_prof_img3.jpg';
 import lingImage from '../../../assets/about_us_assets/ling_prof_img2.jpg';
 import qiImage from '../../../assets/about_us_assets/qi_prof_img3.jpg';
-import jonathanImage from '../../../assets/about_us_assets/jonathan_prof_img2.jpg';
+import jonathanImage from '../../../assets/about_us_assets/jonathan_prof_img3.jpg';
 import jayImage from '../../../assets/about_us_assets/jay_prof_img2.jpg';
 
 const teamData = [

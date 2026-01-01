@@ -37,7 +37,7 @@ const Abouts_Article_Teams = () => {
     },
     {
       id: 'design',
-      title: 'Design & Creative',
+      title: 'Academic Development & Consulting',
       description: 'Crafting engaging visual experiences',
       icon: '🎨',
       color: 'bg-gradient-to-r from-navy-600 to-navy-800',
