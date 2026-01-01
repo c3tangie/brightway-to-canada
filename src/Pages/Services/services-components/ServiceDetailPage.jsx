@@ -96,17 +96,19 @@ const ServiceDetailPage = () => {
                   {/* Question indicator and navigation under the image */}
                   <div className="w-64 md:w-80">
                     {/* Question indicator */}
-                    <p className="text-lg text-gray-600 mb-4 text-center md:text-left">
+                    <p className="text-lg text-gray-600 mb-4 text-center md:text-center">
                       Question {currentQuestionIndex + 1} of {service.questions.length}
                     </p>
 
                     {/* Question Navigation */}
                     {service.questions.length > 1 && (
-                      <div className="flex flex-col sm:flex-row gap-2">
-                        {prevQuestion && (
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      {/* Previous Button - Always rendered */}
+                      <div className="flex-1">
+                        {prevQuestion ? (
                           <Link
                             to={`/service/${service.slug}?q=${prevQuestion.id}`}
-                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors gap-2"
+                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 hover:bg-navy-700 rounded-lg transition-colors gap-2 w-full"
                           >
                             <svg 
                               className="w-5 h-5" 
@@ -124,11 +126,36 @@ const ServiceDetailPage = () => {
                             </svg>
                             <span>Previous</span>
                           </Link>
+                        ) : (
+                          <button
+                            disabled
+                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed gap-2 w-full"
+                          >
+                            <svg 
+                              className="w-5 h-5" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24" 
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                strokeWidth={2} 
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                              />
+                            </svg>
+                            <span>Previous</span>
+                          </button>
                         )}
-                        {nextQuestion && (
+                      </div>
+
+                      {/* Next Button - Always rendered */}
+                      <div className="flex-1">
+                        {nextQuestion ? (
                           <Link
                             to={`/service/${service.slug}?q=${nextQuestion.id}`}
-                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors gap-2"
+                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors gap-2 w-full"
                           >
                             <span>Next Question</span>
                             <svg 
@@ -146,9 +173,31 @@ const ServiceDetailPage = () => {
                               />
                             </svg>
                           </Link>
+                        ) : (
+                          <button
+                            disabled
+                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed gap-2 w-full"
+                          >
+                            <span>Next Question</span>
+                            <svg 
+                              className="w-5 h-5 transform rotate-180" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24" 
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                strokeWidth={2} 
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18" 
+                              />
+                            </svg>
+                          </button>
                         )}
                       </div>
-                    )}
+                    </div>
+                  )}
                   </div>
                 </div>
 

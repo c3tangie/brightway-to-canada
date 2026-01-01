@@ -18,10 +18,9 @@ import DocsImageTwo from '../../../assets/services_assets/services_img_docs2.web
 const serviceData = [
   {
     id: 1,
-    slug: 'academic-planning-school-selection',
-    title: 'Academic Planning & School Selection',
+    slug: 'academic-planning',
+    title: 'Academic Planning',
     featuredImage: '/images/services/academic-planning.jpg',
-    
     questions: [
       {
         question: "My child is entering secondary school with average academic performance. How can you develop an effective plan to ensure their academic success?",
@@ -63,10 +62,9 @@ const serviceData = [
   },
   {
     id: 2,
-    slug: 'wellbeing-safety-daily-life',
-    title: 'Well-being, Safety & Daily Life Support',
+    slug: 'wellbeing-safety',
+    title: 'Well-being & Safety',
     featuredImage: '/images/services/wellbeing-support.jpg',
-    
     questions: [
       {
         question: "How does Canada ensure the safety of international students?",
@@ -85,27 +83,34 @@ const serviceData = [
         answer: "Your child will have access to our 24/7 emergency hotline, local coordinators, school contacts, and a personalized emergency response plan.",
         image: ConnectImageOne,
         id: 2
-      },
-      {
-        question: "What living arrangement is better for international students—homestay or school dormitory?",
-        answer: "We assess each student's needs to recommend the best living arrangement. We maintain weekly check-ins, monthly reports, and coordinate closely with schools and host families.",
-        image: ConnectImageThree,
-        id: 3
-      },
-      {
-        question: "How will you support my child's emotional well-being and help them cope with stress?",
-        answer: "We provide access to school counselors, cultural adaptation workshops, regular emotional check-ins, and connect families with mental health professionals when needed.",
-        image: ConnectImageFour,
-        id: 4
       }
     ]
   },
   {
     id: 3,
-    slug: 'social-emotional-adaptation',
-    title: 'Social & Emotional Adaptation Support',
+    slug: 'daily-life-support',
+    title: 'Daily Life Support',
+    featuredImage: ConnectImageSeven,
+    questions: [
+      {
+        question: "What living arrangement is better for international students—homestay or school dormitory?",
+        answer: "We assess each student's needs to recommend the best living arrangement. We maintain weekly check-ins, monthly reports, and coordinate closely with schools and host families.",
+        image: ConnectImageThree,
+        id: 0
+      },
+      {
+        question: "What support is provided during the first month after arriving in Canada?",
+        answer: "We provide a comprehensive first-month plan including airport pickup, orientation, school registration, banking setup, and weekly check-ins to ensure smooth transition.",
+        image: ConnectImageTwo,
+        id: 1
+      }
+    ]
+  },
+  {
+    id: 4,
+    slug: 'social-integration',
+    title: 'Social Integration',
     featuredImage: '/images/services/adaptation-support.jpg',
-    
     questions: [
       {
         question: "How can international students integrate into local student communities?",
@@ -120,37 +125,44 @@ const serviceData = [
         id: 1
       },
       {
-        question: "How can students maintain emotional balance while adjusting to life abroad?",
-        answer: "We provide mentorship programs, healthy relationship education, and access to counselors who understand the unique challenges of studying abroad.",
-        image: EmotionImageOne,
-        id: 2
-      },
-      {
         question: "How does studying abroad compare to domestic education systems?",
         answer: "Studying abroad presents different challenges and opportunities. We help families understand realistic expectations and prepare for academic, social, and emotional adjustments.",
         image: ConnectImageFive,
-        id: 3
+        id: 2
+      }
+    ]
+  },
+  {
+    id: 5,
+    slug: 'emotional-support',
+    title: 'Emotional Support',
+    featuredImage: EmotionImageOne,
+    questions: [
+      {
+        question: "How can students maintain emotional balance while adjusting to life abroad?",
+        answer: "We provide mentorship programs, healthy relationship education, and access to counselors who understand the unique challenges of studying abroad.",
+        image: EmotionImageOne,
+        id: 0
       },
       {
-        question: "What support is provided during the first month after arriving in Canada?",
-        answer: "We provide a comprehensive first-month plan including airport pickup, orientation, school registration, banking setup, and weekly check-ins to ensure smooth transition.",
-        image: ConnectImageTwo,
-        id: 4
+        question: "How will you support my child's emotional well-being and help them cope with stress?",
+        answer: "We provide access to school counselors, cultural adaptation workshops, regular emotional check-ins, and connect families with mental health professionals when needed.",
+        image: ConnectImageFour,
+        id: 1
       },
       {
         question: "How can parents support their children after they go abroad to study?",
         answer: "We offer parental guidance on communication strategies, emotional support techniques, and how to stay involved while respecting their child's growing independence.",
         image: ConnectImageFour,
-        id: 5
+        id: 2
       }
     ]
   },
   {
-    id: 4,
-    slug: 'financial-practical-preparation',
-    title: 'Financial & Practical Preparation',
+    id: 6,
+    slug: 'financial-documentation',
+    title: 'Financial & Documentation',
     featuredImage: ConnectImageSeven,
-    
     questions: [
       {
         question: "What is the most cost-effective way to plan for Canadian secondary school study expenses?",
@@ -173,7 +185,7 @@ const serviceData = [
     ]
   },
   {
-    id: 5,
+    id: 7,
     slug: 'academic-niche',
     title: 'Specialized Academic Support',
     featuredImage: ConnectImageSeven,
@@ -218,7 +230,7 @@ const serviceData = [
     ]
   },
   {
-    id: 6,
+    id: 8,
     slug: 'well-being-niche',
     title: 'Specialized Well-Being Support',
     featuredImage: ConnectImageSeven,
@@ -245,7 +257,7 @@ const serviceData = [
     ]
   },
   {
-    id: 7,
+    id: 9,
     slug: 'emotional-social-niche',
     title: 'Specialized Emotional-Social Support',
     featuredImage: ConnectImageSeven,
@@ -302,7 +314,7 @@ const serviceData = [
     ]
   },
   {
-    id: 8,
+    id: 10,
     slug: 'financial-niche',
     title: 'Specialized Financial Support',
     featuredImage: ConnectImageSeven,
@@ -353,7 +365,7 @@ const serviceData = [
     ]
   },
   {
-    id: 9,
+    id: 11,
     slug: 'documentation-niche',
     title: 'Specialized Documentation Support',
     featuredImage: DocsImageOne,
@@ -392,7 +404,7 @@ const serviceData = [
     ]
   },
   {
-    id: 10,
+    id: 12,
     slug: 'student-niche',
     title: 'Student-Oriented Specialized Support',
     featuredImage: ConnectImageSeven,
