@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="max-w-screen-2xl mx-auto flex flex-col min-[1425px]:flex-row min-[1425px]:justify-between items-center min-[1425px]:items-start px-8 min-[1425px]:px-20 py-10 gap-6 min-[1425px]:gap-0">
           {/* Bubble 1: Logo/Brandname + Contact Info */}
           <div
-            className="flex flex-col gap-4 min-[1425px]:gap-6 bg-white/10 rounded-xl p-4 min-[1425px]:p-6 shadow-lg w-full min-[1425px]:w-[880px] min-[1425px]:flex-none"
+            className="flex flex-col gap-4 min-[1425px]:gap-6 bg-white/10 rounded-xl p-4 min-[1425px]:p-6 shadow-lg w-full min-[1425px]:w-[850px] min-[1425px]:flex-none"
           >
             <div className="flex items-center justify-center min-[1425px]:justify-start gap-3 text-lg sm:text-2xl min-[1425px]:text-3xl font-bold font-outfit text-white">
               <img src={Logo} alt="Logo" style={{ width: "50px", height: "auto" }} className="min-[1425px]:w-[60px]" /> 
