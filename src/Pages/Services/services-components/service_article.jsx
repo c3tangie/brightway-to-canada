@@ -115,10 +115,14 @@ const ServiceArticle = () => {
   const wellbeingNicheService = serviceData.find(service => service.slug === 'well-being-niche');
   const emotionalSocialNicheService = serviceData.find(service => service.slug === 'emotional-social-niche');
 
+  const studentNicheService = serviceData.find(service => service.slug === 'student-niche');
+
   // Extract questions for each section
   const wellbeingNicheQuestions = wellbeingNicheService?.questions || [];
   const emotionalSocialNicheQuestions = emotionalSocialNicheService?.questions || [];
   const academicNicheQuestions = academicNicheService?.questions || [];
+
+  const studentNicheQuestions = studentNicheService?.questions || [];
 
   // Helper function to create question objects
   const createQuestionObjects = (services) => {
@@ -140,10 +144,10 @@ const ServiceArticle = () => {
   return (
     <div className='max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex py-16'>
       <div className="mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-800 mb-6 text-center">
           Personalized Support Backed By Real Experience
         </h2>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-700 leading-relaxed">
           Our company's strength lies in its deeply rooted expertise. The founder brings years of firsthand experience, not only as a homestay host but also from working within a BC School District. This insider perspective is amplified by our team, many of whom are former international students or have served as instructors in BC schools. We leverage this unique background to expertly place students in supportive living environments, from nurturing homestays to structured boarding, and provide unparalleled guidance to help adolescents navigate cultural transitions, ensuring their academic, social, and emotional well-being.
         </p>
       </div>
@@ -171,7 +175,6 @@ const ServiceArticle = () => {
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
-                To study in Canada is to live in Canada. We understand that academic success is deeply intertwined with a student's ability to adapt to and thrive within their new cultural environment. Our approach goes beyond mere academic placement; we focus on holistic lifestyle integration. By fostering connections within the community, encouraging participation in local activities, and providing ongoing support, we help students build a fulfilling life abroad. This comprehensive support system ensures that students not only excel academically but also develop the social and emotional skills necessary for long-term success.
               </p>
             </div>
           </div>
@@ -198,7 +201,6 @@ const ServiceArticle = () => {
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
-                We believe that every child is unique and strong, yet we also recognize that they are still growing and may experience mental challenges, the ones their parents would like to overcome by their side yet cannot. Some of our staffs even experienced this first-hand. That's why we...
               </p>
             </div>
           </div>
@@ -225,7 +227,6 @@ const ServiceArticle = () => {
               </div>
               
               <p className="text-lg text-blue-100 leading-relaxed mb-6">
-                We understand and emphasize both the student's and the parent's ambitions, struggles, and concerns. Therefore, we...
               </p>
             </div>
           </div>
@@ -233,76 +234,119 @@ const ServiceArticle = () => {
       </div>
 
       <div className="mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-800 mb-6 text-center">
           We Understand The Student Too
         </h2>
       </div>
 
+      <div className="space-y-8 mb-16">
+        <div className="relative rounded-xl overflow-hidden shadow-xl">
+          {/* Background with overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 opacity-90"></div>
+          
+          <div className="relative z-10 p-8 md:p-12">
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Tiny Things In Life Often Dismissed By Parents</h3>
+              
+              {/* Cycling Questions Preview - NICHE ONLY */}
+              <div className="my-6">
+                <h4 className="text-white text-xl font-semibold mb-2 text-center">Specific Student-Oriented Questions:</h4>
+                <CyclingQuestions 
+                  categoryId="student-niche"
+                  questions={studentNicheQuestions}
+                  intervalTime={9120}
+                  serviceSlug="student-niche"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-          Full List Of Service Areas
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-800 mb-4 text-center">
+          Full List of Service Areas
         </h2>
+
+        <div className="w-24 h-px bg-navy-600 mx-auto rounded-full" />
       </div>
       
       <div>
-        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4 text-center"> 
+        <h3 className="text-3xl font-bold text-navy-800 mt-12 mb-4 text-center"> 
             School Selection & Education Planning
         </h3>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-700 leading-relaxed">
           Selecting the right school is a critical decision that can shape a student's academic and personal development. Brightway to Canada works closely with families to understand each student's strengths, interests, and long-term goals. We provide informed guidance on suitable schools and programs within the Canadian education system, helping families make confident, well-considered choices. Our focus is on identifying learning environments where students can grow, adapt, and succeed, both academically and socially.
         </p><br></br>
         
-        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4 text-center"> 
+        <h3 className="text-3xl font-bold text-navy-800 mt-12 mb-4 text-center"> 
             Homestay Placement and Support
         </h3>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-700 leading-relaxed">
           A supportive home environment is essential for students studying abroad. Brightway to Canada carefully places students with welcoming homestay families who provide a safe, stable, and nurturing living experience. We emphasize compatibility between students and host families, taking into account lifestyle, routines, and individual needs. Beyond placement, we remain actively involved to ensure students feel comfortable, supported, and cared for throughout their stay.
         </p><br></br>
         
-        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4 text-center"> 
+        <h3 className="text-3xl font-bold text-navy-800 mt-12 mb-4 text-center"> 
             Arrival Settlement and Support
         </h3>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-700 leading-relaxed">
           Transitioning to a new country can be overwhelming, especially during the initial adjustment period. Brightway to Canada supports students as they adapt to daily life in Canada, helping them understand local customs, school expectations, and everyday routines. Our guidance is designed to ease uncertainty, build confidence, and help students establish a sense of belonging in their new environment.
         </p><br></br>
         
-        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4 text-center"> 
+        <h3 className="text-3xl font-bold text-navy-800 mt-12 mb-4 text-center"> 
             Ongoing Guidance and Family Communication
         </h3>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-700 leading-relaxed">
           Brightway to Canada believes that ongoing support is just as important as initial planning. We maintain open communication with families and provide continued guidance as students progress through their studies. Whether addressing academic challenges, adjustment concerns, or general questions, we strive to offer timely support and reassurance, ensuring both students and parents feel informed and supported throughout the experience.
         </p><br></br>
         
-        <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4 text-center"> 
+        <h3 className="text-3xl font-bold text-navy-800 mt-12 mb-4 text-center"> 
           Consultation and Personalized Planning
         </h3>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-gray-700 leading-relaxed">
           Every family's situation is unique, which is why our services begin with a personalized consultation. This process allows us to better understand the student's background, goals, and specific needs. By gathering relevant information early on, we are able to provide thoughtful recommendations and create a clear plan that supports a smooth and successful education journey in Canada.
         </p><br></br>
         
         {/* Book Consultation Button */}
-        <div className="mt-12 text-center">
-          <Link 
-            to="/consultation" 
-            className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-          >
-            Book a Consultation
-          </Link>
+        <div className="p-6 rounded-xl bg-gradient-to-r from-navy-50 to-blue-50">
+          <div className="flex flex-col items-center text-center gap-4">
+            <h3 className="text-xl font-bold text-navy-800">
+              Need Personalized Help?
+            </h3>
+            <p className="text-gray-600">
+              Book a one-on-one consultation to discuss your concern in detail and get tailored advice.
+            </p>
+            <div className="flex-shrink-0">
+              <Link 
+                to="/consultation" 
+                className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Book a Consultation
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Link to view all services */}
-        <div className="mt-8 text-center">
-          <Link 
-            to="/service-list" 
-            className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-6 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-          >
-            View All Service Categories
-          </Link>
+        <div className="p-6 rounded-xl bg-gradient-to-r from-navy-50 to-blue-50">
+          <div className="flex flex-col items-center text-center gap-4">
+            <h3 className="text-xl font-bold text-navy-800">
+              Want To See All Services?
+            </h3>
+            <div className="flex-shrink-0">
+              <Link 
+                to="/service-list" 
+                className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                View All Service Categories
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Parent Questions Section - Divided into Regular and Specialized */}
         <div className="mt-16">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8">
+          <h3 className="text-3xl font-bold text-navy-800 mb-8">
             As a parent, you may be wondering:
           </h3>
           
@@ -369,7 +413,7 @@ const ServiceArticle = () => {
           {/* NICHE/SPECIALIZED SERVICES SECTION */}
           <div>
             <div className="flex justify-center items-center mb-6">
-              <h4 className="text-2xl text-centerfont-bold text-teal-700">Specialized & Detailed Questions</h4>
+              <h4 className="text-2xl text-center font-bold text-teal-700 text-bold">Specialized & Detailed Questions</h4>
             </div>
             
             <div className="max-w-4xl mx-auto space-y-4">

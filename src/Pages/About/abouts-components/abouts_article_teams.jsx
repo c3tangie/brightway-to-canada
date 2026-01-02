@@ -120,21 +120,23 @@ const Abouts_Article_Teams = () => {
 
         <TutoringExpertiseMatrix />
 
+        {/* separator before CTA (match matrix width) */}
+        <hr className="my-10 border-t border-gray-200 mx-6 xl:mx-20 2xl:mx-20" />
+
         {/* CTA Section */}
         <section className='text-center mb-12 mx-6 xl:mx-20 2xl:mx-20'>
           <h2 className='text-3xl font-bold text-navy-800 mb-6'>
             Ready to Start Your Journey?
           </h2>
           <p className='text-gray-600 text-lg mb-8 max-w-2xl mx-auto'>
-            Our team is here to guide you through every step of your 
-            immigration process. Contact us today for a free consultation.
+            Our team is here to support you at every stage of your educational journey in Canada. Book a free consultation or explore our services to learn more.
           </p>
           <div className='flex flex-wrap justify-center gap-4'>
             <Link 
-              to="/contact" 
+              to="/consultation" 
               className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold text-lg"
             >
-              Contact Us
+              Book a Consultation
             </Link>
             <Link 
               to="/services" 
