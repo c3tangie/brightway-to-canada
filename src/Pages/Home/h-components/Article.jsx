@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useCallback } from 'react'
 import videoFile from '@assets/video.mp4'
 import DocsImageTwo from '@services-assets/services_img_docs2.webp';
 import ConnectImageSix from '@services-assets/services_img_connect6.webp';
@@ -10,6 +10,8 @@ const Article = () => {
   const [showLeftFade, setShowLeftFade] = useState(false);
   const [showRightFade, setShowRightFade] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
+  const scrollTimeoutRef = useRef(null);
+  const isScrollingRef = useRef(false);
   
   const cards = [
     {
@@ -140,14 +142,18 @@ const Article = () => {
   const handleScrollLeft = () => {
     const container = scrollContainerRef.current;
     if (container) {
-      container.scrollBy({ left: -350, behavior: 'smooth' });
+      // Use responsive scroll amount based on screen size
+      const scrollAmount = window.innerWidth < 640 ? -280 : -350;
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   const handleScrollRight = () => {
     const container = scrollContainerRef.current;
     if (container) {
-      container.scrollBy({ left: 350, behavior: 'smooth' });
+      // Use responsive scroll amount based on screen size
+      const scrollAmount = window.innerWidth < 640 ? 280 : 350;
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -235,7 +241,7 @@ const Article = () => {
       <div className="relative mb-12">
         {/* Left fade gradient - dynamic */}
         <div 
-          className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none transition-opacity duration-300 ${
+          className={`absolute left-0 top-0 bottom-0 w-4 md:w-24 z-10 pointer-events-none transition-opacity duration-300 ${
             showLeftFade 
               ? 'opacity-100' 
               : 'opacity-0'
@@ -246,7 +252,7 @@ const Article = () => {
         
         {/* Right fade gradient - dynamic */}
         <div 
-          className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none transition-opacity duration-300 ${
+          className={`absolute right-0 top-0 bottom-0 w-4 md:w-24 z-10 pointer-events-none transition-opacity duration-300 ${
             showRightFade 
               ? 'opacity-100' 
               : 'opacity-0'
@@ -258,7 +264,7 @@ const Article = () => {
         {/* Scrollable container */}
         <div 
           ref={scrollContainerRef}
-          className="flex overflow-x-auto pb-6 space-x-6 md:space-x-8 snap-x snap-mandatory scrollbar-hide"
+          className="flex overflow-x-auto pb-6 space-x-6 md:space-x-8 scrollbar-hide"
         >
           {/* Hide scrollbar but keep functionality */}
           <style jsx>{`
@@ -274,9 +280,18 @@ const Article = () => {
           {cards.map((card) => (
             <div 
               key={card.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden min-w-[85vw] sm:min-w-[350px] max-w-[400px] flex-shrink-0 snap-start hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-lg shadow-lg overflow-hidden 
+                /* Mobile: smaller width */
+                min-w-[75vw] 
+                /* Small tablets: medium width */
+                sm:min-w-[300px] 
+                /* Medium screens and up: original width */
+                md:min-w-[350px] 
+                /* Max width for larger screens */
+                max-w-[300px] sm:max-w-[350px] md:max-w-[400px] 
+                flex-shrink-0 snap-start hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="w-full h-64 md:h-72 overflow-hidden">
+              <div className="w-full h-48 sm:h-56 md:h-72 overflow-hidden">
                 <img 
                   src={card.image} 
                   alt={card.title} 
@@ -284,15 +299,18 @@ const Article = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl text-center font-semibold text-blue-900 mb-3 md:mb-4">{card.title}</h3>
-                <p className="text-gray-600 text-center text-base md:text-lg mb-3 md:mb-4">{card.description}</p>
-                <h4 className="text-base md:text-lg text-center font-semibold text-blue-900 mb-3 md:mb-4">{card.helpTitle}</h4>
-                <p className="text-gray-600 text-center text-base md:text-lg mb-6 md:mb-8">{card.helpText}</p>
+              <div className="p-3 sm:p-4 md:p-6">
+                <h3 className="text-base sm:text-lg md:text-xl text-center font-semibold text-blue-900 mb-2 sm:mb-3 md:mb-4">{card.title}</h3>
+                <p className="text-gray-600 text-center text-sm sm:text-base md:text-lg mb-2 sm:mb-3 md:mb-4">{card.description}</p>
+                <h4 className="text-sm sm:text-base md:text-lg text-center font-semibold text-blue-900 mb-2 sm:mb-3 md:mb-4">{card.helpTitle}</h4>
+                <p className="text-gray-600 text-center text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8">{card.helpText}</p>
                 <div className="text-center">
                   <Link 
                     to="/consultation" 
-                    className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95"
+                    className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold 
+                      py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 
+                      rounded-lg text-sm sm:text-base md:text-lg 
+                      transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95"
                   >
                     Book a Consultation
                   </Link>
