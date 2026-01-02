@@ -226,9 +226,37 @@ const ServiceDetailPage = () => {
                   </div>
                   
                   {/* Question as secondary header */}
-                  <h2 className="text-xl md:text-2xl font-semibold text-navy-700">
+                  <h2 className="text-xl md:text-2xl font-semibold text-navy-700 mb-4">
                     {currentQuestion.question}
                   </h2>
+
+                  {/* Short Answer Preview */}
+                  {currentQuestion.answer_short && (
+                    <div className="mb-6">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg">
+                        <svg 
+                          className="w-5 h-5 text-blue-600 flex-shrink-0" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24" 
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth={2} 
+                            d="M13 10V3L4 14h7v7l9-11h-7z" 
+                          />
+                        </svg>
+                        <p className="text-blue-800 font-medium">
+                          {Array.isArray(currentQuestion.answer_short) 
+                            ? currentQuestion.answer_short[0]
+                            : currentQuestion.answer_short
+                          }
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
