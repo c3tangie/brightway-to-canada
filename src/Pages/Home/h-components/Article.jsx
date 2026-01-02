@@ -415,14 +415,6 @@ const Article = () => {
               aria-hidden="true"
             >
               <rect x="3.5" y="3.5" width="17" height="17" />
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <rect x="3.5" y="3.5" width="17" height="17" />
               <path d="M7 12.5l3.2 3.2L17.5 8.5" />
             </svg>
             <div>
