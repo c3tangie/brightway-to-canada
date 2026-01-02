@@ -231,6 +231,18 @@ const ServiceArticle = () => {
           </div>
         </div>
       </div>
+
+      <div className="mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+          We Understand The Student Too
+        </h2>
+      </div>
+
+      <div className="mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+          Full List Of Service Areas
+        </h2>
+      </div>
       
       <div>
         <h3 className="text-3xl font-bold text-gray-900 mt-12 mb-4 text-center"> 
