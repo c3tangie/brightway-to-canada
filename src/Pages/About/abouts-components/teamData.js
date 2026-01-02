@@ -1,13 +1,13 @@
 
-import placeHolderImage from '../../../assets/about_us_assets/placeholder_img.jpg';
-import peterImage from '../../../assets/about_us_assets/peter_prof_img3.jpg';
-import kathrynImage from '../../../assets/about_us_assets/kathryn_prof_img2.jpg';
-import donImage from '../../../assets/about_us_assets/don_prof_img2.jpg';
-import rayImage from '../../../assets/about_us_assets/ray_prof_img3.jpg';
-import lingImage from '../../../assets/about_us_assets/ling_prof_img2.jpg';
-import qiImage from '../../../assets/about_us_assets/qi_prof_img3.jpg';
-import jonathanImage from '../../../assets/about_us_assets/jonathan_prof_img3.jpg';
-import jayImage from '../../../assets/about_us_assets/jay_prof_img2.jpg';
+import placeHolderImage from '@about-us-assets/placeholder_img.jpg';
+import peterImage from '@about-us-assets/peter_prof_img3.jpg';
+import kathrynImage from '@about-us-assets/kathryn_prof_img2.jpg';
+import donImage from '@about-us-assets/don_prof_img2.jpg';
+import rayImage from '@about-us-assets/ray_prof_img3.jpg';
+import lingImage from '@about-us-assets/ling_prof_img2.jpg';
+import qiImage from '@about-us-assets/qi_prof_img3.jpg';
+import jonathanImage from '@about-us-assets/jonathan_prof_img3.jpg';
+import jayImage from '@about-us-assets/jay_prof_img2.jpg';
 
 const teamData = [
   {
