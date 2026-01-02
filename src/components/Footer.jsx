@@ -5,10 +5,6 @@ import footerBg2 from "../assets/footerbg2.png"
 import footerBg3 from "../assets/footerbg3.png"
 import searchIcon from "../assets/search_icon.png"
 import search_Icon from "../assets/search_icon.svg"
-import rednote_Icon from "../assets/rednote_icon.svg"
-import instagram_Icon from "../assets/instagram_icon.svg"
-import facebook_Icon from "../assets/facebook_icon.svg"
-import wechat_Icon from "../assets/wechat_icon.svg"
 
 const Footer = () => {
   const [search, setSearch] = useState("");
