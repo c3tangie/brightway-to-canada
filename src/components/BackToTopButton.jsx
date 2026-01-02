@@ -43,7 +43,7 @@ const BackToTop = () => {
     <div className="scroll-to-top">
       <button 
         onClick={scrollToTop}
-        className={`back-to-top fixed bottom-8 right-0 bg-gradient-to-l from-white/60 to-white/40 backdrop-blur-md shadow-lg hover:from-white/80 hover:to-white/60 hover:shadow-xl transition-all duration-500 w-10 h-20 flex items-center justify-center text-gray-800 hover:text-gray-900 border border-gray-300/50 border-r-0 rounded-l-full hover:pl-2 group
+        className={`z-[99] back-to-top fixed bottom-8 right-0 bg-gradient-to-l from-white/60 to-white/40 backdrop-blur-md shadow-lg hover:from-white/80 hover:to-white/60 hover:shadow-xl transition-all duration-500 w-10 h-20 flex items-center justify-center text-gray-800 hover:text-gray-900 border border-gray-300/50 border-r-0 rounded-l-full hover:pl-2 group
           ${shouldShow 
             ? 'translate-x-0 opacity-100 visible' 
             : 'translate-x-full opacity-0 invisible'
