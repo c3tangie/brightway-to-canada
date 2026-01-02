@@ -376,13 +376,13 @@ const Article = () => {
           <div className='flex flex-wrap justify-center gap-4'>
             <a 
               href="#/contact" 
-              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
+              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold text-lg"
             >
               Contact Us
             </a>
             <a 
               href="#/services" 
-              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
+              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold text-lg"
             >
               Our Services
             </a>

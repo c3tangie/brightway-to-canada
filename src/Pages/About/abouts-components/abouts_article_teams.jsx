@@ -132,13 +132,13 @@ const Abouts_Article_Teams = () => {
           <div className='flex flex-wrap justify-center gap-4'>
             <Link 
               to="/contact" 
-              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
+              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold text-lg"
             >
               Contact Us
             </Link>
             <Link 
               to="/services" 
-              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
+              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold text-lg"
             >
               Our Services
             </Link>
