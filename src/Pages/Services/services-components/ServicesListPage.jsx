@@ -95,7 +95,7 @@ const ServicesListPage = () => {
             <div className="mt-8">
               <Link 
                 to="/services"
-                className="text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors font-semibold inline-flex items-center gap-2 duration-300 py-4 px-8"
+                className="text-white text-lg bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors font-semibold inline-flex items-center gap-2 duration-300 py-4 px-8"
               >
                 <svg 
                   className="w-5 h-5" 

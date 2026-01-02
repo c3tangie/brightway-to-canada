@@ -360,9 +360,34 @@ const Article = () => {
       <p className="mb-6">
         What sets Brightway to Canada apart is our commitment to long-term success. We care not only about getting students to Canada, but about how they grow once they arrive. Whether it's adjusting to classroom expectations, building routines, or settling comfortably into a new home and community, we are there to provide guidance and reassurance when it matters most.
       </p>
-      <p>
+      <p className = 'mb-12'>
         With a deep understanding of both international families' concerns and the Canadian education environment, Brightway to Canada serves as a trusted bridge between home and a new beginning. We believe that with the right preparation, the right school, and the right home, students can focus on learning, personal growth, and building a strong foundation for their future.
       </p>
+
+       {/* CTA Section */}
+        <section className='text-center mb-12'>
+          <h2 className='text-3xl font-bold text-navy-800 mb-6'>
+            Ready to Start Your Journey?
+          </h2>
+          <p className='text-gray-600 text-lg mb-8 max-w-2xl mx-auto'>
+            Our team is here to guide you through every step of your 
+            immigration process. Contact us today for a free consultation.
+          </p>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <a 
+              href="#/contact" 
+              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
+            >
+              Contact Us
+            </a>
+            <a 
+              href="#/services" 
+              className="px-8 py-3 bg-navy-600 text-white rounded-lg hover:bg-navy-700 transition-colors duration-300 font-semibold"
+            >
+              Our Services
+            </a>
+          </div>
+        </section>
     </div>
   )
 }
