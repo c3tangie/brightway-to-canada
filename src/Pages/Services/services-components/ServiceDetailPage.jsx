@@ -172,7 +172,7 @@ const ServiceDetailPage = () => {
                             to={`/service/${service.slug}?q=${nextQuestion.id}`}
                             className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-navy-600 rounded-lg hover:bg-navy-700 transition-colors gap-2 w-full"
                           >
-                            <span>Next Question</span>
+                            <span>Next</span>
                             <svg 
                               className="w-5 h-5 transform rotate-180" 
                               fill="none" 
@@ -193,7 +193,7 @@ const ServiceDetailPage = () => {
                             disabled
                             className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed gap-2 w-full"
                           >
-                            <span>Next Question</span>
+                            <span>Next</span>
                             <svg 
                               className="w-5 h-5 transform rotate-180" 
                               fill="none" 
@@ -240,9 +240,9 @@ const ServiceDetailPage = () => {
             <div className="px-6 md:px-10 pb-6 md:pb-8 pt-2 md:pt-4">
               <div className="grid grid-cols-1 md:grid-cols-[20rem,1fr] gap-6 md:gap-8">
                 {/* Left Column - Service Info */}
-                <div>
+                <div class="bg-gradient-to-r from-navy-50 to-blue-50 rounded-xl border border-navy-100">
                   {/* Service Categories/Tags */}
-                  {service.tags && service.tags.length > 0 && (
+                  {/* {service.tags && service.tags.length > 0 && (
                     <div className="mb-8">
                       <h3 className="text-lg font-semibold text-navy-800 mb-3">Related Topics</h3>
                       <div className="flex flex-wrap gap-2">
@@ -256,11 +256,11 @@ const ServiceDetailPage = () => {
                         ))}
                       </div>
                     </div>
-                  )}
+                  )} */}
 
                   {/* Service Features/Highlights */}
-                  {service.highlights && service.highlights.length > 0 && (
-                    <div>
+                  {/* {service.highlights && service.highlights.length > 0 && (
+                    <div className="mb-8">
                       <h3 className="text-lg font-semibold text-navy-800 mb-3">Key Highlights</h3>
                       <div className="space-y-2">
                         {service.highlights.map((highlight, index) => (
@@ -271,10 +271,30 @@ const ServiceDetailPage = () => {
                         ))}
                       </div>
                     </div>
-                  )}
+                  )} */}
+
+                  {/* Booking Consultation Card - Moved to left column */}
+                  <div className="p-6 rounded-xl">
+                    <div className="flex flex-col items-center text-center gap-4">
+                      <h3 className="text-xl font-bold text-navy-800">
+                        Need Personalized Help?
+                      </h3>
+                      <p className="text-gray-600">
+                        Book a one-on-one consultation to discuss {service.title} in detail and get tailored advice.
+                      </p>
+                      <div className="flex-shrink-0">
+                        <Link 
+                          to="/consultation" 
+                          className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+                        >
+                          Book Consultation
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Right Column - Answer Content with Booking Button */}
+                {/* Right Column - Answer Content */}
                 <div>
                   <div className="mb-8">
                     <h3 className="text-xl font-bold text-navy-800 mb-6">Detailed Answer</h3>
@@ -282,28 +302,6 @@ const ServiceDetailPage = () => {
                       <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
                         {QuestionAnswer({q:currentQuestion})}
                         {/* {currentQuestion.answer} */}
-                      </div>
-                    </div>
-                    
-                    {/* Booking Consultation Button - Embedded in Answer Section */}
-                    <div className="mt-10 p-6 bg-gradient-to-r from-navy-50 to-blue-50 rounded-xl border border-navy-100">
-                      <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-navy-800 mb-2">
-                            Need Personalized Help?
-                          </h3>
-                          <p className="text-gray-600">
-                            Book a one-on-one consultation to discuss {service.title} in detail and get tailored advice.
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0">
-                          <Link 
-                            to="/consultation" 
-                            className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-                          >
-                            Book Consultation
-                          </Link>
-                        </div>
                       </div>
                     </div>
                   </div>
