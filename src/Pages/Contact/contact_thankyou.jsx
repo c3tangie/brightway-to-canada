@@ -15,10 +15,10 @@ const ThankyouPg = () => {
               Thank You For Your Response <br /><br />
               </h1>
               <p className="my-3 text-xl font-medium text-gray-600 leading-relaxed">
-                Your response is successfully sent to us and we will contact you on your provided email or phone number shortly. Feel free to close this page. If you wish to visit other part of this website, please click on the options in the top navigation bar or click the logo on the top left to return to our homepage. 
+                Your response is successfully sent to us and we will contact you on your provided email or phone number shortly. Feel free to close this page.
                 
                 
-                {/* If you want to check out our social media, please click on the respective icons in the footer.  */} // add when social media functions are fully working
+                {/* If you want to check out our social media, please click on the respective icons in the footer.  */}
 
               </p>      
             </div>
