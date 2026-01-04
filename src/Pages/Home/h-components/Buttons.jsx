@@ -1,7 +1,7 @@
 import React from 'react'
-import Button1 from '../../../assets/Button-1.png'
-import Button2 from '../../../assets/Button-2.png'   
-import Button3 from '../../../assets/Button-3.png'
+import Button1 from '@assets/Button-1.png'
+import Button2 from '@assets/Button-2.png'   
+import Button3 from '@assets/Button-3.png'
 
 const Buttons = () => {
   return (
