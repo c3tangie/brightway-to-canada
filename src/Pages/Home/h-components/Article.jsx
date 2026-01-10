@@ -373,7 +373,7 @@ const Article = () => {
               <div className="text-3xl font-bold text-navy-800 mb-4">
                 18 Years of Proven Experience
               </div>
-              <div className="text-xl leading-relaxed text-gray-700 mb-4">
+              <div className="text-xl leading-relaxed text-gray-700 mb-6">
                 With nearly two decades of experience supporting international students and families, we understand the real challenges students face  academically, emotionally, and socially. We know what families worry about, and we know how to prepare for it.
               </div>
             </div>
@@ -397,7 +397,7 @@ const Article = () => {
               <div className="text-3xl font-bold text-navy-800 mb-4">
                 Personalized Planning from Day One
               </div>
-              <div className="text-xl leading-relaxed text-gray-700 mb-4">
+              <div className="text-xl leading-relaxed text-gray-700 mb-6">
                 From the moment students arrive in Canada, we create a customized education plan that grows with them from high school course selection to graduation and a smooth transition into university life. Every decision is made with long-term goals in mind.
               </div>
             </div>
@@ -421,7 +421,7 @@ const Article = () => {
               <div className="text-3xl font-bold text-navy-800 mb-4">
                 Guidance by Real Education Professionals
               </div>
-              <div className="text-xl leading-relaxed text-gray-700 mb-4">
+              <div className="text-xl leading-relaxed text-gray-700 mb-6">
                  Our team includes experienced educators, language instructors, and academic consultants who have worked directly within Canadian schools. This insider knowledge allows us to provide practical, realistic guidance that truly supports student success.
               </div>
             </div>
