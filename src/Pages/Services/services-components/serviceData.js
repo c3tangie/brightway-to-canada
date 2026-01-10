@@ -24,14 +24,18 @@ const serviceData = [
     questions: [
       {
         question: "How do you develop academic plans for students with average performance transitioning to Canadian secondary or post-secondary education?",
-        answer: ["We create personalized roadmaps focusing on skill-building, language preparation, and strategic school/university placement. For university-bound students, we partner with Canadian high schools offering pathway programs, academic upgrading, and application guidance over 2-4 years."],
+        answer: ["We can create personalized roadmaps focusing on skill-building, language preparation, and strategic school/university placement. We are also actively forming partnerships with local school districts to provide up-to-date planning support. If you are seeking a solution that is unique to you, feel free to contact us.",
+                "For graduating students, we leverage the personalized experiences from our staff to construct elaborate plans that cover both academics and lifestyle changes after entering post-secondary education.",
+                "It is also understood that sometimes just the stress or lack of confidence alone can be the very reason for dissatisfactory academic performance. If you or your child is actively experiencing this, please share your concerns in the consultation form."],
         answer_short: ["Personalized academic roadmaps for skill-building, language prep, and pathway programs."],
         image: StudyImageOne,
         id: 0
       },
       {
         question: "How can students adapt to Canada's independent learning environment and what academic support is available?",
-        answer: ["We provide academic monitoring, regular check-ins, time management coaching, and specialized Academic English preparation focusing on classroom participation, academic writing, and subject-specific vocabulary to ensure smooth transition."],
+        answer: ["For parents and students who are more familiar with rigid curricula back in their home country, the Canadian learning environment can feel like an endless ocean to get lost in at first glance: there are less restrictions in where to go but also less guidance in what to do. Our specialized team of instructors and advisors have first-hand experience with these exact issues. If you or your child are eager to explore what is best for you in this new landscape, feel free to leave us a message.",
+                "If you have already established a roadmap but are having trouble trying to guide your child while encouraging their independence and personal growth, the school’s local counseling office can often provide first hand suggestions, or you can book a consultation with us if you prefer a different solution.",
+                "Usually, the school will provide academic support for students who are struggling for various reasons. If you want someone to act as a bridge between you and the school staff, or if you want more personalized teaching experience, you can contact us for help."],
         answer_short: ["Academic monitoring, time management coaching, and Academic English preparation."],
         image: StudyImageOne,
         id: 1
@@ -60,7 +64,8 @@ const serviceData = [
       },
       {
         question: "Who should students contact in emergencies and what support systems are in place?",
-        answer: ["Students have access to our 24/7 emergency hotline, local coordinators, school contacts, and personalized emergency response plans for immediate assistance."],
+        answer: ["While it is still recommended to keep parents’ contact as primary emergency contact, students actually have a wide range of personnel that they could contact in the time of urgent needs. The most suitable contact would be the host family and the school contact (usually school districts will have dedicated office and workers for underaged international students, including an international student principal who serves as the legal guardian in Canada). If you or your child is struggling to find the proper contact emergency contacts, feel free to reach us for help.",
+                "Note that there are many 24/7 emergency hotlines for both physical and mental issues. For new students and families these may feel confusing as there can be multiple hotlines serving the same region, operated by national, provincial, municipal, or even voluntary agencies. If you are trying to find the most suitable one for you, we can also offer some guidance."],
         answer_short: ["24/7 emergency hotline, local coordinators, and personalized emergency plans."],
         image: ConnectImageOne,
         id: 1
