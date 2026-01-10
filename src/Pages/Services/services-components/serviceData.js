@@ -64,7 +64,7 @@ const serviceData = [
       },
       {
         question: "Who should students contact in emergencies and what support systems are in place?",
-        answer: ["While it is still recommended to keep parents’ contact as primary emergency contact, students actually have a wide range of personnel that they could contact in the time of urgent needs. The most suitable contact would be the host family and the school contact (usually school districts will have dedicated office and workers for underaged international students, including an international student principal who serves as the legal guardian in Canada). If you or your child is struggling to find the proper contact emergency contacts, feel free to reach us for help.",
+        answer: ["While it is still recommended to keep parents’ contact as primary emergency contact, students actually have a wide range of personnel that they could contact in the time of urgent needs. The most suitable contact would be the host family and the school contact (usually school districts will have dedicated offices and workers for underaged international students, including an international student principal who serves as the legal guardian in Canada). If you or your child is struggling to find the proper contact emergency contacts, feel free to reach us for help.",
                 "Note that there are many 24/7 emergency hotlines for both physical and mental issues. For new students and families these may feel confusing as there can be multiple hotlines serving the same region, operated by national, provincial, municipal, or even voluntary agencies. If you are trying to find the most suitable one for you, we can also offer some guidance."],
         answer_short: ["24/7 emergency hotline, local coordinators, and personalized emergency plans."],
         image: ConnectImageOne,
@@ -264,8 +264,8 @@ const serviceData = [
         id: 5
       },
       {
-        question: "After a few months abroad, my child are starting to use niche slangs and phrases I do not understand. How can I keep up with their language?",
-        answer: ["The generational gap gets even stronger when cultural differences are involved. We can help you interpret these mystic words."],
+        question: "After a few months abroad, my children are starting to use niche slang and phrases I do not understand. How can I keep up with their language?",
+        answer: ["The generational gap gets even stronger when cultural differences are involved. While the fact that your child is comfortably using phrases native to Canadian culture is often a sign of smooth social integration, parents can also become worried of falling ‘out of fashion’. We can help you interpret these mystic words."],
         answer_short: ["Bridging language and cultural gaps with studying children."],
         image: ConnectImageFour,
         id: 6
