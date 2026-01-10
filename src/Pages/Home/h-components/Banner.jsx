@@ -13,7 +13,7 @@ const Banner = () => {
   const bannerContent = [
     {
       image: BannerImage,
-      text: "Brightway to Canada helps international students find the right school and a suitable, caring homestay in Canada. We support families with trusted guidance every step of the way, so students can thrive — and parents can feel at ease."
+      text: "Brightway to Canada helps international students find the right school and a suitable, caring homestay in Canada. We support families with trusted guidance, so students can thrive and parents can feel at ease."
     },
     {
       image: BannerImage2,
