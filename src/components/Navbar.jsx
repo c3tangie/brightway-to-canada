@@ -24,6 +24,19 @@ const Navbar = () => {
       .hover-border-active {
         border-left-color: rgb(30 58 138) !important;
       }
+      /* Mobile navbar fix - use sticky positioning on mobile */
+      @media (max-width: 768px) {
+        .mobile-fixed-navbar {
+          position: -webkit-sticky !important;
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 9999 !important;
+        }
+        html, body {
+          height: 100%;
+          overflow-x: hidden;
+        }
+      }
     `;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
@@ -72,12 +85,12 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Spacer to prevent content overlap */}
-      <div className={`transition-all duration-300 ${
+      {/* Spacer to prevent content overlap - only on desktop */}
+      <div className={`hidden md:block transition-all duration-300 ${
         isScrolled ? 'h-16' : 'h-16 md:h-32'
       }`}></div>
       
-      <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      <div className={`mobile-fixed-navbar md:fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-xl' : 'bg-white shadow-lg'
       }`}>
       {/* Top Contact Bar - Hidden when scrolled or on small screens */}

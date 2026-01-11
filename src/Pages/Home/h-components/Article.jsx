@@ -355,7 +355,7 @@ const Article = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Left: points (slightly shifted right) */}
         <div className="pl-3 sm:pl-6">
-          <div className="mt-12 flex items-start gap-3">
+          <div className="mt-11 flex items-start gap-3">
             <svg
               className="mt-1 inline-block w-6 h-6 flex-shrink-0"
               viewBox="0 0 24 24"
@@ -373,7 +373,7 @@ const Article = () => {
               <div className="text-3xl font-bold text-navy-800 mb-4">
                 18 Years of Proven Experience
               </div>
-              <div className="text-xl leading-relaxed text-gray-700 mb-6">
+              <div className="text-xl leading-relaxed text-gray-700 mb-4">
                 With nearly two decades of experience supporting international students and families, we understand the real challenges students face  academically, emotionally, and socially. We know what families worry about, and we know how to prepare for it.
               </div>
             </div>
@@ -397,7 +397,7 @@ const Article = () => {
               <div className="text-3xl font-bold text-navy-800 mb-4">
                 Personalized Planning from Day One
               </div>
-              <div className="text-xl leading-relaxed text-gray-700 mb-6">
+              <div className="text-xl leading-relaxed text-gray-700 mb-4">
                 From the moment students arrive in Canada, we create a customized education plan that grows with them from high school course selection to graduation and a smooth transition into university life. Every decision is made with long-term goals in mind.
               </div>
             </div>
@@ -421,7 +421,7 @@ const Article = () => {
               <div className="text-3xl font-bold text-navy-800 mb-4">
                 Guidance by Real Education Professionals
               </div>
-              <div className="text-xl leading-relaxed text-gray-700 mb-6">
+              <div className="text-xl leading-relaxed text-gray-700 mb-4">
                  Our team includes experienced educators, language instructors, and academic consultants who have worked directly within Canadian schools. This insider knowledge allows us to provide practical, realistic guidance that truly supports student success.
               </div>
             </div>
@@ -446,7 +446,7 @@ const Article = () => {
                 Real Life Support
               </div>
               <div className="text-xl leading-relaxed text-gray-700 mb-6">
-                We believe academic success depends on feeling supported and secure. That’s why we focus on the full student experience: learning adaptation, well-being, and ongoing communication with families.
+                Students learn at their best when they feel secure and understood. For this reason, we support the full educational experience: learning adaptation, mental well-being, and consistent communication with families as students adjust to their new environment.
               </div>
             </div>
           </div>
