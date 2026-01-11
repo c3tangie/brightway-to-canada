@@ -14,6 +14,7 @@ import ThankyouPg from './Pages/Contact/contact_thankyou'
 import WIPPg from './Pages/WIP/wip_pg'
 import ServicesListPage from './Pages/Services/services-components/ServicesListPage';
 import ServiceDetailPage from './Pages/Services/services-components/ServiceDetailPage';
+import SearchResults from './Pages/Search/SearchResults';
 
 import TeamMemberDetailPage from './Pages/About/abouts-components/TeamMemberDetailPage';
 
@@ -45,6 +46,9 @@ function App() {
         <Route path="/service/:serviceSlug" element={<ServiceDetailPage />} />
         
         <Route path="/consultation" element={<ConsultationPage />} />
+        
+        {/* Search Results Page */}
+        <Route path="/search" element={<SearchResults />} />
       </Routes>
     </Router>
   );

@@ -221,10 +221,19 @@ const Abouts_Article_Main = () => {
               Experience and Perspective
             </h2>
 
-            {/* Wrap block: gallery floats right, paragraph text wraps left */}
-            <div className="max-w-8xl mx-auto mb-16">
-              {/* was: lg:w-[420px] lg:ml-8 */}
-              <div className="w-full lg:w-[640px] lg:float-right lg:ml-10 mb-6">
+            {/* Keep this section as a true 2-column layout so the text never wraps under the gallery */}
+            <div className="max-w-8xl mx-auto mb-16 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_640px] gap-8 items-start">
+              {/* Left: text */}
+              <div className="min-w-0">
+                <p className='text-xl leading-relaxed space-y-6 text-gray-700'>
+                  Our understanding of international education comes from lived experience. We understand the uncertainty of arrival, the adjustment to academic expectations, and the process of building confidence and belonging. Beyond academics, everyday experiences such as forming friendships, participating in school activities, and spending time outdoors play an important role in a student’s success. These moments help students feel connected and supported, allowing them to engage more fully in both school and community life. <br></br><br></br>
+
+                  For many students, this balance between responsibility and independence is what makes the experience rewarding. They learn to manage their studies while developing communication skills, cultural awareness, and personal resilience through real life experiences. Because our team, along with many of the students we support, has been through this journey, we are able to guide students with practical insight and realistic expectations while providing families with reassurance that their children are being supported with care and understanding.
+                </p>
+              </div>
+
+              {/* Right: gallery */}
+              <div className="w-full lg:w-[640px]">
                 <div className="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 aspect-[4/3]">
                   {/* inside the gallery track */}
                   {len > 0 ? (
@@ -318,24 +327,16 @@ const Abouts_Article_Main = () => {
                   )}
                 </div>
               </div>
-
-              <p className='text-xl leading-relaxed space-y-6 text-gray-700'>
-                Our understanding of international education comes from lived experience. We understand the uncertainty of arrival, the adjustment to academic expectations, and the process of building confidence and belonging. Beyond academics, everyday experiences such as forming friendships, participating in school activities, and spending time outdoors play an important role in a student’s success. These moments help students feel connected and supported, allowing them to engage more fully in both school and community life. <br></br><br></br>
-
-                For many students, this balance between responsibility and independence is what makes the experience rewarding. They learn to manage their studies while developing communication skills, cultural awareness, and personal resilience through real life experiences. Because our team, along with many of the students we support, has been through this journey, we are able to guide students with practical insight and realistic expectations while providing families with reassurance that their children are being supported with care and understanding.
-              </p>
-
-              <h2 className='mt-12 text-4xl font-bold text-navy-800 mb-6'>
-                Commitment to Students and Families
-              </h2>
-
-              <p className='text-xl leading-relaxed space-y-6 text-gray-700'>
-                We view education as a long term journey rather than a single transition point. As students progress through their studies, we remain engaged and attentive to their development. Families are kept informed, and students are supported as they build independence and confidence over time. Our goal is to reduce uncertainty for parents while helping students feel supported, prepared, and capable of navigating their academic lives in Canada.
-              </p>
-
-              {/* clears the float so following sections layout normally */}
-              <div className="clear-both" />
             </div>
+
+            <h2 className='mt-12 text-4xl font-bold text-navy-800 mb-6'>
+              Commitment to Students and Families
+            </h2>
+
+            <p className='text-xl leading-relaxed space-y-6 text-gray-700 max-w-8xl mx-auto mb-16'>
+              We view education as a long term journey rather than a single transition point. As students progress through their studies, we remain engaged and attentive to their development. Families are kept informed, and students are supported as they build independence and confidence over time. Our goal is to reduce uncertainty for parents while helping students feel supported, prepared, and capable of navigating their academic lives in Canada.
+            </p>
+
         </section>
 
         {/* NEW: separator before CTA */}

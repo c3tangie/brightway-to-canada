@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Logo from "../assets/logo.png"
 import footerBg from "../assets/footerbg.png"
 import footerBg2 from "../assets/footerbg2.png"
@@ -8,10 +9,22 @@ import search_Icon from "../assets/search_icon.svg"
 
 const Footer = () => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    // Replace with your search logic
-    alert(`Searching for: ${search}`);
+  const handleSearch = (e) => {
+    if (e) e.preventDefault();
+    
+    if (search && search.trim()) {
+      // Navigate to search results page with query
+      navigate(`/search?q=${encodeURIComponent(search.trim())}`);
+      setSearch(""); // Clear the search input
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   return (
@@ -27,46 +40,45 @@ const Footer = () => {
         }}
       >
 
-        <div className="max-w-screen-2xl mx-auto flex flex-col min-[1425px]:flex-row min-[1425px]:justify-between items-center min-[1425px]:items-start px-8 min-[1425px]:px-20 py-10 gap-6 min-[1425px]:gap-0">
+  <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row lg:flex-nowrap xl:flex-wrap lg:items-start lg:justify-between px-6 xl:px-20 2xl:px-20 py-10 gap-6 lg:gap-6">
           {/* Bubble 1: Logo/Brandname + Contact Info */}
           <div
-            className="flex flex-col gap-4 min-[1425px]:gap-6 bg-white/10 rounded-xl p-4 min-[1425px]:p-6 shadow-lg w-full min-[1425px]:w-[850px] min-[1425px]:flex-none"
+      className="flex flex-col gap-4 lg:gap-6 bg-white/10 rounded-xl p-4 sm:p-5 lg:p-6 shadow-lg w-full lg:flex-1 lg:min-w-[220px] lg:max-w-[850px] min-w-0"
           >
-            <div className="flex items-center justify-center min-[1425px]:justify-start gap-3 text-lg sm:text-2xl min-[1425px]:text-3xl font-bold font-outfit text-white">
-              <img src={Logo} alt="Logo" style={{ width: "50px", height: "auto" }} className="min-[1425px]:w-[60px]" /> 
-              <span className="text-center min-[1425px]:text-left">Brightway to Canada</span>
+            <div className="flex items-center justify-center lg:justify-start gap-3 text-lg sm:text-2xl lg:text-3xl font-bold font-outfit text-white">
+              <img src={Logo} alt="Logo" style={{ width: "50px", height: "auto" }} className="lg:w-[60px]" /> 
+              <span className="text-center lg:text-left">Brightway to Canada</span>
             </div>
-            <div className="text-white text-sm min-[1425px]:text-base font-RobotoFlex leading-loose tracking-wider text-center min-[1425px]:text-left break-words">
+            <div className="text-white text-sm lg:text-base font-RobotoFlex leading-loose tracking-wider text-center lg:text-left break-words">
               <p>
-                {/* Office: PO Box 1234, 5413 Jacobs Lane, Nanaimo, BC, V9T 0B8 <br /> */}
-                Phone: +1 (250) 797-7886 | Email: info@brightwaytocanada.ca <br className="min-[1425px]:hidden" />
-                <span className="hidden min-[1425px]:inline"></span>
+                Office: PO Box 886, Nanaimo, BC, V9T 5N2 <br />
+                Phone: +1 (250) 797-7886 | Email: info@brightwaytocanada.ca <br className="lg:hidden" />
+                <span className="hidden lg:inline"></span>
                 {/* | Office Hours: 9:00 AM - 4:00 PM (PST) */}
               </p>
             </div>
           </div>
 
           {/* Bubble 2: Search Bar + Social Media */}
-          <div className="flex flex-col items-center min-[1425px]:items-end gap-4 bg-white/10 rounded-xl p-6 min-[1425px]:p-8 shadow-lg w-full min-[1425px]:w-auto">
-            <div className="flex items-center justify-center min-[1425px]:justify-end">
+          <div className="flex flex-col items-center lg:items-end gap-4 bg-white/10 rounded-xl p-5 sm:p-6 lg:p-8 shadow-lg w-full lg:w-auto lg:flex-none lg:shrink-0">
+            <div className="flex items-center justify-center lg:justify-end">
               <input
                 type="text"
                 placeholder="Search"
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-64 min-[1425px]:w-72 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black font-normal"
-
-                // Search Button
+                onKeyPress={handleKeyPress}
+                className="w-56 sm:w-60 lg:w-72 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black font-normal"
               />
              <button
                 onClick={handleSearch}
-                className="ml-3 rounded-full group"
+                className="ml-3 rounded-full group p-1"
                 aria-label="Search"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 511.78128 511.45334"
-                  className="text-white w-5 h-5 relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_6px_white]"
+                  viewBox="-40 -40 591.78128 591.45334"
+                  className="text-white w-6 h-6 relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_6px_white]"
                   fill="none"
                   stroke="currentColor"
                 >
