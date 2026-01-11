@@ -7,7 +7,8 @@ const BackToTop = () => {
 
   const handleScroll = () => {
     const quarterHeight = document.documentElement.scrollHeight / 4;
-    setIsVisible(window.pageYOffset > quarterHeight);
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    setIsVisible(scrollPos > quarterHeight);
   };
 
   const checkPageLength = () => {
@@ -28,12 +29,24 @@ const BackToTop = () => {
     checkPageLength();
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    // Add both scroll and touchmove listeners for mobile
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleScroll, { passive: true });
     window.addEventListener('resize', checkPageLength);
+    
+    // Force check on mount
+    const checkTimer = setInterval(() => {
+      handleScroll();
+      checkPageLength();
+    }, 500);
+    
+    setTimeout(() => clearInterval(checkTimer), 3000);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
       window.removeEventListener('resize', checkPageLength);
+      clearInterval(checkTimer);
     };
   }, []);
 

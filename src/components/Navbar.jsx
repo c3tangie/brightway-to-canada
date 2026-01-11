@@ -3,16 +3,24 @@ import Logo from "../assets/logo.png"
 import menuIcon from "../assets/menu_icon.svg"
 
 const Navbar = () => {
+  // Keep this for subtle styling if needed, but don't use it to change navbar height.
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const mobileMenuButtonRef = useRef(null);
+  const navbarRef = useRef(null);
+  const [navbarHeight, setNavbarHeight] = useState(0);
 
   // Add CSS for hover effect
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
+      /* Respect iOS safe area for notches */
+      .navbar-safe-area {
+        padding-top: env(safe-area-inset-top);
+      }
+
       .hover-active {
         background-color: rgb(243 244 246) !important;
         color: rgb(30 58 138) !important;
@@ -24,22 +32,30 @@ const Navbar = () => {
       .hover-border-active {
         border-left-color: rgb(30 58 138) !important;
       }
-      /* Mobile navbar fix - use sticky positioning on mobile */
-      @media (max-width: 768px) {
-        .mobile-fixed-navbar {
-          position: -webkit-sticky !important;
-          position: sticky !important;
-          top: 0 !important;
-          z-index: 9999 !important;
-        }
-        html, body {
-          height: 100%;
-          overflow-x: hidden;
-        }
-      }
     `;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
+  }, []);
+
+  // Keep the spacer in sync with the actual rendered navbar height (mobile menu open/close).
+  useEffect(() => {
+    const el = navbarRef.current;
+    if (!el) return;
+
+    const update = () => {
+      setNavbarHeight(el.getBoundingClientRect().height);
+    };
+
+    update();
+
+    const ro = new ResizeObserver(() => update());
+    ro.observe(el);
+    window.addEventListener('resize', update, { passive: true });
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   useEffect(() => {
@@ -47,8 +63,9 @@ const Navbar = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50);
     };
-
-    window.addEventListener('scroll', handleScroll);
+ 
+    // passive for smoother scrolling on mobile
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -85,14 +102,10 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Spacer to prevent content overlap - only on desktop */}
-      <div className={`hidden md:block transition-all duration-300 ${
-        isScrolled ? 'h-16' : 'h-16 md:h-32'
-      }`}></div>
+  {/* Spacer to prevent content overlap with the fixed navbar */}
+  <div aria-hidden="true" style={{ height: navbarHeight }} />
       
-      <div className={`mobile-fixed-navbar md:fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-xl' : 'bg-white shadow-lg'
-      }`}>
+  <div ref={navbarRef} className="fixed top-0 left-0 w-full z-50 bg-white shadow-lg navbar-safe-area">
       {/* Top Contact Bar - Hidden when scrolled or on small screens */}
       <div 
         className={`text-white transition-all duration-300 bg-blue-900 hidden md:block ${
@@ -121,27 +134,19 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="bg-white shadow-sm">
-        <div className={`max-w-screen-2xl mx-auto px-4 py-3 lg:px-20 sm:px-6  ${isScrolled ? 'py-0' : 'py-3'}`}>
-          <div className={`flex justify-between items-center transition-all duration-300 ${
-            isScrolled ? 'h-12' : 'h-12 md:h-20'
-          }`}>
+        <div className="bg-white shadow-sm">
+        <div className="max-w-screen-2xl mx-auto px-4 py-3 lg:px-20 sm:px-6">
+          <div className="flex justify-between items-center h-12 md:h-20">
             
             {/* Logo and Brand */}
             <div className="flex items-center">
-              <a href="/" className={`transition-all duration-300 flex items-center group space-x-0 ${
-                isScrolled ? 'md:space-x-0' : 'md:space-x-3'
-              }`}>
+              <a href="/" className="transition-all duration-300 flex items-center group space-x-0 md:space-x-3">
                 <img 
                   src={Logo} 
                   alt="Logo" 
-                  className={`transition-all duration-300 group-hover:scale-105 w-12 ${
-                    isScrolled ? 'md:w-12' : 'md:w-16'
-                  } h-auto`} 
+                  className="transition-all duration-300 group-hover:scale-105 w-12 md:w-16 h-auto" 
                 />
-                <div className={`flex flex-col transition-all duration-300 scale-90 ${
-                  isScrolled ? 'md:scale-90' : 'md:scale-100'
-                }`}>
+                <div className="flex flex-col transition-all duration-300 scale-90 md:scale-100">
                   <span className={`font-bold font-outfit text-blue-900 leading-tight transition-all duration-300 text-xl ${
                     isScrolled ? 'md:text-xl lg:text-2xl' : 'md:text-2xl lg:text-3xl'
                   }`}>
@@ -159,14 +164,10 @@ const Navbar = () => {
             
             {/* Navigation Links */}
             <div className="hidden xl:flex items-center">
-              <nav className={`flex transition-all duration-300 ${
-                isScrolled ? 'space-x-12' : 'space-x-12 md:space-x-14'
-              }`}>
+              <nav className="flex transition-all duration-300 space-x-12 md:space-x-14">
                 <a 
                   href="/" 
-                  className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
-                    isScrolled ? 'text-base' : 'text-base md:text-lg'
-                  }`}
+                  className="group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 text-base md:text-lg"
                 >
                   Home
                   <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
@@ -182,9 +183,7 @@ const Navbar = () => {
                   onMouseLeave={() => setIsAboutDropdownOpen(false)}
                 >
                   <button 
-                    className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
-                      isScrolled ? 'text-base' : 'text-base md:text-lg'
-                    }`}
+                    className="group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 text-base md:text-lg"
                   >
                     About
                     <svg className="w-3 h-3 absolute -right-4 top-1/2 transform -translate-y-1/2 transition-transform duration-200" style={{ transform: `translateY(-50%) ${isAboutDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}` }} fill="currentColor" viewBox="0 0 20 20">
@@ -224,9 +223,7 @@ const Navbar = () => {
                   onMouseLeave={() => setIsServicesDropdownOpen(false)}
                 >
                   <button 
-                    className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
-                      isScrolled ? 'text-base' : 'text-base md:text-lg'
-                    }`}
+                    className="group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 text-base md:text-lg"
                   >
                     Services
                     <svg className="w-3 h-3 absolute -right-4 top-1/2 transform -translate-y-1/2 transition-transform duration-200" style={{ transform: `translateY(-50%) ${isServicesDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}` }} fill="currentColor" viewBox="0 0 20 20">
@@ -297,9 +294,7 @@ const Navbar = () => {
                 ref={mobileMenuButtonRef}
                 onClick={toggleMobileMenu}
                 onTouchEnd={handleTouchEnd}
-                className={`inline-flex items-center justify-center p-2 rounded-md transition-all duration-300 scale-90 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0 ${
-                  isScrolled ? 'md:scale-90' : 'md:scale-100'
-                } ${
+                className={`inline-flex items-center justify-center p-2 rounded-md transition-all duration-300 scale-90 md:scale-100 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0 ${
                   isMobileMenuOpen 
                     ? 'text-blue-900 bg-gray-100' 
                     : 'text-gray-700'
@@ -319,9 +314,7 @@ const Navbar = () => {
               >
                 {isMobileMenuOpen ? (
                   <svg
-                    className={`transition-all duration-300 h-6 w-auto ${
-                      isScrolled ? 'md:h-6' : 'md:h-7'
-                    }`}
+                    className="transition-all duration-300 h-6 w-auto md:h-7"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -332,9 +325,7 @@ const Navbar = () => {
                   </svg>
                 ) : (
                   <svg
-                    className={`transition-all duration-300 h-6 w-auto ${
-                      isScrolled ? 'md:h-6' : 'md:h-7'
-                    }`}
+                    className="transition-all duration-300 h-6 w-auto md:h-7"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

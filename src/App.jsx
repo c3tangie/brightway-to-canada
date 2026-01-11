@@ -21,11 +21,16 @@ import TeamMemberDetailPage from './Pages/About/abouts-components/TeamMemberDeta
 
 // Component to scroll to top on route change
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // In HashRouter, some navigations can keep the same pathname while changing
+    // the hash/search; include them so every navigation reliably jumps to top.
+    // Use requestAnimationFrame so layout is ready (helps on mobile Safari).
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
+  }, [pathname, search, hash]);
 
   return null;
 }
