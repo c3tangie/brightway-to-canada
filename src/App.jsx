@@ -1,4 +1,5 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Home from './Pages/Home/home'
 import PreStudent from './Pages/Services/services-subpages/pre_student'
 import NowStudent from './Pages/Services/services-subpages/now_student'
@@ -18,10 +19,22 @@ import SearchResults from './Pages/Search/SearchResults';
 
 import TeamMemberDetailPage from './Pages/About/abouts-components/TeamMemberDetailPage';
 
+// Component to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
 
   return (
-    <Router>  
+    <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services/prospective-students" element={<PreStudent />} />

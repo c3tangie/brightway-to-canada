@@ -252,6 +252,12 @@ const Navbar = () => {
                       >
                         Service Categories
                       </a>
+                      <a 
+                        href="#/consultation" 
+                        className="block px-4 py-2 text-sm text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        Book a Consultation
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -450,7 +456,7 @@ const Navbar = () => {
                   </svg>
                 </button>
                 <div className={`transition-all duration-200 overflow-hidden ${
-                  isServicesDropdownOpen ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'
+                  isServicesDropdownOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
                   <a 
                     href="#/services" 
@@ -465,6 +471,13 @@ const Navbar = () => {
                     onClick={closeMobileMenu}
                   >
                     Service Categories
+                  </a>
+                  <a 
+                    href="#/consultation" 
+                    className="block pl-8 pr-4 py-2 text-gray-600 hover:text-blue-900 hover:bg-gray-50 transition-colors duration-200"
+                    onClick={closeMobileMenu}
+                  >
+                    Book a Consultation
                   </a>
                 </div>
               </div>
