@@ -50,17 +50,17 @@ function generateSiteContent() {
   });
 
   // Services - dynamically generated from serviceData
+  // Create individual entries for each question within each service
   serviceData.forEach(service => {
-    const questionsText = service.questions.map(q => {
-      const answers = Array.isArray(q.answer) ? q.answer.join(' ') : q.answer;
-      return `${q.question} ${answers}`;
-    }).join(' ');
-
-    content.push({
-      title: `${service.title} - Services`,
-      path: `/service/${service.slug}`,
-      type: 'service',
-      content: `${service.title} ${questionsText}`
+    service.questions.forEach((question, index) => {
+      const answers = Array.isArray(question.answer) ? question.answer.join(' ') : question.answer;
+      
+      content.push({
+        title: `${service.title} - ${question.question}`,
+        path: `/service/${service.slug}?q=${index}`,
+        type: 'service',
+        content: `${service.title} ${question.question} ${answers}`
+      });
     });
   });
 
