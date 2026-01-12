@@ -22,7 +22,7 @@ const teamData = [
       "Ling is deeply committed to education as a tool for empowerment and social mobility. She works closely with students and parents, offering hands-on support in school selection, application strategy, academic planning, and transition preparation. Her leadership has shaped Brightway’s reputation for professionalism, integrity, and long-term student success. Ling believes every student can reach their goal. The customized learning plans suggested by Brightway to Canada have consistently led to strong student outcomes and numerous success stories.",
       "As Founder & CEO, Ling continues to lead Brightway Education Consulting with a clear mission: to illuminate the path forward for international students and help them build confident, successful futures through education."
     ],
-    categories: ["founder", "advising"],
+  categories: ["founder", "consulting"],
     hierarchyLevel: 1, // Add hierarchy level
     hierarchyCategory: "founder" // Add hierarchy category
   },
@@ -30,10 +30,11 @@ const teamData = [
     id: 2,
     name: "Jonathan Tang",
     slug: "jonathan-tang",
-    role: "Frontend Developer & Technical lead",
+    role: "Technical Lead & Website Developer",
     image: jonathanImage,
     description: "Jonathan Tang is the Technical Lead at Brightway to Canada and a former student who directly benefited from Ling’s guidance since a young age. Now studying engineering at the University of Toronto, he leads the technical development of the company’s digital platform, combining firsthand student experience with strong engineering and programming expertise to build reliable, student-focused systems.",
     extended_bio: ["Jonathan Tang is a key contributor in shaping the technical foundation of Brightway to Canada. As the architect behind the website framework, he is responsible for the platform’s structure, functionality, and long-term scalability. His work ensures that the site remains stable, efficient, and to optimize usability for students and families navigating the Canadian education system.", "A former student supported by Ling, Jonathan brings a unique perspective to his role. Having experienced the challenges of academic planning firsthand, he is deeply committed to building systems that are clear, dependable, and genuinely helpful. Known for his reliability, attention to detail, and great experience with UI design, he approaches technical challenges methodically and follows through consistently, making him a trusted leader on the technical side of the company.", "Jonathan began developing his programming skills through computer science courses in high school and has continued building his expertise through university-level coursework, including fundamentals of deep learning. He is experienced in Python, C++, C, and JavaScript, and applies this technical background to both front-end and back-end development.", "Outside of Professional work and academics, Jonathan is passionate about badminton and plays regularly. He is also deeply involved in music, playing guitar and piano and producing music in his free time."],
+    categories: ["development", "administration"],
     hierarchyLevel: 5,
     hierarchyCategory: "administration",
     extended_expertise: ["Video Editing", "Graphic Design", "Music Production"]
@@ -45,7 +46,7 @@ const teamData = [
     role: "STEM Tutor & Technical Support",
     image: jayImage,
     description: "Jay Zang is a tutor and designer at Brightway to Canada, leveraging his background in Astronomy and Information Systems to support students in math and science. His dual role gives him a unique edge in creating clear and engaging educational experiences tailored to individual academic goals.",
-    categories: ["tutor_stem", "development", "design"],
+    categories: ["tutor_stem", "administration", "design"],
     tutor_expertise: ["Math", "Science"],
     extended_bio: ["Drawing on a unique blend of academic expertise and creative skill, Jay Zang provides multifaceted support to students at Brightway to Canada. Holding a Bachelor's degree in Astronomy and currently completing his Master's in Information Systems, he bridges the gap between complex scientific concepts and intuitive, accessible learning.",
       "His direct experience as an international student gives him firsthand insight into the challenges of navigating a new academic system and adapting to life in Canada. This allows him to offer students not just academic tutoring, but also empathetic guidance through the unique hurdles they may face.",
@@ -132,10 +133,10 @@ const teamData = [
     role: "Marketing Advisor & Mandarin Instructor",
     image: qiImage,
     description: "Qi Zhu is an experienced educator with decades of experience who has more recently specialized in adolescent psychological therapy and cross-cultural subject instruction. Certified as an international therapist and TCSOL instructor, she focuses on preparing high school students for overseas academic success: bridging curriculum gaps, strengthening the foundations, and meeting admission requirements. Skilled in multimedia course design and diverse teaching methods, she provides tailored guidance for students abroad and in-person tutoring for returnees, ensuring sustained academic adaptation and support throughout their international education journey.",
-    categories: ["design", "tutor_lang"],
+  categories: ["tutor_lang"],
     tutor_expertise: ["Language (Mandarin)"],
     hierarchyLevel: 4,
-    hierarchyCategory: "design",
+  hierarchyCategory: "education_consulting",
     extended_expertise: ["Content Creation"],
     extended_bio: ["Qi Zhu has decades of dedicated experience in education, with dual core expertise in adolescent psychological therapy and cross-cultural subject instruction. She holds an International Therapist Certification and professional qualifications in Teaching Chinese to Speakers of Other Languages (TCSOL).",
       "Drawing on higher education resources, she specializes in bridging senior high school students to their target overseas majors—addressing gaps between Chinese and foreign academic frameworks, building solid subject foundations, and aligning preparation with overseas admission requirements.",
