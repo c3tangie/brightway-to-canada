@@ -36,12 +36,12 @@ const Abouts_Article_Teams = () => {
       filterFn: (member) => member.hierarchyCategory === 'tutor_stem'
     },
     {
-      id: 'design',
+  id: 'education_consulting',
       title: 'Education Consulting',
       description: 'Crafting engaging visual experiences',
       icon: '🎨',
       color: 'bg-gradient-to-r from-navy-600 to-navy-800',
-      filterFn: (member) => member.hierarchyCategory === 'design'
+  filterFn: (member) => member.hierarchyCategory === 'education_consulting'
     },
     {
       id: 'administration',
