@@ -42,7 +42,7 @@ const serviceData = [
       },
       {
         question: "What are the key stages of academic planning and optimal timing for studying abroad?",
-        answer: ["Key stages include foundation building, language/cultural adaptation, pathway development, and university preparation. We assess each student's situation to determine optimal timing based on academic goals, language readiness, and emotional maturity."],
+        answer: ["Key stages include foundation building, language/cultural adaptation, pathway development, and university preparation. We assess each student's situation to determine optimal timing based on academic goals, language readiness, and emotional maturity. If you have any particular concern regarding any of these stages, feel free to book a free consultation with us."],
         answer_short: ["Four-stage planning process with personalized timing assessment."],
         image: ConnectImageSix,
         id: 2
