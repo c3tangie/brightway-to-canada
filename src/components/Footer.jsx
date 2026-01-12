@@ -52,7 +52,7 @@ const Footer = () => {
             <div className="text-white text-sm lg:text-base font-RobotoFlex leading-loose tracking-wider text-center lg:text-left break-words">
               <p>
                 Phone: +1 (250) 797-7886 | Email: info@brightwaytocanada.ca<br />
-                Mailbox: PO Box 886, Nanaimo, BC, V9T 5N2 <br className="lg:hidden" />
+                Mailbox: PO Box 886 Station A, Nanaimo, BC, V9T 5N2 <br className="lg:hidden" />
                 <span className="hidden lg:inline"></span>
                 {/* | Office Hours: 9:00 AM - 4:00 PM (PST) */}
               </p>
