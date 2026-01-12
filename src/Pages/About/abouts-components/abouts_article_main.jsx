@@ -207,10 +207,7 @@ const Abouts_Article_Main = () => {
               to make the Canadian dream accessible to everyone. What started as 
               a small consultancy has grown into a comprehensive immigration 
               services provider, helping thousands of individuals and families 
-              successfully navigate their path to Canada.  Our team combines decades of immigration law expertise with cutting-edge technology to provide personalized, efficient, 
-              and successful immigration solutions. We believe in building 
-              lasting relationships with our clients, guiding them through 
-              every step of their journey.
+              successfully navigate their path to Canada.  Our team brings decades of experience in educational planning, using thoughtful strategies and up-to-date resources to create personalized pathways for each student. We value long-term relationships and walk closely with students and families at every step of their education journey.
             </p>
             
             <p className='text-xl leading-relaxed space-y-6 text-gray-700 max-w-8xl mx-auto mb-16'>
@@ -285,7 +282,7 @@ const Abouts_Article_Main = () => {
                           className="w-7 h-7"
                           fill="none"
                           stroke="currentColor"
-                          strokeWidth="1.5"
+                          strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           aria-hidden="true"
@@ -305,7 +302,7 @@ const Abouts_Article_Main = () => {
                           className="w-7 h-7"
                           fill="none"
                           stroke="currentColor"
-                          strokeWidth="1.5"
+                          strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           aria-hidden="true"

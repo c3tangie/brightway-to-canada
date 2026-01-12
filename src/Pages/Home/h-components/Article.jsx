@@ -10,12 +10,8 @@ import ConnectImageFive from '@services-assets/services_img_connect5.webp';
 import { Link } from 'react-router-dom';
 
 const Article = () => {
-  const scrollContainerRef = useRef(null);
-  const [showLeftFade, setShowLeftFade] = useState(false);
-  const [showRightFade, setShowRightFade] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
-  const scrollTimeoutRef = useRef(null);
-  const isScrollingRef = useRef(false);
+  const [cardsPerView, setCardsPerView] = useState(3);
+  const [pageIndex, setPageIndex] = useState(0);
   
   const cards = [
     {
@@ -60,123 +56,31 @@ const Article = () => {
     }
   ];
 
+  const totalCards = cards.length;
+  const maxPageIndex = Math.max(0, totalCards - cardsPerView);
+
   useEffect(() => {
-    setIsMounted(true);
+    const compute = () => {
+      const w = window.innerWidth;
+      const next = w >= 1024 ? 3 : w >= 640 ? 2 : 1; // lg / sm breakpoints
+      setCardsPerView(next);
+    };
+
+    compute();
+    window.addEventListener('resize', compute);
+    return () => window.removeEventListener('resize', compute);
   }, []);
 
   useEffect(() => {
-    if (!isMounted) return;
+    // Clamp when breakpoint changes
+    setPageIndex((prev) => Math.min(prev, Math.max(0, totalCards - cardsPerView)));
+  }, [cardsPerView, totalCards]);
 
-    const checkScrollPosition = () => {
-      const container = scrollContainerRef.current;
-      if (container) {
-        const scrollLeft = container.scrollLeft;
-        const scrollWidth = container.scrollWidth;
-        const clientWidth = container.clientWidth;
-        
-        // Use a small buffer to avoid edge cases
-        const buffer = 5;
-        const isAtStart = scrollLeft <= buffer;
-        const isAtEnd = scrollLeft + clientWidth >= scrollWidth - buffer;
-        
-        setShowLeftFade(!isAtStart);
-        setShowRightFade(!isAtEnd);
-      }
-    };
+  const showLeftFade = pageIndex > 0;
+  const showRightFade = pageIndex < maxPageIndex;
 
-    const container = scrollContainerRef.current;
-    if (container) {
-      // Check immediately
-      checkScrollPosition();
-      
-      // Set up scroll listener
-      container.addEventListener('scroll', checkScrollPosition);
-      
-      // Check on resize
-      window.addEventListener('resize', checkScrollPosition);
-      
-      // Wait for images to load and check again
-      const images = container.querySelectorAll('img');
-      let imagesLoaded = 0;
-      
-      const checkAfterImagesLoad = () => {
-        imagesLoaded++;
-        if (imagesLoaded === images.length) {
-          // All images loaded, check scroll position
-          setTimeout(checkScrollPosition, 100);
-        }
-      };
-      
-      images.forEach(img => {
-        if (img.complete) {
-          imagesLoaded++;
-        } else {
-          img.addEventListener('load', checkAfterImagesLoad);
-          img.addEventListener('error', checkAfterImagesLoad); // Also check if image fails to load
-        }
-      });
-      
-      // If all images are already loaded or there are no images
-      if (imagesLoaded === images.length) {
-        setTimeout(checkScrollPosition, 100);
-      }
-      
-      // Additional checks after delays
-      const timeout1 = setTimeout(checkScrollPosition, 300);
-      const timeout2 = setTimeout(checkScrollPosition, 1000);
-
-      return () => {
-        if (container) {
-          container.removeEventListener('scroll', checkScrollPosition);
-        }
-        window.removeEventListener('resize', checkScrollPosition);
-        
-        // Clean up image listeners
-        images.forEach(img => {
-          img.removeEventListener('load', checkAfterImagesLoad);
-          img.removeEventListener('error', checkAfterImagesLoad);
-        });
-        
-        clearTimeout(timeout1);
-        clearTimeout(timeout2);
-      };
-    }
-  }, [isMounted]);
-
-  const handleScrollLeft = () => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      // Use responsive scroll amount based on screen size
-      const scrollAmount = window.innerWidth < 640 ? -280 : -350;
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollRight = () => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      // Use responsive scroll amount based on screen size
-      const scrollAmount = window.innerWidth < 640 ? 280 : 350;
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
-  const scrollToStart = () => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.scrollTo({ left: 0, behavior: 'smooth' });
-    }
-  };
-
-  const scrollToEnd = () => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.scrollTo({ 
-        left: container.scrollWidth - container.clientWidth, 
-        behavior: 'smooth' 
-      });
-    }
-  };
+  const handleScrollLeft = () => setPageIndex((p) => Math.max(0, p - 1));
+  const handleScrollRight = () => setPageIndex((p) => Math.min(maxPageIndex, p + 1));
 
   return (
     <div className='mt-8 max-w-screen-2xl mx-auto 2xl:px-20 xl:px-20 px-6 font-RobotoFlex text-xl leading-normal text-gray-600'>
@@ -184,121 +88,87 @@ const Article = () => {
         Welcome to Brightway to Canada
       </div>
       <p className="mb-12 text-center text-xl leading-relaxed">
-        Brightway to Canada is an education consulting company dedicated to helping international students and their families confidently navigate the Canadian K-12 education system. We specialize in school selection, study planning, academic support, student well-being, and smooth transitions to post-secondary institutions. Through this comprehensive support, Brightway to Canada helps students achieve academic success while building a meaningful and fulfilling life in Canada. With deep experience working alongside Canadian primary and high schools, educators, and homestay families, we guide students toward environments where they can learn, adapt, and grow with confidence.
+        Brightway to Canada is an education consulting company that helps international students navigate the Canadian K-12 education system. We specialize in school selection, study planning, academic support, and insightful stepping stones to post-secondary institutions. With deep experience working alongside Canadian schools, educators, and homestay families, we guide students toward environments where they can learn, adapt, and grow with confidence.
       </p>
 
       {/* NEW: separator between welcome intro and cards */}
       <hr className="my-10 border-t border-gray-200" />
 
-      {/* Scroll navigation */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-2">
-          <button 
-            onClick={scrollToStart}
-            className="flex items-center text-blue-900 text-sm font-medium p-2 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Scroll to start"
-            disabled={!showLeftFade}
+  {/* Cards carousel (deterministic slider: always exactly 3/2/1 cards, no peeking) */}
+  <div className="relative mb-12 overflow-x-hidden overflow-y-visible px-16">
+        {/* Side controls (match About Us gallery style) */}
+        <button
+          type="button"
+          onClick={handleScrollLeft}
+          aria-label="Scroll left"
+          disabled={!showLeftFade}
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-blue-900 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-blue-800 transition active:scale-95 ${
+            !showLeftFade ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          }`}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            className="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clipRule="evenodd" />
-            </svg>
-            Start
-          </button>
-          <button 
-            onClick={handleScrollLeft}
-            className="p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Scroll left"
-            disabled={!showLeftFade}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
-        
-        <div className="flex items-center text-blue-900 text-sm font-medium">
-          <span className="mr-2 hidden sm:inline">Scroll to see more</span>
-          <div className="flex items-center gap-2">
-            <button 
-              onClick={handleScrollRight}
-              className="p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Scroll right"
-              disabled={!showRightFade}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <button 
-              onClick={scrollToEnd}
-              className="flex items-center text-blue-900 text-sm font-medium p-2 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Scroll to end"
-              disabled={!showRightFade}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clipRule="evenodd" />
-              </svg>
-              End
-            </button>
-          </div>
-        </div>
-      </div>
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
 
-      {/* Horizontal scroll container with dynamic fade effects */}
-      <div className="relative mb-12">
-        {/* Left fade gradient - dynamic */}
-        <div 
-          className={`absolute left-0 top-0 bottom-0 w-4 md:w-24 z-10 pointer-events-none transition-opacity duration-300 ${
-            showLeftFade 
-              ? 'opacity-100' 
-              : 'opacity-0'
+        <button
+          type="button"
+          onClick={handleScrollRight}
+          aria-label="Scroll right"
+          disabled={!showRightFade}
+          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-blue-900 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-blue-800 transition active:scale-95 ${
+            !showRightFade ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
-          <div className="w-full h-full bg-gradient-to-r from-white via-white/80 to-transparent md:from-white md:via-white/90 md:to-transparent"></div>
-        </div>
-        
-        {/* Right fade gradient - dynamic */}
-        <div 
-          className={`absolute right-0 top-0 bottom-0 w-4 md:w-24 z-10 pointer-events-none transition-opacity duration-300 ${
-            showRightFade 
-              ? 'opacity-100' 
-              : 'opacity-0'
-          }`}
-        >
-          <div className="w-full h-full bg-gradient-to-l from-white via-white/80 to-transparent md:from-white md:via-white/90 md:to-transparent"></div>
-        </div>
-        
-        {/* Scrollable container */}
-        <div
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto pb-6 space-x-6 md:space-x-8 scrollbar-hide"
-        >
-          {/* Hide scrollbar but keep functionality */}
-          <style jsx>{`
-            .scrollbar-hide::-webkit-scrollbar {
-              display: none;
-            }
-            .scrollbar-hide {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
-            }
-          `}</style>
-          
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden
-                min-w-[75vw] sm:min-w-[300px] md:min-w-[350px]
-                max-w-[300px] sm:max-w-[350px] md:max-w-[400px]
-                flex-shrink-0 snap-start hover:shadow-xl transition-shadow duration-300
-                flex flex-col
-                h-[620px] sm:h-[650px] md:h-[760px]"
-            >
+          <svg
+            viewBox="0 0 24 24"
+            className="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 6l6 6-6 6" />
+          </svg>
+        </button>
+
+        {/*
+          IMPORTANT: Don't add horizontal padding to the sliding viewport.
+          Padding changes the math and causes the next card to peek.
+          We reserve space for the buttons using absolute overlay gutters instead.
+        */}
+  <div className="relative w-full overflow-x-hidden overflow-y-visible py-5">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-white/0" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-white/0" />
+
+          <div
+            className="transition-transform duration-300 ease-out will-change-transform"
+            style={{ transform: `translateX(-${pageIndex * (100 / cardsPerView)}%)` }}
+          >
+            <div className="flex">
+              {cards.map((card) => (
+                <div
+                  key={card.id}
+                  className="shrink-0 px-3"
+                  style={{ width: `${100 / cardsPerView}%` }}
+                >
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[620px] sm:h-[650px] md:h-[760px]">
               <div className="w-full h-48 sm:h-56 md:h-72 overflow-hidden">
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
@@ -323,17 +193,20 @@ const Article = () => {
                   </p>
                 </div>
               </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
         
-        {/* Scroll indicators for mobile */}
-        <div className="flex justify-center mt-4 md:hidden">
+    {/* Scroll indicators for mobile */}
+    <div className="flex justify-center mt-4 md:hidden">
           <div className="flex space-x-2">
-            {cards.map((_, index) => (
+      {Array.from({ length: Math.max(1, totalCards - cardsPerView + 1) }).map((_, index) => (
               <div 
                 key={index}
-                className="w-2 h-2 rounded-full bg-blue-200"
+        className={`w-2 h-2 rounded-full ${index === pageIndex ? 'bg-blue-600' : 'bg-blue-200'}`}
               ></div>
             ))}
           </div>
