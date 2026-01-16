@@ -1,3 +1,4 @@
+# Generic user-agent, limit to once per 10 seconds
 User-agent: *
 Crawl-delay: 10
 Request-rate: 1/10
@@ -8,10 +9,18 @@ Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /search/
-Disallow: /src/data/
+
+# Disallow source file access, shouldnt be necessary for vercel React
+# Disallow: /src/
+
+# Disallow data access, shouldnt be necessary for vercel React
+# Disallow: /data/
+
 Disallow: /*?*
 Disallow: /*.pdf$
 Disallow: /*.docx$
 Disallow: /*.xlsx$
-Disallow: /src/assets/
-Disallow: /src/utils/
+
+# Disallow assets and utils access, shouldnt be necessary for vercel React
+# Disallow: /assets/
+# Disallow: /utils/
