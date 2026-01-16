@@ -57,7 +57,7 @@ const serviceData = [
     questions: [
       {
         question: "What safety measures and healthcare support are available for international students in Canada?",
-        answer: ["Canadian schools have strict safety protocols, 24/7 supervision for boarding students, mandatory reporting systems, and thorough homestay vetting. All international students must have comprehensive health insurance, and we assist with enrollment and accessing medical services including 24/7 emergency support."],
+        answer: ["Canadian schools have strict safety protocols, 24/7 supervision for boarding students, mandatory reporting systems, and thorough homestay vetting. All international students must have comprehensive health insurance, either through the provincial health care program (more applicable for BC schools) and private insurance providers (notably GuardMe). There are also volunteer-based crisis hotlines for mental health and critical safety issues. If you are concerned about which healthcare to choose or who to contact in case of support, our consulting team is always ready."],
         answer_short: ["Safety protocols, health insurance assistance, and 24/7 emergency support."],
         image: CareImageOne,
         id: 0
@@ -80,7 +80,7 @@ const serviceData = [
     questions: [
       {
         question: "What living arrangements and initial support are provided for international students?",
-        answer: ["We assess each student's needs to recommend homestay or dormitory arrangements, maintain weekly check-ins, and provide comprehensive first-month support including airport pickup, orientation, school registration, banking setup, and ongoing coordination."],
+        answer: ["We assess each student's needs to recommend homestay or dormitory arrangements, maintain weekly check-ins, and provide comprehensive first-month support including airport pickup, orientation, school registration, banking setup, and ongoing coordination. It is advisable for the parents to also get in contact with the homestay family (if applicable) and international student counselor during their child’s initial visit. If you still have specific questions regarding on-arrival support, feel free to book a consultation with us."],
         answer_short: ["Personalized living arrangements and comprehensive first-month transition support."],
         image: ConnectImageTwo,
         id: 0
@@ -95,7 +95,8 @@ const serviceData = [
     questions: [
       {
         question: "How do you help international students integrate and what realistic expectations should families have?",
-        answer: ["We organize orientation programs, buddy systems, cultural exchanges, and integration workshops. We focus on setting realistic expectations, gradual adaptation, and ongoing monitoring to ensure positive outcomes in Canada's different educational environment."],
+        answer: ["One good news for most parents and students is that most Canadian institutions value the diversity international students bring, and to integrate into a Canadian school does not mean throwing away your original cultural and social identity. There is usually a counselor and study group dedicated to international students. If you are still concerned about integration, book a consultation with us to discuss the specific issues.",
+                "We also acknowledge that sometimes families get disappointed as they realize that some unrealistic expectations for studying in Canada can never be achieved. This is why we incorporate the experiences of previous educators and international students to help both the parents and the student setting up more feasible goals. If this is exactly what you are looking for, do not hesitate to contact us."],
         answer_short: ["Integration programs and realistic expectation setting for study abroad."],
         image: EmotionImageTwo,
         id: 0
@@ -110,7 +111,7 @@ const serviceData = [
     questions: [
       {
         question: "What emotional support is available for students and how can parents stay involved?",
-        answer: ["We provide mentorship programs, healthy relationship education, access to counselors, cultural adaptation workshops, and regular emotional check-ins. For parents, we offer guidance on communication strategies, emotional support techniques, and balancing involvement with independence."],
+        answer: ["We provide healthy relationship education, access to counselors, cultural adaptation workshops, and regular emotional check-ins. For parents, we offer guidance on communication strategies, emotional support techniques, and balancing involvement with independence. When applicable, we are also working on a mentorship program where senior international students can volunteer in helping newly arrived peers. If a particular emotional struggle is bothering you or your child, feel free to leave us a message."],
         answer_short: ["Student counseling and parental guidance for emotional well-being."],
         image: ConnectImageFour,
         id: 0
@@ -125,7 +126,7 @@ const serviceData = [
     questions: [
       {
         question: "What financial planning and documentation preparation is needed for studying in Canada?",
-        answer: ["We provide budgeting templates, cost comparisons, scholarship recommendations, and financial strategies. For documentation, we offer checklists for study permits, guardianship documents, medical records, insurance, and vaccinations based on Canadian requirements."],
+        answer: ["We provide budgeting templates, cost comparisons, scholarship recommendations, and financial strategies. For documentation, we offer checklists for study permits, guardianship documents, medical records, insurance, and vaccinations based on Canadian requirements. If there is a specific financial difficulty that you’d like to discuss, feel free to book a consultation with us."],
         answer_short: ["Financial planning tools and comprehensive documentation checklists."],
         image: DocsImageOne,
         id: 0
@@ -141,22 +142,22 @@ const serviceData = [
     isNiche: true,
     questions: [
       {
-        question: "My children showed me their grade reports, why do i only see teachers' comments on behavior and attitude but no specific scores?",
-        answer: ["Canadian schools prefers the letter grade which could be confusing for the parents. Compounding this issue even more is the emphasis on teacher comments. If you are having trouble navigating the grade reports, we can help."],
+        question: "My children showed me their grade reports. Why do I only see teachers' comments on behavior and attitude but no specific scores?",
+        answer: ["Canadian schools prefer the letter grade which could be confusing for the parents. Compounding this issue even more is the emphasis on teacher comments, which can seem generic or even ‘irrelevant’ to the subject matter. If you are having trouble navigating the grade reports, we can help."],
         answer_short: ["Guidance on understanding Canadian grading systems and report cards."],
         image: DocsImageTwo,
         id: 0
       },
       {
         question: "I used to have a well formed plan for my child, however looking at other international students' plans I am not certain anymore. How can I be sure my child's plan is effective?",
-        answer: ["You may feel distressed by the comparing with other parents, we can help with that."],
+        answer: ["The stress from fear-of-missing-out can be a significant hurdle for both the parents and the students, particularly when they see other people seemingly ‘outcompeting’ them. We acknowledge this and strive to relieve such pressure. The Canadian education system is flexible and there is not a single best path for you and your child. If you are feeling worried about the future and want valuable suggestions on where to go, please leave us a message."],
         answer_short: ["Reassessment and validation of personalized academic plans."],
         image: StudyImageOne,
         id: 1
       },
       {
         question: "My child wants to apply to a specific university but that institution's QS scores and popularity seem to be quite low. Will that affect their future?",
-        answer: ["What fits your child's needs may often deviate from the more strict 'top insitutions' path. If you are feeling uncertain, feel free to consult us."],
+        answer: ["What fits your child's needs may often deviate from the more strict 'top institutions' path. This is a particularly significant issue when the parents and students haven’t decided on whether they want to obtain Canadian citizenship or not, since a competitive school or title back in their home country may not be beneficial or could even make their path to get a PR less cost-effective. If you are feeling uncertain, feel free to consult us."],
         answer_short: ["Advice on university selection beyond rankings."],
         image: DocsImageTwo,
         id: 2
@@ -176,8 +177,8 @@ const serviceData = [
         id: 4
       },
       {
-        question: "My child's favorite teacher and the school counselor is suggesting a career path for my child that I don't agree with. What should I do?",
-        answer: ["We can help when there is authority conflicts between you and your child's school staffs."],
+        question: "My child's favorite teacher and the school counselor are suggesting a career path for my child that I don't agree with. What should I do?",
+        answer: ["We can help when there are authority conflicts between you and your child's school staff."],
         answer_short: ["Mediation and guidance on conflicting career advice."],
         image: StudyImageOne,
         id: 5
@@ -193,7 +194,7 @@ const serviceData = [
     questions: [
       {
         question: "My child received some medical help and they are charging them? Didn't we enroll in health insurance?",
-        answer: ["We help navigating the nuances of health care coverage."],
+        answer: ["We help navigate the nuances of health care coverage."],
         answer_short: ["Clarification on health insurance coverage and billing."],
         image: ConnectImageOne,
         id: 0
@@ -207,7 +208,7 @@ const serviceData = [
       },
       {
         question: "My child's favorite food/snack is not available in Canada, and border controls are preventing us from sending them packages. How can we help them cope with this?",
-        answer: ["Lacking of comfort food is often the little nuance that may just ruin an already bad day. We offer emotional support and provide alternatives."],
+        answer: ["Lacking comfort food is often the little nuance that may just ruin an already bad day. We offer emotional support and provide alternatives."],
         answer_short: ["Alternatives and coping strategies for unavailable food items."],
         image: ConnectImageOne,
         id: 2
@@ -236,15 +237,15 @@ const serviceData = [
         id: 1
       },
       {
-        question: "I miss my child so much and demands them to call me but it seems that they are not happy to do so. How can I improve our communication?",
+        question: "I miss my child so much and demand they call me but it seems that they are not happy to do so. How can I improve our communication?",
         answer: ["We acknowledge that parents can be vulnerable too and we are here to help."],
         answer_short: ["Tips for improving parent-child communication across distance."],
         image: ConnectImageFour,
         id: 2
       },
       {
-        question: "I do not wish to force relationship advises on my child, but I am worried they may be too lonely and may fall into unhealthy relationships. How can I help them?",
-        answer: ["We understand that you may be concerned about your child's potential relationships. We can act as a brifge between two parties."],
+        question: "I do not wish to force relationship advice on my child, but I am worried they may be too lonely and may fall into unhealthy relationships. How can I help them?",
+        answer: ["We understand that you may be concerned about your child's potential relationships. We can act as a bridge between two parties."],
         answer_short: ["Guidance on supporting healthy relationships without pressure."],
         image: ConnectImageFour,
         id: 3
