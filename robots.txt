@@ -1,0 +1,15 @@
+User-agent: *
+Crawl-delay: 10
+Request-rate: 1/10
+
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /search/
+Disallow: /data/
+Disallow: /*?*
+Disallow: /*.pdf$
+Disallow: /*.docx$
+Disallow: /*.xlsx$
