@@ -8,8 +8,10 @@ Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /search/
-Disallow: /data/
+Disallow: /src/data/
 Disallow: /*?*
 Disallow: /*.pdf$
 Disallow: /*.docx$
 Disallow: /*.xlsx$
+Disallow: /src/assets/
+Disallow: /src/utils/
