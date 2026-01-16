@@ -180,7 +180,8 @@ const serviceData = [
       },
       {
         question: "My child's favorite teacher and the school counselor are suggesting a career path for my child that I don't agree with. What should I do?",
-        answer: ["We can help when there are authority conflicts between you and your child's school staff. With your consent, our team members can act as a bridge to professionally communicate your concerns to the school."],
+        answer: ["We can help when there are authority conflicts between you and your child's school staff. With your consent, our team members can act as a bridge to professionally communicate your concerns to the school.",
+                "This also ties in with confusions regarding your child’s path. There is no single best path for a student, and whether a career is ‘suitable’ or not may depend on various factors, such as whether the student comes with education or immigration intent. If you are realizing this issue, feel free to book a consultation with us."],
         answer_short: ["Mediation and guidance on conflicting career advice."],
         image: StudyImageOne,
         id: 5
@@ -205,14 +206,15 @@ const serviceData = [
       },
       {
         question: "My child forgot to renew their health insurance and they are too afraid to contact officials thinking they will get 'arrested' or 'expelled'. What should we do?",
-        answer: ["We understand the potential fear and can help them go through the process."],
+        answer: ["For your and your child’s upfront comfort, note that people do not simply get ‘arrested’ or ‘expelled’ over lack of health insurance. What you do need to be careful about is the related academic hold imposed by the school, as technically all international students need mandatory health care coverage in Canada. Usually, the school will send a cautionary email before the health care expires, so please watch out for that. Having a hold due to lacking health care does not immediately cause legal issues, but if the time period is critical (say course registration or graduation period), you may want to resolve this issue soon. If there is a specific problem regarding expired health care, feel free to leave us a message.",
+                 "If there are no urgent issues but you are still experiencing emotional stress as things get sorted out, we understand the potential fear and can help you and your child go through the process."],
         answer_short: ["Guidance on health insurance renewal and addressing fears."],
         image: ConnectImageOne,
         id: 1
       },
       {
         question: "My child's favorite food/snack is not available in Canada, and border controls are preventing us from sending them packages. How can we help them cope with this?",
-        answer: ["Lacking comfort food is often the little nuance that may just ruin an already bad day. We offer emotional support and provide alternatives."],
+        answer: ["Lacking comfort food is often the little nuance that may just ruin an already bad day. Many of our staff who were previous students have experienced this exact issue before. The exact solution depends on the location, as larger cities, such as Vancouver or Toronto, usually have more culturally diverse communities and corresponding culture-specific market places. In the more optimal case, we can look up and recommend niche supermarkets and online stores for cultural cuisines; in the less optimal case, we can provide guides on alternative food and emotional compensation. Feel free to leave a message to discuss specific issues."],
         answer_short: ["Alternatives and coping strategies for unavailable food items."],
         image: ConnectImageOne,
         id: 2
@@ -235,35 +237,36 @@ const serviceData = [
       },
       {
         question: "My child seems to be missing home so much they video call us every day and sometimes cries during the call. How can we help them adjust better?",
-        answer: ["We understand the importance of communication and can assist with communication-based emotional issues between you and your child."],
+        answer: ["This is a more common issue for new arrivals, since the stress from adapting to a new environment can be overwhelming. We understand the importance of communication and can assist with communication-based emotional issues between you and your child.",
+                "Note that this could also happen years into the education journey, particularly during grade 12, as your child is under pressure from university applications and needs a ‘vent’ to release the emotional weight. If you or your child is experiencing this, feel free to leave us a message."],
         answer_short: ["Support strategies for homesickness and adjustment."],
         image: ConnectImageFour,
         id: 1
       },
       {
         question: "I miss my child so much and demand they call me but it seems that they are not happy to do so. How can I improve our communication?",
-        answer: ["We acknowledge that parents can be vulnerable too and we are here to help."],
+        answer: ["We acknowledge that parents can be vulnerable too and we are here to help. Please understand that your child is already trying their best to adapt to the new environment, so while your affection is valid, the action of demanding contact may induce unnecessary stress. One way to ease this is to experiment with alternative contacts, such as replacing frequent calls with voice messages and photo exchanges. If there is a particular communication issue, feel free to book a consultation with us."],
         answer_short: ["Tips for improving parent-child communication across distance."],
         image: ConnectImageFour,
         id: 2
       },
       {
         question: "I do not wish to force relationship advice on my child, but I am worried they may be too lonely and may fall into unhealthy relationships. How can I help them?",
-        answer: ["We understand that you may be concerned about your child's potential relationships. We can act as a bridge between two parties."],
+        answer: ["We understand that you may be concerned about your child's potential relationships. We can act as a bridge between two parties to assist in your child’s healthy relationships while respecting your child’s individuality. Some of our advisors are particularly keen on this issue, so feel free to book a consultation with us."],
         answer_short: ["Guidance on supporting healthy relationships without pressure."],
         image: ConnectImageFour,
         id: 3
       },
       {
         question: "My child is doing fine but us parents are developing serious anxiety about their well-being and safety. How can we ease our worries?",
-        answer: ["We acknowledge that parents can be vulnerable too and we are here to help."],
+        answer: ["We acknowledge that parents can be vulnerable too and we are here to help. Some of our staff were parents of international students previously, so feel free to reach us for personalized support and consultation."],
         answer_short: ["Strategies for parents to manage anxiety about children abroad."],
         image: ConnectImageFour,
         id: 4
       },
       {
         question: "My child is integrating well socially, a bit too well perhaps. They seem to care about their friends more than family now. Is this normal?",
-        answer: ["We acknowledge that parents can be vulnerable too and we are here to help."],
+        answer: ["This is an issue even for student-parent relationships in their home country, which can be further amplified by the physical separation for international students. While it is understandable that students, particularly during adolescence, may be experimenting their own way to manage relationships, in their parents’ eyes this might be misinterpreted as ‘my child does not care about the family anymore’. We acknowledge the delicate balance between parents and students during this sensitive time, and are eager to provide support through our consultations."],
         answer_short: ["Understanding social integration and shifting family dynamics."],
         image: ConnectImageFour,
         id: 5
@@ -277,7 +280,7 @@ const serviceData = [
       },
       {
         question: "My child seems to be losing the friendships they had back home due to the distance, time difference, and even jealousy. How can we help them maintain those important relationships?",
-        answer: ["It is a rarely discussed but often serious mental struggle for students. We are here to help."],
+        answer: ["It is a rarely discussed but often serious mental struggle for students. We are here to help. While the exact emotional and social hurdle may be difficult to sort out, you could still leave us a message to request counseling."],
         answer_short: ["Tips for maintaining long-distance friendships."],
         image: ConnectImageFour,
         id: 7
