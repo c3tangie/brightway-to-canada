@@ -164,21 +164,23 @@ const serviceData = [
       },
       {
         question: "Should I encourage or discourage my child to take 'Grade-Booster' courses offered by some schools to improve their grades? Would that be viewed negatively by the prestigious universities they are applying to?",
-        answer: ["Grade-Booster is a common phrase used by both advisors and students. If you are considering a specific grade booster course and are worried about its impact, we can help."],
+        answer: ["Grade-Booster is a common phrase used by both advisors and students. If you are considering a specific grade booster course and are worried about its impact, we can help.",
+                "One key takeaway for grade-booster courses is that there are no strictly ‘bad’ courses, how they get viewed during university application depends entirely on the field of study and whether these courses align with the student’s academic growth. If you are not certain whether a specific grade-booster course suits your plans, feel free to book a consultation with us."],
         answer_short: ["Analysis of 'Grade-Booster' courses and university perception."],
         image: StudyImageOne,
         id: 3
       },
       {
         question: "I just got a panicked phone call from my child saying they may have to delay graduation due to available course sections being full. How common is this and what can be done to prevent it?",
-        answer: ["We can help both you and your child to overcome the emotional hurdle of missing registrations due to full sections."],
+        answer: ["We can help both you and your child to overcome the emotional hurdle of missing registrations due to full sections. This issue is more common than usually realized, and can be a major cause of stress for students in Grade 11-12. The best way to prevent this issue would be a combined effort by both the student and the parents, with the students maintaining good academic standing (failing a mandatory class and needing to retake it often leads to messy course plans), and the parents monitoring the child’s progress.",
+                "Note that sometimes even with perfect planning, course conflicts or cancellation (if there are insufficient students enrolled, rare for mandatory courses but can occur for specialized technical or art classes) can still occur. If you are in this situation and do not want the negative thoughts to make the situation worse, please contact our consultants for support."],
         answer_short: ["Strategies to prevent graduation delays due to course availability."],
         image: DocsImageTwo,
         id: 4
       },
       {
         question: "My child's favorite teacher and the school counselor are suggesting a career path for my child that I don't agree with. What should I do?",
-        answer: ["We can help when there are authority conflicts between you and your child's school staff."],
+        answer: ["We can help when there are authority conflicts between you and your child's school staff. With your consent, our team members can act as a bridge to professionally communicate your concerns to the school."],
         answer_short: ["Mediation and guidance on conflicting career advice."],
         image: StudyImageOne,
         id: 5
@@ -194,7 +196,9 @@ const serviceData = [
     questions: [
       {
         question: "My child received some medical help and they are charging them? Didn't we enroll in health insurance?",
-        answer: ["We help navigate the nuances of health care coverage."],
+        answer: ["It is crucial to check what your child’s insurance covers. Often the provincial health care will only cover hospitalization expenses and some prescriptions, meaning many non-emergency visits (say for a minor flu or wound, or a dental visit) can still generate fees. One critical note is that some provincial plans do not cover emergency transportation fees (ambulance, helicopter, etc, can lead to thousands of dollars worth of bills) which can cause significant financial hurdles. Some private plans do claim to cover these fees, but always check to make sure.",
+                "Also note that sometimes even if the fees are supposed to be covered, the hospital or clinic may not bill the insurance provider and still demand an upfront payment. The money is then refunded by the insurer afterwards. In this case it is important to keep the medical records and receipts from the visit.",
+                "If you want someone to double check the coverage of your health insurance, or want a comprehensive list of documents needed to get reimbursed for a medical bill, we can help navigate the nuances of health care coverage."],
         answer_short: ["Clarification on health insurance coverage and billing."],
         image: ConnectImageOne,
         id: 0
