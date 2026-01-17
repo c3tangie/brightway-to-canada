@@ -30,7 +30,7 @@ function generateSiteContent() {
       Personalized Planning from Day One
       Guidance by Real Education Professionals
       Real Life Support
-    `
+    `,
   });
 
   // About page (static)
@@ -46,21 +46,23 @@ function generateSiteContent() {
       Our understanding of international education comes from lived experience.
       Commitment to Students and Families
       We view education as a long term journey rather than a single transition point.
-    `
+    `,
   });
 
   // Services - dynamically generated from serviceData
   // Create individual entries for each question within each service
   serviceData.forEach(service => {
     service.questions.forEach((question, index) => {
-      const answers = Array.isArray(question.answer) ? question.answer.join(' ') : question.answer;
-      
+      const answers = Array.isArray(question.answer)
+        ? question.answer.join(' ')
+        : question.answer;
+
       content.push({
-        title: question.question,  // Just the question, not "Service - Question"
-        category: service.title,   // Store category separately for grouping
+        title: question.question, // Just the question, not "Service - Question"
+        category: service.title, // Store category separately for grouping
         path: `/service/${service.slug}?q=${index}`,
         type: 'service',
-        content: `${service.title} ${question.question} ${answers}`
+        content: `${service.title} ${question.question} ${answers}`,
       });
     });
   });
@@ -75,21 +77,21 @@ function generateSiteContent() {
       Comprehensive support for international students in Canada.
       We offer academic planning, well-being support, daily life assistance, social integration, emotional support, and financial documentation.
       ${serviceData.map(s => s.title).join(' ')}
-    `
+    `,
   });
 
   // Team members - dynamically generated from teamData
   teamData.forEach(member => {
-    const bioText = Array.isArray(member.extended_bio) 
-      ? member.extended_bio.join(' ') 
+    const bioText = Array.isArray(member.extended_bio)
+      ? member.extended_bio.join(' ')
       : member.extended_bio || '';
-    
+
     content.push({
-      title: member.name,           // Just the name
-      subtitle: member.role,        // Role as subtitle for display
+      title: member.name, // Just the name
+      subtitle: member.role, // Role as subtitle for display
       path: `/team/${member.slug}`,
       type: 'team',
-      content: `${member.name} ${member.role} ${member.description} ${bioText}`
+      content: `${member.name} ${member.role} ${member.description} ${bioText}`,
     });
   });
 
@@ -101,8 +103,10 @@ function generateSiteContent() {
     content: `
       Our Team
       Meet the dedicated professionals who make Brightway to Canada possible.
-      ${teamData.map(m => `${m.name} ${m.role} ${m.description}`).join(' ')}
-    `
+      ${teamData
+        .map(m => `${m.name} ${m.role} ${m.description}`)
+        .join(' ')}
+    `,
   });
 
   // Consultation page (static)
@@ -114,7 +118,7 @@ function generateSiteContent() {
       Book a Free Consultation
       Schedule a meeting with our education consultants.
       We offer personalized guidance for school selection, study planning, and academic support.
-    `
+    `,
   });
 
   // Contact page (static)
@@ -128,19 +132,19 @@ function generateSiteContent() {
       Office: PO Box 886, Nanaimo, BC, V9T 5N2
       Phone: +1 (250) 797-7886
       Email: info@brightwaytocanada.ca
-    `
+    `,
   });
 
   // Network page (static)
-  content.push({
-    title: 'Our Network',
-    path: '/network',
-    type: 'page',
-    content: `
-      Our Network
-      Partnering with schools, homestays, and education professionals across Canada.
-    `
-  });
+  // content.push({
+  //   title: 'Our Network',
+  //   path: '/network',
+  //   type: 'page',
+  //   content: `
+  //     Our Network
+  //     Partnering with schools, homestays, and education professionals across Canada.
+  //   `
+  // });
 
   return content;
 }
@@ -150,32 +154,164 @@ export const siteContent = generateSiteContent();
 
 // Common stop words that shouldn't influence search relevance
 const STOP_WORDS = new Set([
-  'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
-  'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should',
-  'may', 'might', 'must', 'shall', 'can', 'need', 'dare', 'ought', 'used',
-  'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves',
-  'you', 'your', 'yours', 'yourself', 'yourselves',
-  'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself',
-  'it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves',
-  'what', 'which', 'who', 'whom', 'this', 'that', 'these', 'those',
-  'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
-  'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing',
-  'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while',
-  'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between',
-  'into', 'through', 'during', 'before', 'after', 'above', 'below',
-  'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under',
-  'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where',
-  'why', 'how', 'all', 'each', 'few', 'more', 'most', 'other', 'some',
-  'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than',
-  'too', 'very', 'just', 'also', 'now', 'get', 'got', 'getting'
+  'a',
+  'an',
+  'the',
+  'is',
+  'are',
+  'was',
+  'were',
+  'be',
+  'been',
+  'being',
+  'have',
+  'has',
+  'had',
+  'do',
+  'does',
+  'did',
+  'will',
+  'would',
+  'could',
+  'should',
+  'may',
+  'might',
+  'must',
+  'shall',
+  'can',
+  'need',
+  'dare',
+  'ought',
+  'used',
+  'i',
+  'me',
+  'my',
+  'myself',
+  'we',
+  'our',
+  'ours',
+  'ourselves',
+  'you',
+  'your',
+  'yours',
+  'yourself',
+  'yourselves',
+  'he',
+  'him',
+  'his',
+  'himself',
+  'she',
+  'her',
+  'hers',
+  'herself',
+  'it',
+  'its',
+  'itself',
+  'they',
+  'them',
+  'their',
+  'theirs',
+  'themselves',
+  'what',
+  'which',
+  'who',
+  'whom',
+  'this',
+  'that',
+  'these',
+  'those',
+  'am',
+  'is',
+  'are',
+  'was',
+  'were',
+  'be',
+  'been',
+  'being',
+  'have',
+  'has',
+  'had',
+  'having',
+  'do',
+  'does',
+  'did',
+  'doing',
+  'and',
+  'but',
+  'if',
+  'or',
+  'because',
+  'as',
+  'until',
+  'while',
+  'of',
+  'at',
+  'by',
+  'for',
+  'with',
+  'about',
+  'against',
+  'between',
+  'into',
+  'through',
+  'during',
+  'before',
+  'after',
+  'above',
+  'below',
+  'to',
+  'from',
+  'up',
+  'down',
+  'in',
+  'out',
+  'on',
+  'off',
+  'over',
+  'under',
+  'again',
+  'further',
+  'then',
+  'once',
+  'here',
+  'there',
+  'when',
+  'where',
+  'why',
+  'how',
+  'all',
+  'each',
+  'few',
+  'more',
+  'most',
+  'other',
+  'some',
+  'such',
+  'no',
+  'nor',
+  'not',
+  'only',
+  'own',
+  'same',
+  'so',
+  'than',
+  'too',
+  'very',
+  'just',
+  'also',
+  'now',
+  'get',
+  'got',
+  'getting',
 ]);
 
 /**
  * Search function that matches query against all site content.
  * Supports multi-word search: splits query into words and matches any of them.
  * Results are ranked by relevance (keyword matches weighted higher than stop words).
+ * Also searches in title, subtitle, and category fields.
  * @param {string} query - The search term(s)
- * @returns {Array} - Array of matching results with excerpts
+ * @returns {Array} - Array of matching results with excerpts and highlighted text
  */
 export function searchSite(query) {
   if (!query || query.trim().length === 0) {
@@ -183,12 +319,12 @@ export function searchSite(query) {
   }
 
   const trimmedQuery = query.trim().toLowerCase();
-  
+
   // Split query into individual words (filter out empty strings and very short words)
   const allWords = trimmedQuery
     .split(/\s+/)
     .filter(word => word.length >= 2); // ignore single-character words
-  
+
   if (allWords.length === 0) {
     return [];
   }
@@ -196,7 +332,7 @@ export function searchSite(query) {
   // Separate keywords from stop words
   const keywords = allWords.filter(word => !STOP_WORDS.has(word));
   const stopWords = allWords.filter(word => STOP_WORDS.has(word));
-  
+
   // If ALL words are stop words, use them anyway (otherwise no results)
   const searchWords = keywords.length > 0 ? keywords : stopWords;
   const hasKeywords = keywords.length > 0;
@@ -204,30 +340,39 @@ export function searchSite(query) {
   const results = [];
 
   siteContent.forEach(item => {
-    const lowerContent = item.content.toLowerCase();
     const lowerTitle = item.title.toLowerCase();
-    const combined = lowerTitle + ' ' + lowerContent;
 
-    // Count keyword matches (weighted higher) and stop word matches
+    // Build a single searchable text blob from all relevant fields
+    const searchableTextParts = [
+      item.title,
+      item.subtitle,
+      item.category,
+      item.content,
+    ].filter(Boolean);
+
+    const fullText = searchableTextParts.join(' ').toLowerCase();
+
     let keywordMatchCount = 0;
     let stopWordMatchCount = 0;
     let titleKeywordMatchCount = 0;
     const matchedWords = [];
 
     // Count keyword matches
-    keywords.forEach(word => {
-      if (combined.includes(word)) {
+    searchWords.forEach(word => {
+      if (fullText.includes(word)) {
         keywordMatchCount++;
-        matchedWords.push(word);
+        if (!matchedWords.includes(word)) {
+          matchedWords.push(word);
+        }
       }
       if (lowerTitle.includes(word)) {
         titleKeywordMatchCount++;
       }
     });
 
-    // Count stop word matches (only if they were in the query)
+    // Count stop-word matches separately so relevance weighting still works
     stopWords.forEach(word => {
-      if (combined.includes(word)) {
+      if (fullText.includes(word)) {
         stopWordMatchCount++;
         if (!matchedWords.includes(word)) {
           matchedWords.push(word);
@@ -239,25 +384,31 @@ export function searchSite(query) {
     // - Keywords are worth 10 points each
     // - Title keyword matches are worth 5 extra points
     // - Stop words are worth 1 point each (minor boost)
-    const relevanceScore = 
-      (keywordMatchCount * 10) + 
-      (titleKeywordMatchCount * 5) + 
-      (stopWordMatchCount * 1);
+    const relevanceScore =
+      keywordMatchCount * 10 +
+      titleKeywordMatchCount * 5 +
+      stopWordMatchCount * 1;
 
     // Only include if at least one meaningful word matches
-    // If we have keywords, require at least one keyword match
-    // If no keywords (all stop words), require at least one stop word match
-    const hasMatch = hasKeywords ? keywordMatchCount > 0 : stopWordMatchCount > 0;
+    const hasMatch = hasKeywords
+      ? keywordMatchCount > 0
+      : stopWordMatchCount > 0;
 
     if (hasMatch) {
+      const excerpt = createExcerpt(item.content, matchedWords);
+
       results.push({
         ...item,
-        excerpt: createExcerpt(item.content, matchedWords),
+        excerpt,
+        // Pre-highlighted fields for rendering (title + body)
+        highlightedTitle: highlightSearchTerm(item.title, query),
+        highlightedExcerpt: highlightSearchTerm(excerpt, query),
+
         keywordMatchCount,
         titleKeywordMatchCount,
         stopWordMatchCount,
         relevanceScore,
-        matchedWords
+        matchedWords,
       });
     }
   });
@@ -289,11 +440,11 @@ export function searchSite(query) {
 function createExcerpt(content, searchTerms, maxLength = 800) {
   const terms = Array.isArray(searchTerms) ? searchTerms : [searchTerms];
   const lowerContent = content.toLowerCase();
-  
+
   // Find the first matching term's position
   let index = -1;
   let matchedTerm = terms[0] || '';
-  
+
   for (const term of terms) {
     const idx = lowerContent.indexOf(term);
     if (idx !== -1 && (index === -1 || idx < index)) {
@@ -310,9 +461,9 @@ function createExcerpt(content, searchTerms, maxLength = 800) {
   // Get text around the match
   const start = Math.max(0, index - 250);
   const end = Math.min(content.length, index + matchedTerm.length + 550);
-  
+
   let excerpt = content.substring(start, end).trim();
-  
+
   // Add ellipsis if needed
   if (start > 0) excerpt = '...' + excerpt;
   if (end < content.length) excerpt = excerpt + '...';
@@ -340,10 +491,15 @@ export function highlightSearchTerm(text, searchTerm) {
   if (words.length === 0) return text;
 
   // Escape special regex characters in each word
-  const escapedWords = words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-  
+  const escapedWords = words.map(w =>
+    w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+  );
+
   // Create a regex that matches any of the words
   const regex = new RegExp(`(${escapedWords.join('|')})`, 'gi');
-  
-  return text.replace(regex, '<mark class="bg-yellow-200">$1</mark>');
+
+  return text.replace(
+    regex,
+    '<mark class="bg-yellow-200">$1</mark>',
+  );
 }
