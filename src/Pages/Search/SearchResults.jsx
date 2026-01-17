@@ -255,10 +255,13 @@ const SearchResults = () => {
                         href={`#${result.path}`}
                         className="block group"
                       >
-                        {/* Title - larger text */}
-                        <h3 className="text-xl sm:text-2xl font-semibold text-blue-900 group-hover:text-blue-700 mb-1">
-                          {result.title}
-                        </h3>
+                        <h3
+  className="text-xl sm:text-2xl font-semibold text-blue-900 group-hover:text-blue-700 mb-1"
+  dangerouslySetInnerHTML={{
+    __html: highlightSearchTerm(result.title, searchQuery),
+  }}
+/>
+
                         
                         {/* Subtitle (for team members: role, for services: category) */}
                         {(result.subtitle || result.category) && (

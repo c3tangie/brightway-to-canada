@@ -185,7 +185,7 @@ const TeamMemberDetailPage = () => {
                             'development': '💻 Developer',
                             'design': '🎨 Designer',
                             'advising': '💡 Advisor',
-                            'consulting': '🧭 Consulting',
+                            'consultant': '🧭 Consultant',
                             'education_consulting': '🎓 Education Consulting',
                             'tutor_lang': '📚 Language Instructor',
                             'tutor_stem': '📚 STEM Instructor',

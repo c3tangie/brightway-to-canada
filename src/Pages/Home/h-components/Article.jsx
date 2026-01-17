@@ -20,7 +20,7 @@ const Article = () => {
       title: "Troubles Picking Schools?",
       description: "When the parents think about sending their children to study abroad, Choosing the right school in Canada can feel overwhelming. Rankings, locations, programs, and future pathways all matter.",
       helpTitle: "How we help:",
-      helpText: "Meeting 1:1 with our consultant is the best and quickest way. We take time to understand each student's academic background, personality, and long-term goals. Using firsthand experience within Canadian school districts, we recommend schools where students can succeed academically and feel supported socially and emotionally."
+      helpText: "Meeting 1 to 1 with our consultant is the best and easiest way. We take time to understand each student’s academic background, personality, and long-term goals. Using firsthand experience within Canadian school districts, we recommend schools where students can succeed academically and feel supported socially and emotionally."
     },
     {
       id: 2,
@@ -52,7 +52,7 @@ const Article = () => {
       title: "Planning for University and Beyond?",
       description: "University preparation starts earlier than many families expect.",
       helpTitle: "How we help:",
-      helpText: "We assist students with long-term academic planning, course selection, and realistic pathway development. Our advice balances university reputation, program suitability, and the student's strengths, helping families make informed, strategic decisions."
+      helpText: "We assist students with long-term academic planning, course selection, and realistic pathway development. Our advice takes university reputation, program suitability, and the student’s strengths into account to help families make informed, strategic decisions."
     }
   ];
 
