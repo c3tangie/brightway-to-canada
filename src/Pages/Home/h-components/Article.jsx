@@ -95,20 +95,21 @@ const Article = () => {
       <hr className="my-10 border-t border-gray-200" />
 
   {/* Cards carousel (deterministic slider: always exactly 3/2/1 cards, no peeking) */}
-  <div className="relative mb-12 overflow-x-hidden overflow-y-visible px-16">
-        {/* Side controls (match About Us gallery style) */}
+  {/* Reduced side padding on mobile (px-10) so the card is wider; full padding on sm+ */}
+  <div className="relative mb-12 overflow-x-hidden overflow-y-visible px-10 sm:px-16">
+        {/* Side controls (match About Us gallery style) — slightly smaller on mobile */}
         <button
           type="button"
           onClick={handleScrollLeft}
           aria-label="Scroll left"
           disabled={!showLeftFade}
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-blue-900 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-blue-800 transition active:scale-95 ${
+          className={`absolute left-0.5 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-blue-900 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md hover:bg-blue-800 transition active:scale-95 ${
             !showLeftFade ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
           <svg
             viewBox="0 0 24 24"
-            className="w-7 h-7"
+            className="w-6 h-6 sm:w-7 sm:h-7"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -125,13 +126,13 @@ const Article = () => {
           onClick={handleScrollRight}
           aria-label="Scroll right"
           disabled={!showRightFade}
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-blue-900 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-blue-800 transition active:scale-95 ${
+          className={`absolute right-0.5 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-blue-900 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md hover:bg-blue-800 transition active:scale-95 ${
             !showRightFade ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
           <svg
             viewBox="0 0 24 24"
-            className="w-7 h-7"
+            className="w-6 h-6 sm:w-7 sm:h-7"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -149,8 +150,9 @@ const Article = () => {
           We reserve space for the buttons using absolute overlay gutters instead.
         */}
   <div className="relative w-full overflow-x-hidden overflow-y-visible py-5">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-white/0" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-white/0" />
+          {/* Gutters — narrower on mobile to match tighter carousel padding */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-16 bg-white/0" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 sm:w-16 bg-white/0" />
 
           <div
             className="transition-transform duration-300 ease-out will-change-transform"

@@ -178,7 +178,7 @@ const Abouts_Article_Main = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/25 z-5"></div>
 
         {/* Hero Content Inside Banner */}
-        <div className="absolute inset-0 flex items-center justify-center px-4 z-10">
+        <div className="absolute inset-0 flex items-center justify-center px-2 sm:px-4 z-10">
           <div className="text-center max-w-6xl mx-auto">
             {/* Main Headline */}
             <h1 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
@@ -186,7 +186,7 @@ const Abouts_Article_Main = () => {
             </h1>
 
             {/* Hero Description */}
-            <p className="text-white text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto mb-8 drop-shadow-xl">
+            <p className="text-white text-2xl sm:text-2xl lg:text-3xl leading-relaxed max-w-5xl mx-auto mb-8 drop-shadow-xl">
               We're a passionate group of innovators, creators, and problem-solvers 
               dedicated to building amazing solutions for international students' journey to Canada.
             </p>

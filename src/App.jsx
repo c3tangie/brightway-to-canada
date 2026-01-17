@@ -36,7 +36,6 @@ function ScrollToTop() {
 }
 
 function App() {
-
   return (
     <Router>
       <ScrollToTop />
