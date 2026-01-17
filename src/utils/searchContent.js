@@ -56,7 +56,8 @@ function generateSiteContent() {
       const answers = Array.isArray(question.answer) ? question.answer.join(' ') : question.answer;
       
       content.push({
-        title: `${service.title} - ${question.question}`,
+        title: question.question,  // Just the question, not "Service - Question"
+        category: service.title,   // Store category separately for grouping
         path: `/service/${service.slug}?q=${index}`,
         type: 'service',
         content: `${service.title} ${question.question} ${answers}`
@@ -84,7 +85,8 @@ function generateSiteContent() {
       : member.extended_bio || '';
     
     content.push({
-      title: `${member.name} - ${member.role}`,
+      title: member.name,           // Just the name
+      subtitle: member.role,        // Role as subtitle for display
       path: `/team/${member.slug}`,
       type: 'team',
       content: `${member.name} ${member.role} ${member.description} ${bioText}`
@@ -146,9 +148,33 @@ function generateSiteContent() {
 // Generate content dynamically
 export const siteContent = generateSiteContent();
 
+// Common stop words that shouldn't influence search relevance
+const STOP_WORDS = new Set([
+  'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+  'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should',
+  'may', 'might', 'must', 'shall', 'can', 'need', 'dare', 'ought', 'used',
+  'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves',
+  'you', 'your', 'yours', 'yourself', 'yourselves',
+  'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself',
+  'it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves',
+  'what', 'which', 'who', 'whom', 'this', 'that', 'these', 'those',
+  'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+  'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing',
+  'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while',
+  'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between',
+  'into', 'through', 'during', 'before', 'after', 'above', 'below',
+  'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under',
+  'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where',
+  'why', 'how', 'all', 'each', 'few', 'more', 'most', 'other', 'some',
+  'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than',
+  'too', 'very', 'just', 'also', 'now', 'get', 'got', 'getting'
+]);
+
 /**
- * Search function that matches query against all site content
- * @param {string} query - The search term
+ * Search function that matches query against all site content.
+ * Supports multi-word search: splits query into words and matches any of them.
+ * Results are ranked by relevance (keyword matches weighted higher than stop words).
+ * @param {string} query - The search term(s)
  * @returns {Array} - Array of matching results with excerpts
  */
 export function searchSite(query) {
@@ -156,38 +182,125 @@ export function searchSite(query) {
     return [];
   }
 
-  const lowerQuery = query.toLowerCase().trim();
+  const trimmedQuery = query.trim().toLowerCase();
+  
+  // Split query into individual words (filter out empty strings and very short words)
+  const allWords = trimmedQuery
+    .split(/\s+/)
+    .filter(word => word.length >= 2); // ignore single-character words
+  
+  if (allWords.length === 0) {
+    return [];
+  }
+
+  // Separate keywords from stop words
+  const keywords = allWords.filter(word => !STOP_WORDS.has(word));
+  const stopWords = allWords.filter(word => STOP_WORDS.has(word));
+  
+  // If ALL words are stop words, use them anyway (otherwise no results)
+  const searchWords = keywords.length > 0 ? keywords : stopWords;
+  const hasKeywords = keywords.length > 0;
+
   const results = [];
 
   siteContent.forEach(item => {
     const lowerContent = item.content.toLowerCase();
     const lowerTitle = item.title.toLowerCase();
+    const combined = lowerTitle + ' ' + lowerContent;
 
-    // Check if query matches title or content
-    if (lowerTitle.includes(lowerQuery) || lowerContent.includes(lowerQuery)) {
+    // Count keyword matches (weighted higher) and stop word matches
+    let keywordMatchCount = 0;
+    let stopWordMatchCount = 0;
+    let titleKeywordMatchCount = 0;
+    const matchedWords = [];
+
+    // Count keyword matches
+    keywords.forEach(word => {
+      if (combined.includes(word)) {
+        keywordMatchCount++;
+        matchedWords.push(word);
+      }
+      if (lowerTitle.includes(word)) {
+        titleKeywordMatchCount++;
+      }
+    });
+
+    // Count stop word matches (only if they were in the query)
+    stopWords.forEach(word => {
+      if (combined.includes(word)) {
+        stopWordMatchCount++;
+        if (!matchedWords.includes(word)) {
+          matchedWords.push(word);
+        }
+      }
+    });
+
+    // Calculate relevance score:
+    // - Keywords are worth 10 points each
+    // - Title keyword matches are worth 5 extra points
+    // - Stop words are worth 1 point each (minor boost)
+    const relevanceScore = 
+      (keywordMatchCount * 10) + 
+      (titleKeywordMatchCount * 5) + 
+      (stopWordMatchCount * 1);
+
+    // Only include if at least one meaningful word matches
+    // If we have keywords, require at least one keyword match
+    // If no keywords (all stop words), require at least one stop word match
+    const hasMatch = hasKeywords ? keywordMatchCount > 0 : stopWordMatchCount > 0;
+
+    if (hasMatch) {
       results.push({
         ...item,
-        excerpt: createExcerpt(item.content, lowerQuery)
+        excerpt: createExcerpt(item.content, matchedWords),
+        keywordMatchCount,
+        titleKeywordMatchCount,
+        stopWordMatchCount,
+        relevanceScore,
+        matchedWords
       });
     }
   });
 
-  // Sort by relevance (title matches first, then content matches)
+  // Sort by relevance score (descending)
   results.sort((a, b) => {
-    const aInTitle = a.title.toLowerCase().includes(lowerQuery);
-    const bInTitle = b.title.toLowerCase().includes(lowerQuery);
-    
-    if (aInTitle && !bInTitle) return -1;
-    if (!aInTitle && bInTitle) return 1;
-    return 0;
+    // Primary: relevance score
+    if (b.relevanceScore !== a.relevanceScore) {
+      return b.relevanceScore - a.relevanceScore;
+    }
+    // Secondary: keyword matches in title
+    if (b.titleKeywordMatchCount !== a.titleKeywordMatchCount) {
+      return b.titleKeywordMatchCount - a.titleKeywordMatchCount;
+    }
+    // Tertiary: alphabetical
+    return a.title.localeCompare(b.title);
   });
 
   return results;
 }
 
-function createExcerpt(content, searchTerm, maxLength = 800) {
+/**
+ * Create an excerpt that highlights the first matched word found.
+ * @param {string} content - Full content text
+ * @param {string|string[]} searchTerms - Word(s) to look for
+ * @param {number} maxLength - Max excerpt length
+ * @returns {string} - Excerpt text
+ */
+function createExcerpt(content, searchTerms, maxLength = 800) {
+  const terms = Array.isArray(searchTerms) ? searchTerms : [searchTerms];
   const lowerContent = content.toLowerCase();
-  const index = lowerContent.indexOf(searchTerm);
+  
+  // Find the first matching term's position
+  let index = -1;
+  let matchedTerm = terms[0] || '';
+  
+  for (const term of terms) {
+    const idx = lowerContent.indexOf(term);
+    if (idx !== -1 && (index === -1 || idx < index)) {
+      index = idx;
+      matchedTerm = term;
+    }
+  }
 
   if (index === -1) {
     // Return first part of content if no match
@@ -196,7 +309,7 @@ function createExcerpt(content, searchTerm, maxLength = 800) {
 
   // Get text around the match
   const start = Math.max(0, index - 250);
-  const end = Math.min(content.length, index + searchTerm.length + 550);
+  const end = Math.min(content.length, index + matchedTerm.length + 550);
   
   let excerpt = content.substring(start, end).trim();
   
@@ -208,14 +321,29 @@ function createExcerpt(content, searchTerm, maxLength = 800) {
 }
 
 /**
- * Highlight search terms in text (for display)
+ * Highlight search terms in text (for display).
+ * Supports multi-word queries: highlights each word individually.
  * @param {string} text - Text to highlight
- * @param {string} searchTerm - Term to highlight
+ * @param {string} searchTerm - Term(s) to highlight (space-separated)
  * @returns {string} - HTML string with highlighted terms
  */
 export function highlightSearchTerm(text, searchTerm) {
   if (!searchTerm || !text) return text;
 
-  const regex = new RegExp(`(${searchTerm})`, 'gi');
+  // Split into individual words and filter short ones
+  const words = searchTerm
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(word => word.length >= 2);
+
+  if (words.length === 0) return text;
+
+  // Escape special regex characters in each word
+  const escapedWords = words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  
+  // Create a regex that matches any of the words
+  const regex = new RegExp(`(${escapedWords.join('|')})`, 'gi');
+  
   return text.replace(regex, '<mark class="bg-yellow-200">$1</mark>');
 }
