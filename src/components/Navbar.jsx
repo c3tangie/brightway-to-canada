@@ -135,26 +135,33 @@ const Navbar = () => {
 
       {/* Main Navigation */}
         <div className="bg-white shadow-sm">
-        <div className="max-w-screen-2xl mx-auto px-4 py-3 lg:px-20 sm:px-6">
-          <div className="flex justify-between items-center h-12 md:h-20">
+        <div className={`max-w-screen-2xl mx-auto px-4 lg:px-20 sm:px-6 transition-all duration-300 py-3 ${
+          isScrolled ? 'md:py-2.5' : 'md:py-3'
+        }`}>
+          <div className={`flex justify-between items-center transition-all duration-300 h-12 ${
+            isScrolled ? 'md:h-[4.375rem]' : 'md:h-20'
+          }`}>
             
             {/* Logo and Brand */}
             <div className="flex items-center">
-              <a href="/" className="transition-all duration-300 flex items-center group space-x-0 md:space-x-3">
+              <a
+                href="/"
+                className={`transition-all duration-300 flex items-center group space-x-0 md:space-x-3 origin-left ${
+                  isScrolled ? 'md:scale-[0.82]' : 'scale-100'
+                }`}
+              >
                 <img 
                   src={Logo} 
                   alt="Logo" 
-                  className="transition-all duration-300 group-hover:scale-105 w-12 md:w-16 h-auto" 
+                  className={`transition-all duration-300 group-hover:scale-105 h-auto ${
+                    'w-12 md:w-16'
+                  }`}
                 />
                 <div className="flex flex-col transition-all duration-300 scale-90 md:scale-100">
-                  <span className={`font-bold font-outfit text-blue-900 leading-tight transition-all duration-300 text-xl ${
-                    isScrolled ? 'md:text-xl lg:text-2xl' : 'md:text-2xl lg:text-3xl'
-                  }`}>
+                  <span className="font-bold font-outfit text-blue-900 leading-tight transition-all duration-300 text-xl md:text-2xl lg:text-3xl">
                     Brightway to Canada
                   </span>
-                  <span className={`text-red-600 font-light font-outfit tracking-wide transition-all duration-300 text-xs ${
-                    isScrolled ? 'md:text-xs lg:text-sm' : 'md:text-sm lg:text-base'
-                  }`}>
+                  <span className="text-red-600 font-light font-outfit tracking-wide transition-all duration-300 text-xs md:text-sm lg:text-base">
                     Education Consultant
                   </span>
                 </div>
@@ -164,7 +171,11 @@ const Navbar = () => {
             
             {/* Navigation Links */}
             <div className="hidden xl:flex items-center">
-              <nav className="flex transition-all duration-300 space-x-12 md:space-x-14">
+              <nav
+                className={`flex transition-all duration-300 origin-right ${
+                  isScrolled ? 'scale-[0.92]' : 'scale-100'
+                } space-x-12 md:space-x-14`}
+              >
                 <a 
                   href="/" 
                   className="group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 text-base md:text-lg"
@@ -278,9 +289,7 @@ const Navbar = () => {
                 </a> */}
                 <a 
                   href="#/contact" 
-                  className={`group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 ${
-                    isScrolled ? 'text-base' : 'text-base md:text-lg'
-                  }`}
+                  className="group relative text-gray-700 hover:text-blue-900 font-semibold transition-all duration-300 text-base md:text-lg"
                 >
                   Contact
                   <span className="absolute left-0 -bottom-2 w-0 h-0.5 bg-gradient-to-r from-blue-900 to-red-600 group-hover:w-full transition-all duration-300"></span>
