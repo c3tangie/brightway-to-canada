@@ -315,7 +315,7 @@ const ServiceDetailPage = () => {
                           to="/consultation" 
                           className="inline-block bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
                         >
-                          Book Consultation
+                          Book a Consultation
                         </Link>
                       </div>
                     </div>
