@@ -439,7 +439,7 @@ const serviceData = [
       {
         question: "I stored photos and projects on my school's Google Account and after graduating they disabled my account before I managed back it up. Now it's a part of my memory has been taken away from me...",
         answer: ["This is a unique pain that many students may experience, especially for students from countries that may impose further restrictions on these services. What compounds this issue is that these account expirations are handled by the institutions' IT teams and are not visible for the student. If the student is concerned with this issue, we can help contacting the school's technology branch.",
-          "We also understand sometimes a recovery is truly impossible and the student may experience emotional impacts, and feel that their parents are dismissing these as 'your fault of not keeping up' or 'you are being too reliant on your digital stuffs'. If the student just want someone to release this pent up groudge, we are here to help."
+          "We also understand sometimes a recovery is truly impossible and the student may experience emotional impacts, and feel that their parents are dismissing these as 'your fault of not keeping up' or 'you are being too reliant on your digital devices'. If the student just want someone to release this pent up groudge, we are here to help."
         ],
         answer_short: ["Recovering data from deactivated school cloud accounts post-graduation can mean a great deal for digital identity. We respect the child's needs."],
         image: ConnectImageSeven,
