@@ -29,6 +29,7 @@ function ConsultationForm() {
   });
 
   const [validationMessages, setValidationMessages] = useState({});
+  const API_KEY = process.env.API_KEY;
 
   const consultationTypes = [
     { value: "academic-planning", label: "Academic Planning & School Selection" },
@@ -99,7 +100,7 @@ function ConsultationForm() {
     setValidationMessages({});
 
     const formDataToSubmit = new FormData(event.target);
-    formDataToSubmit.append("access_key", "b0223251-5a13-4fd9-bdcc-d0d43dd63153"); // Replace with actual key
+    formDataToSubmit.append("access_key", API_KEY); // Replace with actual key
 
     const object = Object.fromEntries(formDataToSubmit);
     const json = JSON.stringify(object);

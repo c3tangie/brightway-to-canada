@@ -66,10 +66,11 @@ function WF_App() {
     }
     
     const formData = new FormData(event.target);
+    const API_KEY = process.env.API_KEY;
     
     // Add the selected category to form data
     formData.append("qtype", selectedCategory.value);
-    formData.append("access_key", "b0223251-5a13-4fd9-bdcc-d0d43dd63153");
+    formData.append("access_key", API_KEY);
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
