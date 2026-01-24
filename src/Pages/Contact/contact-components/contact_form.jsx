@@ -66,7 +66,7 @@ function WF_App() {
     }
     
     const formData = new FormData(event.target);
-    const API_KEY = process.env.API_KEY;
+    const API_KEY = process.env.REACT_APP_WEB3FORMS_API_KEY;
     
     // Add the selected category to form data
     formData.append("qtype", selectedCategory.value);
