@@ -29,7 +29,7 @@ function ConsultationForm() {
   });
 
   const [validationMessages, setValidationMessages] = useState({});
-  const API_KEY = process.env.API_KEY;
+  const API_KEY = process.env.REACT_APP_WEB3FORMS_API_KEY;
 
   const consultationTypes = [
     { value: "academic-planning", label: "Academic Planning & School Selection" },
