@@ -3,6 +3,8 @@ Active development branch of the official website of Brightway to Canada Consult
 
 **Framework constructed by `ReactJS` + `Tailwind CSS v3.4.17`**
 
+**Website domain hosted by GoDaddy, deployed using Vercel**
+
 ## Technologies
 - `Javascript`
 - `React`
