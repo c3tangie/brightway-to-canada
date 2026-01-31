@@ -9,8 +9,8 @@ Active development branch of the official website of Brightway to Canada Consult
 - `Tailwind CSS`
 - `HTML`
 - `Vite`
-## Features
 
+## Features
 
 ## Process of Development
 
