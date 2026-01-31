@@ -12,47 +12,47 @@ Active development branch of the official website of Brightway to Canada Consult
 
 ## Features
 - ### Utility-First Styling with Tailwind CSS:
-  Uses Tailwind CSS v3 for consistent, responsive, and highly customizable UI styling across all pages.
-
+  Uses Tailwind CSS v3 for consistent, responsive, and highly customizable UI styling across all pages.  
+ 
 
 
 - ### Multi-Page SPA Routing:
-  Client-side routing powered by React Router, enabling seamless navigation between Home, About, Services, Team, Contact, Search without full page reloads.
+  Client-side routing powered by React Router, enabling seamless navigation between Home, About, Services, Team, Contact, Search without full page reloads.  
 
 
 
 - ### Dynamic Services System (Data-Driven):
-  All services, FAQs, and answers are driven by a centralized serviceData.js file, making it easy to update content without touching page logic.
+  All services, FAQs, and answers are driven by a centralized serviceData.js file, making it easy to update content without touching page logic.  
 
 
 
 - ### Data-Driven Architecture:
-  Core content (services, Q&A, team profiles) is centralized in structured data files and rendered dynamically, enabling scalable updates without modifying page logic.
+  Core content (services, Q&A, team profiles) is centralized in structured data files and rendered dynamically, enabling scalable updates without modifying page logic.  
 
 
 
 - ### Client-Side Routing & URL State Management:
-  Uses React Router with query parameters to deep-link specific service questions and preserve navigation state across reloads and shares.
+  Uses React Router with query parameters to deep-link specific service questions and preserve navigation state across reloads and shares.  
 
 
 
 - ### Custom Site-Wide Search Engine:
-  Implements a lightweight search system that auto-indexes services, questions, pages, and team data, ranks results by relevance, highlights matches, and paginates results — all without external dependencies.
+  Implements a lightweight search system that auto-indexes services, questions, pages, and team data, ranks results by relevance, highlights matches, and paginates results — all without external dependencies.  
 
 
 
 - ### Reusable Component System:
-  Modular components (Navbar, Footer, banners, cards, detail layouts) are shared across pages to ensure consistency, maintainability, and low coupling.
+  Modular components (Navbar, Footer, banners, cards, detail layouts) are shared across pages to ensure consistency, maintainability, and low coupling.  
 
 
 
 - ### Performance-Focused SPA Setup:
-  Built with Vite for fast builds and optimized bundles, combined with lazy image loading and controlled re-renders for smooth user experience.
+  Built with Vite for fast builds and optimized bundles, combined with lazy image loading and controlled re-renders for smooth user experience.  
 
 
 
 - ### Form Handling & Validation Logic:
-  Multi-section consultation and contact forms with client-side validation, confirmation prompts, and secure submission via Web3Forms API.
+  Multi-section consultation and contact forms with client-side validation, confirmation prompts, and secure submission via Web3Forms API.  
 
 
 
