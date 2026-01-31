@@ -11,7 +11,7 @@ Active development branch of the official website of Brightway to Canada Consult
 - `Vite`
 
 ## Features
-- **Utility-First Styling with Tailwind CSS:**  
+- ###Utility-First Styling with Tailwind CSS:
   Uses Tailwind CSS v3 for consistent, responsive, and highly customizable UI styling across all pages.
 
 - **Multi-Page SPA Routing:**  
